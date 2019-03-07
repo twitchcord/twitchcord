@@ -1,5 +1,10 @@
 {
   "compilerOptions": {
-    "outDir": "lib"
-  }
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "types": ["@types/node", "electron"]
+  },
+  "include": [
+    "src/**/*"
+  ]
 }
