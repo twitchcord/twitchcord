@@ -1,0 +1,10 @@
+{
+  "main": "lib/cli.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "prettier": "^1.16.4",
+    "typescript": "^3.3.3333"
+  }
+}
