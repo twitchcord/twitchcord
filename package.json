@@ -1,5 +1,5 @@
 {
-  "main": "lib/cli.js",
+  "main": "lib/index.js",
   "scripts": {
     "build": "tsc"
   },
