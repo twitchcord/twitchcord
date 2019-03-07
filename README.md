@@ -13,6 +13,8 @@ It serves as a modification to the Discord client, adding a set of netowrking fe
 
 ## Related projects
 
+[Powercord](https://github.com/powercord-org/powercord)
+
 [DiscordInjections](https://github.com/DiscordInjections/DiscordInjections/)
 
 [BetterDiscord](https://github.com/JsSucks/BetterDiscordApp)
