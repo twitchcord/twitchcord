@@ -67,7 +67,7 @@ promisify(readdir)(PLUGIN_DIR)
     // Injector for the main thread
     for (const file of files) await import(resolve(PLUGIN_DIR, file));
   })
-  .then(async () => {
+  .then(() => {
     // Starting the application
     const Module = require("module");
     const AppPath = join(__dirname, "../app.asar");
