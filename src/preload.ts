@@ -1,4 +1,4 @@
-import { remote, ipcRenderer } from 'electron'
+import { remote, ipcRenderer, BrowserWindowConstructorOptions } from "electron";
 
 declare global {
   interface Window {
@@ -6,8 +6,9 @@ declare global {
   }
 }
 
-for (const path of ipcRenderer.sendSync('renderer-preload-paths'))
-  require(path)
+const CurrentWindow = remote.getCurrentWindow() as { __options?: BrowserWindowConstructorOptions };
+if (CurrentWindow.__options && CurrentWindow.__options.webPreferences.preload)
+  require(CurrentWindow.__options.webPreferences.preload);
 
 const CurrentWindow = remote.getCurrentWindow() as any
 if (CurrentWindow.__options && CurrentWindow.__options.preload) {
