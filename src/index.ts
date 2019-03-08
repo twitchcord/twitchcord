@@ -62,5 +62,5 @@ promisify(readdir)(PLUGIN_DIR).then(async files => {
   
   // Load Discord
   Module._load(join(AppPath, AppPackage.main || "index.js"), null, true);
-}).catch((...args) => new BrowserWindow({title: args.map(arg => arg.toString()).join(' ')}))
+})
 //*/
