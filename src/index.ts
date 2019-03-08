@@ -17,7 +17,7 @@ declare module "electron" {
 }
 
 const PRELOAD = join(__dirname, "preload.js");
-const PLUGIN_DIR = join(__dirname, "plugins");
+const MODULE_DIR = join(__dirname, "modules");
 
 // Injector for the renderer thread
 // Based on the injector in https://github.com/DiscordInjections/DiscordInjections
@@ -62,10 +62,10 @@ app.whenReady().then(() => {
   electronCache.exports.BrowserWindow = PatchedBrowserWindow;
 });
 
-promisify(readdir)(PLUGIN_DIR)
+promisify(readdir)(MODULE_DIR)
   .then(async files => {
     // Injector for the main thread
-    for (const file of files) await import(resolve(PLUGIN_DIR, file));
+    for (const file of files) await import(resolve(MODULE_DIR, file));
   })
   .catch(() => {})
   .then(() => {
