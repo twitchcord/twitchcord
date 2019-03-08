@@ -13,9 +13,4 @@ const CurrentWindow = remote.getCurrentWindow() as { __options?: BrowserWindowCo
 if (CurrentWindow.__options && CurrentWindow.__options.webPreferences.preload)
   require(CurrentWindow.__options.webPreferences.preload);
 
-const CurrentWindow = remote.getCurrentWindow() as any
-if (CurrentWindow.__options && CurrentWindow.__options.preload) {
-  require(CurrentWindow.__options.preload)
-}
-
-if (window.onpreloaded) window.onpreloaded()
+if (window.onpreloaded) window.onpreloaded();
