@@ -6,6 +6,9 @@ declare global {
   }
 }
 
+for (const path of ipcRenderer.sendSync("renderer-preload-paths"))
+  import(path);
+
 const CurrentWindow = remote.getCurrentWindow() as { __options?: BrowserWindowConstructorOptions };
 if (CurrentWindow.__options && CurrentWindow.__options.webPreferences.preload)
   require(CurrentWindow.__options.webPreferences.preload);

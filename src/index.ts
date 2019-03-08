@@ -49,7 +49,7 @@ promisify(readdir)(PLUGIN_DIR).then(async files => {
     const BrowserWindowPath = require.resolve(require.resolve(join(electronPath, '../../browser-window.js')))
     electronCache.exports = Object.assign({}, electronCache.exports);
     electronCache.exports.BrowserWindow = PatchedBrowserWindow;
-    require.cache[BrowserWindowPath].exports = PatchedBrowserWindow;
+    for (const file of files) await import(resolve(PLUGIN_DIR, file));
   })
   
   // Starting the application
