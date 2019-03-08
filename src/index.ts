@@ -1,7 +1,13 @@
 import { resolve, join } from "path";
 import { readdir } from "fs";
 import { promisify } from "util";
-import { app, BrowserWindow, BrowserWindowConstructorOptions } from "electron";
+import {
+  app,
+  BrowserWindow,
+  BrowserWindowConstructorOptions,
+  ipcMain,
+  Event
+} from "electron";
 
 declare module "electron" {
   interface App {
@@ -12,6 +18,10 @@ declare module "electron" {
         options: BrowserWindowConstructorOptions,
         promise: Promise<BrowserWindow>
       ) => void
+    ): void;
+    on(
+      event: "renderer-preload-paths",
+      listener: (evt: Event, arg: any) => void
     ): void;
   }
 }
@@ -60,6 +70,12 @@ app.whenReady().then(() => {
   // Replace the exports object to allow assignment
   electronCache.exports = Object.assign({}, electronCache.exports);
   electronCache.exports.BrowserWindow = PatchedBrowserWindow;
+});
+
+ipcMain.on("renderer-preload-paths", (evt: Event, arg: any) => {
+  const returnValue: string[] = [];
+  app.emit("renderer-preload-paths", { sender: evt.sender, returnValue }, arg);
+  evt.returnValue = returnValue;
 });
 
 promisify(readdir)(MODULE_DIR)
