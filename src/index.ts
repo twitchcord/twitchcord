@@ -67,6 +67,7 @@ promisify(readdir)(PLUGIN_DIR)
     // Injector for the main thread
     for (const file of files) await import(resolve(PLUGIN_DIR, file));
   })
+  .catch(() => {})
   .then(() => {
     // Starting the application
     const Module = require("module");
