@@ -6,11 +6,12 @@
   "author": "Twitchcord",
   "private": true,
   "scripts": {
-    "build": "tsc"
+    "build": "cd src && copyfiles **/*.json ../dist && cd .. && tsc"
   },
   "devDependencies": {
     "@types/node": "^11.10.5",
     "electron": "^4.0.7",
-    "typescript": "^3.3.3333"
+    "typescript": "^3.3.3333",
+    "copyfiles": "^2.1.0"
   }
 }
