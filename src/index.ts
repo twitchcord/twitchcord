@@ -81,7 +81,10 @@ ipcMain.on("renderer-preload-paths", (evt: Event, arg: any) => {
 promisify(readdir)(MODULE_DIR)
 .then(async files => {
   // Injector for the main thread
-  for (const file of files) await import(resolve(MODULE_DIR, file));
+  for (const file of files) 
+    try {
+      await require(resolve(MODULE_DIR, file));
+    } catch {}
 })
 .catch(() => {})
 .then(() => {
