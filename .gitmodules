@@ -1,0 +1,3 @@
+[submodule ".\\src\\modules\\OldLoader\\old-core"]
+	path = .\\src\\modules\\OldLoader\\old-core
+	url = https://gitlab.com/Twitchcord/twitchcord-v1
