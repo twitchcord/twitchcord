@@ -12,6 +12,7 @@
     "@types/node": "^11.10.5",
     "electron": "^4.0.7",
     "typescript": "^3.3.3333",
-    "copyfiles": "^2.1.0"
+    "copyfiles": "^2.1.0",
+    "ts-node": "^8.0.3"
   }
 }
