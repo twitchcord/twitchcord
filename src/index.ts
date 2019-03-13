@@ -25,8 +25,8 @@ declare module "electron" {
     ): void;
   }
 }
-
-const PRELOAD = join(__dirname, "preload.js");
+const DISCORD_APP_ROOT = process.env.DISCORD_APP_ROOT || __dirname
+const PRELOAD = join(DISCORD_APP_ROOT, "preload.js");
 const MODULE_DIR = join(__dirname, "modules");
 
 // Injector for the renderer thread
@@ -79,15 +79,16 @@ ipcMain.on("renderer-preload-paths", (evt: Event, arg: any) => {
 });
 
 promisify(readdir)(MODULE_DIR)
-  .then(async files => {
-    // Injector for the main thread
-    for (const file of files) await import(resolve(MODULE_DIR, file));
-  })
-  .catch(() => {})
-  .then(() => {
+.then(async files => {
+  // Injector for the main thread
+  for (const file of files) await import(resolve(MODULE_DIR, file));
+})
+.catch(() => {})
+.then(() => {
+  app.whenReady().then(() => new BrowserWindow({ title: "OKAY"}))
     // Starting the application
     const Module = require("module");
-    const AppPath = join(__dirname, "../app.asar");
+    const AppPath = join(DISCORD_APP_ROOT, "../app.asar");
     const AppPackage = require(join(AppPath, "package.json"));
 
     // Adjust electron root
