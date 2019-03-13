@@ -6,7 +6,8 @@
   "author": "Twitchcord",
   "private": true,
   "scripts": {
-    "build": "cd src && copyfiles **/*.json ../dist && cd .. && tsc"
+    "build": "cd src && copyfiles **/*.json ../dist && cd .. && tsc",
+    "setup": "cd src/modules/OldLoader/old-core && npm run setup"
   },
   "devDependencies": {
     "@types/node": "^11.10.5",
