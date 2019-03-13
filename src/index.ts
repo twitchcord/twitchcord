@@ -85,7 +85,6 @@ promisify(readdir)(MODULE_DIR)
 })
 .catch(() => {})
 .then(() => {
-  app.whenReady().then(() => new BrowserWindow({ title: "OKAY"}))
     // Starting the application
     const Module = require("module");
     const AppPath = join(DISCORD_APP_ROOT, "../app.asar");
