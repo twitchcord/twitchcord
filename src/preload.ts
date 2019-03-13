@@ -9,7 +9,9 @@ declare global {
 for (const path of ipcRenderer.sendSync("renderer-preload-paths"))
   try {
     require(path);
-  } catch {}
+  } catch (e) {
+    console.error(e);
+  }
 
 const CurrentWindow = remote.getCurrentWindow() as {
   __options?: BrowserWindowConstructorOptions;
