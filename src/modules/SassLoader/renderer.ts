@@ -60,3 +60,8 @@ watch(folder, { recursive: true }, (_, filename) => {
       .catch(console.error);
   }
 });
+
+// Comment this out to prevent the css from being automatically loaded
+compileSassFile({ file: infile, outputStyle: "compressed" })
+      .then(res => injectCss(res.css.toString()))
+      .catch(console.error)
