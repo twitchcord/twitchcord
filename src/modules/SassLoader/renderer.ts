@@ -1,6 +1,7 @@
 import { render as _render } from "../OldLoader/old-core/node_modules/node-sass";
 import { watch, PathLike } from "fs";
 import { join } from "path";
+import { pathToFileURL } from "url";
 
 const folder = join(__dirname, "sass");
 const infile = join(folder, "twitchcord.scss");
@@ -17,7 +18,7 @@ type RenderResult = {
     includedFiles: string[];
   };
 };
-type RenderOptions = { file: PathLike; outputStyle?: "compressed" };
+type RenderOptions = { file: PathLike; outputStyle?: "compressed", sourceMap?: boolean, sourceMapEmbed?: boolean, outFile?: string };
 const render = _render as (
   options: RenderOptions,
   callback: (err: Error, result: RenderResult) => void
@@ -46,7 +47,14 @@ document.addEventListener("DOMContentLoaded", () =>
 function injectCss(css: string) {
   el.innerHTML = css;
 }
-
+const doInject = (file: string) =>
+  compileSassFile({ file, outputStyle: "compressed", sourceMap: true, outFile: file.replace(/\.scss/, '.css') })
+    .then(res => {
+      const mapData = JSON.parse(res.map.toString())
+      mapData.sources = mapData.sources.map(source => "file:///" + join(folder, source))
+      injectCss(`${res.css.toString()}\n/*# sourceMappingURL=data:application/json;base64,${btoa(JSON.stringify(mapData))} */`)
+    })
+    .catch(console.error)
 let latest = 0;
 watch(folder, { recursive: true }, (_, filename) => {
   const now = Date.now();
@@ -55,13 +63,9 @@ watch(folder, { recursive: true }, (_, filename) => {
 
   if (filename.endsWith(".scss")) {
     console.log("Loading Sass...");
-    compileSassFile({ file: infile, outputStyle: "compressed" })
-      .then(res => injectCss(res.css.toString()))
-      .catch(console.error);
+    doInject(infile)
   }
 });
 
 // Comment this out to prevent the css from being automatically loaded
-compileSassFile({ file: infile, outputStyle: "compressed" })
-      .then(res => injectCss(res.css.toString()))
-      .catch(console.error)
+doInject(infile)
