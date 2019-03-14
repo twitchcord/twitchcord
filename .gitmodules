@@ -1,3 +1,6 @@
 [submodule "src/modules/OldLoader/old-core"]
 	path = src/modules/OldLoader/old-core
 	url = https://gitlab.com/Twitchcord/twitchcord-v1
+[submodule "src/modules/SassLoader/sass"]
+	path = src/modules/SassLoader/sass
+	url = https://gitlab.com/Twitchcord/twitchcord-sass
