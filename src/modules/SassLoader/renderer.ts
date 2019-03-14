@@ -23,17 +23,19 @@ const render = _render as (
   callback: (err: Error, result: RenderResult) => void
 ) => void;
 const compileSassFile = (options: RenderOptions): Promise<RenderResult> => {
-  let retries = 0;
-  return new Promise((res, rej) =>
-    render(options, (err, data) =>
-      err.message &&
-      /^File to (import|read) not found or unreadable/.test(err.message)
-        ? retries++ < 1000
-          ? res(compileSassFile(options))
-          : rej(err)
-        : res(data)
-    )
-  );
+  return new Promise((res, rej) => setTimeout(() => render(options, (err, data) => err ? rej(err) : res(data)), 2000))
+  // A retry mechanism that could work in theory, but actually ends up crashing discord
+  // let retries = 0;
+  // return new Promise((res, rej) =>
+  //   render(options, (err, data) =>
+  //     err.message &&
+  //     /^File to (import|read) not found or unreadable/.test(err.message)
+  //       ? retries++ < 1000
+  //         ? setTimeout(() => res(compileSassFile(options)), 20)
+  //         : rej(err)
+  //       : res(data)
+  //   )
+  // );
 };
 
 const el = document.createElement("style");
