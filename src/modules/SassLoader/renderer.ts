@@ -24,14 +24,12 @@ const doInject = (file: string) =>
     },
     (err, res) => {
       if (err) return console.error(err);
-      // const mapData = JSON.parse(res.map.toString());
-      // mapData.sources = mapData.sources.map(source => "file:///" + source);
+      const SourceMap = JSON.parse(res.map.toString());
+      SourceMap.sources = SourceMap.sources.map(source => "file:///" + source);
       const outfile = join(dirname(file), basename(file, "scss") + "out.css");
       writeFile(
         outfile,
-        `${res.css}\n/*# sourceMappingURL=data:application/json;base64,${
-          res.map
-        } */`,
+        Buffer.concat([res.css, Buffer.from("\n/*# sourceMappingURL=data:application/json;base64," + btoa(JSON.stringify(SourceMap)) +" */`")]),
         err => {
           if (err) console.error(err);
           el.setAttribute("href", `file:///${outfile}?nocache=${Date.now()}`);
