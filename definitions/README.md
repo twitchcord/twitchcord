@@ -4,6 +4,8 @@ Each 'module' in this directory will be exposed to plugins through `require('fil
 
 Folders should be used to collect similar modules together into a single namespace, and contain an `index.ts` file describing how they are grouped. (This will be compiled to js and run aware of the relative paths in the folder)
 
+To be specific: Every `[module].d.ts` file in this folder is the definition of some module within the discord internals, and will be used to discover the reference to the module at runtime. `[module]/**/*.d.ts` files will only be visible to `[module]/index.ts`, to serve as a way of compiling related internal modules
+
 > JS files will be completely ignored, so feel free to use them for processing.
 
 The plan is to set `webpackJson` in the preload script so as to hijack the normal webpack module handler. This will mean we have full control over
@@ -18,3 +20,4 @@ This means we can build the string>module map as modules are individually loaded
 This directory will be processed by a single time script (Should be part of the release process) which runs in the renderer - first loading and requiring every module in discord's webpack, then finding the simplest versions of every type in the directory which can be used to identify them. This will be saved as JSON and shipped with the client to provide mappings for the internal modules.
 
 Optional: Have the mappings be downloaded at startup, to make updates faster. This shouldn't be needed so long as we make a solid auto-updater. If there was ever an error in the mappings, we could instantly let the user know they were out of date, and disable plugins until they restarted
+
