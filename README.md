@@ -11,6 +11,16 @@ It serves as a modification to the Discord client, adding a set of netowrking fe
 - Plugin/Theme loading
 - Interfacing with the Twitchcord API
 
+## Developers
+
+A few commands need to be run to get this repository fully initialised:
+
+```shell
+git clone https://github.com/twitchcord/twitchcord
+git submodules update --init
+npm run setup # OR yarn setup
+```
+
 ## Related projects
 
 [Powercord](https://github.com/powercord-org/powercord)
