@@ -1,0 +1,57 @@
+// main: _module.scss
+
+//*** Direct Message Notifications
+
+.dms:not(:empty)::before {
+    content: 'You\'ve received a new Direct Message.';
+    @include size(375px, 80px);
+
+    z-index: 999999999;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    pointer-events: none;
+
+    color: #fff;
+    line-height: 1.3;
+    font-weight: 700;
+    font-size: 14px;
+
+    border-radius: 2px;
+    padding: 10px 20px 40px 85px;
+
+    position: fixed;
+    bottom: 35px;
+    right: 40px;
+
+    background: hsla(var(--chat-color), var(--alpha-100)) url('#{$twitchcord-bot-avatar}') no-repeat;
+    background-size: 64px 64px;
+    background-position: 7px 7px;
+    border: 1px solid hsla(var(--top-nav-color), var(--alpha-100));
+    box-shadow: 0 0 5px hsla(var(--top-nav-color), var(--alpha-20)), inset 0 0 5px hsla(var(--top-nav-color), var(--alpha-40));
+
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    animation: scaleIn 0.5s forwards, slideOutToRight 1s forwards 5.5s, glow3 800ms ease-out infinite alternate, displayNone 0s 7.5s;
+}
+
+.dms:not(:empty)::after {
+    content: 'This notification will self-destruct in 5 seconds.';
+    @include size(255px, auto);
+
+    z-index: 9999999999;
+    pointer-events: none;
+
+    color: #898395;
+    font-size: 12px;
+
+    padding-right: 30px;
+
+    position: fixed;
+    bottom: 60px;
+    right: 40px;
+
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    animation: scaleIn 0.5s forwards, slideOutToRight 1s forwards 5.5s, displayNone 0s 7.5s;
+}

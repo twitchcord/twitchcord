@@ -1,0 +1,110 @@
+/*==={ BETA ELEMENTS }===*/
+
+/* Beta Ribbon - Top Left */
+#app-mount::before {
+    content: 'BETA';
+    width: 200px;
+    position: fixed;
+    background: var(--important-notification-color);
+    z-index: 9999999999999;
+    top: 5px;
+    left: -82px;
+    text-align: center;
+    line-height: 25px;
+    font-size: 12px;
+    pointer-events: none;
+    color: #f0f0f0;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+/* *** */
+
+/* Beta Modal Backdrop */
+.app.flex-vertical::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    z-index: 99999999;
+    position: fixed;
+    background: rgba(0, 0, 0, .65);
+    transform: translateY(0);
+    animation: fadeInSpecial 16s alternate forwards 1;
+}
+
+    /* Beta Modal */
+    .app.flex-vertical::after {
+        content: attr(data-counter);
+        background: #fff image('twitchcord-beta.png') no-repeat 50%;
+        padding: 30px;
+        line-height: 1px;
+        text-align: center;
+        width: 500px;
+        height: 500px;
+        z-index: 999999999;
+        position: fixed;
+        border-radius: 2px;
+        top: 50%;
+        left: 50%;
+        margin: -250px 0 0 -250px;
+        opacity: 0;
+        font-size: 11px;
+        transform: translateY(0);
+        animation: fadeInSpecial 16s alternate forwards 1, countdown 15s steps(1, start) forwards 1;
+    }
+/* *** */
+
+@keyframes countdown {
+    7.666% {
+    content: 'This will close in 15 seconds.';
+    }
+    14.333% {
+    content: 'This will close in 14 seconds.';
+    }
+    20.999% {
+    content: 'This will close in 13 seconds.';
+    }
+    27.666% {
+    content: 'This will close in 12 seconds.';
+    }
+    34.333% {
+    content: 'This will close in 11 seconds.';
+    }
+    40.999% {
+    content: 'This will close in 10 seconds.';
+    }
+    47.666% {
+    content: 'This will close in 9 seconds.';
+    }
+    54.333% {
+    content: 'This will close in 8 seconds.';
+    }
+    60.999% {
+    content: 'This will close in 7 seconds.';
+    }
+    67.666% {
+    content: 'This will close in 6 seconds.';
+    }
+    74.333% {
+    content: 'This will close in 5 seconds.';
+    }
+    80.999% {
+    content: 'This will close in 4 seconds.';
+    }
+    87.666% {
+    content: 'This will close in 3 seconds.';
+    }
+    94.333% {
+    content: 'This will close in 2 seconds.';
+    }
+    100% {
+    content: 'This will close in 1 second.';
+    }
+}
+
+@keyframes fadeInSpecial {
+    0% { opacity: 0; transform: translateY(0);}
+    5% { opacity: 1; transform: translateY(0);}
+    95% { opacity: 1; transform: translateY(0);}
+    99% { opacity: 0; transform: translateY(0);}
+    100% { opacity: 0; transform: translateY(-1000%); }
+}

@@ -1,0 +1,87 @@
+// main: _module.scss
+
+//** DATEVIEWER by hammy
+
+#dv-container {
+    background: RGB(var(--tc-color-1))!important;
+    box-shadow: none!important;
+}
+
+#dv-settings-panel {
+    background: RGB(var(--tc-color-1))!important;
+}
+
+#dv-display {
+    font-size: 1.7em!important;
+    line-height: 16px!important;
+    margin-top: 10px!important;
+    color: RGB(var(--contrasted-color))!important;
+}
+
+#dv-date {
+    color: RGB(var(--tc-color-10))!important;
+    opacity: 1!important;
+}
+
+#dv-day {
+    color: RGB(var(--tc-color-10))!important;
+    opacity: 0.5;
+}
+
+#dv-container::after {
+    background: RGB(var(--tc-color-4))!important;
+    width: 240px!important;
+}
+
+#dv-btn-settings-panel {
+    background-color: RGB(var(--tc-color-7))!important;
+    border-radius: 0!important;
+    opacity: 0.4!important;
+    transition: background-color 0.2s, opacity 0.2s;
+}
+
+#dv-btn-settings-panel:hover {
+    background-color: RGB(var(--tc-color-8))!important;
+    opacity: 1!important;
+}
+
+.dv-panel .dv-options {
+    width: 90px!important;
+}
+.dv-btn {
+    right: 16px!important;
+}
+
+.dv-panel .dv-title {
+    border: none!important;
+    color: RGB(var(--contrasted-color))!important;
+    text-transform: uppercase!important;
+    margin-bottom: 10px!important;
+}
+
+.dv-panel input[type="radio"] + label span {
+    background: RGB(var(--tc-color-1))!important;
+    width: 15px!important;
+    height: 15px!important;
+    border-width: 1px!important;
+    border-style: solid!important;
+    border-color: RGB(var(--tc-color-7))!important;
+    transition: transform 125ms linear;
+}
+
+.dv-panel input[type="radio"] + label span::after {
+    height: 9px!important;
+    width: 9px!important;
+    display: block;
+    top: 3px!important;
+    left: 3px!important;
+    background-color: RGB(var(--tc-color-7))!important;
+    transform-origin: center;
+    transform: scale(0);
+    transition: transform 125ms linear;
+}
+
+.dv-panel input[type="radio"]:checked + label span::after {
+    transform: scale(1);
+    transition: transform 125ms linear;
+}

@@ -1,0 +1,22 @@
+// main: _module.scss
+
+//** Stream Mode settings
+
+.streamer-mode-enabled .streamer-mode-enabled-btn {
+    text-transform: capitalize;
+    border-radius: 0;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.streamer-mode-enabled {
+    overflow: hidden;
+    background: RGB(var(--tc-color-3)) image('twitchcord-bg2.png');
+    -webkit-animation: 100s scroll infinite linear;
+    animation: 100s scroll infinite linear;
+}
+
+.user-settings-streamer-mode .cardPrimary-1Hv-to {
+    background-color: RGB(var(--tc-color-4))!important;
+    border: 2px solid RGB(var(--tc-color-8))!important;
+}

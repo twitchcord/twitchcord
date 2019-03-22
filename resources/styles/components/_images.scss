@@ -1,0 +1,225 @@
+// main: _module.scss
+
+//** Replacing Discord's images with our own
+
+//## Emoji icon on 'Add Reaction' context menu item 'Other Reactions'
+.itemImage-htIz_v img[src="/assets/24e5837679a970699e904d047c741540.svg"] {
+  content: var(--transparent-pixel);
+  @include mask(var(--emoji-icon), var(--contrasted-color), $important: true);
+}
+
+//## System message icons
+#{$messagesystemicon} {
+  // Edit channel name icon
+  &[style*="/assets/0c9615349350c4185381d58c69b88cbc.svg"] {
+    background: none!important;
+    @include mask(var(--pencil-icon), #898395, 22px, no-repeat top -4px center, $important: true);
+  }
+  // Pinned message icon
+  &[style*="/assets/4e4e1d9c907a3dc53d68f34e868fcb12.svg"] {
+    background: none!important;
+    @include mask(var(--thumbtack-icon), #898395, 12px, no-repeat top center, $important: true);
+  }
+  // Call icon
+  &[style*="/assets/d80d1fdc43a3c42134a31a39581160ac.svg"] {
+    background: none!important;
+    @include mask(var(--phone-icon), #898395, 16px, no-repeat top center, $important: true);
+  }
+}
+
+// 'Import your games' image replacement on Library
+.gameLibrary-TTDw4Y .emptyWumpus-12J3jI {
+  background: url(https://i.imgur.com/F04fJwe.png) no-repeat center / 110px;
+  width: 150px;
+}
+
+//## Image error "poop"
+.imageError-2OefUi {
+  background: var(--broken-image) no-repeat center!important;
+  height: 60%;
+  transform: scale(-1, 1);
+}
+
+//## User Settings -> Streamer Mode image
+.user-settings-streamer-mode .icon-4lJsMQ {
+    /* transparent pixel to hide image src */
+    content: var(--transparent-pixel);
+    width: 10px;
+    height: 10px;
+    left: -10px;
+    top: -52px;
+    margin: 40px 90px 40px 20px!important;
+    position: relative;
+    transform: scale(0.6);
+    box-shadow: 10px 10px transparent,20px 10px transparent,30px 10px transparent,40px 10px #000,50px 10px #000,60px 10px #000,70px 10px #000,80px 10px #000,90px 10px #000,100px 10px #000,110px 10px #000,120px 10px #000,130px 10px #000,140px 10px transparent,150px 10px transparent,160px 10px transparent,10px 20px transparent,20px 20px #000,30px 20px #000,40px 20px #000,50px 20px #ff8000,60px 20px #ff8000,70px 20px #ff8000,80px 20px #ff8000,90px 20px #ff8000,100px 20px #ff8000,110px 20px #ff8000,120px 20px #ff8000,130px 20px #000,140px 20px #000,150px 20px #000,160px 20px transparent,10px 30px #000,20px 30px #000,30px 30px #ff8000,40px 30px #ff8000,50px 30px #ff8000,60px 30px #ff0,70px 30px #ff0,80px 30px #ff0,90px 30px #ff0,100px 30px #ff0,110px 30px #ff0,120px 30px #ff8000,130px 30px #ff8000,140px 30px #ff8000,150px 30px #000,160px 30px #000,10px 40px #000,20px 40px #ff8000,30px 40px #ff8000,40px 40px #ff0,50px 40px #ff0,60px 40px #ff0,70px 40px #000,80px 40px #fff,90px 40px #fff,100px 40px #000,110px 40px #ff0,120px 40px #ff0,130px 40px #ff0,140px 40px #ff8000,150px 40px #ff8000,160px 40px #000,10px 50px #000,20px 50px #ff8000,30px 50px #ff8000,40px 50px #ff0,50px 50px #ff0,60px 50px #ff0,70px 50px #000,80px 50px #ff0,90px 50px #ff0,100px 50px #000,110px 50px #ff0,120px 50px #ff0,130px 50px #ff0,140px 50px #ff8000,150px 50px #ff8000,160px 50px #000,10px 60px #000,20px 60px #ff8000,30px 60px #ff8000,40px 60px #ff8000,50px 60px #ff8000,60px 60px #ff0,70px 60px #ff0,80px 60px #ff0,90px 60px #ff0,100px 60px #ff0,110px 60px #ff0,120px 60px #ff8000,130px 60px #ff8000,140px 60px #ff8000,150px 60px #ff8000,160px 60px #000,10px 70px #000,20px 70px #000,30px 70px #ff8000,40px 70px #ff8000,50px 70px #ff8000,60px 70px #ff8000,70px 70px #ff8000,80px 70px #ff8000,90px 70px #ff8000,100px 70px #ff8000,110px 70px #ff8000,120px 70px #ff8000,130px 70px #ff8000,140px 70px #ff8000,150px 70px #000,160px 70px #000,10px 80px transparent,20px 80px #000,30px 80px #000,40px 80px #000,50px 80px #ff8000,60px 80px #ff8000,70px 80px #ff8000,80px 80px #ff8000,90px 80px #ff8000,100px 80px #ff8000,110px 80px #ff8000,120px 80px #ff8000,130px 80px #000,140px 80px #000,150px 80px #000,160px 80px transparent,10px 90px transparent,20px 90px transparent,30px 90px transparent,40px 90px #000,50px 90px #000,60px 90px #000,70px 90px #000,80px 90px #000,90px 90px #000,100px 90px #000,110px 90px #000,120px 90px #000,130px 90px #000,140px 90px transparent,150px 90px transparent,160px 90px transparent,10px 100px transparent,20px 100px #000,30px 100px #000,40px 100px transparent,50px 100px transparent,60px 100px transparent,70px 100px #000,80px 100px #5ac528,90px 100px #5ac528,100px 100px #000,110px 100px transparent,120px 100px transparent,130px 100px transparent,140px 100px #000,150px 100px #000,160px 100px transparent,10px 110px #000,20px 110px #5ac528,30px 110px #5ac528,40px 110px #000,50px 110px #000,60px 110px transparent,70px 110px #000,80px 110px #5ac528,90px 110px #5ac528,100px 110px #000,110px 110px transparent,120px 110px #000,130px 110px #000,140px 110px #5ac528,150px 110px #5ac528,160px 110px #000,10px 120px #000,20px 120px #5ac528,30px 120px #5ac528,40px 120px #5ac528,50px 120px #5ac528,60px 120px #000,70px 120px #000,80px 120px #5ac528,90px 120px #5ac528,100px 120px #000,110px 120px #000,120px 120px #5ac528,130px 120px #5ac528,140px 120px #5ac528,150px 120px #5ac528,160px 120px #000,10px 130px #000,20px 130px #5ac528,30px 130px #5ac528,40px 130px #5ac528,50px 130px #5ac528,60px 130px #5ac528,70px 130px #000,80px 130px #5ac528,90px 130px #5ac528,100px 130px #000,110px 130px #5ac528,120px 130px #5ac528,130px 130px #5ac528,140px 130px #5ac528,150px 130px #5ac528,160px 130px #000,10px 140px transparent,20px 140px #000,30px 140px #5ac528,40px 140px #5ac528,50px 140px #5ac528,60px 140px #5ac528,70px 140px #000,80px 140px #5ac528,90px 140px #5ac528,100px 140px #000,110px 140px #5ac528,120px 140px #5ac528,130px 140px #5ac528,140px 140px #5ac528,150px 140px #000,160px 140px transparent,10px 150px transparent,20px 150px transparent,30px 150px #000,40px 150px #000,50px 150px #5ac528,60px 150px #5ac528,70px 150px #5ac528,80px 150px #5ac528,90px 150px #5ac528,100px 150px #5ac528,110px 150px #5ac528,120px 150px #5ac528,130px 150px #000,140px 150px #000,150px 150px transparent,160px 150px transparent,10px 160px transparent,20px 160px transparent,30px 160px transparent,40px 160px transparent,50px 160px #000,60px 160px #000,70px 160px #000,80px 160px #000,90px 160px #000,100px 160px #000,110px 160px #000,120px 160px #000,130px 160px transparent,140px 160px transparent,150px 160px transparent,160px 160px transparent;
+  }
+  .streamer-mode-enabled-image {
+    content: '';
+    background-image: none!important;
+    width: 8px!important;
+    height: 8px!important;
+    margin-bottom: 250px;
+    transform: translateY(-400px);
+    animation: moveSpiderman 3s ease forwards;
+    box-shadow: 0 8px 0 #fff, 0 16px 0 #fff, 0 24px 0 #fff, 0 32px 0 #fff, 0 40px 0 #fff, 0 48px 0 #fff, 0 56px 0 #fff, 0 64px 0 #fff, 0 72px 0 #fff, 0 80px 0 #fff, 0 80px 0 #fff, -8px 80px 0 #fff, -8px 72px 0 #fff, 8px 80px 0 #fff, 0 88px 0 #fff, -16px 184px 0 #fff, -24px 184px 0 #fff, -24px 192px 0 #fff, 16px 184px 0 #fff, 24px 184px 0 #fff, 24px 192px 0 #fff, -8px 24px 0 #000, -16px 32px 0 #000, -24px 40px 0 #000, -32px 48px 0 #000, -40px 56px 0 #000, -48px 56px 0 #000, -56px 64px 0 #000, -64px 72px 0 #000, -72px 80px 0 #000, -72px 88px 0 #000, -64px 96px 0 #000, -56px 96px 0 #000, -48px 96px 0 #000, -40px 88px 0 #000, -32px 80px 0 #000, -24px 80px 0 #000, -16px 80px 0 #000, -24px 72px 0 #000, -16px 64px 0 #000, -8px 64px 0 #000, -8px 88px 0 #000, -8px 96px 0 #000, -16px 104px 0 #000, -24px 112px 0 #000, -32px 120px 0 #000, -32px 120px 0 #000, -48px 104px 0 #000, -56px 112px 0 #000, -56px 120px 0 #000, -48px 128px 0 #000, -40px 136px 0 #000, -32px 136px 0 #000, -24px 144px 0 #000, -16px 144px 0 #000, -8px 136px 0 #000, 0 136px 0 #000, -32px 152px 0 #000, -40px 160px 0 #000, -48px 168px 0 #000, -48px 176px 0 #000, -48px 184px 0 #000, -48px 192px 0 #000, -48px 200px 0 #000, -48px 208px 0 #000, -48px 216px 0 #000, -48px 224px 0 #000, -48px 232px 0 #000, -40px 240px 0 #000, -32px 248px 0 #000, -24px 248px 0 #000, -16px 256px 0 #000, -8px 256px 0 #000, 0px 256px 0 #000, -24px 176px 0 #000, -16px 176px 0 #000, -32px 184px 0 #000, -32px 192px 0 #000, -32px 200px 0 #000, -32px 208px 0 #000, -24px 200px 0 #000, -16px 192px 0 #000, -8px 184px 0 #000, 8px 24px 0 #000, 16px 32px 0 #000, 24px 40px 0 #000, 32px 48px 0 #000, 40px 56px 0 #000, 48px 56px 0 #000, 56px 64px 0 #000, 64px 72px 0 #000, 72px 80px 0 #000, 72px 88px 0 #000, 64px 96px 0 #000, 56px 96px 0 #000, 48px 96px 0 #000, 40px 88px 0 #000, 32px 80px 0 #000, 24px 80px 0 #000, 16px 80px 0 #000, 24px 72px 0 #000, 16px 64px 0 #000, 8px 64px 0 #000, 8px 88px 0 #000, 8px 96px 0 #000, 16px 104px 0 #000, 24px 112px 0 #000, 32px 120px 0 #000, 32px 120px 0 #000, 48px 104px 0 #000, 56px 112px 0 #000, 56px 120px 0 #000, 48px 128px 0 #000, 40px 136px 0 #000, 32px 136px 0 #000, 24px 144px 0 #000, 16px 144px 0 #000, 8px 136px 0 #000, 0 136px 0 #000, 32px 152px 0 #000, 40px 160px 0 #000, 48px 168px 0 #000, 48px 176px 0 #000, 48px 184px 0 #000, 48px 192px 0 #000, 48px 200px 0 #000, 48px 208px 0 #000, 48px 216px 0 #000, 48px 224px 0 #000, 48px 232px 0 #000, 40px 240px 0 #000, 32px 248px 0 #000, 24px 248px 0 #000, 16px 256px 0 #000, 8px 256px 0 #000, 0px 256px 0 #000, 24px 176px 0 #000, 16px 176px 0 #000, 32px 184px 0 #000, 32px 192px 0 #000, 32px 200px 0 #000, 32px 208px 0 #000, 24px 200px 0 #000, 16px 192px 0 #000, 8px 184px 0 #000, -8px 32px 0 #EA443C, -8px 40px 0 #EA443C, -8px 48px 0 #EA443C, -8px 56px 0 #EA443C, -16px 40px 0 #EA443C, -16px 48px 0 #EA443C, -16px 56px 0 #EA443C, -24px 48px 0 #EA443C, -32px 56px 0 #EA443C, -24px 56px 0 #EA443C, -24px 64px 0 #EA443C, -32px 64px 0 #EA443C, -40px 64px 0 #EA443C, -32px 72px 0 #EA443C, -32px 88px 0 #EA443C, -24px 88px 0 #EA443C, -16px 88px 0 #EA443C, -16px 96px 0 #EA443C, -24px 96px 0 #EA443C, -32px 96px 0 #EA443C, -40px 96px 0 #EA443C, -32px 104px 0 #EA443C, -40px 104px 0 #EA443C, -40px 112px 0 #EA443C, -48px 112px 0 #EA443C, -40px 120px 0 #EA443C, -48px 120px 0 #EA443C, -40px 128px 0 #EA443C, -32px 128px 0 #EA443C, -24px 128px 0 #EA443C, -16px 128px 0 #EA443C, -16px 120px 0 #EA443C, -24px 136px 0 #EA443C, -16px 136px 0 #EA443C, -8px 128px 0 #EA443C, -8px 120px 0 #EA443C, -8px 112px 0 #EA443C, -8px 104px 0 #EA443C, -8px 144px 0 #EA443C, -8px 152px 0 #EA443C, -8px 160px 0 #EA443C, -8px 168px 0 #EA443C, -8px 176px 0 #EA443C, -8px 192px 0 #EA443C, -8px 200px 0 #EA443C, -8px 208px 0 #EA443C, -8px 216px 0 #EA443C, -8px 224px 0 #EA443C, -8px 232px 0 #EA443C, -8px 240px 0 #EA443C, -8px 248px 0 #EA443C, -16px 152px 0 #EA443C, -16px 160px 0 #EA443C, -16px 168px 0 #EA443C, -16px 176px 0 #EA443C, -16px 192px 0 #EA443C, -16px 200px 0 #EA443C, -16px 208px 0 #EA443C, -16px 216px 0 #EA443C, -16px 224px 0 #EA443C, -16px 232px 0 #EA443C, -16px 240px 0 #EA443C, -16px 248px 0 #EA443C, -24px 152px 0 #EA443C, -24px 160px 0 #EA443C, -24px 168px 0 #EA443C, -24px 176px 0 #EA443C, -24px 208px 0 #EA443C, -24px 216px 0 #EA443C, -24px 224px 0 #EA443C, -24px 232px 0 #EA443C, -24px 240px 0 #EA443C, -32px 160px 0 #EA443C, -32px 168px 0 #EA443C, -32px 176px 0 #EA443C, -32px 216px 0 #EA443C, -32px 224px 0 #EA443C, -32px 232px 0 #EA443C, -32px 240px 0 #EA443C, -40px 168px 0 #EA443C, -40px 172px 0 #EA443C, -40px 180px 0 #EA443C, -40px 188px 0 #EA443C, -40px 196px 0 #EA443C, -40px 204px 0 #EA443C, -40px 212px 0 #EA443C, -40px 220px 0 #EA443C, -40px 228px 0 #EA443C, -40px 236px 0 #EA443C, 0 248px 0 #EA443C, 0 240px 0 #EA443C, 0 232px 0 #EA443C, 0 224px 0 #EA443C, 0 216px 0 #EA443C, 0 208px 0 #EA443C, 0 200px 0 #EA443C, 0 192px 0 #EA443C, 0 184px 0 #EA443C, 0 176px 0 #EA443C, 0 168px 0 #EA443C, 0 160px 0 #EA443C, 0 152px 0 #EA443C, 0 144px 0 #EA443C, 0 128px 0 #EA443C, 0 120px 0 #EA443C, 0 112px 0 #EA443C, 0 104px 0 #EA443C, 0 96px 0 #EA443C, 8px 32px 0 #EA443C, 8px 40px 0 #EA443C, 8px 48px 0 #EA443C, 8px 56px 0 #EA443C, 16px 40px 0 #EA443C, 16px 48px 0 #EA443C, 16px 56px 0 #EA443C, 24px 48px 0 #EA443C, 32px 56px 0 #EA443C, 24px 56px 0 #EA443C, 24px 64px 0 #EA443C, 32px 64px 0 #EA443C, 40px 64px 0 #EA443C, 32px 72px 0 #EA443C, 32px 88px 0 #EA443C, 24px 88px 0 #EA443C, 16px 88px 0 #EA443C, 16px 96px 0 #EA443C, 24px 96px 0 #EA443C, 32px 96px 0 #EA443C, 40px 96px 0 #EA443C, 32px 104px 0 #EA443C, 40px 104px 0 #EA443C, 40px 112px 0 #EA443C, 48px 112px 0 #EA443C, 40px 120px 0 #EA443C, 48px 120px 0 #EA443C, 40px 128px 0 #EA443C, 32px 128px 0 #EA443C, 24px 128px 0 #EA443C, 16px 128px 0 #EA443C, 16px 120px 0 #EA443C, 24px 136px 0 #EA443C, 16px 136px 0 #EA443C, 8px 128px 0 #EA443C, 8px 120px 0 #EA443C, 8px 112px 0 #EA443C, 8px 104px 0 #EA443C, 8px 144px 0 #EA443C, 8px 152px 0 #EA443C, 8px 160px 0 #EA443C, 8px 168px 0 #EA443C, 8px 176px 0 #EA443C, 8px 192px 0 #EA443C, 8px 200px 0 #EA443C, 8px 208px 0 #EA443C, 8px 216px 0 #EA443C, 8px 224px 0 #EA443C, 8px 232px 0 #EA443C, 8px 240px 0 #EA443C, 8px 248px 0 #EA443C, 16px 152px 0 #EA443C, 16px 160px 0 #EA443C, 16px 168px 0 #EA443C, 16px 176px 0 #EA443C, 16px 192px 0 #EA443C, 16px 200px 0 #EA443C, 16px 208px 0 #EA443C, 16px 216px 0 #EA443C, 16px 224px 0 #EA443C, 16px 232px 0 #EA443C, 16px 240px 0 #EA443C, 16px 248px 0 #EA443C, 24px 152px 0 #EA443C, 24px 160px 0 #EA443C, 24px 168px 0 #EA443C, 24px 176px 0 #EA443C, 24px 208px 0 #EA443C, 24px 216px 0 #EA443C, 24px 224px 0 #EA443C, 24px 232px 0 #EA443C, 24px 240px 0 #EA443C, 32px 160px 0 #EA443C, 32px 168px 0 #EA443C, 32px 176px 0 #EA443C, 32px 216px 0 #EA443C, 32px 224px 0 #EA443C, 32px 232px 0 #EA443C, 32px 240px 0 #EA443C, 40px 168px 0 #EA443C, 40px 172px 0 #EA443C, 40px 180px 0 #EA443C, 40px 188px 0 #EA443C, 40px 196px 0 #EA443C, 40px 204px 0 #EA443C, 40px 212px 0 #EA443C, 40px 220px 0 #EA443C, 40px 228px 0 #EA443C, 40px 236px 0 #EA443C, -48px 64px 0 #2D88C7, -40px 72px 0 #2D88C7, -48px 72px 0 #2D88C7, -56px 72px 0 #2D88C7, -16px 72px 0 #2D88C7, -64px 80px 0 #2D88C7, -56px 80px 0 #2D88C7, -48px 80px 0 #2D88C7, -40px 80px 0 #2D88C7, -48px 88px 0 #2D88C7, -56px 88px 0 #2D88C7, -64px 88px 0 #2D88C7, -24px 104px 0 #2D88C7, -32px 112px 0 #2D88C7, -24px 120px 0 #2D88C7, -16px 112px 0 #2D88C7, 48px 64px 0 #2D88C7, 40px 72px 0 #2D88C7, 48px 72px 0 #2D88C7, 56px 72px 0 #2D88C7, 16px 72px 0 #2D88C7, 64px 80px 0 #2D88C7, 56px 80px 0 #2D88C7, 48px 80px 0 #2D88C7, 40px 80px 0 #2D88C7, 48px 88px 0 #2D88C7, 56px 88px 0 #2D88C7, 64px 88px 0 #2D88C7, 24px 104px 0 #2D88C7, 32px 112px 0 #2D88C7, 24px 120px 0 #2D88C7, 16px 112px 0 #2D88C7, 8px 72px 0 #2D88C7;
+  }
+  @keyframes moveSpiderman {
+    30% {
+      transform: translateY(-20px);
+    }
+    35% {
+      transform: translateY(-20px);
+    }
+    40% {
+      transform: translateY(-20px) rotate(-4deg);
+    }
+    45% {
+      transform: translateY(-20px) rotate(4deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(0);
+    }
+    100% {
+        transform: translateY(-20px);
+      }
+  }
+
+
+// User Settings -> Language image
+.ui-standard-sidebar-view .user-settings-locale .icon-4lJsMQ {
+  @include size(60px);
+  content: var(--transparent-pixel);
+  background: var(--language-translate-light-icon) no-repeat top center/64px;
+}
+// Server Settings -> Widgets image
+// https://i.imgur.com/vQOz8kY.png
+img[src*="/assets/5fb477ca84edd15d9a2888ac28365acd.svg"] {
+    flex: none!important;
+    width: 270px;
+    -webkit-clip-path: inset(2px 2px 2px 2px);
+    clip-path: inset(2px 2px 2px 2px);
+    filter: sepia(100%) brightness(.3) hue-rotate(220deg) opacity(0.5);
+}
+
+/* Channel Settings -> Overview channel settings image */
+.ui-standard-sidebar-view .channel-settings-overview img {
+    content: image('pirate-pixelart.png');
+    width: 200px;
+    height: 237px;
+}
+
+/* Server Settings -> No Webhooks image */
+.ui-standard-sidebar-view .image-1GzsFd[style*='background-image: url("/assets/97b178f31f0ec28b41387b78891d5b7a.svg")'] {
+    background: image('shyguy-pixelart.png') no-repeat center!important;
+    width: 165px!important;
+    height: 165px!important;
+    background-size: 100%!important;
+}
+
+/* Server Settings -> No Invites image */
+.ui-standard-sidebar-view .image-1GzsFd[style*='background-image: url("/assets/712a0fd4d14a1caadd31cb0745e91238.svg")'] {
+    background: image('charmander-pixelart.png') no-repeat center!important;
+    width: 175px!important;
+    height: 175px!important;
+    background-size: 100%!important;
+    margin-top: 40px;
+}
+
+/* Server Settings -> No Integrations image */
+.ui-standard-sidebar-view .guild-settings-integrations .image-1GzsFd {
+    background: image('kirby-pixelart.gif') no-repeat center!important;
+    width: 128px!important;
+    height: 128px!important;
+    background-size: 100%!important;
+}
+
+/* Server Settings -> No Emojis image */
+.ui-standard-sidebar-view .image-1GzsFd[style*='background-image: url("/assets/a7371de3223292c6f31f8aeed62f17c1.svg")'] {
+    background: image('ghostface-pixelart.png') no-repeat center!important;
+    width: 128px!important;
+    height: 128px!important;
+    background-size: 100%!important;
+}
+
+/* Server Settings -> No Bans image */
+.ui-standard-sidebar-view .image-1GzsFd[style*='background-image: url("/assets/789de85a973b1d974a21aa03c1e14323.svg")'] {
+    background: image('bowser-pixelart.png') no-repeat center!important;
+    width: 220px!important;
+    height: 202px!important;
+    background-size: 100%!important;
+}
+
+/* User Settings -> No Authorized Apps image */
+.ui-standard-sidebar-view .image-1GzsFd[style*='background-image: url("/assets/b47564b3086d0d8d941aae95a4b7b78c.svg")'] {
+    background: image('metroid-pixelart.png') no-repeat center!important;
+    width: 200px!important;
+    height: 148px!important;
+    background-size: 100%!important;
+}
+
+/* User Settings -> No Games image */
+.ui-standard-sidebar-view .image-1GzsFd[style*='background-image: url("/assets/d01c53acda73318e5b39676ef8242eb7.svg")'] {
+    background: image('mushroomguys-pixelart.gif') no-repeat center!important;
+    width: 500px!important;
+    height: 220px!important;
+    background-size: 100%!important;
+}
+
+/* User Settings -> No Connections image */
+.ui-standard-sidebar-view .image-1GzsFd[style*='background-image: url("/assets/e9aaf1824f17126a7992e5ad98752389.svg")'] {
+    background: image('rupees-pixelart.png') no-repeat center!important;
+    width: 500px!important;
+    height: 109px!important;
+    background-size: 100%!important;
+}
+
+/* Private Messages - LFG channel - Connect to Voice image */
+/* dark mode image */ .image-1GzsFd[style*='background-image: url("/assets/a8fd82cc52f43902aa1113fdda7c1ef7.svg")'],
+/* light mode image */ .image-1GzsFd[style*='background-image: url("/assets/7d12b6a6565c106a587c1d1f06690ca9.svg")'] {
+    background: image('shells-pixelart.gif') no-repeat center!important;
+    width: 500px!important;
+    height: 160px!important;
+    background-size: 50%!important;
+}
+
+/* Private Messages - LFG channel - No Groups Available image */
+/* dark mode image */ .image-1GzsFd[style*='background-image: url("/assets/131dcaaa628405e6d0ebee7708111c7a.svg")'],
+/* light mode image */ .image-1GzsFd[style*='background-image: url("/assets/d0320d29cdef93b8e2baf889a28d32e0.svg")'] {
+    background: image('skull-pixelart.png') no-repeat center!important;
+    width: 192px!important;
+    height: 192px!important;
+    background-size: 100%!important;
+}
+
+/* New ToS modal image */
+img[src="/assets/a13cfdd7220132fff399a76c3ed64519.svg"] {
+    content: image('pokemon-pixelart.png')!important;
+    width: 150px!important;
+    height: 167px!important;
+    background-size: 100%!important;
+}
+
+/* LFG party full popout image */
+.private-channel-recipients-invite .error-state.party-full .icon {
+    background: image('princesspeach-pixelart.png') no-repeat center!important;
+    width: 68px!important;
+    height: 120px!important;
+    background-size: 100%!important;
+}
+
+/* No friends online, group up and play a game - Activity feed */
+.activityFeed-28jde9 .image-1QuRMw {
+    background: image('swordguy-pixelart.gif') no-repeat center!important;
+    width: 187px!important;
+    height: 200px!important;
+    background-size: 100%!important;
+    margin-bottom: 0;
+}
+
+/* No friends - Group DM popout */
+.private-channel-recipients-invite .error-state .icon {
+    background: image('pokeball-pixelart.png') no-repeat center!important;
+    width: 90px!important;
+    height: 90px!important;
+    background-size: 100%!important;
+}

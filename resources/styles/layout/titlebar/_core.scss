@@ -1,0 +1,108 @@
+///  main: _module.scss
+///  ==========================================================================
+///  Titlebar
+///  ==========================================================================
+
+.titleBar-AC4pGV {
+  z-index: 99999999;
+  background: RGB(var(--tc-color-4));
+  height: calc(var(--titlebar-height) - 4px);
+  margin-top: 4px;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: stretch;
+  align-items: stretch;
+  padding: 0;
+  width: 100%;
+  position: relative;
+  .wordmark-2iDDfm {
+    opacity: 1;
+    width: 100%;
+    background: RGB(var(--tc-color-4));
+    margin-top: -4px;
+    padding: 0;
+    &::before {
+      content: '';
+      @include mask(var(--hamburger-menu-icon), #fff, 10px 11px);
+      @include size(45px, var(--titlebar-height));
+      align-items: center;
+      display: inline-flex;
+      position: relative;
+      z-index: 999999999999999999999;
+    }
+    // Old 'TWITCHCORD' app header
+    // &::before,
+    // &::after {
+    //   z-index: 999999999999999999999;
+    //   pointer-events: none!important;
+    //   position: relative;
+    //   width: auto;
+    //   font-size: 12px;
+    //   text-transform: uppercase;
+    //   display: inline-flex;
+    //   align-items: center;
+    //   height: var(--titlebar-height);
+    // }
+    // &::before {
+    //   content: 'Twitch';
+    //   font-weight: 900;
+    //   color: #fff;
+    //   margin-left: 16px;
+    // }
+    // &::after {
+    //   content: 'cord';
+    //   font-weight: 400;
+    //   color: RGB(var(--tc-color-10));
+    //   background-color: transparent;
+    //   margin-left: 1px;
+    // }
+    svg {
+        display: none;
+    }
+  }
+  .winButton-iRh8-Z {
+      width: 45px;
+      height: var(--titlebar-height);
+      margin-top: -4px;
+      top: 0;
+      opacity: 1;
+      background-color: transparent;
+      background-repeat: no-repeat !important;
+      background-position: center !important;
+      cursor: default;
+      background-size: 10px !important;
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+      &.winButtonClose-1HsbF- {
+        &:hover {
+          background-color: RGB(var(--notification-color));
+        }
+      }
+  }
+  svg[name="TitleBarClose"] {
+      @include mask(var(--app-close-icon), #fff);
+      @include size(10px, 11px);
+  }
+
+  svg[name="TitleBarMaximize"] {
+      @include mask(var(--app-maximize-icon), #fff);
+      @include size(10px, 11px);
+  }
+
+  svg[name="TitleBarMinimize"] {
+      @include mask(var(--app-minimize-icon), #fff);
+      @include size(10px, 11px);
+  }
+
+  svg[name="TitleBarClose"] polygon, svg[name="TitleBarMaximize"] rect, svg[name="TitleBarMinimize"] rect {
+      display: none;
+  }
+}
+
+//## ixMaximized - change the maximize icon if the app is maximized or not
+.isMaximized:root {
+  svg[name="TitleBarMaximize"] {
+      @include mask(var(--app-restore-icon), #fff);
+    }
+}

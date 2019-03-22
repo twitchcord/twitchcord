@@ -1,0 +1,393 @@
+// main: _module.scss
+
+//** Pinned messages popout
+
+
+.messagesPopoutWrap-1MQ1bW {
+  background-color: RGB(var(--tc-color-3))!important;
+  color: RGB(var(--tc-tint-10));
+  box-sizing: border-box;
+  min-height: 400px;
+  max-height: 70vh !important;
+  z-index: 9999999900;
+  border-radius: 0 0 1px 1px !important;
+  border: 1px solid RGB(var(--tc-tint-3))!important;
+  box-shadow: none!important;
+  margin-right: -10px;
+  margin-top: 0;
+  width: 370px;
+  &::before,
+  &::after {
+    content: '';
+    background: transparent;
+    border-color: transparent transparent RGB(var(--tc-tint-3));
+    border-style: solid;
+    border-width: 16px;
+    color: transparent;
+    right: 1px;
+    position: absolute;
+    top: -25px;
+    pointer-events: none;
+  }
+  &::after {
+    border-color: transparent transparent RGB(var(--tc-color-3));
+    border-width: 8px;
+    right: 9px;
+    top: -15px;
+  }
+  .container-1YxwTf .message-1PNnaP .mention {
+    font-size: 12px;
+    color: #fff !important;
+    background-color: RGB(var(--tc-color-7))!important;
+    padding: 3px 6px;
+  }
+  .header-ykumBX {
+    box-shadow: none !important;
+    background-color: RGB(var(--tc-color-4))!important;
+    border-radius: 0 !important;
+    padding: 0;
+    border-bottom: 1px solid RGB(var(--tc-color-1));
+    .mentionFilter-1PQ6ey {
+      line-height: 16px;
+      padding-right: 15px;
+      font-size: 12px;
+      .label-12YslM {
+        display: none;
+      }
+      .value-2k8Drt {
+        text-transform: capitalize;
+        color: #fff;
+      }
+    }
+    .title-3pkaKd {
+      background: RGB(var(--tc-color-3));
+      padding: 0 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      line-height: 40px;
+      color: RGB(var(--tc-tint-6))!important;
+      font-size: 12px!important;
+      text-align: left;
+    }
+    .tab-bar-item {
+      border: none!important;
+      color: RGB(var(--tc-color-10))!important;
+      font-size: 12px!important;
+      font-weight: 400;
+      padding: 0!important;
+      text-transform: capitalize!important;
+      &:hover,
+      &.selected,
+      &.selected:hover, {
+          border: none!important;
+          color: RGB(var(--contrasted-color))!important;
+      }
+    }
+  }
+  .messagesPopout-24nkyi {
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: RGB(var(--tc-color-1));
+    border-radius: 0;
+    padding: 0;
+    &::-webkit-scrollbar-thumb {
+        background: RGB(var(--tc-color-5))!important;
+        border: 1px solid RGB(var(--tc-color-3))!important;
+    }
+    &::-webkit-scrollbar-track-piece {
+        background: RGB(var(--tc-color-3))!important;
+    }
+    .channelSeparator-1MxuvT {
+      margin: 0;
+      background: RGB(var(--tc-color-1));
+      padding: 0px 12px;
+      width: 100%;
+      box-sizing: border-box;
+      border: none;
+      line-height: 34px;
+      .channelName-3kBz6H {
+        font-size: 12px;
+        color: RGB(var(--tc-tint-8))!important;
+        font-weight: 700;
+      }
+      .guildName-1Bc3Ta {
+        color: RGB(var(--tc-tint-6))!important;
+        font-size: 12px;
+        margin-left: 5px;
+      }
+    }
+    // Has more and loading more divs
+    #{$messagespopouthasmore},
+    #{$messagespopoutloadingmore} {
+      position: relative;
+      // Loading more spinner
+      #{$spinnerold} {
+        #{$spinnerinnerold} {
+          &#{$spinnerwanderingcubesold} {
+            &:first-of-type {
+              @include size(16px);
+              margin-top: -16px;
+            }
+          }
+        }
+      }
+    }
+    #{$messagegroupwrapperoffsetcorrection} {
+      margin: 0;
+    }
+    #{$messagegroupwrapper} {
+      @include reset;
+      background: none;
+      border: none;
+      border-radius: 0;
+      + #{$messagegroupwrapper} {
+        border-top: 1px solid RGB(var(--tc-color-3));
+      }
+    }
+    #{$messagegroup} {
+      background-color: RGB(var(--tc-color-2))!important;
+      border: none!important;
+      border-radius: 0;
+      margin: 0;
+      width: 100%;
+      padding: 12px;
+      #{$message} {
+        margin: 0 20px 0 0;
+      }
+      &:hover {
+        background-color: RGBA(var(--tc-color-4), 0.8)!important;
+        .actionButtons-1sUUug {
+          opacity: 1;
+        }
+      }
+      &:active {
+        background-color: RGB(var(--tc-color-5))!important;
+      }
+      + #{$messagegroup} {
+        margin-top: 0;
+      }
+      // HTML5 Video
+      .wrapper-2TxpI8 {
+        max-width: 100%;
+        background: none;
+      }
+      // Server invites
+      .wrapper-35wsBm {
+        transform: scale(0.7);
+        margin-left: -25%!important;
+      }
+      #{$message} {
+        #{$avatarwrapper} {
+          width: 40px;
+          height: 40px;
+          background-size: 40px;
+          margin: 0 12px 0 0;
+          #{$avatarimage} {
+            width: 40px;
+            height: 40px;
+            background-size: 40px!important;
+            border: none!important;
+          }
+        }
+        h2 {
+          time {
+            @include ellipsis(100%, inline-block);
+            line-height: 16px;
+            font-size: 11px;
+            margin-bottom: 0;
+            &::before {
+              content: none!important;
+            }
+          }
+        }
+        #{$messageusername} {
+            color: RGB(var(--contrasted-color));
+            font-size: 12px;
+            line-height: 16px;
+            font-weight: 700;
+        }
+        #{$messagecontent} {
+          margin: -1px 6px 0 55px;
+          padding: 0;
+          #{$messagemarkup} {
+            color: RGB(var(--tc-tint-10))!important;
+            font-size: 12px;
+            margin-right: 10px;
+            pre {
+              max-width: 100%;
+              width: 100%;
+              &::-webkit-scrollbar,
+              &::-webkit-scrollbar-track,
+              &::-webkit-scrollbar-thumb {
+                visibility: hidden;
+              }
+            }
+          }
+        }
+      }
+      .actionButtons-1sUUug {
+        background: none!important;
+        box-shadow: none!important;
+        opacity: 0;
+        .jumpButton-3DTcS_ {
+          display: none;
+        }
+        #{$button}#{$buttonlookblank} {
+          @include button-undo-active;
+          background: none!important;
+          border: none!important;
+          min-width: 0;
+          min-height: 0;
+          height: auto;
+          padding: 0;
+          &:hover {
+            background: none!important;
+            border: none!important;
+          }
+          .closeButton-17RIVZ {
+            background: none!important;
+            background-color: RGB(var(--tc-tint-6))!important;
+            opacity: 1;
+            -webkit-mask: var(--close-icon);
+            mask: var(--close-icon);
+            -webkit-mask-size: 16px;
+            mask-size: 16px;
+            &:hover {
+              background-color: RGB(var(--contrasted-color))!important;
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+  .hasMore-sul95G {
+    height: 30px;
+    width: 100%;
+    margin: 10px;
+    button {
+      @extend %button-primary;
+      width: calc(100% - 20px);
+    }
+  }
+  .scrollingFooterWrap-3FDlMn {
+    height: 170px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+  .footer-1kmXd4 {
+    display: none!important;
+  }
+  .imageWrapper-2p5ogY {
+    @include size(90%!important, 100%!important);
+    margin: 0;
+    img {
+      @include size(100%!important);
+      position: relative;
+    }
+  }
+  .emptyPlaceholder-1zh-Eu.bottom-TGnsta {
+    margin: 0;
+    .body-bvcIjN {
+      font-size: 1px!important;
+      color: transparent!important;
+      visibility: hidden;
+      margin: 0;
+      line-height: 30px!important;
+      &::before {
+        content: 'I guess that\'s the end of the line.';
+        width: 100%;
+        white-space: pre-wrap;
+        font-size: 14px;
+        color: RGB(var(--tc-tint-10));
+        visibility: visible;
+      }
+    }
+    .image-2JDb81 {
+      @include reset;
+      background: url(https://i.imgur.com/Y97PFFn.png) no-repeat bottom / contain!important;
+    }
+  }
+  // Fix for embeds to make them look more coherent
+  // https://i.imgur.com/648gLDb.png
+  .embed-IeVjo6 {
+    max-width: 100%!important;
+    .embedAuthorName-3mnTWj {
+      font-size: 12px;
+    }
+    .embedInner-1-fpTo {
+      max-width: 100%;
+      .embedContent-3fnYWm {
+        display: block;
+      }
+    }
+    .embedImage-2W1cML {
+      height: auto!important;
+      margin: 10px 0;
+      img {
+        position: relative;
+      }
+    }
+  }
+}
+
+  .messagesPopoutWrap-1MQ1bW.undefined::before {
+    border-color: transparent transparent RGB(var(--tc-color-4));
+    right: 14px;
+    top: 0;
+  }
+
+  /* xxxxxxxxxxxxxxxxxxxxxxx */
+  .messagesPopout-24nkyi .emptyPlaceholder-1zh-Eu.loading-placeholder {
+      display: flex;
+      justify-content: center;
+      margin: 120px auto;
+  }
+
+  .messagesPopoutWrap-1MQ1bW.undefined .emptyPlaceholder-1zh-Eu .image-2JDb81 {
+      position:relative;
+      margin-top: -100px;
+      width: 240px;
+      height: 300px;
+      margin-left:auto;
+      margin-right:auto;
+      background:image('link-frames.png') 0 0!important;
+      animation: linkAnimation 1.3s linear;
+      animation-fill-mode: forwards;
+      animation-timing-function:step-start;
+      transform: scale(0.6)
+  }
+
+  .messagesPopoutWrap-1MQ1bW.undefined .emptyPlaceholder-1zh-Eu .body-bvcIjN {
+      margin-top: -80px;
+      color: RGB(var(--contrasted-color))!important;
+      line-height: 26px!important;
+  }
+
+  .messagesPopoutWrap-1MQ1bW.undefined .emptyPlaceholder-1zh-Eu {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      justify-content: center;
+  }
+
+
+  .messagesPopoutWrap-1MQ1bW.undefined .header-ykumBX .title-3pkaKd {
+    background: RGB(var(--tc-color-4));
+    border-bottom: none;
+    display: flex;
+    justify-content: center;
+  }
+
+  .messagesPopoutWrap-1MQ1bW.undefined {
+      width: 418px;
+      margin-top: 15px;
+      background-color: RGB(var(--tc-color-1))!important;
+      border-radius: 0!important;
+  }
+
+  // NOT DONE -- comments, .undefined elements need added to nest

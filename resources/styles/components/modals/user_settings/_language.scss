@@ -1,0 +1,56 @@
+// main: _module.scss
+
+//** Language settings
+
+
+.user-settings-locale .cardPrimary-1Hv-to {
+    background-color: RGB(var(--tc-color-4))!important;
+    border: 2px solid RGB(var(--tc-color-8))!important;
+}
+
+
+.user-settings-locale {
+  .cardPrimary-1Hv-to {
+    &~div {
+      .h5-18_1nd {
+        margin: 20px 0;
+      }
+    }
+  }
+  .item-3eFBNF {
+    padding: 10px;
+    overflow: hidden;
+    .label-1ZuVT- + div {
+      align-items: center;
+      align-content: center;
+      .description-3_Ncsb.primary-jw0I4K {
+        margin: 0;
+      }
+    }
+    &.selected-2DeaDa {
+      cursor: default;
+      background: RGB(var(--tc-color-7));
+      border: 1px solid RGB(var(--tc-color-8));
+      box-shadow: none!important;
+      .label-1ZuVT- {
+        .labelText-2kBs7x {
+          color: #fff!important;
+        }
+      }
+      .label-1ZuVT- + div {
+        .description-3_Ncsb.primary-jw0I4K {
+          color: #fff!important;
+        }
+      }
+    }
+  }
+}
+
+.user-settings-locale .checked-3_4uQ9 {
+    border: 1px solid RGB(var(--tc-color-7))!important;
+}
+
+.user-settings-locale .label-1ZuVT- .defaultColor-1_ajX0 {
+    font-size: 14px!important;
+    line-height: 22px!important;
+}

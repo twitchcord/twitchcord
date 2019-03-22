@@ -1,0 +1,20 @@
+// main: _module.scss
+
+//** Server roles settings
+
+.guild-settings-roles .side-8zPYf6 .item-PXvHYJ {
+    color: RGB(var(--tc-tint-7));
+}
+
+.guild-settings-roles .sidebarScrollable-1qPI87+.content-1orzGj>div::before {
+    content: 'Server Roles';
+    color: #fff;
+    top: -20px;
+    position: relative;
+    color: RGB(var(--tc-tint-10))!important;
+    font-weight: 400!important;
+    text-transform: none!important;
+    font-size: 24px!important;
+    line-height: 30px!important;
+    padding-bottom: 5px;
+}

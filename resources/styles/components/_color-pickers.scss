@@ -1,0 +1,30 @@
+// main: _module.scss
+
+// ==========================================================================
+//  Color pickers
+// ==========================================================================
+// Observed on server settings roles
+
+.ui-color-picker-swatch.custom, .ui-color-picker-swatch.default, .ui-color-picker-swatch, .saturation-1FDvtn>div>div, .saturation-1FDvtn>div, .hue-13HAGb>div>div, .hue-13HAGb>div>div>div>div {
+    border-radius: 0!important;
+}
+
+.ui-color-picker-swatch {
+    width: 7%!important;
+    height: 25px!important;
+    margin: 0 0 0 7px!important;
+}
+
+.ui-color-picker-swatch.custom, .ui-color-picker-swatch.default {
+    height: 50px!important;
+    width: 69px!important;
+}
+
+.ui-color-picker-row:nth-child(odd) {
+    margin-bottom: 7px;
+}
+
+.ui-color-picker-custom {
+    background: RGB(var(--tc-color-2))!important;
+    border: 1px solid RGB(var(--tc-color-4))!important;
+}

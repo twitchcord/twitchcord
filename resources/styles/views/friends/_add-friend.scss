@@ -1,0 +1,61 @@
+// main: _module.scss
+
+/*==={ ADD FRIENDS VIEW }===*/
+
+#friends .friends-table .friend-table-add-wrapper .friend-table-suggestions-header {
+    background: RGB(var(--tc-color-3));
+    border-bottom-color: RGB(var(--tc-color-4))!important;
+    border-top: 1px solid RGB(var(--tc-color-4))!important;
+    padding: 17px 30px 16px;
+    height: 40px;
+    line-height: 28px;
+}
+
+.add-friend-input-wrapper .add-friend-hint, .add-friend-input-wrapper .add-friend-input {
+    letter-spacing: 0px;
+}
+
+#friends .friends-table .friend-table-add-wrapper .friend-table-add-header {
+    background: RGB(var(--tc-color-1))!important;
+    padding-top: 20px;
+}
+
+.add-friend-input-wrapper {
+    border-radius: 0;
+    border: 1px solid RGB(var(--tc-color-4))!important;
+    color: #fff;
+    background: RGB(var(--tc-color-3))!important;
+}
+
+#friends .friends-table .friend-table-add-wrapper h2 {
+    text-transform: none;
+}
+
+#friends .btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    height: 100%;
+    border-radius: 0;
+    background-color: RGB(var(--tc-color-7));
+    transition: background-color 0.2s;
+}
+
+#friends .btn:hover {
+    background-color: RGB(var(--tc-color-8));
+}
+
+#friends .friends-table .friend-table-add-wrapper .friend-table-add-header .connect-accounts .connect-account-btn-inner {
+    border: none!important;
+    background-color: RGB(var(--tc-color-7));
+    border-radius: 0;
+    margin-right: 10px;
+    transition: background-color 0.2s;
+}
+
+#friends .friends-table .friend-table-add-wrapper .friend-table-add-header .connect-accounts .connect-account-btn-inner:hover {
+    border: none!important;
+    background-color: RGB(var(--tc-color-8))!important;
+    transition: background-color 0.2s;
+}

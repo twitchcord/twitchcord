@@ -1,0 +1,23 @@
+// main: _module.scss
+
+//** Crash screen
+
+// Background for Discord's weird wavey shape at the top
+// https://i.imgur.com/Bkasd1s.png
+.wrapper-1prNyd {
+  background-color: RGB(var(--tc-color-2))!important;
+  .image-3zK3Wt {
+    @include size(400px);
+    background: url(https://i.imgur.com/QO5fxd0.png);
+    background-size: 400px;
+  }
+  .text-NLHgOm {
+    h4 {
+      font-size: 18px;
+    }
+    .note-450gs3 {
+      font-size: 14px;
+      color: RGB(var(--tc-tint-6));
+    }
+  }
+}

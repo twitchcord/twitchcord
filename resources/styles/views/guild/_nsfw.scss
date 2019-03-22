@@ -1,0 +1,44 @@
+// main: _module.scss
+
+//** NSFW channel view
+
+#{$chat} {
+  > #{$chatcontent} {
+    #{$nsfwimage} {
+      background: url(https://i.imgur.com/FHboNgU.png) no-repeat center !important;
+      width: 391px;
+      height: 306px;
+      margin: 0 0 0 110px;
+    }
+    #{$nsfwtitle} {
+      font-size: 22px;
+      margin: 30px 0 10px;
+      color: RGB(var(--contrasted-color))!important;
+    }
+    #{$nsfwdescription} {
+      color: RGB(var(--tc-tint-7))!important;
+      font-size: 12px !important;
+      line-height: 20px !important;
+    }
+    // Continue button
+    #{$button}#{$buttonlookfilled} {
+      margin-left: 10px!important;
+    }
+    #{$nsfwseparator} {
+      position: relative;
+      width: 50%;
+      height: 1px;
+      background: none;
+      &::after {
+        content: '';
+        height: 1px;
+        width: 100%;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(to right, RGBA(var(--tc-color-10), 0) 0%, RGB(var(--tc-color-10)) 40%, RGB(var(--tc-color-10)) 60%, RGBA(var(--tc-color-10), 0) 100%);
+        animation: chatLoadingMessages 1s infinite;
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+// main: _module.scss
+
+//** Authorized apps
+
+.user-settings-authorized-apps .permission-checkmark {
+    background: image('permissions.png') no-repeat 50% !important;
+    margin-right: 5px;
+}
+
+.user-settings-authorized-apps .authed-app {
+    background: RGB(var(--tc-color-2));
+}
+
+.user-settings-authorized-apps .labelBold-1PKEeD {
+    font-size: 16px!important;
+    color: RGB(var(--tc-color-10))!important;
+}
+
+.user-settings-authorized-apps .cardPrimary-1Hv-to {
+    background-color: RGB(var(--tc-color-4))!important;
+    border: 2px solid RGB(var(--tc-color-8))!important;
+}
+
+.user-settings-authorized-apps .app-avatar {
+    border-radius: 0;
+    height: 64px;
+    width: 64px;
+}

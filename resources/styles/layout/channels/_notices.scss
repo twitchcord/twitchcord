@@ -1,0 +1,84 @@
+// main: _module.scss
+
+//** Channel notices at the top of the voice/text channel
+
+.channelNotices-41mJbj .channelNotice-1-XFjC .message-3SOT5P .btn-11C5_u {
+  @extend %button-primary;
+  @include text(#fff, 12px, 400, 28px);
+  border-radius: var(--button-roundness);
+  margin-top: 20px;
+  padding: 0;
+  transition: var(--transition-none, background 0.12s ease-in, color 0.12s ease-in, box-shadow 0.12s ease-in);
+}
+
+.channelNotices-41mJbj .channelNotice-1-XFjC,
+.channelNotices-41mJbj .channelNotice-1-XFjC.invite-OjTXrW {
+  background: none;
+  background: url(https://i.imgur.com/4MX7TAN.png) no-repeat 50%;
+  background-size: 87px 122px;
+  background-position: 75px 20px;
+  padding: 110px 20px 20px;
+}
+
+.channelNotices-41mJbj .channelNotice-1-XFjC.quickswitcher-35bYg4 {
+  // Make the quickswitcher button not clickable as it causes problems
+  // with the quickswitcher opening correctly
+  .message-3SOT5P .btn-11C5_u {
+    pointer-events: none;
+  }
+  background: none;
+  background: url(https://i.imgur.com/FfqPcK9.png) no-repeat 50%;
+  background-size: 89px 122px;
+  background-position: 78px 20px;
+  padding: 110px 20px 20px;
+}
+
+/*
+.channelNotices-41mJbj .channelNotice-1-XFjC.lfg {
+    background: image('mariogreen-pixelart.png') no-repeat 50%;
+    background-size: 46px 80px;
+    background-position: 85px 20px;
+}
+*/
+
+
+.channelNotices-41mJbj {
+  background: RGB(var(--tc-color-2));
+  border-bottom: 1px solid RGB(var(--tc-color-4))!important;
+  position: relative;
+  z-index: 2; // To put it above the unread indicator bars
+  &::before {
+    @include absolute(top 0 left 0);
+    @include size(100%);
+    content: '';
+    background: url(https://i.imgur.com/Uq8gBv4.png) no-repeat center / cover;
+    display: block;
+    mix-blend-mode: color-burn;
+    opacity: 0.2;
+    z-index: -1;
+  }
+}
+
+.channelNotices-41mJbj .channelNotice-1-XFjC .close-relY5R {
+  background: none;
+  @include mask(var(--close-icon), RGB(var(--tc-tint-9))!important);
+  min-height: 0;
+  min-width: 0;
+  opacity: 1;
+  padding: 0;
+  &:hover,
+  &:hover:active,
+  &:active {
+    background-color: RGB(var(--contrasted-color))!important;
+    opacity: 1;
+  }
+}
+
+.channelNotices-41mJbj .channelNotice-1-XFjC .message-3SOT5P {
+  @include text(RGB(var(--tc-tint-10)), 14px, 400, 20px);
+  margin: 50px 0 0px;
+}
+
+/*
+<div class="channelNotices-41mJbj"><div class="channelNotice-1-XFjC invite-OjTXrW"><button type="button" class="close-relY5R button-38aScr lookBlank-3eh9lL colorBrand-3pXr91 grow-q77ONN"><div class="contents-18-Yxp"></div></button><div class="message-3SOT5P"><div>An adventure begins.</div><div>Let's add some party members!</div><button class="btn-11C5_u">Invite People</button></div></div></div>
+*/

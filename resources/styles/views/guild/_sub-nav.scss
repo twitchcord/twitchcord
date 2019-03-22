@@ -1,0 +1,260 @@
+// main: _module.scss
+
+//** Server sub top nav
+
+// Channel header outer container
+#{$channelheadertitlewrapper} {
+  height: var(--sub-nav-height);
+  background: none !important;
+  z-index: 8;
+  position: relative;
+  left: 0;
+  padding: 0;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  // Channel header inner container
+  @at-root #{$channelheaderheaderbardrag} {
+    @include reset;
+    box-shadow: none !important;
+    background: none !important;
+    height: var(--sub-nav-height);
+    overflow: visible;
+    position: relative;
+    // Discord update button with tc class added for easier selecting
+    .tc-discordUpdateButton {
+      @include fixed(top var(--titlebar-height) right calc(var(--account-status-panel-width) + 32px));
+      display: none;
+      height: var(--main-nav-height);
+    }
+    svg {
+      // Get rid of Discord's svg inners
+      g,
+      path {
+        display: none;
+      }
+      // Video call
+      &[name="VideoCamera"] {
+        @include mask(var(--video-camera-icon), RGB(var(--tc-tint-6)));
+        &:hover {
+          background-color: RGB(var(--contrasted-color));
+        }
+      }
+      // Voice call
+      &[name="Phone"] {
+        @include mask(var(--phone-icon), RGB(var(--tc-tint-6)), 20px);
+        &:hover {
+          background-color: RGB(var(--contrasted-color));
+        }
+      }
+      // Pinned messages
+      &[name="Pin"] {
+        @include mask(var(--thumbtack-icon), RGB(var(--tc-tint-6)), 14px);
+        &:hover {
+          background-color: RGB(var(--contrasted-color));
+        }
+        &#{$channelheaderpopoutopen} {
+          background-color: RGB(var(--tc-color-8));
+        }
+      }
+      // Channel unmuted
+      &[name="NotificationBell"] {
+        @include mask(var(--server-muted-icon), RGB(var(--tc-tint-6)), 18px);
+        &:hover {
+          background-color: RGB(var(--contrasted-color));
+        }
+      }
+      // Channel muted
+      &[name="NotificationBellOff"] {
+        @include mask(var(--server-unmuted-icon), RGB(var(--tc-tint-6)), 18px);
+        &:hover {
+          background-color: RGB(var(--contrasted-color));
+        }
+      }
+      // Update/updating
+      &[name="Update"],
+      &[name="UpdateAvailable"] {
+        @include mask(var(--update-icon), rgb(0, 183, 105), 18px);
+        &:hover {
+          background-color: rgb(0, 183, 105);
+        }
+      }
+      &[name="UpdateAvailable"] {
+        animation: rotate360 1s infinite reverse;
+      }
+      // We're moving this because the popout position is based on the icon
+      &[name="Mention"] {
+        display: none;
+      }
+      // Add friends to group DM
+      &[name="PersonPlus"] {
+        @include mask(var(--group-dm-icon), RGB(var(--tc-tint-6)));
+        @include size(26px);
+        &:hover {
+          background-color: RGB(var(--contrasted-color));
+        }
+        &#{$channelheaderpopoutopen} {
+          background-color: RGB(var(--tc-color-8));
+        }
+      }
+      &[name="People"] {
+        @include mask(var(--channel-members-icon), RGB(var(--tc-tint-6)), 36px);
+        &:hover {
+          background-color: RGB(var(--contrasted-color));
+        }
+        &#{$channelheadericonactive} {
+          background-color: RGB(var(--tc-color-8));
+        }
+      }
+    }
+    // Pinned messages indicator
+    #{$channelheadericonbadge} {
+      @include size(10px);
+      box-shadow: none;
+      pointer-events: none;
+      background-color: RGB(var(--notification-color));
+      top: 5px;
+      left: 20px;
+      border: 2px solid RGB(var(--tc-color-1));
+      border-radius: 50%;
+      animation: var(--animations, newPinnedMessagePulse 1s infinite);
+    }
+    // Channel header icons container
+    > #{$flex} {
+      display: flex;
+      align-content: center;
+      align-items: center;
+      justify-content: flex-end;
+      height: var(--sub-nav-height);
+      margin: 0 10px!important;
+      min-width: var(--channel-members-width);
+      // Help
+      > span:last-of-type {
+        display: none;
+      }
+      // Mentions
+      > span:nth-last-of-type(2) {
+        @include fixed(top var(--titlebar-height) right calc(var(--account-status-panel-width) + 5px));
+        height: var(--main-nav-height);
+        pointer-events: none;
+      }
+      // Fix for the video call and voice call buttons on DMs
+      @at-root .messagesView & {
+        > div:first-of-type {
+          display: flex;
+        }
+      }
+    }
+  }
+  // Search icon
+  @at-root #{$channelheadersearch} {
+    .search {
+      display: none;
+    }
+  }
+  // Channel header icons
+  @at-root #{$channelheadericonmargin} {
+    @include flex-center;
+    @include size(34px);
+    align-content: center;
+    box-sizing: border-box;
+    margin: 0;
+    opacity: 1;
+    // Make sure the icons are full opacity
+    &:hover {
+      #{$channelheadericoninactive} {
+        opacity: 1;
+      }
+    }
+    // Make sure the icons are full opacity
+    #{$channelheadericoninactive} {
+      opacity: 1;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+  // Channel header icon divider
+  @at-root #{$channelheaderdivider} {
+    display: none;
+  }
+}
+
+#{classes('twitchcord.channelInfo')} {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: calc(100% - 50px);
+  &-ava-container {
+    @include size(calc(var(--sub-nav-guild-icon-size) + 4px));
+    background: none;
+    border: 2px solid transparent;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    margin-right: 10px;
+  }
+  // Server avatar spoofing at the top of servers
+  // https://i.imgur.com/pa8mee6.png
+  &-ava {
+    @include size(var(--sub-nav-guild-icon-size));
+    background-size: var(--sub-nav-guild-icon-size) var(--sub-nav-guild-icon-size);
+    background-color: transparent;
+    border-radius: 0;
+    cursor: default;
+    pointer-events: none;
+    margin: 0;
+  }
+  &-name-and-topic-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 100px;
+  }
+  &-topic-contain {
+    font-size: 12px;
+    font-weight: 400;
+    color: RGB(var(--tc-tint-9));
+    width: 100%;
+    line-height: 24px;
+    margin-left: 1px;
+  }
+  // Hide these when not on DMs
+  &-topic-type,
+  &-listening-song,
+  &-listening-by,
+  &-listening-artist,
+  &-listening-on {
+    display: none;
+  }
+  &-topic {
+    @include ellipsis(100%, inline-block);
+    vertical-align: bottom;
+    color: RGB(var(--tc-tint-9));
+    &:empty {
+      display: none;
+    }
+  }
+  &-header {
+    height: 20px;
+    line-height: 24px;
+    color: RGB(var(--contrasted-color));
+  }
+  &-name {
+    font-weight: 700;
+  }
+  &-name-sub {
+    font-size: 16px;
+    margin-left: 3px;
+    &:empty {
+      display: none;
+    }
+    &::before {
+      content: '#';
+    }
+  }
+}

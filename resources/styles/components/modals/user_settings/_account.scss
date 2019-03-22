@@ -1,0 +1,319 @@
+// main: _module.scss
+
+/*==={ ACCOUNT SETTINGS }===*/
+
+
+.user-settings-security-image {
+    display: none;
+}
+
+.user-settings-security>.flex-vertical>div>div>div>.description-3_Ncsb,
+.user-settings-security>.flex-vertical>div>div>div>.h5-18_1nd {
+    width: 100%;
+    padding-right: 240px;
+    height: 160px;
+    position: relative;
+    -webkit-flex: none!important;
+    flex: none!important;
+}
+
+.user-settings-security .description-3_Ncsb.primary-jw0I4K {
+    margin-bottom: 30px;
+}
+
+.user-settings-security>.flex-vertical>div>div>div>.h5-18_1nd+.flex-1xMQg5 {
+    margin-top: -130px;
+}
+
+/*.user-settings-security>.flex-vertical>div>div:last-of-type::after */
+.user-settings-security>.flex-vertical>div>div>div>.description-3_Ncsb::after,
+.user-settings-security>.flex-vertical>div>div>div>.h5-18_1nd::after {
+        content: '';
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        top: 0;
+        margin-right: 160px;
+        right: 0;
+        box-shadow: 50px 0px rgba(14,12,19,1),
+        60px 0px rgba(14,12,19,1),
+        70px 0px rgba(14,12,19,1),
+        80px 0px rgba(14,12,19,1),
+        90px 0px rgba(14,12,19,1),
+        100px 0px rgba(14,12,19,1),
+        30px 10px rgba(14,12,19,1),
+        40px 10px rgba(14,12,19,1),
+        50px 10px rgba(248,248,248,1),
+        60px 10px rgba(248,248,248,1),
+        70px 10px rgba(72,28,126,1),
+        80px 10px rgba(72,28,126,1),
+        90px 10px rgba(248,248,248,1),
+        100px 10px rgba(248,248,248,1),
+        110px 10px rgba(14,12,19,1),
+        120px 10px rgba(14,12,19,1),
+        20px 20px rgba(14,12,19,1),
+        30px 20px rgba(248,248,248,1),
+        40px 20px rgba(248,248,248,1),
+        50px 20px rgba(248,248,248,1),
+        60px 20px rgba(85,41,139,1),
+        70px 20px rgba(85,41,139,1),
+        80px 20px rgba(85,41,139,1),
+        90px 20px rgba(85,41,139,1),
+        100px 20px rgba(248,248,248,1),
+        110px 20px rgba(248,248,248,1),
+        120px 20px rgba(248,248,248,1),
+        130px 20px rgba(14,12,19,1),
+        10px 30px rgba(14,12,19,1),
+        20px 30px rgba(72,28,126,1),
+        30px 30px rgba(72,28,126,1),
+        40px 30px rgba(85,41,139,1),
+        50px 30px rgba(85,41,139,1),
+        60px 30px rgba(132,107,205,1),
+        70px 30px rgba(132,107,205,1),
+        80px 30px rgba(132,107,205,1),
+        90px 30px rgba(132,107,205,1),
+        100px 30px rgba(85,41,139,1),
+        110px 30px rgba(85,41,139,1),
+        120px 30px rgba(72,28,126,1),
+        130px 30px rgba(72,28,126,1),
+        140px 30px rgba(14,12,19,1),
+        10px 40px rgba(14,12,19,1),
+        20px 40px rgba(72,28,126,1),
+        30px 40px rgba(85,41,139,1),
+        40px 40px rgba(85,41,139,1),
+        50px 40px rgba(132,107,205,1),
+        60px 40px rgba(132,107,205,1),
+        70px 40px rgba(132,107,205,1),
+        80px 40px rgba(132,107,205,1),
+        90px 40px rgba(132,107,205,1),
+        100px 40px rgba(132,107,205,1),
+        110px 40px rgba(85,41,139,1),
+        120px 40px rgba(85,41,139,1),
+        130px 40px rgba(72,28,126,1),
+        140px 40px rgba(14,12,19,1),
+        0px 50px rgba(14,12,19,1),
+        10px 50px rgba(248,248,248,1),
+        20px 50px rgba(85,41,139,1),
+        30px 50px rgba(85,41,139,1),
+        40px 50px rgba(132,107,205,1),
+        50px 50px rgba(132,107,205,1),
+        60px 50px rgba(248,248,248,1),
+        70px 50px rgba(248,248,248,1),
+        80px 50px rgba(248,248,248,1),
+        90px 50px rgba(248,248,248,1),
+        100px 50px rgba(132,107,205,1),
+        110px 50px rgba(132,107,205,1),
+        120px 50px rgba(85,41,139,1),
+        130px 50px rgba(85,41,139,1),
+        140px 50px rgba(248,248,248,1),
+        150px 50px rgba(14,12,19,1),
+        0px 60px rgba(14,12,19,1),
+        10px 60px rgba(248,248,248,1),
+        20px 60px rgba(248,248,248,1),
+        30px 60px rgba(85,41,139,1),
+        40px 60px rgba(132,107,205,1),
+        50px 60px rgba(248,248,248,1),
+        60px 60px rgba(248,248,248,1),
+        70px 60px rgba(248,248,248,1),
+        80px 60px rgba(248,248,248,1),
+        90px 60px rgba(248,248,248,1),
+        100px 60px rgba(248,248,248,1),
+        110px 60px rgba(132,107,205,1),
+        120px 60px rgba(85,41,139,1),
+        130px 60px rgba(248,248,248,1),
+        140px 60px rgba(248,248,248,1),
+        150px 60px rgba(14,12,19,1),
+        0px 70px rgba(14,12,19,1),
+        10px 70px rgba(248,248,248,1),
+        20px 70px rgba(248,248,248,1),
+        30px 70px rgba(85,41,139,1),
+        40px 70px rgba(132,107,205,1),
+        50px 70px rgba(248,248,248,1),
+        60px 70px rgba(248,248,248,1),
+        70px 70px rgba(248,248,248,1),
+        80px 70px rgba(248,248,248,1),
+        90px 70px rgba(248,248,248,1),
+        100px 70px rgba(248,248,248,1),
+        110px 70px rgba(132,107,205,1),
+        120px 70px rgba(85,41,139,1),
+        130px 70px rgba(248,248,248,1),
+        140px 70px rgba(248,248,248,1),
+        150px 70px rgba(14,12,19,1),
+        0px 80px rgba(14,12,19,1),
+        10px 80px rgba(248,248,248,1),
+        20px 80px rgba(85,41,139,1),
+        30px 80px rgba(85,41,139,1),
+        40px 80px rgba(85,41,139,1),
+        50px 80px rgba(248,248,248,1),
+        60px 80px rgba(248,248,248,1),
+        70px 80px rgba(248,248,248,1),
+        80px 80px rgba(248,248,248,1),
+        90px 80px rgba(248,248,248,1),
+        100px 80px rgba(248,248,248,1),
+        110px 80px rgba(85,41,139,1),
+        120px 80px rgba(85,41,139,1),
+        130px 80px rgba(85,41,139,1),
+        140px 80px rgba(248,248,248,1),
+        150px 80px rgba(14,12,19,1),
+        0px 90px rgba(14,12,19,1),
+        10px 90px rgba(72,28,126,1),
+        20px 90px rgba(85,41,139,1),
+        30px 90px rgba(85,41,139,1),
+        40px 90px rgba(72,28,126,1),
+        50px 90px rgba(72,28,126,1),
+        60px 90px rgba(248,248,248,1),
+        70px 90px rgba(248,248,248,1),
+        80px 90px rgba(248,248,248,1),
+        90px 90px rgba(248,248,248,1),
+        100px 90px rgba(72,28,126,1),
+        110px 90px rgba(72,28,126,1),
+        120px 90px rgba(85,41,139,1),
+        130px 90px rgba(85,41,139,1),
+        140px 90px rgba(72,28,126,1),
+        150px 90px rgba(14,12,19,1),
+        0px 100px rgba(14,12,19,1),
+        10px 100px rgba(72,28,126,1),
+        20px 100px rgba(72,28,126,1),
+        30px 100px rgba(72,28,126,1),
+        40px 100px rgba(14,12,19,1),
+        50px 100px rgba(14,12,19,1),
+        60px 100px rgba(14,12,19,1),
+        70px 100px rgba(14,12,19,1),
+        80px 100px rgba(14,12,19,1),
+        90px 100px rgba(14,12,19,1),
+        100px 100px rgba(14,12,19,1),
+        110px 100px rgba(14,12,19,1),
+        120px 100px rgba(72,28,126,1),
+        130px 100px rgba(72,28,126,1),
+        140px 100px rgba(72,28,126,1),
+        150px 100px rgba(14,12,19,1),
+        10px 110px rgba(14,12,19,1),
+        20px 110px rgba(14,12,19,1),
+        30px 110px rgba(14,12,19,1),
+        40px 110px rgba(248,176,128,1),
+        50px 110px rgba(248,176,128,1),
+        60px 110px rgba(14,12,19,1),
+        70px 110px rgba(248,176,128,1),
+        80px 110px rgba(248,176,128,1),
+        90px 110px rgba(14,12,19,1),
+        100px 110px rgba(248,176,128,1),
+        110px 110px rgba(248,176,128,1),
+        120px 110px rgba(14,12,19,1),
+        130px 110px rgba(14,12,19,1),
+        140px 110px rgba(14,12,19,1),
+        20px 120px rgba(14,12,19,1),
+        30px 120px rgba(248,176,128,1),
+        40px 120px rgba(248,248,248,1),
+        50px 120px rgba(248,248,248,1),
+        60px 120px rgba(14,12,19,1),
+        70px 120px rgba(248,248,248,1),
+        80px 120px rgba(248,248,248,1),
+        90px 120px rgba(14,12,19,1),
+        100px 120px rgba(248,248,248,1),
+        110px 120px rgba(248,248,248,1),
+        120px 120px rgba(248,176,128,1),
+        130px 120px rgba(14,12,19,1),
+        20px 130px rgba(14,12,19,1),
+        30px 130px rgba(248,176,128,1),
+        40px 130px rgba(248,248,248,1),
+        50px 130px rgba(248,248,248,1),
+        60px 130px rgba(248,248,248,1),
+        70px 130px rgba(248,248,248,1),
+        80px 130px rgba(248,248,248,1),
+        90px 130px rgba(248,248,248,1),
+        100px 130px rgba(248,248,248,1),
+        110px 130px rgba(248,248,248,1),
+        120px 130px rgba(248,176,128,1),
+        130px 130px rgba(14,12,19,1),
+        30px 140px rgba(14,12,19,1),
+        40px 140px rgba(248,176,128,1),
+        50px 140px rgba(248,248,248,1),
+        60px 140px rgba(248,248,248,1),
+        70px 140px rgba(248,248,248,1),
+        80px 140px rgba(248,248,248,1),
+        90px 140px rgba(248,248,248,1),
+        100px 140px rgba(248,248,248,1),
+        110px 140px rgba(248,176,128,1),
+        120px 140px rgba(14,12,19,1),
+        40px 150px rgba(14,12,19,1),
+        50px 150px rgba(14,12,19,1),
+        60px 150px rgba(14,12,19,1),
+        70px 150px rgba(14,12,19,1),
+        80px 150px rgba(14,12,19,1),
+        90px 150px rgba(14,12,19,1),
+        100px 150px rgba(14,12,19,1),
+        110px 150px rgba(14,12,19,1);
+      }
+.user-settings-security>.flex-vertical>div>div>div>.h5-18_1nd::after {
+    top: -50px;
+}
+
+/* User settings cancel button move */
+.user-settings-account .buttonPrimaryLinkDefault-1PQflF, .user-settings-account .buttonTransparentLinkDefault-3hKeOz, .user-settings-account .buttonLinkDefault-3J8pja {
+    margin-right: 0;
+}
+
+.user-settings-account .view-body {
+    color: RGB(var(--tc-tint-7))!important;
+}
+
+.user-settings-account .avatar-xxlarge {
+    background-color: transparent;
+}
+
+.avatar-uploader .remove-button {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.avatar-uploader .remove-button:hover {
+    text-decoration: underline;
+}
+
+
+.avatar-uploader-inner {
+    border-color: RGB(var(--tc-color-2));
+}
+
+.avatar-uploader-inner:hover {
+    color: #fff!important;
+    box-shadow: inset 0 0 0 3px RGB(var(--tc-color-10)), inset 0 0 10px 150px RGBA(var(--tc-color-4), 0.8)!important;
+}
+
+.avatar-uploader-hint {
+    font-size: 12px;
+    text-transform: capitalize;
+}
+
+.avatar-uploader-inner {
+    border-radius: 0;
+}
+
+.avatar-uploader-indicator {
+    border-radius: 0;
+    background-color: RGB(var(--tc-color-1))!important;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij4gIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+ICAgIDxyZWN0IHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIvPiAgICA8cGF0aCBmaWxsPSIjZmZmIiBkPSJNMTMuNSw4LjI1IEwxMy41LDEyLjc1IEMxMy41LDEzLjU3ODQyNzEgMTIuODI4NDI3MSwxNC4yNSAxMiwxNC4yNSBMMS41LDE0LjI1IEMwLjY3MTU3Mjg3NSwxNC4yNSAwLDEzLjU3ODQyNzEgMCwxMi43NSBMMCwyLjI1IEMwLDEuNDIxNTcyODggMC42NzE1NzI4NzUsMC43NSAxLjUsMC43NSBMOSwwLjc1IEw2LDAuNzUgTDYsMi4yNSBMMS41LDIuMjUgTDEuNSwxMi43NSBMMTIsMTIuNzUgTDEyLDguMjUgTDEzLjUsOC4yNSBaIE04LjIyLDcuNzE3NSBMMTAuODc1LDExLjI1IEwyLjYyNSwxMS4yNSBMNC42ODc1LDguNjAyNSBMNi4xNTc1LDEwLjM3MjUgTDguMjIsNy43MTc1IFogTTEyLDIuMjUgTDE0LjI1LDIuMjUgTDE0LjI1LDMuNzUgTDEyLDMuNzUgTDEyLDYgTDEwLjUsNiBMMTAuNSwzLjc1IEw4LjI1LDMuNzUgTDguMjUsMi4yNSBMMTAuNSwyLjI1IEwxMC41LDAgTDEyLDAgTDEyLDIuMjUgWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMi4yNSAxLjUpIi8+ICA8L2c+PC9zdmc+)!important;
+    transition: background-color 0.2s;
+}
+
+.avatar-uploader-indicator:hover {
+    border-radius: 0;
+    background-color: RGB(var(--tc-color-8))!important;
+    transition: background-color 0.2s;
+}
+
+.avatar-uploader-inner {
+    background-color: RGB(var(--tc-color-8));
+}
+
+
+.userSettingsAccount-2eMFVR .userInfoViewing-16kqK3 .marginBottom20-32qID7+div .viewBody-2Qz-jg {
+    display: inline-block;
+    filter: blur(3px);
+    transition: filter 0.2s;
+}
+
+.userSettingsAccount-2eMFVR .userInfoViewing-16kqK3 .marginBottom20-32qID7+div .viewBody-2Qz-jg:hover {
+    filter: blur(0);
+    transition: filter 0.2s;
+}

@@ -1,0 +1,426 @@
+
+/*
+Forum style start
+*/
+.message {
+    width: 100%;
+}
+
+.chat .messages {
+    counter-reset: messageCount;
+}
+
+.messages .message-group .comment {
+    margin: 45px 20px 20px;
+}
+
+.messages .message-group h2 {
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.messages .avatar-large+.comment .timestamp::before {
+    display: none;
+}
+
+.messages .avatar-large+.comment .highlight-separator {
+    width: auto;
+    opacity: 1;
+    color: transparent!important;
+    position: absolute;
+    top: 215px;
+    width: 200px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    visibility: hidden;
+}
+
+.messages .avatar-large+.comment .highlight-separator::after {
+    content: none;
+    text-transform: uppercase;
+    border: 1px solid #9866ff;
+    border-radius: 2px;
+    font-weight: 400;
+    margin: 0;
+    color: #fefefe!important;
+    font-size: 10px;
+    outline: none;
+    padding: 2px 6px;
+    padding-bottom: 3px;
+    line-height: 16px;
+    position: relative;
+    width: auto;
+    display: block;
+    white-space: nowrap;
+    visibility: visible;
+
+}
+
+.messages .avatar-large+.comment .username-wrapper::before,
+.messages .avatar-large+.comment .username-wrapper::after,
+.messages .message-group .bot-tag {
+    top: 32px;
+    position: relative;
+}
+
+.messages .avatar-large+.comment .username-wrapper::after {
+    margin: 0!important;
+}
+
+.messages .avatar-large[style*="284122164582416385"]+.comment .highlight-separator::after,
+.messages .avatar-large[style*="95567914089844736"]+.comment .highlight-separator::after,
+.messages .avatar-large[style*="137236165899059200"]+.comment .highlight-separator::after {
+    content: 'Developer';
+    border-color: #3498db;
+    background: #22638f;
+    box-shadow: 0 0 5px 1px #3a3e41, inset 0 0 10px rgba(63,59,66, 0.7);
+    /*border-color: #d8d8d8;
+    background: #9e9e9e;
+    box-shadow: 0 0 5px 1px #3a3a3a, inset 0 0 10px rgba(58,58,58, 0.7);*/
+}
+
+.messages .avatar-large[style*="97549189629636608"]+.comment .highlight-separator::after {
+    content: 'Twitchcord Creator';
+    border-color: #ff6395;
+    background: #b82553;
+    box-shadow: 0 0 5px 1px #9e1842, inset 0 0 10px rgba(158,24,66, 0.7);
+}
+
+.messages .message-group h2 .user-name {
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.messages .message-group h2 .username-wrapper {
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 80px;
+    top: 0;
+    margin-top: 30px;
+    min-height: 258px;
+}
+
+.markup .hljs::before {
+    background: hsl(var(--top-nav-color));
+    border-bottom: 1px solid hsl(var(--titlebar-color));
+}
+
+
+/* =========================================== */
+/* ============== SPECIAL LABELS ============= */
+/* =========================================== */
+
+/* Beta Tester */
+.messages .avatar-large[style*="269929826075410432"]+.comment .highlight-separator::after,
+.messages .avatar-large[style*="284122164582416385"]+.comment .highlight-separator::after,
+.messages .avatar-large[style*="71575679543549952"]+.comment .highlight-separator::after,
+.messages .avatar-large[style*="173449041181409281"]+.comment .highlight-separator::after,
+.messages .avatar-large[style*="258591131758100481"]+.comment .highlight-separator::after,
+.messages .avatar-large[style*="111476801762537472"]+.comment .highlight-separator::after,
+.messages .avatar-large[style*="96269247411400704"]+.comment .highlight-separator::after,
+.messages .avatar-large[style*="90076279646212096"]+.comment .highlight-separator::after,
+.messages .avatar-large[style*="112008049975099392"]+.comment .highlight-separator::after,
+.messages .avatar-large[style*="111894694652280832"]+.comment .highlight-separator::after,
+.messages .avatar-large[style*="212749887803097088"]+.comment .highlight-separator::after,
+.messages .avatar-large[style*="250322741406859265"]+.comment .highlight-separator::after,
+.messages .avatar-large[style*="318401651029442560"]+.comment .highlight-separator::after,
+.messages .avatar-large[style*="98270968945864704"]+.comment .highlight-separator::after,
+.messages .avatar-large[style*="98829797735559168"]+.comment .highlight-separator::after,
+.messages .avatar-large[style*="274950159195176963"]+.comment .highlight-separator::after {
+    content: 'Beta Tester';
+    border-color: #ffa066;
+    background: #e56b2e;
+    box-shadow: 0 0 5px 1px #5C482E, inset 0 0 10px rgba(92, 68, 46, 0.7);
+}
+
+/* Donor */
+.messages .avatar-large[style*="167335587488071682"]+.comment .highlight-separator::after,
+.messages .avatar-large[style*="98270968945864704"]+.comment .highlight-separator::after,
+.messages .avatar-large[style*="119321587026493441"]+.comment .highlight-separator::after,
+.messages .avatar-large[style*="145799943980843008"]+.comment .highlight-separator::after,
+.messages .avatar-large[style*="157887056608100352"]+.comment .highlight-separator::after,
+.messages .avatar-large[style*="71575679543549952"]+.comment .highlight-separator::after,
+.messages .avatar-large[style*="219078125974192128"]+.comment .highlight-separator::after,
+.messages .avatar-large[style*="178214422890676224"]+.comment .highlight-separator::after,
+.messages .avatar-large[style*="211403732158513152"]+.comment .highlight-separator::after,
+.messages .avatar-large[style*="173449041181409281"]+.comment .highlight-separator::after {
+    content: 'Donor';
+    border-color: #FF6666;
+    background: #e52e2e;
+    box-shadow: 0 0 5px 1px #5c2e2e, inset 0 0 10px rgba(92, 46, 46, 0.7);
+}
+
+/* Turbo User */
+.messages .avatar-large[style*="98270968945864704"]+.comment .highlight-separator::after,
+.messages .avatar-large[style*="145799943980843008"]+.comment .highlight-separator::after,
+.messages .avatar-large[style*="211403732158513152"]+.comment .highlight-separator::after,
+.messages .avatar-large[style*="219078125974192128"]+.comment .highlight-separator::after {
+    content: 'Turbo User';
+    border-color: #9866ff;
+    background: #5f29cc;
+    box-shadow: 0 0 5px 1px #392e5c, inset 0 0 10px rgba(57, 46, 92, 0.7);
+ }
+
+ /* Turbo User v2 Custom Labels */
+ .messages .avatar-large[style*="98270968945864704"]+.comment .highlight-separator::after {
+    content: 'Eidolon Primary';
+    border-color: #b339b2;
+    background: #aa09a7;
+    box-shadow: 0 0 5px 1px #5e055d, inset 0 0 10px rgba(94,5,93, 0.7);
+ }
+
+/* Plugin Developer */
+.messages .avatar-large[style*="284122164582416385"]+.comment .highlight-separator::after,
+.messages .avatar-large[style*="95567914089844736"]+.comment .highlight-separator::after,
+.messages .avatar-large[style*="137236165899059200"]+.comment .highlight-separator::after {
+    content: 'Developer';
+    border-color: #3498db;
+    background: #22638f;
+    box-shadow: 0 0 5px 1px #3a3e41, inset 0 0 10px rgba(63,59,66, 0.7);
+    /*border-color: #d8d8d8;
+    background: #9e9e9e;
+    box-shadow: 0 0 5px 1px #3a3a3a, inset 0 0 10px rgba(58,58,58, 0.7);*/
+}
+
+/* Staff special labels */
+.messages .avatar-large[style*="97549189629636608"]+.comment .highlight-separator::after {
+    content: 'Twitchcord Creator';
+    border-color: #ff6395;
+    background: #b82553;
+    box-shadow: 0 0 5px 1px #9e1842, inset 0 0 10px rgba(158,24,66, 0.7);
+}
+
+.messages .avatar-large+.comment .timestamp::before {
+    @include time;
+    margin-right: 3px;
+    content: '';
+    display: inline-block;
+    border: none;
+    box-shadow: none;
+    padding: 9px;
+    line-height: 30px;
+    position: relative;
+    display: inline;
+    opacity: 0.7;
+}
+
+.chat .jump-to-present-bar {
+  margin: 0 8px 0 -5px;
+}
+
+.messages .message-group h2 .timestamp {
+    position: absolute;
+    left: 10px;
+    top: 0;
+    height: 30px;
+    line-height: 30px;
+    width: 190px;
+    display: inline;
+}
+
+.messages .message-group::before {
+    content: "#" counter(messageCount);
+    display: block;
+    position: absolute;
+    background: hsl(var(--titlebar-color));
+    color: #fff;
+    font-weight: 700;
+    font-size: 12px;
+    height: 30px;
+    margin-bottom: 20px;
+    width: 100%;
+    z-index: 2;
+    text-align: right;
+    padding-right: 10px;
+    line-height: 30px;
+    box-sizing: border-box;
+    border-bottom: 1px solid hsl(var(--channels-color));
+}
+
+.messages .avatar-large {
+    width: 80px;
+    background-color: hsl(var(--chat-color));
+    height: 80px;
+    background-size: 100% 100%;
+    display: block;
+    margin: 88px 55px 50px 58px;
+    z-index: 11;
+    border-color: #a373ff;
+    box-shadow: inset 0 0 0 3px hsl(var(--modal-color)), inset rgba(163, 115, 255, 1) 0px 0px 20px -5px, rgba(163, 115, 255, 0.5) 0px 0px 30px -5px!important;
+}
+
+.messages .message-group .avatar-large .status {
+    left: 15px;
+    bottom: -25px!important;
+    overflow: visible
+}
+
+.chat .message-group .comment .attachment {
+    background-color: hsl(var(--chat-color));
+    border: 1px solid hsl(var(--titlebar-color));
+    transition: border-color 0.2s;
+}
+
+.chat .message-group .comment .attachment:hover {
+    border-color: var(--button-color);
+    transition: border-color 0.2s;
+}
+
+.messages .message-group .avatar-large .status.status-online::after,
+.messages .message-group .avatar-large .status.status-idle::after,
+.messages .message-group .avatar-large .status.status-dnd::after,
+.messages .message-group .avatar-large .status.status-streaming::after,
+.messages .message-group .avatar-large .status.status-offline::after {
+    content: 'Online';
+    display: block;
+    font-size: 11px;
+    color: #fff;
+    font-weight: 700;
+    width: 200px;
+    position: absolute;
+    line-height: 20px;
+    top: -7px;
+    left: 15px;
+}
+
+.chat .message-group .avatar-large .status.status-idle::after {
+    content: 'Away';
+}
+
+.chat .message-group .avatar-large .status.status-dnd::after {
+    content: 'Busy';
+}
+
+.chat .message-group .avatar-large .status.status-streaming::after {
+    content: 'Streaming';
+}
+
+.chat .message-group .avatar-large .status.status-offline::after {
+    content: 'Offline';
+}
+
+.chat .scroller-wrap .messages.scroller {
+    margin-right: 0;
+}
+
+.message-group .comment .markup code.inline, .message-group .comment .markup pre code {
+    background: hsl(var(--chat-color))!important;
+}
+
+.message-group .comment .markup pre code.hljs {
+    background: hsl(var(--chat-color))!important;
+}
+
+.friends-table .messages .message-group-blocked.revealed .message-group, .messages-wrapper .messages .message-group-blocked.revealed .message-group {
+    padding: 0;
+    margin: 0;
+    opacity: 0.4;
+}
+
+.friends-table .messages .message-group-blocked .message-group-blocked-btn, .messages-wrapper .messages .message-group-blocked .message-group-blocked-btn {
+    background: var(--button-color)!important;
+    opacity: 0.7;
+    transition: background-color 0.2s;
+}
+
+.friends-table .messages .message-group-blocked .message-group-blocked-btn:hover, .messages-wrapper .messages .message-group-blocked .message-group-blocked-btn:hover {
+    background: var(--button-color-hover)!important;
+    transition: background-color 0.2s;
+}
+
+.friends-table .messages .message-group-blocked, .messages-wrapper .messages .message-group-blocked {
+    background: none!important;
+    margin-right: 16px;
+    margin-left: 15px;
+}
+
+.messages .message-group {
+    background: hsl(var(--channels-color));
+    border: 1px solid hsl(var(--titlebar-color));
+    counter-increment: messageCount;
+    position: relative;
+    padding: 0;
+    margin-top: 7px;
+    margin-right: 16px;
+    margin-left: 15px;
+    min-height: 290px;
+    overflow: visible!important;
+}
+
+.message-group:not(.has-divider) {
+    border-bottom-color: hsl(var(--titlebar-color))!important;
+}
+
+.messages .message-group::after {
+    content: '';
+    width: 200px;
+    height: 100%;
+    display: block;
+    position: absolute;
+    background: hsl(var(--modal-color));
+    border-right: 1px solid hsl(var(--titlebar-color));
+    z-index: 1;
+}
+
+.messages .message-group h2 span {
+    display: block;
+}
+
+.messages .message-group h2 .timestamp {
+    color: var(--dark-text-tint)!important;
+    margin-left: -4px;
+}
+
+.messages .message-group h2 strong {
+    position: absolute;
+    font-size: 18px;
+    line-height: 30px;
+    top: 15px;
+    left: 0;
+    text-align: center;
+    width: 200px;
+}
+
+.chat .divider {
+    margin: 6px 16px 6px 15px;
+}
+
+.chat form {
+    margin-right: 28px;
+}
+
+.chat .edit-message .avatar-large {
+    margin: 4px 58px;
+    width: 40px;
+    height: 40px;
+    background-size: 40px 40px;
+    margin-right: 10px;
+}
+
+.chat .message-group .edit-message .edit-container-inner {
+    padding-right: 20px;
+}
+
+.chat .message-group .edit-message .edit-container-inner .textArea-2Spzkt {
+    background: hsl(var(--chat-color));
+}
+
+.chat .has-more button {
+    font-weight: 700;
+    font-size: 11px;
+    margin-right: 20px;
+    margin-top: 16px;
+    line-height: 20px;
+}
+/************************************/

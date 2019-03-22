@@ -1,0 +1,82 @@
+// main: _module.scss
+
+// Guilds horizontal top
+// <html>.guildsHorizontalTop
+//
+
+.guildsHorizontalTop {
+  &:root {
+    --guilds-height: 70px;
+    --guilds-width: 100%;
+  }
+  #{$layer} {
+    > #{$flex} {
+      flex-direction: column;
+    }
+  }
+  #{$guildswrapper} {
+    border-right: none;
+    border-bottom: 1px solid RGB(var(--tc-color-4));
+    flex-direction: row;
+  }
+  #{$guildsscrollerwrap} {
+    @include size(var(--guilds-width), calc(var(--guilds-height) + 10px));
+  }
+  #{$guilds} {
+    margin-right: var(--guilds-height);
+    padding: 0;
+    // Needed in order to center guilds horizontally when there are very few
+    &#{$scrollerold} {
+      overflow-y: hidden;
+      overflow-x: scroll;
+      flex-direction: row;
+    }
+    // DMs container
+    #{$dms} {
+      @include size(auto, var(--guilds-height));
+      margin: 0;
+      padding: 0 5px 0 0;
+      border: none;
+      border-right: 1px solid RGB(var(--tc-color-4));
+      border-left: 1px solid RGB(var(--tc-color-4));
+      flex-direction: row;
+      #{$guild} {
+        transform: none!important;
+        animation: translateTopToBottom 0.6s;
+        // First DM margin fix
+        &:first-child,
+        // Last DM margin fix
+        &:last-child {
+          margin: auto 9px;
+        }
+      }
+      // For the first 'real' guild in the guilds list
+      + #{$guildseparator} {
+        + #{$guild} {
+          margin-left: 15px;
+        }
+      }
+    }
+    // Friends online count
+    #{$friendsonline} {
+      display: none;
+    }
+    // Guild outer container
+    #{$guild} {
+      margin: auto 9px;
+      // Selected guild indicator
+      &, &#{$guildunread}, &#{$guildselected}, &#{$guildunread}#{$guildselected} {
+        &::before {
+          @include absolute(top var(--guilds-height)!important left 0!important);
+          @include size(var(--guild-icon-size)!important, 5px!important);
+          transform: none;
+        }
+      }
+    }
+    // Join / Create Server button
+    #{$guildsadd} {
+      @include absolute(top 0 right 0 bottom unset left unset, !important);
+      @include size(calc(var(--guild-icon-size) + 30px)!important, var(--guilds-height)!important);
+    }
+  }
+}

@@ -1,0 +1,334 @@
+// main: _module.scss
+
+//** Keyframes
+
+//## "Grow" the height of status picker popout -- hardcoded height
+@keyframes statusPickerGetBigger {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 136px;
+  }
+}
+
+//## Vertical DM slide-in
+@keyframes topDownDMSlideIn {
+
+}
+
+//## Bounce in effect used for modals
+@keyframes bounceIn {
+  0%{
+    opacity: 0;
+    transform: scale(0.3) translate3d(0,0,0);
+  }
+  50%{
+    opacity: 0.9;
+    transform: scale(1.1) translate3d(0,0,0);
+  }
+  80%{
+    opacity: 1;
+    transform: scale(0.89) translate3d(0,0,0);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1) translate3d(0,0,0);
+  }
+}
+
+//## Gives the Refresh notification bar on LFG a glow pulsing effect
+@keyframes lfgRefreshBarGlow {
+  0% {
+    border-color: RGB(var(--tc-color-7));
+    box-shadow: 0 0 5px RGBA(var(--tc-color-5), 0.2), inset 0 0 5px RGBA(var(--tc-color-5), 0.1);
+  }
+  100% {
+    border-color: RGB(var(--tc-color-9));
+    box-shadow: 0 0 15px RGBA(var(--tc-color-5), 0.6), inset 0 0 10px RGBA(var(--tc-color-5), 0.4);
+  }
+}
+
+
+//## When an unread pinned message is available
+@keyframes newPinnedMessagePulse {
+  0% {
+    box-shadow: 0 0 0 0 RGB(var(--notification-color));
+  }
+  100% {
+    box-shadow: 0 0 0 6px transparent;
+  }
+}
+
+//## When user is mentioned, this is the badge that appears
+//## next to the channel name
+@keyframes mentionBadgePulse {
+  0% { transform: scale(1); }
+  20% { transform: scale(1.4); }
+  50% { transform: scale(.9); }
+  80% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+
+//## The standard circular spinner used
+@keyframes loadingSpinningCircle {
+  50% {
+    box-shadow: 16px 16px 0 0, -16px -16px 0 0, 16px -16px 0 0, -16px 16px 0 0, 0 8px 0 0, 8px 0 0 0, -8px 0 0 0, 0 -8px 0 0;
+  }
+  75% {
+    box-shadow: 16px 16px 0 0, -16px -16px 0 0, 16px -16px 0 0, -16px 16px 0 0, 0 8px 0 0, 8px 0 0 0, -8px 0 0 0, 0 -8px 0 0;
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes translateRightToLeft {
+  0% { transform: translate3d(200%, 0, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+@keyframes translateLeftToRight {
+  0% { transform: translate3d(-200%, 0, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+@keyframes translateBottomToTop {
+  0% { transform: translate3d(0, 200%, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+@keyframes translateTopToBottom {
+  0% { transform: translate3d(0, -200%, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+//## When you add a reaction to a message
+@keyframes pulseReact {
+  0% { transform: scale(1); }
+  100% { transform: scale(2); }
+}
+
+//## Used for the indicator that appears when you select a server
+// https://i.imgur.com/IIkrKTU.gifv
+@keyframes guildSelectedIndicator {
+    0% { transform: translateX(-100px); }
+    100% { transform: translateX(0); }
+}
+
+//## The pulsing line indicating new messages are loading in the chat area
+@keyframes chatLoadingMessages {
+    0% {
+        width: 0;
+        opacity: 1;
+    }
+    100% {
+        width: 100%;
+        opacity: 0;
+    }
+}
+
+//## Attempt to "fix" the highlight when you jump to a searched message
+@keyframes searchHighlightFix {
+    0% {
+        background: RGB(var(--tc-color-8));
+        color: #fff;
+    }
+    100% {
+        background: transparent !important;
+        color: inherit;
+    }
+}
+
+//## Used to makes things scale in
+@keyframes scaleIn {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+
+//## Used to makes things fade in
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+//## Used to makes things fade out
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes contentAppear {
+  0% {
+      transform: scale(0);
+      opacity: 0;
+  }
+  100% {
+      transform: none;
+      opacity: 1;
+  }
+}
+
+//## Show typing indicator on chat textarea
+@keyframes chatTypingIndicator {
+  0% {
+    height: 0;
+    line-height: 0;
+  }
+  100% {
+    height: 40px;
+    line-height: 40px;
+  }
+}
+
+//## Used on user popouts to show nickname initially
+// User Popouts
+@keyframes userPopoutNicknameHide {
+  0% {
+    height: 40px;
+  }
+  90% {
+    height: 40px;
+  }
+  100% {
+    height: 0;
+  }
+}
+
+//## Used to set to display none (usually on infinite animation things to save performance)
+// DM Notifications (archived)
+@keyframes displayNone {
+  100% {
+    display: none;
+  }
+}
+
+//## Used to scale in game popouts to imitate modals
+@keyframes scaleInGamePopout {
+  0% { transform: translate3d(0, 0, 0) scale(0.5); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+//## Slides out right to off screen
+// DM Notifications (archived)
+@keyframes slideOutToRight {
+  100% {
+    transform: translate3d(1000%, 0, 0);
+  }
+}
+
+//## Rotates 360 degrees
+// Loading spinner animation
+@keyframes rotate360 {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+//## Animation for unread messages on guilds
+@keyframes guildUnreadShake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+//## Twitch startup loading animation
+@keyframes appMountLoadingSquare1 {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  25% {
+    transform: translateX(-37.12px);
+    opacity: 1;
+  }
+  25.01% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-37.12px);
+    opacity: 0;
+  }
+}
+@keyframes appMountLoadingSquare2 {
+  0% {
+    transform: translateX(37.12px);
+    opacity: 0;
+  }
+  9% {
+    transform: translateX(37.12px);
+    opacity: 0;
+  }
+  32% {
+    transform: translateX(0);
+    opacity: .8;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+}
+
+// Generic slide-in animation
+// Used on login view
+@keyframes slideInFromTop {
+  0% { transform: translateY(-200%); }
+  100% { transform: translateY(0); }
+}
+
+// Green glow-pulse animation added to user avatars when they are speaking in call / voice channels
+@keyframes avatarSpeakingGlowGreen {
+  0% {
+      border-color: #393;
+      box-shadow: 0 0 5px rgba(0, 255, 0, 0.2), inset 0 0 5px rgba(0, 255, 0, 0.1);
+  }
+  100% {
+      border-color: #6f6;
+      box-shadow: 0 0 10px rgba(0, 255, 0, 0.4), inset 0 0 7px rgba(0, 255, 0, 0.4);
+  }
+}
+
+// Animations used when zenMode setting is activated
+@keyframes zenModeTextFlyIn {
+  0% {opacity: 0; transform: translateX(200px);}
+  100% {opacity: 1; transform: translateX(0px);}
+}
+@keyframes zenModeBuddhaFlyIn {
+  0% {opacity: 0; transform: translateX(-200px);}
+  100% {opacity: 1; transform: translateX(0px);}
+}
+
+// Used for 'LIVE' streaming background on user popouts
+@keyframes StreamingInfiniteLeft {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -197px 0;
+  }
+}
+
+// Used for 'LIVE' streaming background on user popouts and user profiles
+@keyframes StreamLivePulseCircle {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+  100% {
+    opacity: 0;
+  }
+}

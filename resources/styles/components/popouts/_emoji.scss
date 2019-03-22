@@ -1,0 +1,270 @@
+// main: _module.scss
+
+//** Emoji popout
+
+
+/* Emoji Popup */
+.bda-dark .emoji-picker,
+.emoji-picker {
+    border-radius: 0;
+    background: RGB(var(--tc-color-3));
+    border-color: RGB(var(--tc-tint-3))!important;
+    margin-right: -20px;
+    margin-bottom: -5px;
+    width: 368px;
+}
+
+.emoji-picker .scroller .row:first-of-type {
+    margin-bottom: 20px;
+}
+
+.emoji-picker .scroller {
+    margin-top: 19px;
+}
+
+.emoji-picker .scroller div:nth-of-type(3):not(.row) {
+    margin-top: -15px;
+}
+
+.emoji-picker .scroller-wrap .scroller::-webkit-scrollbar {
+    width: 10px!important;
+    visibility: visible!important;
+}
+
+.emoji-picker .scrollerFade-1Ijw5y .scroller-2FKFPG::-webkit-scrollbar-thumb {
+    background-color: RGB(var(--tc-color-5))!important;
+    border: 1px solid RGB(var(--tc-color-2))!important;
+    visibility: visible!important;
+}
+
+.emoji-picker .scrollerFade-1Ijw5y .scroller-2FKFPG::-webkit-scrollbar-track-piece {
+    background-color: RGB(var(--tc-color-2))!important;
+    visibility: visible!important;
+}
+
+.emoji-picker .sticky-header {
+    background: RGB(var(--tc-color-3));
+    top: 10px;
+}
+
+.bda-dark .emoji-picker .category,
+.emoji-picker .category {
+    font-weight: 400;
+    text-transform: capitalize;
+    letter-spacing: normal;
+    color: RGB(var(--contrasted-color));
+    font-size: 18px;
+    padding-top: 15px;
+    background: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.emoji-picker .scroller .emoji-item {
+    margin: 2px 3px 2px 3px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50%;
+}
+
+.bda-dark .emoji-picker .scroller .emoji-item.selected,
+.emoji-picker .scroller .emoji-item.selected {
+    background-color: RGB(var(--tc-color-2));
+    border-radius: 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50%;
+}
+
+.emoji-picker .scrollerWrap-2lJEkd {
+    background: RGB(var(--tc-color-3));
+    border: 0;
+}
+
+.popout-left .emoji-picker, .popout-left .emoji-picker .categories {
+    margin-left: -30px;
+}
+
+.emoji-picker .header {
+    border: none;
+}
+
+.emoji-picker .header .search-bar {
+    background: RGB(var(--tc-color-3))!important;
+    border-radius: 0!important;
+    box-shadow: none!important;
+    margin-bottom: -20px;
+    padding: 0;
+}
+
+.emoji-picker .search-bar.search-bar-light .search-bar-inner,
+.emoji-picker .search-bar .search-bar-inner {
+    background: RGB(var(--tc-color-2));
+    border-radius: 0!important;
+    border: 1px solid RGB(var(--tc-color-4));
+}
+
+.emoji-picker .search-bar input::-webkit-input-placeholder {
+    font-weight: 700;
+    color: RGB(var(--contrasted-color));
+}
+
+.emoji-picker .categories {
+    position: absolute;
+    top: -44px;
+    left: 0;
+    margin: 0;
+    background: RGB(var(--tc-color-2));
+    border: 1px solid RGB(var(--tc-color-4));
+    width: 370px;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.emoji-picker .categories .item {
+    width: 100%;
+    cursor: pointer;
+}
+
+.emoji-picker .categories .item.selected {
+    border-bottom-color: RGB(var(--tc-color-10))!important;
+}
+
+.emoji-picker .no-search-results {
+    overflow: visible;
+    height: 243px;
+}
+
+.emoji-picker .no-search-results .sad-discord {
+    background: none!important;
+    width: 300px;
+    height: 240px;
+    margin-top: -80px;
+}
+
+.emoji-picker .no-search-results .sad-discord::before {
+    content: '';
+    background: url('https://37.media.tumblr.com/7adcbd5b4c1e43e6c240b0b3804a92c7/tumblr_n4pl0xYGuF1s3bc1no3_400.gif') no-repeat 50%!important;
+    background-size: 100%!important;
+    width: 300px;
+    height: 300px;
+    transform: scale(0.4);
+    display: block;
+}
+
+/* Emoji - Nitro Users Only Popup */
+.emoji-picker .premium-promo {
+    height: 353px;
+    top: -68px;
+    width: 370px;
+    border-radius: 1px;
+    background: RGBA(var(--tc-color-2), 0.95);
+}
+
+.emoji-picker .premium-promo .premium-promo-image {
+    content: var(--transparent-pixel);
+    position: relative;
+    top: -20px;
+    left: -52px;
+    margin-bottom: 100px;
+    width: 10px;
+    height: 10px;
+    transform: scale(0.6);
+    box-shadow: 10px 10px transparent,20px 10px transparent,30px 10px transparent,40px 10px transparent,50px 10px transparent,60px 10px transparent,70px 10px transparent,80px 10px #000,90px 10px #000,100px 10px transparent,110px 10px transparent,120px 10px transparent,130px 10px transparent,140px 10px transparent,150px 10px transparent,160px 10px transparent,10px 20px transparent,20px 20px transparent,30px 20px transparent,40px 20px transparent,50px 20px transparent,60px 20px transparent,70px 20px #000,80px 20px #ff0,90px 20px #ff0,100px 20px #000,110px 20px transparent,120px 20px transparent,130px 20px transparent,140px 20px transparent,150px 20px transparent,160px 20px transparent,10px 30px transparent,20px 30px transparent,30px 30px transparent,40px 30px transparent,50px 30px transparent,60px 30px transparent,70px 30px #000,80px 30px #ff0,90px 30px #ff0,100px 30px #000,110px 30px transparent,120px 30px transparent,130px 30px transparent,140px 30px transparent,150px 30px transparent,160px 30px transparent,10px 40px transparent,20px 40px transparent,30px 40px transparent,40px 40px transparent,50px 40px transparent,60px 40px #000,70px 40px #ff0,80px 40px #ff0,90px 40px #ff0,100px 40px #ff0,110px 40px #000,120px 40px transparent,130px 40px transparent,140px 40px transparent,150px 40px transparent,160px 40px transparent,10px 50px #000,20px 50px #000,30px 50px #000,40px 50px #000,50px 50px #000,60px 50px #000,70px 50px #ff0,80px 50px #ff0,90px 50px #ff0,100px 50px #ff0,110px 50px #000,120px 50px #000,130px 50px #000,140px 50px #000,150px 50px #000,160px 50px #000,10px 60px #000,20px 60px #ff0,30px 60px #ff0,40px 60px #ff0,50px 60px #ff0,60px 60px #ff0,70px 60px #ff0,80px 60px #ff0,90px 60px #ff0,100px 60px #ff0,110px 60px #ff0,120px 60px #ff0,130px 60px #ff0,140px 60px #ff0,150px 60px #ff0,160px 60px #000,10px 70px transparent,20px 70px #000,30px 70px #ff0,40px 70px #ff0,50px 70px #ff0,60px 70px #ff0,70px 70px #000,80px 70px #ff0,90px 70px #ff0,100px 70px #000,110px 70px #ff0,120px 70px #ff0,130px 70px #ff0,140px 70px #ff0,150px 70px #000,160px 70px transparent,10px 80px transparent,20px 80px transparent,30px 80px #000,40px 80px #ff0,50px 80px #ff0,60px 80px #ff0,70px 80px #000,80px 80px #ff0,90px 80px #ff0,100px 80px #000,110px 80px #ff0,120px 80px #ff0,130px 80px #ff0,140px 80px #000,150px 80px transparent,160px 80px transparent,10px 90px transparent,20px 90px transparent,30px 90px transparent,40px 90px #000,50px 90px #ff0,60px 90px #ff0,70px 90px #000,80px 90px #ff0,90px 90px #ff0,100px 90px #000,110px 90px #ff0,120px 90px #ff0,130px 90px #000,140px 90px transparent,150px 90px transparent,160px 90px transparent,10px 100px transparent,20px 100px transparent,30px 100px transparent,40px 100px #000,50px 100px #ff0,60px 100px #ff0,70px 100px #ff0,80px 100px #ff0,90px 100px #ff0,100px 100px #ff0,110px 100px #ff0,120px 100px #ff0,130px 100px #000,140px 100px transparent,150px 100px transparent,160px 100px transparent,10px 110px transparent,20px 110px transparent,30px 110px #000,40px 110px #ff0,50px 110px #ff0,60px 110px #ff0,70px 110px #ff0,80px 110px #ff0,90px 110px #ff0,100px 110px #ff0,110px 110px #ff0,120px 110px #ff0,130px 110px #ff0,140px 110px #000,150px 110px transparent,160px 110px transparent,10px 120px transparent,20px 120px transparent,30px 120px #000,40px 120px #ff0,50px 120px #ff0,60px 120px #ff0,70px 120px #ff0,80px 120px #ff0,90px 120px #ff0,100px 120px #ff0,110px 120px #ff0,120px 120px #ff0,130px 120px #ff0,140px 120px #000,150px 120px transparent,160px 120px transparent,10px 130px transparent,20px 130px #000,30px 130px #ff0,40px 130px #ff0,50px 130px #ff0,60px 130px #ff0,70px 130px #ff0,80px 130px #000,90px 130px #000,100px 130px #ff0,110px 130px #ff0,120px 130px #ff0,130px 130px #ff0,140px 130px #ff0,150px 130px #000,160px 130px transparent,10px 140px transparent,20px 140px #000,30px 140px #ff0,40px 140px #ff0,50px 140px #ff0,60px 140px #000,70px 140px #000,80px 140px transparent,90px 140px transparent,100px 140px #000,110px 140px #000,120px 140px #ff0,130px 140px #ff0,140px 140px #ff0,150px 140px #000,160px 140px transparent,10px 150px #000,20px 150px #ff0,30px 150px #ff0,40px 150px #000,50px 150px #000,60px 150px transparent,70px 150px transparent,80px 150px transparent,90px 150px transparent,100px 150px transparent,110px 150px transparent,120px 150px #000,130px 150px #000,140px 150px #ff0,150px 150px #ff0,160px 150px #000,10px 160px #000,20px 160px #000,30px 160px #000,40px 160px transparent,50px 160px transparent,60px 160px transparent,70px 160px transparent,80px 160px transparent,90px 160px transparent,100px 160px transparent,110px 160px transparent,120px 160px transparent,130px 160px transparent,140px 160px #000,150px 160px #000,160px 160px #000;
+  }
+
+.emoji-picker .premium-promo .premium-promo-title {
+    color: RGB(var(--contrasted-color));
+}
+
+.emoji-picker .premium-promo .btn {
+    background-color: RGB(var(--tc-color-7));
+    font-size: 14px;
+    transition: background-color 0.2s;
+    border-radius: 0;
+}
+
+.emoji-picker .premium-promo .btn:hover {
+    background-color: RGB(var(--tc-color-8));
+}
+
+.emoji-picker .premium-promo .premium-promo-description {
+    font-size: 14px;
+    color: RGB(var(--tc-tint-6));
+}
+
+.emoji-picker .premium-promo .premium-promo-close:hover {
+    background-color: RGBA(var(--tc-color-7), 0.2)!important;
+}
+
+.emoji-picker .premium-promo .premium-promo-close:active {
+    background-color: RGBA(var(--tc-color-7), 0.1)!important;
+    box-shadow: 0 0 6px 0 RGB(var(--tc-color-8)), inset 0 0 0 1px RGBA(var(--tc-color-7), 0.5)!important;
+}
+/* --------------------------------- */
+
+.search-bar-light .search-bar-icon .icon.visible {
+    opacity: 1;
+    filter: brightness(300%);
+    top: 3px;
+}
+
+.emoji-picker .search-bar-light .search-bar-icon .icon.visible {
+    top: 6px;
+}
+
+.emoji-picker .categories .item {
+    -webkit-filter: contrast(0%) brightness(150%);
+    filter: contrast(0%) brightness(150%);
+    background-size: 18px;
+    opacity: 0.4;
+    position: relative;
+}
+
+.emoji-picker .categories .item.selected {
+    -webkit-filter: contrast(0%) brightness(500%);
+    filter: contrast(0%) brightness(500%);
+    opacity: 1;
+}
+
+.emoji-picker .categories .item.recent, .emoji-picker .categories .item.recent.selected, .emoji-picker .categories .item.recent:hover {
+    background-image: image('recent.svg');
+}
+
+.emoji-picker .categories .item.custom, .emoji-picker .categories .item.custom.selected, .emoji-picker .categories .item.custom:hover {
+    background-image: image('question-mark.png');
+    background-size: 14px;
+}
+
+.emoji-picker .categories .item.people, .emoji-picker .categories .item.people.selected, .emoji-picker .categories .item.people:hover {
+    background-image: image('people.svg');
+}
+
+.emoji-picker .categories .item.nature, .emoji-picker .categories .item.nature.selected, .emoji-picker .categories .item.nature:hover {
+    background-image: image('nature.svg');
+}
+
+.emoji-picker .categories .item.food, .emoji-picker .categories .item.food.selected, .emoji-picker .categories .item.food:hover {
+    background-image: image('food.svg');
+}
+
+.emoji-picker .categories .item.activity, .emoji-picker .categories .item.activity.selected, .emoji-picker .categories .item.activity:hover {
+    background-image: image('activity.svg');
+}
+
+.emoji-picker .categories .item.travel, .emoji-picker .categories .item.travel.selected, .emoji-picker .categories .item.travel:hover {
+    background-image: image('travel.svg');
+}
+
+.emoji-picker .categories .item.objects, .emoji-picker .categories .item.objects.selected, .emoji-picker .categories .item.objects:hover {
+    background-image: image('objects.svg');
+}
+
+.emoji-picker .categories .item.symbols, .emoji-picker .categories .item.symbols.selected, .emoji-picker .categories .item.symbols:hover {
+    background-image: image('symbols.svg');
+}
+
+.emoji-picker .categories .item.flags, .emoji-picker .categories .item.flags.selected, .emoji-picker .categories .item.flags:hover {
+    background-image: image('flags.svg');
+}

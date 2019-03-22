@@ -1,0 +1,534 @@
+//** Store view
+
+// When you first click on the Store, there is no Store div, just a blank div.
+// This changes the background color to match the normal Store view.
+#{$channels} {
+  + div[style="position: absolute; width: 100%; height: 100%; background-color: transparent;"] {
+    background: RGB(var(--tc-color-1))!important;
+  }
+}
+
+.applicationStore-1pNvnv {
+  background: RGB(var(--tc-color-1))!important;
+  #{$scrollerwrap} {
+    padding: 2px 2px 0 0;
+  }
+  #{$scroller} {
+    overflow-x: hidden;
+    // For the loading spinner when it first loads the Store
+    > #{$flex} {
+      height: 100%;
+    }
+  }
+  .priceSalePercentage-AqGkYF {
+    border-radius: 0;
+  }
+  .carousel-tQMSVK {
+    &::before {
+      display: none;
+    }
+  }
+  .mediaSplashContainer-2t7arR {
+    background: none!important;
+  }
+  .splashContainer-3tHzVL {
+    background: none;
+  }
+  .featuredGame-ia1yht {
+    @include text(RGB(var(--tc-color-10)), 14px, 400, $transform: capitalize);
+  }
+  .tagline-3P0yi2,
+  .summary-2fuKmg {
+    @include text(RGB(var(--tc-tint-9)), 16px, 400, 1.5);
+  }
+  .tagline-LsAYEH {
+    @include text(RGB(var(--tc-tint-9)), 14px, 400, 1.5);
+    margin-top: 10px;
+  }
+  .muteContainer-dXWpxM {
+    border-radius: 0;
+    bottom: unset;
+    right: unset;
+    top: 10px;
+    left: 10px;
+  }
+  .actionsContainer-125Xji,
+  .actionsContainer-16P_1b {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 15px 0;
+    // Game price
+    > span {
+      order: 2;
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 20px;
+      text-indent: 3px;
+    }
+  }
+  .betaTag-1tngRx {
+    border-radius: 2px;
+    background: RGB(var(--tc-color-7));
+    color: #fff;
+    padding: 2px 4px;
+  }
+  .mediaDescription-31GsyQ {
+    background: RGBA(var(--tc-color-1), 0.85)!important;
+    padding-top: 20px;
+  }
+  #{$button}#{$buttonlookoutlined} {
+    &.learnMoreButton-1VrFxX,
+    &.learnMoreButton-14-m7e {
+      @extend %button-hollow-alternate;
+      font-weight: 400!important;
+      order: 1;
+      z-index: 9999999;
+      #{$buttoncontents} {
+        line-height: 28px;
+      }
+    }
+  }
+  // 'Store' text header
+  .title-CZQTru {
+    display: none;
+  }
+  .tileWrapper-2khh-w {
+    height: 100%;
+    min-height: 370px;
+  }
+  .freeWithNitro-2bbCTS {
+    @include text(RGB(var(--contrasted-color))!important, 12px);
+  }
+  // On game details item
+  .nitroWheel-3Zi8Ke,
+  // On main Store slider
+  .nitroWheel-3ivsyE {
+    @include mask(var(--discord-nitro-badge), RGB(var(--contrasted-color)));
+    @include relative(top -2px);
+    path {
+      display: none;
+    }
+  }
+  .nitroWheel-3ivsyE {
+    margin-right: 8px;
+  }
+  .purchaseUnitOperatingSystem-cnbJPz {
+    color: RGB(var(--tc-color-10))!important;
+  }
+  .home-2gmu2h {
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: -1px auto 20px;
+    padding: 0 30px;
+  }
+  .itemBackground-1jfD8p {
+    background-color: transparent!important;
+    filter: grayscale(1);
+    opacity: 0.1;
+    &::before {
+      content: none;
+    }
+  }
+  .applicationMedia-1PPJ39 {
+    background-color: transparent!important;
+    border-radius: 0;
+    box-shadow: 0 0 55px RGBA(var(--tc-color-5), 0.75)!important;
+  }
+  .viewAllGamesButton-bY6nOl {
+    display: none!important;
+  }
+  .paginationItemContainer-2q8AX7 {
+    position: relative;
+    width: auto;
+    flex: 1;
+    opacity: 0.2;
+    height: 100%;
+    min-width: 0;
+    overflow: visible;
+    transition: opacity .2s ease;
+    filter: grayscale(1);
+    &:hover {
+      opacity: 0.4;
+      filter: grayscale(0);
+    }
+    &.paginationSelected-2bAh9R {
+      opacity: 1;
+      filter: grayscale(0);
+    }
+  }
+  // 'Play Trailer' text on slideshow video
+  .text-pPnELr {
+    display: none;
+  }
+  .distributionApplicationsActions-3D2_kD {
+    position: fixed;
+    z-index: 9;
+    margin-top: -50px;
+    // -50px here is for the margins (2 x 20px) and the scrollbar (10px)
+    width: calc(100% - var(--guilds-channels-width) - 50px);
+    border-bottom: 1px solid RGB(var(--tc-color-5))!important;
+    height: 40px;
+    display: none;
+  }
+  .distributionApplications-t8X4kq {
+    &::before {
+      content: 'Games';
+      position: relative;
+      top: 10px;
+      color: RGB(var(--tc-tint-10));
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 10px;
+      border-bottom: 1px solid RGB(var(--tc-color-4));
+      padding-bottom: 10px;
+      margin: 0 10px 30px 10px;
+      display: block;
+    }
+  }
+  .carousel-tQMSVK {
+    -webkit-mask: none;
+    mask: none;
+    overflow: visible;
+  }
+  .browseSearch-e9jF-f {
+    &.popout-open {
+      .icon-1iRNyO {
+        &[name="Clear"] {
+          color: RGB(var(--tc-tint-6));
+          display: block;
+          opacity: 1;
+          &:hover {
+            color: RGB(var(--contrasted-color));
+          }
+        }
+      }
+    }
+    .browseSearchInput-Jt8kg0 {
+      text-indent: 20px;
+      width: 230px;
+      font-size: 12px;
+    }
+    .icon-1iRNyO {
+      color: RGB(var(--tc-tint-6));
+      g,
+      path {
+        display: block;
+      }
+      &[name="Search"] {
+        @include absolute(top 5px right unset left 9px);
+        opacity: 1!important;
+        transform: none;
+      }
+      &[name="Clear"] {
+        display: none;
+      }
+    }
+  }
+  .premium-39U29H {
+    width: calc(100% + 60px);
+    border-radius: 0;
+    margin: 0 0 0px -30px;
+    position: relative;
+    background: linear-gradient(to bottom, RGB(var(--tc-color-2)) 0, RGB(var(--tc-color-1)) 90%, RGB(var(--tc-color-1)) 100%);
+    margin-top: 10px;
+    border-top: 1px solid RGB(var(--tc-color-3));
+    &::before {
+      mix-blend-mode: soft-light;
+      top: -100px;
+      left: -40px;
+      background: url(https://media.discordapp.net/attachments/291801740024479744/473245962773463050/games-cover-art-bg.png)!important;
+      height: 200%;
+      width: 200%;
+      opacity: 0.15;
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      bottom: 0;
+      content: "";
+      position: absolute;
+      right: 0;
+    }
+    &::after {
+      content: '';
+      background: linear-gradient(to top, RGB(var(--tc-color-1)) 0, RGBA(var(--tc-color-1), 0) 100%);
+      height: 100px;
+      width: 100%;
+      display: block;
+      z-index: 999999;
+      pointer-events: none;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+    .item-287JPa {
+      margin-right: 20px!important;
+    }
+    .carouselItemImage-3TXzRw {
+      border: 4px solid RGB(var(--tc-color-1));
+      border-radius: 0;
+      transition: box-shadow 0.15s ease-in;
+      &:hover {
+        box-shadow: 0 0 35px RGBA(var(--tc-color-5), 1)!important;
+      }
+    }
+    .carouselGameBlurb-2CViiR {
+      @include ellipsis(100%);
+      @include text(RGB(var(--contrasted-color)), 16px, 400);
+      font-style: normal;
+      margin: 10px;
+      text-align: left;
+    }
+    #{$button} {
+      &.learnMoreButton-1OUyxs {
+        height: 40px;
+        background: transparent!important;
+        border: 2px solid RGB(var(--tc-color-7));
+      }
+      &#{$buttonlookblank} {
+        &.prevButtonContainer-Rc83MJ,
+        &.nextButtonContainer-30eXDb {
+          @include size(50px);
+          background: none!important;
+          min-width: 0;
+          opacity: 0.4;
+          padding: 0;
+          top: -70px;
+          &:hover {
+            background: none!important;
+            opacity: 1;
+          }
+          .arrow-2ZP1wS {
+            @include size(40px);
+            background-color: RGB(var(--tc-tint-9));
+          }
+        }
+        &.prevButtonContainer-Rc83MJ {
+          left: 40px;
+        }
+        &.nextButtonContainer-30eXDb {
+          right: 40px;
+        }
+      }
+    }
+  }
+  .premiumSubheader-15Q0Z6 {
+    @include text(RGB(var(--tc-tint-9)), 18px);
+  }
+  .premiumApplicationsHeader-Zmkm5e {
+    border-bottom: 1px solid RGB(var(--tc-color-4));
+    margin-top: 40px;
+    padding-bottom: 10px;
+  }
+  .gridHeader-2bFHRC {
+    @include relative(top 10px);
+    @include text(RGB(var(--tc-tint-10)), 14px, 400, 30px);
+  }
+  .headerBarDrag-3bf7wG {
+    background: RGB(var(--tc-color-2)) !important;
+    border-bottom: 1px solid RGBA(var(--tc-color-4), 0.7);
+    height: 60px;
+    justify-content: flex-end;
+  }
+  .heroCarousel-k7LeGl {
+    margin-bottom: 40px;
+  }
+  .carouselContainer-1KvOK0 {
+    position: relative;
+    // 59px to counteract the margin.
+    // Decreased from 60px to add a 1px gap from the scrollbar
+    width: calc(100% + 59px);
+    margin: 0 0 10px -30px;
+  }
+  .distributionApplicationsSort-2_uq5y {
+    padding-bottom: 0;
+    border: none;
+    position: relative;
+    transition: none;
+    color: RGB(var(--tc-tint-9));
+    opacity: 1;
+    font-size: 14px;
+    &::after {
+      content: '';
+      background: RGB(var(--tc-color-7));
+      height: 1px;
+      width: 100%;
+      position: absolute;
+      bottom: -14px;
+      display: none;
+    }
+    &:hover::after {
+      display: block;
+    }
+    &.selectedSort-2JSohJ {
+      color: RGB(var(--contrasted-color));
+      &::after {
+        display: block;
+      }
+    }
+  }
+  .pagination-2WQt4H {
+    width: 100%;
+  }
+  .arrow-2ZP1wS {
+    @include mask(var(--down-arrow-icon), RGBA(var(--tc-tint-6), 0.5));
+    polygon {
+      display: none;
+    }
+  }
+  #{$button}#{$buttonlookblank} {
+    &.prevButtonContainer-Rc83MJ,
+    &.nextButtonContainer-30eXDb {
+      @include button-undo-active;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      background: none!important;
+      border: none!important;
+      min-width: 0;
+      padding: 0;
+      width: 30px!important;
+      z-index: 1;
+      &:hover {
+        background: RGBA(var(--tc-color-4), 0.5)!important;
+        .arrow-2ZP1wS {
+          background-color: #fff;
+        }
+      }
+    }
+    &.prevButtonContainer-Rc83MJ {
+      left: -30px;
+      .arrow-2ZP1wS {
+        transform: rotate(90deg);
+      }
+    }
+    &.nextButtonContainer-30eXDb {
+      right: -30px;
+      .arrow-2ZP1wS {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+  .tile-2H4MQG {
+    margin: 0 15px 30px;
+  }
+  .tileRegular-2ZMczj {
+    width: calc(25% - 30px);
+  }
+  .tileBlog-aja9RV, .tileMedia-9UNSXC {
+    width: calc(50% - 30px);
+  }
+  .description-1eVELi {
+    padding: 20px;
+  }
+  .tag-HanR-9 {
+    background: RGB(var(--tc-color-7))!important;
+    border-radius: 0;
+    padding: 6px 20px;
+    &.exclusiveRegular-2fa-uC {
+      bottom: 99%;
+    }
+    &::before {
+      display: none;
+    }
+  }
+  .text-1OO51R {
+    @include text(#fff, 11px, 400);
+  }
+  .mediaFade-4Pqtcc {
+    background: linear-gradient(180deg,transparent 90%, RGB(var(--tc-color-3)))!important;
+  }
+  .tileWrapper-2khh-w  {
+    background: RGB(var(--tc-color-3))!important;
+    border-radius: 0;
+    box-shadow: 0 2px 4px -1px rgba(0,0,0,0.34), 0 2px 2px -2px rgba(0,0,0,0.26), 0 1px 4px 0 rgba(0,0,0,0.28) !important;
+    box-sizing: border-box;
+    transition: opacity 0.15s ease-in;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  .blog-2nw4E8 {
+    background: var(--games-background-placeholder);
+    mix-blend-mode: luminosity;
+    &::before {
+      background: #000;
+      opacity: 0.3;
+    }
+  }
+  .priceOSSection-1uhTom {
+    @include text(RGB(var(--contrasted-color)), 12px, 700);
+  }
+  .announcingNitro-3Ptg6m {
+    @include text(#fff, 10px, 400, $transform: uppercase);
+    background: RGB(var(--tc-color-5));
+    border: none;
+    border-radius: 2px;
+    margin: 0 0 0 20px;
+    padding: 4px;
+    &:hover {
+      color: #fff;
+    }
+  }
+  .viewAllDistributionWrapper--wpKqW {
+    @include reset;
+    @include relative(top -3px);
+  }
+  .viewAllGames-3LNpt1 {
+    @extend %button-primary;
+    @include button-base;
+    span {
+      line-height: 28px;
+      padding: 10px;
+    }
+  }
+  .viewAllIcon-1NItEP {
+    display: none;
+  }
+  .paginationContainer-1b6TFc {
+    margin-top: 15px;
+    position: relative;
+    #{$scroller} {
+      overflow: visible;
+      width: 100%;
+    }
+  }
+  .emptyStateHeader-3CJtAy {
+    @include text(RGB(var(--contrasted-color)), 24px, 400, 30px);
+  }
+  .emptyStateDescription-2IePen {
+    @include text(RGB(var(--tc-tint-7)), 14px);
+  }
+  .footer-3oZnEF {
+    display: none;
+  }
+  .overlappingBorder-1ysb12 {
+    border: none;
+    height: 5px;
+    top: unset;
+    bottom: -10px;
+    background: RGB(var(--tc-color-7));
+    border-radius: 0;
+    animation: bounceIn 0.3s;
+  }
+}
+
+.tc-storemediaview {
+  margin-left: 20px;
+  &-icon {
+    @include mask(var(--movie-reel-icon), RGB(var(--tc-tint-6)));
+    @include size(24px);
+    cursor: pointer;
+    display: block;
+    &:hover {
+      background-color: RGB(var(--contrasted-color));
+    }
+    @at-root .storeMediaView & {
+      background-color: RGB(var(--tc-color-7));
+      &:hover {
+        background-color: RGB(var(--tc-color-7));
+      }
+    }
+  }
+}

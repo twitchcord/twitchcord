@@ -1,0 +1,46 @@
+// main: _module.scss
+
+//** New Terms of Service modal
+
+.ui-new-terms-modal {
+    background: RGB(var(--tc-color-3));
+    border: 1px solid RGB(var(--tc-color-4));
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.ui-new-terms-modal .title {
+    margin-bottom: 10px;
+}
+
+.ui-new-terms-modal .button-container {
+    background-color: RGB(var(--tc-color-2));
+}
+
+.ui-new-terms-modal .ack {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.ui-new-terms-modal .checkbox-1ix_J3 {
+    border: 1px solid RGB(var(--tc-color-4))!important;
+    background: RGB(var(--tc-color-2));
+    border-radius: 0;
+    margin-right: 10px;
+    box-shadow: none!important;
+}
+
+.ui-new-terms-modal .checked-3_4uQ9 {
+    background: RGB(var(--tc-color-7))!important;
+}
+
+.ui-new-terms-modal div:nth-last-child(2),
+.ui-new-terms-modal div:nth-last-child(4) {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.ui-new-terms-modal .bd-blue *[style*="border-color: rgb(114, 137, 218)"] {
+    border-color: RGB(var(--tc-color-4))!important;
+}

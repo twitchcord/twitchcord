@@ -1,0 +1,142 @@
+// main: _module.scss
+
+//** Server audit log settings
+
+.guild-settings-audit-logs-user-filter-popout .ui-search-bar .input,
+.guild-settings-audit-logs-action-filter-popout .ui-search-bar .input {
+  padding-right: 30px;
+}
+
+.guild-settings-audit-logs-user-filter-popout,
+.guild-settings-audit-logs-action-filter-popout {
+  padding-bottom: 7px;
+}
+
+.guild-settings-audit-logs-user-filter-popout .ui-search-bar .ui-search-bar-icon,
+.guild-settings-audit-logs-action-filter-popout .ui-search-bar .ui-search-bar-icon {
+  position: absolute;
+  right: 10px;
+}
+
+.guild-settings-audit-logs-user-filter-popout .ui-search-bar .input:focus + .ui-search-bar-icon .icon.visible,
+.guild-settings-audit-logs-action-filter-popout .ui-search-bar .input:focus + .ui-search-bar-icon .icon.visible {
+  opacity: 1;
+}
+
+.guild-settings-audit-logs-user-filter-popout .ui-selectable-item svg g,
+.guild-settings-audit-logs-action-filter-popout svg g {
+  display: none;
+}
+
+.guild-settings-audit-logs-user-filter-popout .ui-selectable-item svg,
+.guild-settings-audit-logs-action-filter-popout svg {
+  background: image('friends.png') no-repeat 50%;
+  background-size: 30px;
+  top: -1px;
+  position: relative;
+}
+
+.guild-settings-audit-logs-user-filter-popout .scrollerWrap-2lJEkd,
+.guild-settings-audit-logs-action-filter-popout .scrollerWrap-2lJEkd {
+  background: none;
+  border: none;
+}
+
+.guild-settings-audit-logs-user-filter-popout .scroller-2CvAgC,
+.guild-settings-audit-logs-action-filter-popout .scroller-2CvAgC {
+  padding-bottom: 0;
+}
+
+.guild-settings-audit-logs-user-filter-popout .ui-selectable-item,
+.guild-settings-audit-logs-action-filter-popout .ui-selectable-item {
+  border-radius: 0;
+  background-color: RGB(var(--tc-color-3));
+  margin: 0;
+  margin-right: 10px;
+  transition: background-color 0.2s;
+  line-height: 16px;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 30px;
+}
+
+.guild-settings-audit-logs-user-filter-popout .ui-selectable-item.selected,
+.guild-settings-audit-logs-action-filter-popout .ui-selectable-item.selected,
+.guild-settings-audit-logs-user-filter-popout .ui-selectable-item.selected:hover,
+.guild-settings-audit-logs-action-filter-popout .ui-selectable-item.selected:hover {
+  background-color: RGB(var(--tc-color-7))!important;
+  transition: background-color 0.2s;
+}
+
+.guild-settings-audit-logs-user-filter-popout .ui-selectable-item:hover,
+.guild-settings-audit-logs-action-filter-popout .ui-selectable-item:hover {
+  background-color: RGB(var(--tc-color-2))!important;
+  transition: background-color 0.2s;
+}
+
+.guild-settings-audit-logs-user-filter-popout .ui-selectable-item svg[name="Checkmark"],
+.guild-settings-audit-logs-action-filter-popout svg[name="Checkmark"] {
+    background: image('checkmark.png') no-repeat 50%;
+    background-size: 18px;
+    top: 0;
+}
+
+.guild-settings-audit-logs-action-filter-popout {
+    position: relative;
+    right: 46px;
+}
+
+.guild-settings-audit-logs-user-filter-popout {
+    position: relative;
+    right: 14px;
+}
+
+.guild-settings-audit-logs-action-filter-popout,
+.guild-settings-audit-logs-user-filter-popout {
+    background: RGB(var(--tc-color-3))!important;
+    border: 1px solid RGB(var(--tc-color-4));
+    border-radius: 0;
+    box-shadow: 0 0 45px rgba(0, 0, 0, 0.6) !important;
+}
+
+
+.ui-standard-sidebar-view .guild-settings-audit-logs .custom-scroller>div {
+    max-width: 100%;
+    background-color: RGB(var(--tc-color-3));
+    border: 1px solid RGB(var(--tc-color-4));
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: 10px;
+    padding: 10px 42px 50px 41px!important;
+}
+
+.ui-standard-sidebar-view .guild-settings-audit-logs .ui-quick-select {
+    margin-right: 140px;
+}
+
+.ui-standard-sidebar-view .guild-settings-audit-logs .custom-header>div:first-of-type>div:first-of-type .ui-quick-select {
+    margin-right: 0;
+}
+
+// Audit log row
+.auditLog-3jNbM6 {
+    border: none!important;
+    border-radius: 0;
+    color: var(--dark-text-tint)!important;
+}
+
+.headerClickable-2IVFo9, .headerDefault-1wrJcN, .headerExpanded-CUEwZ5 {
+    background: RGB(var(--tc-color-2))!important;
+}
+
+.changeDetails-bk98pu {
+    background: RGB(var(--tc-color-4))!important;
+}
+
+.ui-standard-sidebar-view .guild-settings-audit-logs .custom-scroller {
+    margin-right: 5px;
+}
+
+.ui-standard-sidebar-view .guild-settings-audit-logs.custom-column+.tools {
+    right: 1px;
+}

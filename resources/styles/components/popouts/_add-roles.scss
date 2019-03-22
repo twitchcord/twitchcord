@@ -1,0 +1,154 @@
+// main: _module.scss
+
+//** Add roles popout
+
+#autocomplete-popout header {
+    border-radius: 0;
+    height: 34px;
+    background-color: RGB(var(--tc-color-1));
+    z-index: 1;
+}
+
+#autocomplete-popout .autocomplete-header-background {
+  background: none!important;
+  border-radius: 0!important;
+}
+
+.popoutTop-3uu9vG #autocomplete-popout header {
+  border-top: 1px solid RGB(var(--tc-color-3));
+}
+
+.popoutBottom-1YbShG #autocomplete-popout header {
+  border-bottom: 1px solid RGB(var(--tc-color-3));
+}
+
+#autocomplete-popout .row.selected a span, #autocomplete-popout .row:hover a span {
+    color: RGB(var(--contrasted-color))!important;
+}
+#autocomplete-popout .scroller-2FKFPG {
+  height: auto;
+  max-height: 240px;
+  margin: 0;
+  padding-bottom: 100%;
+  margin-bottom: -100%;
+  overflow-y: auto;
+      pointer-events: none;
+}
+
+.popout-3sVMXz section:after, .popout-3sVMXz section:before {
+  display: none;
+}
+
+#autocomplete-popout section {
+  background: none!important;
+  border-radius: 0;
+}
+#autocomplete-popout {
+  border-radius: 2px;
+  background: RGB(var(--tc-color-3));
+  border: 1px solid RGB(var(--tc-tint-3));
+}
+
+#autocomplete-popout .autocomplete-shadow {
+  box-shadow: none!important;
+  border-radius: 2px;
+}
+
+#autocomplete-popout .scrollerWrap-2lJEkd {
+  box-shadow: none!important;
+  border: none!important;
+  border-radius: 0;
+  padding: 0;
+  background: none;
+  padding: 10px 3px 10px 10px;
+  > div[style="width: 100%; height: 0px;"] {
+    height: 5px!important;
+  }
+}
+
+#autocomplete-popout .empty p {
+  font-size: 12px;
+  margin: -15px 0 20px;
+  color: RGB(var(--tc-tint-7))!important;
+}
+
+#autocomplete-popout .scroller-2FKFPG::-webkit-scrollbar {
+    width: 6px!important;
+}
+
+#autocomplete-popout .scroller-2FKFPG div:last-of-type {
+  display: none;
+}
+
+#autocomplete-popout .scroller-2FKFPG::-webkit-scrollbar-track,
+#autocomplete-popout .scroller-2FKFPG::-webkit-scrollbar-track-piece {
+  margin-bottom: 25%;
+  border: none;
+}
+
+#autocomplete-popout .scroller-2FKFPG::-webkit-scrollbar-thumb,
+#autocomplete-popout .scroller-2FKFPG::-webkit-scrollbar-track,
+#autocomplete-popout .scroller-2FKFPG::-webkit-scrollbar-track-piece {
+    visibility: visible!important;
+}
+
+#autocomplete-popout .row.selected, #autocomplete-popout .row:hover {
+    background: none!important;
+}
+
+.theme-dark #autocomplete-popout .empty h4 {
+  color: RGB(var(--tc-tint-10));
+  font-size: 16px;
+  font-weight: 400;
+}
+
+#autocomplete-popout .row,
+#autocomplete-popout .row span {
+  position: relative;
+  display: inline-block;
+  float: left;
+  padding: 2px;
+}
+
+// The actual role names container
+#autocomplete-popout .row > span > span {
+  border: 2px solid currentColor;
+  width: calc(100% - 1px);
+  box-sizing: border-box;
+  border-radius: 3px;
+  margin: 3px;
+  line-height: 16px;
+  opacity: 0.8;
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 700;
+  height: auto;
+  text-align: center;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+#autocomplete-popout .row {
+  padding: 0!important;
+  pointer-events: all;
+}
+
+#autocomplete-popout h3 {
+  color: RGB(var(--tc-tint-9))!important;
+  font-size: 12px;
+}
+
+#autocomplete-popout input[type=text]::-webkit-input-placeholder {
+  color: RGB(var(--tc-tint-6))!important;
+}
+
+#autocomplete-popout input[type=text] {
+  color: RGB(var(--contrasted-color));
+  font-size: 12px;
+  margin-bottom: 0;
+}
+
+#autocomplete-popout .autocomplete-arrow-wrapper {
+  display: none;
+}

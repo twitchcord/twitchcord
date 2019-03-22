@@ -1,0 +1,19 @@
+// main: _module.scss
+
+//** Voice / video call
+
+.ui-call-avatar-border {
+    border-radius: 0!important;
+}
+
+.ui-call-avatar-border {
+    border: 1px solid transparent;
+}
+
+.ui-call-avatar-border.voice.speaking {
+    -webkit-animation: glow-green 800ms ease-out infinite alternate;
+    animation: glow-green 800ms ease-out infinite alternate;
+    border: 1px solid #393!important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}

@@ -1,0 +1,24 @@
+///  main: _module.scss
+///  ==========================================================================
+///  Game boxart image replacements
+///  ==========================================================================
+
+
+// Game preview modal boxart
+#{$gamespreviewmodal} #{$gamespreviewmodalsidebar} #{$gameicon},
+// Activity feed boxart
+#{$gamesfeed} #{$gamesfeeditem} #{$gamesfeeditemheader} #{$gameicon},
+// Quicklauncher boxart
+#{$gamesfeed} #{$gamesfeedquicklaunch} #{$gamesfeedquicklaunchitem} #{$gamesfeedquicklaunchicon},
+// Rich presence invite boxart in the chat area
+#{$messagerichpresenceinvite} #{$messagerichpresencecoverimage},
+// Library game added confirmation modal boxart
+.confirmContent-GnT1qw #{$gameicon},
+// Game boxart in Library
+.gameLibrary-TTDw4Y #{$gameicon} {
+  @each $name, $id in $games {
+    &[style*="#{$id}"] {
+      background: boxart('#{slugify($name)}') no-repeat center / cover!important;
+    }
+  }
+}

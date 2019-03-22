@@ -1,0 +1,137 @@
+// main: _module.scss
+
+//** Tooltips
+
+// Add tooltip to locked voice channel on hover
+#{classes('layout.channels.wrapperLockedVoice')} {
+  &::before {
+    @include text(RGB(var(--tooltip-text-color))!important, 12px, 400, 18px);
+    animation: fadeIn 0.15s ease-in forwards;
+    background: RGB(var(--tooltip-color))!important;
+    border: 1px solid RGB(var(--tooltip-border-color))!important;
+    border-radius: 1px!important;
+    padding: 6px 20px;
+    text-align: center;
+    z-index: 9999999;
+  }
+}
+
+// Tooltips
+#{$tooltip} {
+  @include text(RGB(var(--tooltip-text-color))!important, 12px, 400, 18px);
+  animation: fadeIn 0.15s ease-in forwards;
+  background: RGB(var(--tooltip-color))!important;
+  border: 1px solid RGB(var(--tooltip-border-color))!important;
+  border-radius: 1px!important;
+  padding: 6px 20px;
+  text-align: center;
+  z-index: 9999999;
+  // Tooltip brand tooltips and tooltip black tooltips
+  &#{$tooltipbrand},
+  &#{$tooltipblack} {
+    &#{$tooltipleft} {
+      &::before {
+        @include absolute(top 50% left 100%);
+        @include triangle(right, RGB(var(--tooltip-border-color)), calc(var(--tooltip-arrow-size) + 2px));
+        border-radius: 0;
+        margin-top: calc(var(--tooltip-arrow-size) * -1 - 2px);
+        pointer-events: none;
+      }
+      &::after {
+        @include triangle(right, RGB(var(--tooltip-color)), var(--tooltip-arrow-size));
+        border-radius: 0;
+        margin-top: calc(var(--tooltip-arrow-size) * -1);
+      }
+    }
+    &#{$tooltipright} {
+      &::before {
+        @include absolute(top 50% right 100%);
+        @include triangle(left, RGB(var(--tooltip-border-color)), calc(var(--tooltip-arrow-size) + 2px));
+        border-radius: 0;
+        margin-top: calc(var(--tooltip-arrow-size) * -1 - 2px);
+        pointer-events: none;
+      }
+      &::after {
+        @include triangle(left, RGB(var(--tooltip-color)), var(--tooltip-arrow-size));
+        border-radius: 0;
+        margin-top: calc(var(--tooltip-arrow-size) * -1);
+      }
+    }
+    &#{$tooltiptop} {
+      &::before {
+        @include absolute(top 100% left 50%);
+        @include triangle(bottom, RGB(var(--tooltip-border-color)), calc(var(--tooltip-arrow-size) + 2px));
+        border-radius: 0;
+        margin-left: calc(var(--tooltip-arrow-size) * -1);
+        pointer-events: none;
+      }
+      &::after {
+        @include triangle(bottom, RGB(var(--tooltip-color)), var(--tooltip-arrow-size));
+        border-radius: 0;
+        margin-left: calc(var(--tooltip-arrow-size) * -1 + 2px);
+      }
+    }
+    &#{$tooltipbottom} {
+      &::before {
+        @include absolute(bottom 100% left 50%);
+        @include triangle(top, RGB(var(--tooltip-border-color)), calc(var(--tooltip-arrow-size) + 2px));
+        border-radius: 0;
+        margin-left: calc(var(--tooltip-arrow-size) * -1);
+        pointer-events: none;
+      }
+      &::after {
+        @include triangle(top, RGB(var(--tooltip-color)), var(--tooltip-arrow-size));
+        border-radius: 0;
+        margin-left: calc(var(--tooltip-arrow-size) * -1 + 2px);
+      }
+    }
+  }
+  // Tooltip top and bottom
+  &#{$tooltiptop},
+  &#{$tooltipbottom} {
+    margin-left: -2px;
+  }
+  // Tooltip top
+  &#{$tooltiptop} {
+    margin-top: -15px;
+  }
+  // Tooltip bottom
+  &#{$tooltipbottom} {
+    margin-top: 15px;
+  }
+  // Tooltip left and right
+  &#{$tooltipright},
+  &#{$tooltipleft} {
+    margin-top: 0;
+  }
+  // Red, danger tooltips
+  &#{$tooltipred} {
+    background-color: RGB(var(--notification-color));
+    &#{$tooltipright} {
+      &::after {
+        border-right-color: RGB(var(--notification-color));
+      }
+    }
+    &#{$tooltipleft} {
+      &::after {
+        border-left-color: RGB(var(--notification-color));
+      }
+    }
+  }
+}
+
+// Settings grabber tooltips
+#{$bubble} {
+  @include size(80px, auto);
+  @include text(RGB(var(--tooltip-text-color))!important, 12px, 400, 18px);
+  background: RGB(var(--tooltip-color))!important;
+  border-radius: 1px!important;
+  left: -35px;
+  padding: 6px 20px;
+  text-align: center;
+  top: -36px;
+  white-space: nowrap;
+  &::before {
+    border-top-color: RGB(var(--tooltip-color))!important;
+  }
+}

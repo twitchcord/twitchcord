@@ -1,0 +1,431 @@
+// main: _module.scss
+
+//** Fixed Video
+//** Core plugin for Twitchcord [VideoPlayer]
+
+//## Tooltips
+#{$tooltip} {
+  &#{classes('twitchcord.videoTooltip')} {
+    @include text(#fff!important, 12px, 400, 20px);
+    background: rgba(0, 0, 0, 0.8)!important;
+    border: none!important;
+    margin-left: 0;
+    margin-top: 3px;
+    padding: 0 5px;
+    pointer-events: none;
+    &.tooltip-top-left {
+      margin-left: 5px;
+    }
+    &.tooltip-top-right {
+      margin-left: -20px;
+    }
+    &#{classes('twitchcord.videoTimebarTooltip')} {
+      @include text($size: 13px, $lh: 24px);
+      background: rgba(0,0,0,.95)!important;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5), 0 15px 45px rgba(0, 0, 0, 0.2)!important;
+      display: inline-block;
+      height: 24px;
+      margin: 0;
+      text-align: center;
+      &::after {
+        @include triangle(bottom, rgba(0, 0, 0, 0.95), 7px);
+        display: block;
+      }
+    }
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+}
+
+// Outer most container
+#{classes('twitchcord.fixedVideo')} {
+  $grandfather: &;
+  // Drag border around the video
+  --video-resize-thickness: 6px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  // Video iframe
+  #tc-fixedvideo-player {
+    pointer-events: none;
+    vertical-align: bottom;
+    background: #000;
+  }
+  &-frame {
+    pointer-events: auto;
+    position: absolute;
+    z-index: 9999999;
+    border: none!important;
+    background: #000!important;
+    transform: scale(0);
+    opacity: 0;
+    margin-top: calc(var(--main-nav-height) + 30px);
+    transition: transform 0.2s, opacity 0.2s;
+    // Used for the video shadow
+    &::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: calc(100% + 30px);
+      position: absolute;
+      top: -30px;
+      box-shadow: 0 5px 35px RGBA(var(--tc-color-5), 0.35);
+    }
+    // Animation at start to bring video into view
+    &#{$grandfather}-video-in-anim {
+      animation: scaleIn 0.2s forwards, fadeIn 0.2s forwards;
+    }
+    // Animation applies on tc-video-in-anim animation end
+    &#{$grandfather}-video-in {
+      opacity: 1 !important;
+      transform: scale(1) !important;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+  }
+  // Video iframe container
+  &-iframe-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+  }
+  // Video titlebar
+  &-titlebar {
+    height: 30px;
+    cursor: move;
+    background: RGB(var(--tc-tint-1))!important;
+    box-sizing: border-box;
+    position: absolute;
+    top: -30px;
+    #{$grandfather}-button-close {
+      @include absolute(top 0 right 0);
+      @include mask(var(--close-icon), RGB(var(--tc-tint-12)), 15px);
+      @include size(30px);
+      cursor: pointer;
+      border-radius: 0!important;
+      margin: 0!important;
+      &:hover {
+        background-color: RGB(var(--tc-color-10))!important;
+      }
+    }
+    #{$grandfather}-title-frame {
+      display: inline-block;
+      height: 100%;
+    }
+    #{$grandfather}-title {
+      float: left;
+      text-transform: none;
+      cursor: pointer;
+      min-width: 150px;
+      max-width: 70%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: RGB(var(--tc-tint-12))!important;
+      font-size: 14px;
+      height: 100%;
+      text-indent: 10px;
+      line-height: 30px;
+      &:hover {
+        color: RGB(var(--tc-color-10))!important;
+      }
+    }
+  }
+  // Buttons container
+  &-button {
+    &-bar {
+      width: 100%;
+      top: unset;
+      transform: none;
+      border-radius: 0;
+      opacity: 0;
+      background: linear-gradient(0deg,rgba(0,0,0,.8) 0,rgba(0,0,0,.35) 60%,transparent);
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      pointer-events: none;
+      z-index: 3;
+      padding-top: 40px!important;
+      height: 58px;
+      margin: 0;
+      will-change: opacity;
+      transition: opacity .15s ease-out;
+    }
+    &-fullscreen,
+    &-play,
+    &-pause,
+    &-volume-frame {
+      background-image: none;
+      background-color: #fff;
+      position: absolute;
+      right: 0!important;
+      bottom: 0!important;
+      top: unset!important;
+      left: unset!important;
+      height: 40px!important;
+      width: 40px!important;
+      pointer-events: all;
+      margin: 0!important;
+      cursor: pointer;
+      &:hover {
+        background-color: RGB(var(--tc-color-10));
+      }
+    }
+    &-fullscreen {
+      @include mask(var(--video-fullscreen-icon), $size: 30px);
+      right: 5px!important;
+    }
+    &-play {
+      @include mask(var(--video-play-icon), $size: 24px);
+      left: 5px!important;
+      right: unset!important;
+    }
+    &-pause {
+      @include mask(var(--video-pause-icon), $size: 30px);
+      left: 5px!important;
+      right: unset!important;
+    }
+    &-volume-frame {
+      cursor: default;
+      background: none!important;
+      display: flex;
+      left: 35px!important;
+      right: unset!important;
+      width: auto!important;
+      padding-right: 30px;
+      &:hover {
+        #{$grandfather}-volume-slider-container-outer {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  &-volume {
+    &-icon {
+      @include mask(var(--video-volume-icon), #fff, $size: 30px);
+      @include size(40px!important);
+      cursor: pointer;
+      pointer-events: all;
+      &:hover {
+        background-color: RGB(var(--tc-color-10));
+      }
+      &.muted {
+        @include mask(var(--video-volume-muted-icon), #fff, $size: 30px);
+        &:hover {
+          background-color: RGB(var(--tc-color-10));
+        }
+      }
+    }
+    &-slider-container-outer {
+      cursor: pointer;
+      display: flex;
+      opacity: 0;
+      transition: opacity 0.1s ease-out;
+    }
+    &-slider-container {
+      display: flex;
+      align-items: center;
+      align-content: center;
+      justify-content: center;
+      position: relative;
+    }
+    &-slider {
+      margin: 0!important;
+      -webkit-appearance: none!important;
+      border: none;
+      cursor: pointer;
+      height: 4px!important;
+      width: 100px!important;
+      outline: none;
+      background-color: RGB(var(--tc-color-10));
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 4px;
+        height: 12px;
+        cursor: pointer;
+        background: #fff;
+      }
+    }
+  }
+  // Progress bar watched so far
+  &-timebar {
+    background: RGB(var(--tc-color-10))!important;
+    position: relative;
+    z-index: 10;
+    height: 4px;
+    pointer-events: none;
+    // Progress bar container
+    &-frame {
+      position: absolute;
+      cursor: pointer;
+      pointer-events: all;
+      display: flex;
+      align-items: center;
+      height: 24px!important;
+      bottom: 30px;
+      margin: 0 15px;
+      width: calc(100% - 30px);
+      background: none!important;
+      &::before {
+        content: '';
+        background: rgba(255,255,255,0.35)!important;
+        width: 100%;
+        height: 4px;
+        position: absolute;
+      }
+      &:hover {
+        #{$grandfather}-timebar {
+          &::before {
+            opacity: 1;
+          }
+        }
+      }
+    }
+    &::before {
+      content: '';
+      pointer-events: none;
+      opacity: 0;
+      width: 14px;
+      height: 14px;
+      right: -5px;
+      top: -5px;
+      border-radius: 50%;
+      display: block;
+      position: absolute;
+      background: RGB(var(--tc-color-10));
+      cursor: pointer;
+      outline: none;
+      z-index: 2;
+      box-shadow: inset 0 0 0 5px #fff;
+      transition: opacity 0.1s ease-out;
+    }
+  }
+  // Video resize border divs
+  &-resize {
+    &-n {
+      cursor: n-resize;
+      position: absolute;
+      left: 0;
+      top: calc(-1 * var(--video-resize-thickness) - 30px);
+      width: 100%;
+      height: var(--video-resize-thickness);
+    }
+    &-e {
+      cursor: e-resize;
+      position: absolute;
+      left: 100%;
+      top: -30px;
+      width: var(--video-resize-thickness);
+      height: calc(100% + 30px);
+    }
+    &-s {
+      cursor: s-resize;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      width: 100%;
+      height: var(--video-resize-thickness);
+    }
+    &-w {
+      cursor: w-resize;
+      position: absolute;
+      left: calc(-1 * var(--video-resize-thickness));
+      top: -30px;
+      width: var(--video-resize-thickness);
+      height: calc(100% + 30px);
+    }
+  }
+  // Class added to embed when video is playing
+  &-video-playing {
+    * {
+      pointer-events: none;
+    }
+    &-svg {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: RGB(var(--tc-color-2));
+      z-index: 2;
+      padding-top: 20px;
+    }
+    &::after {
+      content: '';
+      background-size: 350px;
+      background-position: 50% calc(50% + 15px);
+      background-repeat: no-repeat;
+      background-color: RGB(var(--tc-color-1));
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    &::before {
+      content: 'Video is currently playing...';
+      font-size: 14px;
+      line-height: 70px;
+      color: RGB(var(--tc-tint-9));
+      width: 100%;
+      text-align: center;
+      white-space: nowrap;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      z-index: 3;
+    }
+  }
+  // Show button bar on video container hover
+  &:hover {
+    #{$grandfather}-button-bar {
+      opacity: 1;
+    }
+  }
+  // Fullscreen mode
+  @at-root .videoMaximized & {
+    &-frame {
+      height: 100%!important;
+      width: 100%!important;
+      top: 0!important;
+      left: 0 !important;
+      margin: 0!important;
+    }
+    &-titlebar {
+      display: none;
+    }
+    &-button {
+      &-bar {
+        height: 78px;
+      }
+      &-pause,
+      &-play {
+        left: 15px!important;
+      }
+      &-volume-frame {
+        left: 45px!important;
+      }
+      &-fullscreen {
+        @include mask(var(--video-exit-fullscreen-icon), $size: 30px);
+        right: 15px!important;
+      }
+    }
+    &-timebar {
+      &-frame {
+        margin: 0 25px;
+        width: calc(100% - 50px);
+      }
+    }
+  }
+}

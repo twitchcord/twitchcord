@@ -1,0 +1,201 @@
+// main: _module.scss
+
+//** Login screen
+
+// Login page container
+.splashBackground-1FRCko.wrapper-3Q5DdO {
+  &::before {
+    display: none;
+  }
+  // Background container
+  .rightSplit-2US0xy {
+    background: linear-gradient(to top, RGB(var(--tc-color-3)) 0, RGB(var(--tc-color-1)));
+    // Actual background img
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: -100px;
+      left: 30px;
+      background: url(https://media.discordapp.net/attachments/291801740024479744/473245962773463050/games-cover-art-bg.png)!important;
+      height: 200%;
+      width: 200%;
+      opacity: 0.15;
+    }
+    .image-2jyRAK {
+      content: var(--transparent-pixel);
+      opacity: 0!important;
+    }
+  }
+  // Activated when user successfully logs in
+  &.loggingIn-3Hi-BU {
+    .canvas-3XuBXe {
+      left: 0!important;
+      @include size(100%!important);
+    }
+  }
+  // Discord blobby thing
+  .canvas-3XuBXe {
+    @include size(75%!important);
+    @include fixed(top 0!important left 30%!important);
+    margin: 0 auto;
+    opacity: 1;
+    transform: scale(-1, 1)!important;
+    mix-blend-mode: color-dodge;
+    filter: brightness(1.8) saturate(0);
+    display: none;
+  }
+  // Login box container
+  .leftSplit-1qOwnR {
+    width: 100%!important;
+    max-width: none!important;
+    max-height: none!important;
+    .wrapper-6URcxg {
+      right: 0!important;
+      justify-content: center!important;
+      border-top: 2px solid RGB(var(--tc-color-1));
+      border-bottom: 2px solid RGB(var(--tc-color-1));
+    }
+    // Login box outter container
+    .authBox-hW6HRx {
+      background: #fff;
+      border-radius: 2px;
+      opacity: 1;
+      width: 375px;
+      box-shadow: 0px 0px 100px RGBA(var(--glow-color), 0.25), 0px 0px 10px RGBA(var(--glow-color), 0.5)!important;
+      animation: slideInFromTop 0.6s forwards;
+      // Key image when it requires reCAPTCHA after multiple logins in succession
+      // https://i.imgur.com/4B4HClU.jpg
+      &> img {
+        display: none;
+      }
+      // Replace the welcome header text with "TWITCHCORD"
+      .title-jXR8lp {
+        text-transform: uppercase;
+        font-weight: 900;
+        margin: 0;
+        visibility: hidden;
+        font-size: 0;
+        line-height: 10px;
+        &::before {
+          content: 'Twitch';
+          color: RGB(var(--tc-color-7));
+          letter-spacing: -1px;
+          visibility: visible;
+          font-size: 30px;
+        }
+        &::after {
+          content: 'cord';
+          visibility: visible;
+          font-size: 30px;
+          font-weight: 400;
+          letter-spacing: -1px;
+          color: RGB(var(--tc-tint-5));
+        }
+      }
+      // "We're so excited to see you again!"
+      .subTitle-3TUjmF {
+        font-size: 12px;
+        color: RGB(var(--tc-tint-3));
+        &::after {
+          content: '';
+          background: RGB(var(--tc-color-7)) url(https://i.imgur.com/ZbNKjcQ.png);
+          background-size: 130px;
+          height: 100px;
+          width: 100px;
+          display: block;
+          margin: 20px auto;
+          opacity: 0.2;
+          border-radius: 50%;
+          background-position: center bottom -28px;
+          background-repeat: no-repeat;
+          filter: brightness(1.7) saturate(0.3);
+          mix-blend-mode: hard-light;
+        }
+        +.flexCenter-3_1bcw {
+          > div > div {
+            @include size(302px!important, 86px!important);
+            > div {
+              @include size(302px!important, 80px!important);
+              background: RGB(var(--tc-color-10));
+              iframe {
+                mix-blend-mode: hard-light;
+              }
+            }
+          }
+        }
+      }
+      // Login box inner container
+      .block-egJnc0 {
+        // When you enter a bad email/password
+        .errorMessage-3Guw2R {
+          color: RGB(var(--notification-color));
+          font-style: normal;
+        }
+        // 'Email' and 'Password' field labels
+        .h5-18_1nd {
+          display: block;
+          margin-bottom: 5px;
+          font-weight: 700;
+          color: RGB(var(--tc-tint-3))!important;
+          font-size: 12px!important;
+          text-transform: capitalize;
+          letter-spacing: 0;
+        }
+        .input-cIJ7To {
+          height: 30px;
+          border-radius: 0;
+          background: #fff!important;
+          border: 1px solid RGB(var(--tc-tint-10))!important;
+          color: RGB(var(--tc-tint-5))!important;
+          font-size: 12px;
+          font-weight: 400;
+          box-shadow: none;
+          &:hover {
+            border: 1px solid RGB(var(--tc-tint-10));
+          }
+          &:focus {
+            border: 1px solid RGB(var(--tc-tint-10));
+            box-shadow: 0 0 3px RGBA(var(--tc-color-7), 0.2);
+          }
+        }
+        .button-38aScr.lookLink-9FtZy- {
+          background: none!important;
+          .contents-18-Yxp {
+            font-size: 11px;
+            font-weight: 400;
+            line-height: 16px;
+            color: RGB(var(--tc-color-7));
+            background: none!important;
+          }
+          &:hover {
+            .contents-18-Yxp {
+              text-decoration: underline;
+            }
+          }
+          &.smallRegisterLink-2LCrMe {
+            background: none!important;
+            min-height: 0;
+            min-width: 0;
+            margin-left: 4px!important;
+            .contents-18-Yxp {
+              font-size: 12px;
+            }
+          }
+        }
+        .button-38aScr.lookFilled-1Gx00P {
+          margin-top: 20px!important;
+          height: 40px;
+          width: 100%;
+        }
+        .needAccount-23l_Wh, .subText-1XkjIB {
+          font-size: 12px;
+          color: RGB(var(--tc-tint-3));
+        }
+      }
+      a {
+        color: RGB(var(--tc-color-7));
+      }
+    }
+  }
+}

@@ -1,0 +1,128 @@
+///  main: _module.scss
+///  ==========================================================================
+///  Voice connected
+///  ==========================================================================
+///  Appears at the bottom of channels list when connected to voice
+
+
+// Main container
+#{classes('layout.channels.voiceConnected.container')} {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 10px 9px;
+  padding: 4px 5px;
+  box-sizing: border-box;
+  background: RGB(var(--tc-color-3));
+  border: 1px solid RGB(var(--tc-tint-2));
+  width: calc(100% - 20px);
+  position: relative;
+  height: 50px;
+  &:hover {
+    #{classes('layout.channels.voiceConnected.rtcConnectionStatus')} {
+      #{classes('layout.channels.voiceConnected.ping')} {
+        opacity: 1;
+      }
+    }
+  }
+  #{classes('layout.channels.voiceConnected.rtcConnectionStatus')} {
+    color: transparent; // Hide the text
+    // Ping bar
+    #{classes('layout.channels.voiceConnected.ping')} {
+      pointer-events: none;
+      height: 1px;
+      width: calc(100% + 2px);
+      position: absolute;
+      bottom: -2px;
+      left: -1px;
+      margin: 0;
+      background-image: none;
+      opacity: 0;
+      transition: opacity 0.15s;
+      display: none; // Decided to remove it, don't really care for it
+    }
+    // Good connection quality
+    &#{classes('layout.channels.voiceConnected.rtcConnectionQualityFine')} {
+      #{classes('layout.channels.voiceConnected.ping')} {
+        background: rgb(136, 227, 36);
+      }
+    }
+    // Okay connection quality
+    &#{classes('layout.channels.voiceConnected.rtcConnectionQualityAverage')} {
+      #{classes('layout.channels.voiceConnected.ping')} {
+        background: rgb(247, 205, 36);
+      }
+    }
+    // Bad connection quality
+    &#{classes('layout.channels.voiceConnected.rtcConnectionQualityBad')} {
+      #{classes('layout.channels.voiceConnected.ping')} {
+        background: rgb(229, 43, 43);
+      }
+    }
+  }
+  // Channel name
+  #{classes('layout.channels.voiceConnected.channel')},
+  // Discord's inner voice connected container, holds all the stuff above
+  // Since we're display none'ing this, we don't really need almost all  of the
+  // code above, but leaving it in case I decide to revert ever
+  #{classes('layout.channels.voiceConnected.inner')} {
+    display: none;
+  }
+  // Inserted with JS. Appears when connected to voice chat.
+  #{classes('twitchcord.voiceConnected')} {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    &-container {
+      flex: 1 1 0%;
+      margin: 0px 4px 0px 10px;
+      text-align: left;
+      min-width: 0px;
+    }
+    &-server-name {
+      @include ellipsis(100%, inline-block);
+      line-height: 16px;
+      color: RGB(var(--contrasted-color));
+      font-size: 12px;
+      max-width: 100%;
+      cursor: default;
+    }
+    &-time-connected {
+      color: RGB(var(--tc-tint-6));
+      font-weight: 400;
+      font-size: 11px;
+      cursor: default;
+    }
+    &-disconnect,
+    &-deafen,
+    &-mute {
+      cursor: pointer;
+      display: flex;
+      background-color: RGB(var(--tc-tint-9));
+      height: 30px;
+      width: 30px;
+      &:hover {
+        background-color: RGB(var(--contrasted-color));
+      }
+    }
+    &-disconnect {
+      @include mask(var(--hang-up-icon), RGB(var(--notification-color)), 28px);
+      &:hover {
+        background-color: RGB(var(--notification-color-hover));
+      }
+    }
+    &-deafen {
+      @include mask(var(--undeafened-icon), $size: 22px);
+      &.deafened {
+        @include mask(var(--deafened-icon), $size: 22px);
+      }
+    }
+    &-mute {
+      @include mask(var(--unmuted-icon), $size: 36px);
+      &.muted {
+        @include mask(var(--muted-icon), $size: 36px);
+      }
+    }
+  }
+}

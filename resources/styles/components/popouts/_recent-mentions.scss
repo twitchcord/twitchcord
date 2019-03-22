@@ -1,0 +1,30 @@
+// main: _module.scss
+
+//** Recent mentions popout
+
+.messagesPopoutWrap-1MQ1bW.recentMentionsPopout-2fmau1 {
+  margin-top: -10px;
+  .header-ykumBX .headerTabBarWrapper-27xBDe {
+    padding: 10px 12px;
+    margin: 0;
+  }
+  &::before {
+    right: -1px;
+    top: -35px;
+  }
+  &::after {
+    right: 7px;
+    top: -25px;
+  }
+  @at-root #{classes('twitchcord.clearAllMentions')} {
+    background: none;
+    color: RGB(var(--tc-tint-10));
+    height: 24px;
+    padding: 0 10px;
+    transition: background-color 0.15s ease-in, color 0.15s ease-in;
+    &:hover {
+      background-color: RGBA(var(--tc-color-7), 0.2);
+      color: RGB(var(--contrasted-color));
+    }
+  }
+}

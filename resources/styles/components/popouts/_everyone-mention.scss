@@ -1,0 +1,95 @@
+// main: _module.scss
+
+//** Everyone/Here mention popout
+// https://i.imgur.com/QIs7iOl.png
+
+.everyonePopout-nEbJY3 {
+  width: 490px;
+  background: RGB(var(--tc-color-3))!important;
+  border-radius: 1px;
+  border: 1px solid RGB(var(--tc-color-4));
+  box-shadow: 0 2px 4px -1px rgba(0,0,0,.34),0 2px 2px -2px rgba(0,0,0,.26),0 1px 4px 0 rgba(0,0,0,.28)!important;
+  opacity: 0;
+  animation: fadeIn 0.3s forwards, translateBottomToTop 0.3s forwards;
+  .body-2iXqIL {
+    align-items: center;
+    .content-L5mYq4 {
+      margin-top: 10px;
+    }
+    .header-3_S6dz {
+      font-size: 22px;
+      margin: 0 0 10px;
+      color: RGB(var(--tc-tint-10))!important;
+      text-transform: none;
+      font-weight: 400;
+      letter-spacing: 0;
+      &+div {
+        color: RGB(var(--tc-tint-7))!important;
+        font-size: 12px !important;
+        line-height: 18px !important;
+      }
+    }
+    strong {
+      color: RGB(var(--tc-tint-9));
+    }
+    .icon-2qOzDL {
+      path {
+        fill: RGB(var(--contrasted-color));
+      }
+    }
+    .buttonHint-2OxJB8 {
+      color: RGB(var(--tc-tint-6));
+      font-size: 11px;
+      strong {
+        color: RGB(var(--tc-color-10));
+      }
+    }
+    .animation-3GofIz {
+      @include size(171px, 150px);
+      svg {
+        @include size(171px!important, 150px!important);
+        background: url(https://i.imgur.com/Gv1JVp0.png) no-repeat center;
+        background-size: 171px 150px;
+        & > g {
+          transform: translate(-20px, 0);
+          & > g {
+            &:nth-of-type(1),
+            &:nth-of-type(2),
+            &:nth-of-type(3),
+            &:nth-of-type(4),
+            &:nth-of-type(5),
+            &:nth-of-type(6),
+            &:nth-of-type(7),
+            &:nth-of-type(8),
+            &:nth-of-type(9),
+            &:nth-of-type(12),
+            &:nth-of-type(13),
+            &:nth-of-type(14),
+            &:nth-of-type(15),
+            &:nth-of-type(16) {
+              display: none!important;
+            }
+            &:nth-of-type(10),
+            &:nth-of-type(11) {
+              > g:first-of-type {
+                path {
+                  fill: RGB(var(--contrasted-color));
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .footer-2aTx0s {
+    background: RGB(var(--tc-color-2))!important;
+    border-top: 1px solid RGBA(var(--tc-color-4), 0.7);
+    color: RGB(var(--tc-tint-6));
+    .icon-2qOzDL {
+      path {
+        fill: RGB(var(--tc-tint-6));
+      }
+    }
+  }
+}

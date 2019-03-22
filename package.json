@@ -7,14 +7,17 @@
   "private": true,
   "scripts": {
     "build": "cd src && copyfiles **/*.json ../dist && cd .. && tsc",
-    "setup": "npm install && cd src/modules/OldLoader/old-core && npm install && npm run setup"
+    "node-sass-for-electron": "npm explore node-sass -- npm run build -- -m=69 --target=4.0.8",
+    "watch-sass": "node resources/scripts/watch-sass.js",
+    "setup": "npm install && npm run node-sass-for-electron"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.123",
     "@types/node": "^11.10.5",
     "@types/react": "16.4.18",
-    "@types/lodash": "^4.14.123",
     "copyfiles": "^2.1.0",
     "electron": "^4.0.7",
+    "node-sass": "TomSputz/node-sass#electron-69",
     "ts-node": "^8.0.3",
     "typescript": "^3.3.3333"
   }

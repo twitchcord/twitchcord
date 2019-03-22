@@ -1,0 +1,65 @@
+// main: _module.scss
+
+//** Game info popout
+
+.popout-2xBvMR {
+  background: RGB(var(--tc-color-2))!important;
+  border-radius: 0;
+  box-shadow: 0 2px 4px -1px rgba(0,0,0,0.34), 0 2px 2px -2px rgba(0,0,0,0.26), 0 1px 4px 0 rgba(0,0,0,0.28) !important;
+  padding: 0 15px 20px!important;
+  &::before {
+    content: 'Game Info';
+    background: RGB(var(--tc-color-6)) var(--info-circle-icon) no-repeat left 10px top 7px / 50px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    width: calc(100% + 30px);
+    margin-left: -15px;
+    margin-bottom: 5px;
+    text-indent: 32px;
+  }
+  &::after {
+    content: '';
+    @include size(0);
+    @include absolute(top 30px left 0);
+    border-right: 10px solid transparent;
+    border-top: 10px solid RGB(var(--tc-color-6));
+  }
+  .username-2gp_Xw {
+    color: RGB(var(--tc-color-10))!important;
+  }
+  .description-2Ifi6N {
+    color: RGB(var(--tc-tint-9))!important;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+  .popoutSocialInfo-1qhqSY {
+    border-bottom: 1px solid RGB(var(--tc-color-3))!important;
+  }
+  .circle-1nK_79 {
+    border-radius: 0;
+    color: #fff!important;
+  }
+  .iconCircle-1dlYo0 {
+    background-color: RGB(var(--tc-color-5))!important;
+    border-radius: 0;
+  }
+  .description-2jnn3p {
+    display: flex;
+    flex-direction: column;
+  }
+  .smallHeader-2h-9-U {
+    @include text(RGB(var(--tc-tint-6))!important, 12px, 400);
+    margin: 2px 0 0 0;
+    order: 2;
+  }
+  .text-1Z3P6i {
+    @include text(RGB(var(--contrasted-color))!important, 15px, 400);
+    order: 1;
+  }
+}

@@ -1,0 +1,674 @@
+// main: _module.scss
+
+//** Friends list core styling
+
+#friends .friends-table .friends-row#{classes('twitchcord.friendPlaceholder')},
+#friends .friends-table .friends-row+.friends-row#{classes('twitchcord.friendPlaceholder')} {
+  flex: 1 0 auto;
+  border: none!important;
+  cursor: default;
+  pointer-events: none;
+}
+
+#friends .friends-table .friends-row .friends-column-status .friend-activity-text, #friends .friends-table .friends-row .friends-column-status .status-text {
+  @include ellipsis(100%, inline-block);
+}
+
+.tc-button {
+  &.primary {
+    @extend %button-primary;
+  }
+}
+
+.tc-label {
+  &.search {
+    display: flex;
+    color: RGB(var(--tc-tint-9));
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    cursor: pointer;
+    transition: left 0.2s ease;
+  }
+}
+
+.tc-input {
+  &.filter {
+    width: 100%;
+    padding: 11px 26px 11px 30px;
+    box-sizing: border-box;
+    box-shadow: none;
+    border: 1px solid RGB(var(--tc-tint-3));
+    color: RGB(var(--tc-tint-9));
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 400;
+    background: RGB(var(--tc-color-2));
+    transition: width, background, padding, 0.2s ease;
+    display: block;
+    border-radius: 0px;
+    height: 30px;
+    &::-webkit-input-placeholder {
+      color: RGB(var(--tc-tint-6));
+    }
+  }
+}
+
+#{classes('twitchcord.addFriend')} {
+  $grandfather: &;
+  height: var(--friends-sub-nav-height);
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(https://i.imgur.com/rDxfCbN.png) no-repeat;
+  background-position: center center;
+  display: flex;
+  border-bottom: 1px solid RGBA(var(--tc-color-4), 0.7);
+  border-top: 2px solid RGB(var(--tc-color-2));
+  box-sizing: border-box;
+  cursor: default;
+  user-select: none;
+  &-howmany {
+    font-size: 48px;
+    color: RGB(var(--contrasted-color));
+    font-weight: 900;
+    margin-left: 25px;
+    display: flex;
+    height: 48px;
+    top: 8px;
+    position: relative;
+    align-items: center;
+    letter-spacing: -3px;
+  }
+  &-text-contain {
+    position: relative;
+    top: 14px;
+    margin-left: 10px;
+    display: flex;
+    align-content: center;
+    height: 38px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    flex-direction: column;
+    #{$grandfather}-peopleare {
+      font-size: 12px;
+      color: RGB(var(--tc-tint-6));
+      position: relative;
+      letter-spacing: 0;
+      margin-bottom: 3px;
+    }
+    #{$grandfather}-active {
+      font-size: 22px;
+      color: RGB(var(--tc-color-10));
+      position: relative;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+  }
+}
+#{classes('html.styles.friends.tile')} {
+  #{classes('twitchcord.friendsListOptions')}-background-tile {
+    background: RGB(var(--tc-color-7))!important;
+  }
+}
+
+#{classes('html.styles.friends.tile')} {
+  #{classes('twitchcord.friendsListOptions')}-tile {
+    background: RGB(var(--tc-color-7))!important;
+  }
+}
+
+#{classes('html.styles.friends.grid')} {
+  #{classes('twitchcord.friendsListOptions')}-grid {
+    background: RGB(var(--tc-color-7))!important;
+  }
+}
+
+#{classes('twitchcord.friendsListOptions')} {
+  $grandfather: &;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  top: calc(var(--main-nav-height) + 1px);
+  height: var(--friends-options-height);
+  flex-direction: row;
+  padding: 0 10px 0 20px;
+  &-ul {
+    display: flex;
+    flex: 1 1 0%;
+    flex-wrap: wrap;
+    align-items: center;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    #{$grandfather}-li {
+      display: inline-block;
+      margin-right: 3px;
+      &:first-of-type {
+        margin-right: 15px;
+      }
+      &:last-of-type {
+        margin: 0 15px;
+      }
+      #{$grandfather}-item {
+        position: relative;
+        font-size: 14px;
+        white-space: nowrap;
+        line-height: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 400;
+      }
+      .tc-icon {
+        @include size(24px);
+        background-color: RGB(var(--tc-tint-6));
+        margin: 0px 6px 0px 0px;
+        cursor: pointer;
+        &:hover {
+          background-color: RGB(var(--contrasted-color));
+        }
+        &.tc-refreshing {
+          background-color: RGB(var(--tc-color-7));
+        }
+        &.refresh {
+          -webkit-mask: var(--update-icon);
+          mask: var(--update-icon);
+          -webkit-mask-size: 24px;
+          mask-size: 24px;
+          transition: all 0.15s ease-in;
+        }
+        &.userbgs {
+          -webkit-mask: var(--tile-9-icon);
+          mask: var(--tile-9-icon);
+          -webkit-mask-size: 24px;
+          mask-size: 24px;
+        }
+        &.tile {
+          -webkit-mask: var(--tile-4-icon);
+          mask: var(--tile-4-icon);
+          -webkit-mask-size: 24px;
+          mask-size: 24px;
+        }
+        &.grid {
+          -webkit-mask: var(--table-icon);
+          mask: var(--table-icon);
+          -webkit-mask-size: 24px;
+          mask-size: 24px;
+        }
+        &.filter-options {
+          -webkit-mask: var(--filter-options-icon);
+          mask: var(--filter-options-icon);
+          -webkit-mask-size: 18px;
+          mask-size: 18px;
+        }
+      }
+    }
+  }
+  &-filter-container {
+    display: flex;
+    flex: 0 0 auto;
+    justify-content: flex-end;
+    #{$grandfather}-filter {
+      position: relative;
+      flex-shrink: 1;
+      background: RGB(var(--tc-color-2));
+      margin: 0;
+      .tc-label.search {
+        .tc-icon.search {
+          @include size(12px);
+          background-color: RGB(var(--tc-tint-9));
+          -webkit-mask: var(--search-icon);
+          mask: var(--search-icon);
+          -webkit-mask-size: 12px;
+          mask-size: 12px;
+        }
+      }
+      .tc-input-reset {
+        width: 18px;
+        height: 16px;
+        position: absolute;
+        right: 6px;
+        top: 50%;
+        display: flex;
+        transform: translateY(-50%);
+        display: none;
+        cursor: pointer;
+        .tc-icon.close {
+          background-color: RGB(var(--contrasted-color));
+          -webkit-mask: var(--close-icon);
+          mask: var(--close-icon);
+          -webkit-mask-size: 16px;
+          mask-size: 16px;
+          opacity: 0.7;
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+#friends {
+    background: RGB(var(--tc-color-1))!important;
+}
+
+#friends .friends-table .friends-table-body > div {
+
+}
+
+#friends .friends-table {
+  margin-top: 0;
+}
+
+#friends .friends-empty p {
+    margin-top: 50px;
+    color: RGB(var(--tc-tint-9))!important;
+}
+
+#friends .friends-table .scroller-wrap {
+    margin: 0 10px 0;
+    position: relative;
+    overflow-y: auto;
+}
+
+#friends .friends-empty {
+    opacity: 0;
+    animation: fadeIn .4s ease-in-out forwards;
+}
+
+#friends .friends-table .friends-row .friends-column-status .status.status-unknown {
+    background: RGB(var(--tc-color-5));
+    box-sizing: content-box;
+}
+
+#friends .friends-empty .empty-state-image {
+    background-image: none!important;
+    position: relative;
+    left: -60%;
+    top: 100px;
+    width: 5px;
+    height: 5px;
+    -webkit-animation: fly 20s infinite;
+    animation: fly 20s infinite;
+    -webkit-transform: scale(-2, 2);
+    transform: scale(-2, 2);
+}
+
+#friends .friends-empty .empty-state-image::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    -webkit-animation: mouth 400ms steps(1) infinite;
+    animation: mouth 400ms steps(1) infinite;
+}
+
+#friends .friends-empty .empty-state-image+p {
+    color: transparent!important;
+    margin: 0 auto;
+}
+
+// Hiding this because of the Add Friend button being added to the bottom right corner already
+// https://i.imgur.com/StHFUg2.png
+#friends .friends-empty .btn {
+    font-size: 12px;
+    padding: 4px 20px;
+    height: 35px;
+    position: relative;
+    top: 125px;
+    display: none;
+}
+
+#friends .friends-empty p::after {
+    content: 'Hey, what can I Boo for you? Sorry, there doesn\'t seem to be anything here but me...';
+    text-align: center;
+    position: relative;
+    display: block;
+    color: RGB(var(--tc-tint-9));
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 400;
+    top: 100px;
+    padding: 0 20px;
+}
+
+@keyframes fly {
+    0% {
+        -webkit-transform: scale(-2, 2);
+        transform: scale(-2, 2);
+        left: -60%;
+        top: -100px;
+    }
+    10% {
+        left: -30%;
+        top: -95px;
+    }
+    20% {
+        left: -20%;
+        top: -90px;
+    }
+    30% {
+        left: 5%;
+        top: -100px;
+    }
+    40% {
+        left: 35%;
+        top: -70px;
+    }
+    50% {
+        left: 60%;
+        -webkit-transform: scale(-2, 2);
+        transform: scale(-2, 2);
+        top: -50px;
+    }
+    51% {
+        -webkit-transform: scale(2, 2);
+        transform: scale(2, 2);
+    }
+    60% {
+        left: 35%;
+        top: -100px;
+    }
+    70% {
+        left: 5%;
+        top: -70px;
+    }
+    80% {
+        left: -20%;
+        top: -80px;
+    }
+    90% {
+        left: -30%;
+        top: -95px;
+    }
+    100% {
+        left: -60%;
+        top: -100px;
+        -webkit-transform: scale(2, 2);
+        transform: scale(2, 2);
+    }
+}
+
+@-webkit-keyframes mouth {
+    0% {
+        box-shadow: 25px 5px #000000, 30px 5px #000000, 35px 5px #000000, 40px 5px #000000, 45px 5px #000000, 50px 5px #000000, 20px 10px #000000, 25px 10px #BBBBBB, 30px 10px #BBBBBB, 35px 10px #BBBBBB, 40px 10px #BBBBBB, 45px 10px #BBBBBB, 50px 10px #BBBBBB, 55px 10px #000000, 60px 10px #000000, 15px 15px #000000, 20px 15px #BBBBBB, 25px 15px #FFFFFF, 30px 15px #FFFFFF, 35px 15px #FFFFFF, 40px 15px #FFFFFF, 45px 15px #FFFFFF, 50px 15px #FFFFFF, 55px 15px #BBBBBB, 60px 15px #BBBBBB, 65px 15px #000000, 10px 20px #000000, 15px 20px #BBBBBB, 20px 20px #FFFFFF, 25px 20px #FFFFFF, 30px 20px #FFFFFF, 35px 20px #FFFFFF, 40px 20px #FFFFFF, 45px 20px #FFFFFF, 50px 20px #FFFFFF, 55px 20px #FFFFFF, 60px 20px #FFFFFF, 65px 20px #BBBBBB, 70px 20px #000000, 10px 25px #000000, 15px 25px #BBBBBB, 20px 25px #000000, 25px 25px #FFFFFF, 30px 25px #000000, 35px 25px #FFFFFF, 40px 25px #FFFFFF, 45px 25px #FFFFFF, 50px 25px #FFFFFF, 55px 25px #FFFFFF, 60px 25px #FFFFFF, 65px 25px #FFFFFF, 70px 25px #BBBBBB, 75px 25px #000000, 5px 30px #000000, 10px 30px #BBBBBB, 15px 30px #FFFFFF, 20px 30px #000000, 25px 30px #FFFFFF, 30px 30px #000000, 35px 30px #FFFFFF, 40px 30px #FFFFFF, 45px 30px #FFFFFF, 50px 30px #FFFFFF, 55px 30px #000000, 60px 30px #000000, 65px 30px #000000, 70px 30px #FFFFFF, 75px 30px #BBBBBB, 80px 30px #000000, 5px 35px #000000, 10px 35px #BBBBBB, 15px 35px #FFFFFF, 20px 35px #000000, 25px 35px #FFFFFF, 30px 35px #000000, 35px 35px #FFFFFF, 40px 35px #FFFFFF, 45px 35px #FFFFFF, 50px 35px #000000, 55px 35px #FFFFFF, 60px 35px #FFFFFF, 65px 35px #000000, 70px 35px #FFFFFF, 75px 35px #BBBBBB, 80px 35px #000000, 5px 40px #000000, 10px 40px #BBBBBB, 15px 40px #FFFFFF, 20px 40px #FFFFFF, 25px 40px #FFFFFF, 30px 40px #FFFFFF, 35px 40px #FFFFFF, 40px 40px #FFFFFF, 45px 40px #FFFFFF, 50px 40px #FFFFFF, 55px 40px #FFFFFF, 60px 40px #BBBBBB, 65px 40px #000000, 70px 40px #FFFFFF, 75px 40px #000000, 5px 45px #000000, 10px 45px #BBBBBB, 15px 45px #FD0E1B, 20px 45px #FFFFFF, 25px 45px #FD0E1B, 30px 45px #FFFFFF, 35px 45px #FD0E1B, 40px 45px #FFFFFF, 45px 45px #FFFFFF, 50px 45px #FFFFFF, 55px 45px #FFFFFF, 60px 45px #000000, 65px 45px #FFFFFF, 70px 45px #FFFFFF, 75px 45px #BBBBBB, 80px 45px #000000, 5px 50px #000000, 10px 50px #BBBBBB, 15px 50px #FD0E1B, 20px 50px #FD0E1B, 25px 50px #FD0E1B, 30px 50px #FD0E1B, 35px 50px #FD0E1B, 40px 50px #FFFFFF, 45px 50px #FFFFFF, 50px 50px #FFFFFF, 55px 50px #FFFFFF, 60px 50px #FFFFFF, 65px 50px #FFFFFF, 70px 50px #FFFFFF, 75px 50px #BBBBBB, 80px 50px #000000, 5px 55px #000000, 10px 55px #BBBBBB, 15px 55px #FD0E1B, 20px 55px #FD0E1B, 25px 55px #FD0E1B, 30px 55px #FD0E1B, 35px 55px #FD0E1B, 40px 55px #FFFFFF, 45px 55px #FFFFFF, 50px 55px #FFFFFF, 55px 55px #FFFFFF, 60px 55px #FFFFFF, 65px 55px #FFFFFF, 70px 55px #FFFFFF, 75px 55px #BBBBBB, 80px 55px #000000, 10px 60px #000000, 15px 60px #BBBBBB, 20px 60px #FD0E1B, 25px 60px #FD0E1B, 30px 60px #FD0E1B, 35px 60px #FD0E1B, 40px 60px #FD0E1B, 45px 60px #FFFFFF, 50px 60px #FFFFFF, 55px 60px #FFFFFF, 60px 60px #FFFFFF, 65px 60px #FFFFFF, 70px 60px #FFFFFF, 75px 60px #BBBBBB, 80px 60px #000000, 10px 65px #000000, 15px 65px #BBBBBB, 20px 65px #FD0E1B, 25px 65px #FFFFFF, 30px 65px #FD0E1B, 35px 65px #FFFFFF, 40px 65px #FD0E1B, 45px 65px #FFFFFF, 50px 65px #FFFFFF, 55px 65px #FFFFFF, 60px 65px #FFFFFF, 65px 65px #FFFFFF, 70px 65px #BBBBBB, 75px 65px #000000, 15px 70px #000000, 20px 70px #BBBBBB, 25px 70px #BBBBBB, 30px 70px #FFFFFF, 35px 70px #FFFFFF, 40px 70px #FFFFFF, 45px 70px #FFFFFF, 50px 70px #FFFFFF, 55px 70px #FFFFFF, 60px 70px #BBBBBB, 65px 70px #BBBBBB, 70px 70px #000000, 20px 75px #000000, 25px 75px #000000, 30px 75px #BBBBBB, 35px 75px #BBBBBB, 40px 75px #BBBBBB, 45px 75px #BBBBBB, 50px 75px #BBBBBB, 55px 75px #BBBBBB, 60px 75px #000000, 65px 75px #000000, 30px 80px #000000, 35px 80px #000000, 40px 80px #000000, 45px 80px #000000, 50px 80px #000000, 55px 80px #000000;
+    }
+    50% {
+        box-shadow: 25px 5px #000000, 30px 5px #000000, 35px 5px #000000, 40px 5px #000000, 45px 5px #000000, 50px 5px #000000, 20px 10px #000000, 25px 10px #BBBBBB, 30px 10px #BBBBBB, 35px 10px #BBBBBB, 40px 10px #BBBBBB, 45px 10px #BBBBBB, 50px 10px #BBBBBB, 55px 10px #000000, 60px 10px #000000, 15px 15px #000000, 20px 15px #BBBBBB, 25px 15px #FFFFFF, 30px 15px #FFFFFF, 35px 15px #FFFFFF, 40px 15px #FFFFFF, 45px 15px #FFFFFF, 50px 15px #FFFFFF, 55px 15px #BBBBBB, 60px 15px #BBBBBB, 65px 15px #000000, 10px 20px #000000, 15px 20px #BBBBBB, 20px 20px #FFFFFF, 25px 20px #FFFFFF, 30px 20px #FFFFFF, 35px 20px #FFFFFF, 40px 20px #FFFFFF, 45px 20px #FFFFFF, 50px 20px #FFFFFF, 55px 20px #FFFFFF, 60px 20px #FFFFFF, 65px 20px #BBBBBB, 70px 20px #000000, 10px 25px #000000, 15px 25px #BBBBBB, 20px 25px #000000, 25px 25px #FFFFFF, 30px 25px #000000, 35px 25px #FFFFFF, 40px 25px #FFFFFF, 45px 25px #FFFFFF, 50px 25px #FFFFFF, 55px 25px #FFFFFF, 60px 25px #FFFFFF, 65px 25px #FFFFFF, 70px 25px #BBBBBB, 75px 25px #000000, 5px 30px #000000, 10px 30px #BBBBBB, 15px 30px #FFFFFF, 20px 30px #000000, 25px 30px #FFFFFF, 30px 30px #000000, 35px 30px #FFFFFF, 40px 30px #FFFFFF, 45px 30px #FFFFFF, 50px 30px #FFFFFF, 55px 30px #000000, 60px 30px #000000, 65px 30px #000000, 70px 30px #FFFFFF, 75px 30px #BBBBBB, 80px 30px #000000, 5px 35px #000000, 10px 35px #BBBBBB, 15px 35px #FFFFFF, 20px 35px #000000, 25px 35px #FFFFFF, 30px 35px #000000, 35px 35px #FFFFFF, 40px 35px #FFFFFF, 45px 35px #FFFFFF, 50px 35px #000000, 55px 35px #FFFFFF, 60px 35px #FFFFFF, 65px 35px #000000, 70px 35px #FFFFFF, 75px 35px #BBBBBB, 80px 35px #000000, 5px 40px #000000, 10px 40px #BBBBBB, 15px 40px #FFFFFF, 20px 40px #FFFFFF, 25px 40px #FFFFFF, 30px 40px #FFFFFF, 35px 40px #FFFFFF, 40px 40px #FFFFFF, 45px 40px #FFFFFF, 50px 40px #FFFFFF, 55px 40px #FFFFFF, 60px 40px #BBBBBB, 65px 40px #000000, 70px 40px #FFFFFF, 75px 40px #000000, 5px 45px #000000, 10px 45px #BBBBBB, 15px 45px #FD0E1B, 20px 45px #FFFFFF, 25px 45px #FD0E1B, 30px 45px #FFFFFF, 35px 45px #FD0E1B, 40px 45px #FFFFFF, 45px 45px #FFFFFF, 50px 45px #FFFFFF, 55px 45px #FFFFFF, 60px 45px #000000, 65px 45px #FFFFFF, 70px 45px #FFFFFF, 75px 45px #BBBBBB, 80px 45px #000000, 5px 50px #000000, 10px 50px #BBBBBB, 15px 50px #FFFFFF, 20px 50px #FD0E1B, 25px 50px #FFFFFF, 30px 50px #FD0E1B, 35px 50px #FFFFFF, 40px 50px #FFFFFF, 45px 50px #FFFFFF, 50px 50px #FFFFFF, 55px 50px #FFFFFF, 60px 50px #FFFFFF, 65px 50px #FFFFFF, 70px 50px #FFFFFF, 75px 50px #BBBBBB, 80px 50px #000000, 5px 55px #000000, 10px 55px #BBBBBB, 15px 55px #FFFFFF, 20px 55px #FFFFFF, 25px 55px #FFFFFF, 30px 55px #FFFFFF, 35px 55px #FFFFFF, 40px 55px #FFFFFF, 45px 55px #FFFFFF, 50px 55px #FFFFFF, 55px 55px #FFFFFF, 60px 55px #FFFFFF, 65px 55px #FFFFFF, 70px 55px #FFFFFF, 75px 55px #BBBBBB, 80px 55px #000000, 10px 60px #000000, 15px 60px #BBBBBB, 20px 60px #FFFFFF, 25px 60px #FFFFFF, 30px 60px #FFFFFF, 35px 60px #FFFFFF, 40px 60px #FFFFFF, 45px 60px #FFFFFF, 50px 60px #FFFFFF, 55px 60px #FFFFFF, 60px 60px #FFFFFF, 65px 60px #FFFFFF, 70px 60px #FFFFFF, 75px 60px #BBBBBB, 80px 60px #000000, 10px 65px #000000, 15px 65px #BBBBBB, 20px 65px #FFFFFF, 25px 65px #FFFFFF, 30px 65px #FFFFFF, 35px 65px #FFFFFF, 40px 65px #FFFFFF, 45px 65px #FFFFFF, 50px 65px #FFFFFF, 55px 65px #FFFFFF, 60px 65px #FFFFFF, 65px 65px #FFFFFF, 70px 65px #BBBBBB, 75px 65px #000000, 15px 70px #000000, 20px 70px #BBBBBB, 25px 70px #BBBBBB, 30px 70px #FFFFFF, 35px 70px #FFFFFF, 40px 70px #FFFFFF, 45px 70px #FFFFFF, 50px 70px #FFFFFF, 55px 70px #FFFFFF, 60px 70px #BBBBBB, 65px 70px #BBBBBB, 70px 70px #000000, 20px 75px #000000, 25px 75px #000000, 30px 75px #BBBBBB, 35px 75px #BBBBBB, 40px 75px #BBBBBB, 45px 75px #BBBBBB, 50px 75px #BBBBBB, 55px 75px #BBBBBB, 60px 75px #000000, 65px 75px #000000, 30px 80px #000000, 35px 80px #000000, 40px 80px #000000, 45px 80px #000000, 50px 80px #000000, 55px 80px #000000;
+    }
+}
+
+@keyframes mouth {
+    0% {
+        box-shadow: 25px 5px #000000, 30px 5px #000000, 35px 5px #000000, 40px 5px #000000, 45px 5px #000000, 50px 5px #000000, 20px 10px #000000, 25px 10px #BBBBBB, 30px 10px #BBBBBB, 35px 10px #BBBBBB, 40px 10px #BBBBBB, 45px 10px #BBBBBB, 50px 10px #BBBBBB, 55px 10px #000000, 60px 10px #000000, 15px 15px #000000, 20px 15px #BBBBBB, 25px 15px #FFFFFF, 30px 15px #FFFFFF, 35px 15px #FFFFFF, 40px 15px #FFFFFF, 45px 15px #FFFFFF, 50px 15px #FFFFFF, 55px 15px #BBBBBB, 60px 15px #BBBBBB, 65px 15px #000000, 10px 20px #000000, 15px 20px #BBBBBB, 20px 20px #FFFFFF, 25px 20px #FFFFFF, 30px 20px #FFFFFF, 35px 20px #FFFFFF, 40px 20px #FFFFFF, 45px 20px #FFFFFF, 50px 20px #FFFFFF, 55px 20px #FFFFFF, 60px 20px #FFFFFF, 65px 20px #BBBBBB, 70px 20px #000000, 10px 25px #000000, 15px 25px #BBBBBB, 20px 25px #000000, 25px 25px #FFFFFF, 30px 25px #000000, 35px 25px #FFFFFF, 40px 25px #FFFFFF, 45px 25px #FFFFFF, 50px 25px #FFFFFF, 55px 25px #FFFFFF, 60px 25px #FFFFFF, 65px 25px #FFFFFF, 70px 25px #BBBBBB, 75px 25px #000000, 5px 30px #000000, 10px 30px #BBBBBB, 15px 30px #FFFFFF, 20px 30px #000000, 25px 30px #FFFFFF, 30px 30px #000000, 35px 30px #FFFFFF, 40px 30px #FFFFFF, 45px 30px #FFFFFF, 50px 30px #FFFFFF, 55px 30px #000000, 60px 30px #000000, 65px 30px #000000, 70px 30px #FFFFFF, 75px 30px #BBBBBB, 80px 30px #000000, 5px 35px #000000, 10px 35px #BBBBBB, 15px 35px #FFFFFF, 20px 35px #000000, 25px 35px #FFFFFF, 30px 35px #000000, 35px 35px #FFFFFF, 40px 35px #FFFFFF, 45px 35px #FFFFFF, 50px 35px #000000, 55px 35px #FFFFFF, 60px 35px #FFFFFF, 65px 35px #000000, 70px 35px #FFFFFF, 75px 35px #BBBBBB, 80px 35px #000000, 5px 40px #000000, 10px 40px #BBBBBB, 15px 40px #FFFFFF, 20px 40px #FFFFFF, 25px 40px #FFFFFF, 30px 40px #FFFFFF, 35px 40px #FFFFFF, 40px 40px #FFFFFF, 45px 40px #FFFFFF, 50px 40px #FFFFFF, 55px 40px #FFFFFF, 60px 40px #BBBBBB, 65px 40px #000000, 70px 40px #FFFFFF, 75px 40px #000000, 5px 45px #000000, 10px 45px #BBBBBB, 15px 45px #FD0E1B, 20px 45px #FFFFFF, 25px 45px #FD0E1B, 30px 45px #FFFFFF, 35px 45px #FD0E1B, 40px 45px #FFFFFF, 45px 45px #FFFFFF, 50px 45px #FFFFFF, 55px 45px #FFFFFF, 60px 45px #000000, 65px 45px #FFFFFF, 70px 45px #FFFFFF, 75px 45px #BBBBBB, 80px 45px #000000, 5px 50px #000000, 10px 50px #BBBBBB, 15px 50px #FD0E1B, 20px 50px #FD0E1B, 25px 50px #FD0E1B, 30px 50px #FD0E1B, 35px 50px #FD0E1B, 40px 50px #FFFFFF, 45px 50px #FFFFFF, 50px 50px #FFFFFF, 55px 50px #FFFFFF, 60px 50px #FFFFFF, 65px 50px #FFFFFF, 70px 50px #FFFFFF, 75px 50px #BBBBBB, 80px 50px #000000, 5px 55px #000000, 10px 55px #BBBBBB, 15px 55px #FD0E1B, 20px 55px #FD0E1B, 25px 55px #FD0E1B, 30px 55px #FD0E1B, 35px 55px #FD0E1B, 40px 55px #FFFFFF, 45px 55px #FFFFFF, 50px 55px #FFFFFF, 55px 55px #FFFFFF, 60px 55px #FFFFFF, 65px 55px #FFFFFF, 70px 55px #FFFFFF, 75px 55px #BBBBBB, 80px 55px #000000, 10px 60px #000000, 15px 60px #BBBBBB, 20px 60px #FD0E1B, 25px 60px #FD0E1B, 30px 60px #FD0E1B, 35px 60px #FD0E1B, 40px 60px #FD0E1B, 45px 60px #FFFFFF, 50px 60px #FFFFFF, 55px 60px #FFFFFF, 60px 60px #FFFFFF, 65px 60px #FFFFFF, 70px 60px #FFFFFF, 75px 60px #BBBBBB, 80px 60px #000000, 10px 65px #000000, 15px 65px #BBBBBB, 20px 65px #FD0E1B, 25px 65px #FFFFFF, 30px 65px #FD0E1B, 35px 65px #FFFFFF, 40px 65px #FD0E1B, 45px 65px #FFFFFF, 50px 65px #FFFFFF, 55px 65px #FFFFFF, 60px 65px #FFFFFF, 65px 65px #FFFFFF, 70px 65px #BBBBBB, 75px 65px #000000, 15px 70px #000000, 20px 70px #BBBBBB, 25px 70px #BBBBBB, 30px 70px #FFFFFF, 35px 70px #FFFFFF, 40px 70px #FFFFFF, 45px 70px #FFFFFF, 50px 70px #FFFFFF, 55px 70px #FFFFFF, 60px 70px #BBBBBB, 65px 70px #BBBBBB, 70px 70px #000000, 20px 75px #000000, 25px 75px #000000, 30px 75px #BBBBBB, 35px 75px #BBBBBB, 40px 75px #BBBBBB, 45px 75px #BBBBBB, 50px 75px #BBBBBB, 55px 75px #BBBBBB, 60px 75px #000000, 65px 75px #000000, 30px 80px #000000, 35px 80px #000000, 40px 80px #000000, 45px 80px #000000, 50px 80px #000000, 55px 80px #000000;
+    }
+    50% {
+        box-shadow: 25px 5px #000000, 30px 5px #000000, 35px 5px #000000, 40px 5px #000000, 45px 5px #000000, 50px 5px #000000, 20px 10px #000000, 25px 10px #BBBBBB, 30px 10px #BBBBBB, 35px 10px #BBBBBB, 40px 10px #BBBBBB, 45px 10px #BBBBBB, 50px 10px #BBBBBB, 55px 10px #000000, 60px 10px #000000, 15px 15px #000000, 20px 15px #BBBBBB, 25px 15px #FFFFFF, 30px 15px #FFFFFF, 35px 15px #FFFFFF, 40px 15px #FFFFFF, 45px 15px #FFFFFF, 50px 15px #FFFFFF, 55px 15px #BBBBBB, 60px 15px #BBBBBB, 65px 15px #000000, 10px 20px #000000, 15px 20px #BBBBBB, 20px 20px #FFFFFF, 25px 20px #FFFFFF, 30px 20px #FFFFFF, 35px 20px #FFFFFF, 40px 20px #FFFFFF, 45px 20px #FFFFFF, 50px 20px #FFFFFF, 55px 20px #FFFFFF, 60px 20px #FFFFFF, 65px 20px #BBBBBB, 70px 20px #000000, 10px 25px #000000, 15px 25px #BBBBBB, 20px 25px #000000, 25px 25px #FFFFFF, 30px 25px #000000, 35px 25px #FFFFFF, 40px 25px #FFFFFF, 45px 25px #FFFFFF, 50px 25px #FFFFFF, 55px 25px #FFFFFF, 60px 25px #FFFFFF, 65px 25px #FFFFFF, 70px 25px #BBBBBB, 75px 25px #000000, 5px 30px #000000, 10px 30px #BBBBBB, 15px 30px #FFFFFF, 20px 30px #000000, 25px 30px #FFFFFF, 30px 30px #000000, 35px 30px #FFFFFF, 40px 30px #FFFFFF, 45px 30px #FFFFFF, 50px 30px #FFFFFF, 55px 30px #000000, 60px 30px #000000, 65px 30px #000000, 70px 30px #FFFFFF, 75px 30px #BBBBBB, 80px 30px #000000, 5px 35px #000000, 10px 35px #BBBBBB, 15px 35px #FFFFFF, 20px 35px #000000, 25px 35px #FFFFFF, 30px 35px #000000, 35px 35px #FFFFFF, 40px 35px #FFFFFF, 45px 35px #FFFFFF, 50px 35px #000000, 55px 35px #FFFFFF, 60px 35px #FFFFFF, 65px 35px #000000, 70px 35px #FFFFFF, 75px 35px #BBBBBB, 80px 35px #000000, 5px 40px #000000, 10px 40px #BBBBBB, 15px 40px #FFFFFF, 20px 40px #FFFFFF, 25px 40px #FFFFFF, 30px 40px #FFFFFF, 35px 40px #FFFFFF, 40px 40px #FFFFFF, 45px 40px #FFFFFF, 50px 40px #FFFFFF, 55px 40px #FFFFFF, 60px 40px #BBBBBB, 65px 40px #000000, 70px 40px #FFFFFF, 75px 40px #000000, 5px 45px #000000, 10px 45px #BBBBBB, 15px 45px #FD0E1B, 20px 45px #FFFFFF, 25px 45px #FD0E1B, 30px 45px #FFFFFF, 35px 45px #FD0E1B, 40px 45px #FFFFFF, 45px 45px #FFFFFF, 50px 45px #FFFFFF, 55px 45px #FFFFFF, 60px 45px #000000, 65px 45px #FFFFFF, 70px 45px #FFFFFF, 75px 45px #BBBBBB, 80px 45px #000000, 5px 50px #000000, 10px 50px #BBBBBB, 15px 50px #FFFFFF, 20px 50px #FD0E1B, 25px 50px #FFFFFF, 30px 50px #FD0E1B, 35px 50px #FFFFFF, 40px 50px #FFFFFF, 45px 50px #FFFFFF, 50px 50px #FFFFFF, 55px 50px #FFFFFF, 60px 50px #FFFFFF, 65px 50px #FFFFFF, 70px 50px #FFFFFF, 75px 50px #BBBBBB, 80px 50px #000000, 5px 55px #000000, 10px 55px #BBBBBB, 15px 55px #FFFFFF, 20px 55px #FFFFFF, 25px 55px #FFFFFF, 30px 55px #FFFFFF, 35px 55px #FFFFFF, 40px 55px #FFFFFF, 45px 55px #FFFFFF, 50px 55px #FFFFFF, 55px 55px #FFFFFF, 60px 55px #FFFFFF, 65px 55px #FFFFFF, 70px 55px #FFFFFF, 75px 55px #BBBBBB, 80px 55px #000000, 10px 60px #000000, 15px 60px #BBBBBB, 20px 60px #FFFFFF, 25px 60px #FFFFFF, 30px 60px #FFFFFF, 35px 60px #FFFFFF, 40px 60px #FFFFFF, 45px 60px #FFFFFF, 50px 60px #FFFFFF, 55px 60px #FFFFFF, 60px 60px #FFFFFF, 65px 60px #FFFFFF, 70px 60px #FFFFFF, 75px 60px #BBBBBB, 80px 60px #000000, 10px 65px #000000, 15px 65px #BBBBBB, 20px 65px #FFFFFF, 25px 65px #FFFFFF, 30px 65px #FFFFFF, 35px 65px #FFFFFF, 40px 65px #FFFFFF, 45px 65px #FFFFFF, 50px 65px #FFFFFF, 55px 65px #FFFFFF, 60px 65px #FFFFFF, 65px 65px #FFFFFF, 70px 65px #BBBBBB, 75px 65px #000000, 15px 70px #000000, 20px 70px #BBBBBB, 25px 70px #BBBBBB, 30px 70px #FFFFFF, 35px 70px #FFFFFF, 40px 70px #FFFFFF, 45px 70px #FFFFFF, 50px 70px #FFFFFF, 55px 70px #FFFFFF, 60px 70px #BBBBBB, 65px 70px #BBBBBB, 70px 70px #000000, 20px 75px #000000, 25px 75px #000000, 30px 75px #BBBBBB, 35px 75px #BBBBBB, 40px 75px #BBBBBB, 45px 75px #BBBBBB, 50px 75px #BBBBBB, 55px 75px #BBBBBB, 60px 75px #000000, 65px 75px #000000, 30px 80px #000000, 35px 80px #000000, 40px 80px #000000, 45px 80px #000000, 50px 80px #000000, 55px 80px #000000;
+    }
+}
+
+// Friends tab bar and buttons (Mentions, Help, New Group DM)
+#friends .headerBar-UHpsPw {
+  height: calc(var(--friends-sub-nav-height) + var(--friends-options-height));
+}
+
+#friends .tab-bar {
+  position: absolute;
+  height: var(--friends-sub-nav-height);
+  background: RGB(var(--tc-color-2));
+  padding: 0 17px;
+  width: 100%;
+  align-items: flex-end;
+  letter-spacing: 0;
+  font-weight: 400;
+  top: 0;
+  #{$badgewrapper} {
+    display: inline-block;
+  }
+}
+
+// Mentions, Group DM, Help icons bar
+#friends .headerBarDrag-3bf7wG>.flex-1O1GKY {
+  max-width: 0;
+  min-width: 0;
+}
+
+//use default Compose icon on top nav bar
+#friends .headerBar-UHpsPw svg[name="Compose"] {
+  background-color: RGB(var(--tc-tint-9));
+  -webkit-mask: var(--group-dm-icon);
+  mask: var(--group-dm-icon);
+  -webkit-mask-size: 34px;
+  mask-size: 34px;
+  position: fixed;
+  top: 106px;
+  right: 20px;
+  width: 40px;
+  height: 40px!important;
+  &:hover {
+    background-color: RGB(var(--contrasted-color));
+  }
+}
+
+#friends .headerBar-UHpsPw svg[name="Compose"] g {
+    display: none;
+}
+
+#friends .headerBar-UHpsPw .tab-bar .tab-bar-separator {
+    display: none;
+}
+
+#friends .headerBar-UHpsPw .tab-bar .tab-bar-item {
+  background-color: transparent;
+  color: RGB(var(--tc-tint-9));
+  padding: 6px 10px;
+  margin-right: 3px;
+  border-radius: 0;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  font-size: 13px;
+  letter-spacing: 0;
+  border: 1px solid transparent;
+  border-bottom: none;
+  z-index: 2;
+}
+
+#friends .headerBar-UHpsPw .tab-bar .tab-bar-item:hover {
+  background: none!important;
+  color: RGB(var(--contrasted-color))!important;
+}
+
+#friends .headerBar-UHpsPw .tab-bar .tab-bar-item.selected {
+    color: RGB(var(--contrasted-color))!important;
+    background: RGB(var(--tc-color-1))!important;
+    border: 1px solid RGBA(var(--tc-color-4), 0.8);
+    border-bottom: none;
+}
+
+// Default Discord 'Add Friend' button
+#friends .headerBar-UHpsPw .tab-bar .tab-bar-item.tab-bar-item-primary {
+  display: none;
+}
+// Friend suggestions badge on 'Add Friend' button
+#friends .headerBar-UHpsPw .tab-bar .tab-bar-item.tab-bar-item-primary .badge {
+    position: absolute;
+    top: -3px;
+    right: -6px;
+    min-width: 19px;
+    border: 2px solid RGB(var(--tc-color-2));
+}
+
+// "Fix" to remove the margin from the first tab bar item ('All')
+#friends .headerBar-UHpsPw .tab-bar .tab-bar-item.tab-bar-item-primary+.tab-bar-separator+.tab-bar-item {
+  margin: 0;
+}
+
+#friends .headerBar-UHpsPw .tab-bar .tab-bar-item .badge {
+    background: RGB(var(--notification-color))!important;
+    color: #fff!important;
+    display: inline-block;
+    border-radius: 1px!important;
+    line-height: 15px;
+    margin-top: -2px;
+    vertical-align: middle;
+}
+
+#friends .headerBar-UHpsPw .tab-bar .tab-bar-item:hover:not(.selected) .badge {
+    color: #fff;
+}
+
+#friends .scroller-2FKFPG [style="width: 100%; height: 0px;"] {
+    display: none;
+}
+
+#friends .friends-table .friends-row .friends-column-guilds .more-mutual-guilds-btn {
+    border-radius: 0;
+    border: none;
+    color: #fff!important;
+    background: RGB(var(--tc-color-7));
+    transition: background-color 0.2s;
+}
+
+#friends .friends-table .friends-row .friends-column-guilds .icon-3o6xvg {
+  background-color: RGB(var(--tc-color-2));
+  border-radius: 0;
+}
+
+#friends .friends-table .friends-row .friends-column-guilds .more-mutual-guilds-btn:hover {
+  background-color: RGB(var(--tc-color-8));
+}
+
+#friends .friends-table .friends-row .friend-activity-icon {
+  display: none;
+}
+
+#friends .friends-table .friends-row .friends-column-actions {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-right: 0;
+}
+
+#friends .friends-table .friends-row:hover .friends-column-actions {
+    padding-right: 0;
+    margin: 0;
+}
+
+#friends .friends-table .friends-row .friends-column-actions .friends-action {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-left: 0;
+}
+
+#friends .friends-table .friends-row .friends-column-actions .friends-action:nth-of-type(1) {
+    transition: all 0.1s;
+}
+
+#friends .friends-table .friends-row .friends-column-actions .friends-action:nth-of-type(2) {
+    transition: all 0.2s;
+}
+
+#friends .friends-table .friends-row .friends-column-actions .friends-action:nth-of-type(3) {
+    transition: all 0.3s;
+}
+
+#friends .friends-table .friends-row .friends-column-actions .friends-action,
+#friends .friends-table .friends-row .friends-column-actions .friends-action.friends-action-accept {
+    border-radius: 0;
+    transition: background-color 0.2s;
+}
+
+#friends .friends-table .friends-row:hover .friends-column-actions {
+    transition: all 0.5s;
+}
+
+#friends .friends-table .friends-row .friends-column-actions .friends-action.friends-action-video-call {
+  background: RGB(var(--tc-color-7)) var(--video-camera-light-icon) / 24px;
+}
+
+#friends .friends-table .friends-row .friends-column-actions .friends-action.friends-action-voice-call {
+  background: RGB(var(--tc-color-7)) var(--phone-light-icon) / 24px;
+}
+
+#friends .friends-table .friends-row .friends-column-actions .friends-action.friends-action-video-call:hover,
+#friends .friends-table .friends-row .friends-column-actions .friends-action.friends-action-voice-call:hover {
+  background-color: RGB(var(--tc-color-8))!important;
+}
+
+#friends .friends-table .friends-row .friends-column-actions .friends-action.friends-action-remove,
+#friends .friends-table .friends-row .friends-column-actions .friends-action.friends-action-ignore,
+#friends .friends-table .friends-row .friends-column-actions .friends-action.friends-action-cancel {
+  background: RGB(var(--notification-color)) var(--close-light-icon) / 30px;
+}
+
+#friends .friends-table .friends-row .friends-column-actions .friends-action.friends-action-remove:hover,
+#friends .friends-table .friends-row .friends-column-actions .friends-action.friends-action-ignore:hover,
+#friends .friends-table .friends-row .friends-column-actions .friends-action.friends-action-cancel:hover {
+  background: RGB(var(--notification-color)) var(--close-light-icon) / 30px;
+}
+
+#friends .friends-table .friends-row .friends-column-actions .friends-action.friends-action-accept {
+  background: RGB(var(--tc-green-color)) var(--checkmark-icon) no-repeat center / 26px;
+}
+
+#friends .friends-table .friends-row .friends-column-actions .friends-action+div {
+    margin-left: 0;
+}
+
+#friends .scroller {
+  top: 0;
+  bottom: unset;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-wrap: wrap;
+  // When data-no-results = 'No results match your search criteria.'
+  &[data-no-results^="No"] {
+    > div {
+      display: none;
+    }
+    &::before {
+      content: attr(data-no-results);
+      @include flex-center;
+      @include text(RGB(var(--contrasted-color)), 28px, 400, 1.5);
+      width: 100%;
+    }
+  }
+}
+
+#friends .scroller > div {
+  display: flex;
+  flex-wrap: wrap;
+  height: 0;
+  margin-top: -10px;
+}
+
+#friends .friends-table .friends-table-body::-webkit-scrollbar,
+#friends .friends-table .friends-table-body::-webkit-scrollbar-track,
+#friends .friends-table .friends-table-body::-webkit-scrollbar-track-piece,
+#friends .friends-table .friends-table-body::-webkit-scrollbar-thumb {
+  visibility: visible!important;
+}
+
+#friends .friends-table .friends-table-body::-webkit-scrollbar,
+#friends .friends-table .friends-table-body::-webkit-scrollbar-track,
+#friends .friends-table .friends-table-body::-webkit-scrollbar-track-piece {
+  background: RGB(var(--tc-color-2))!important;
+}
+
+#friends .friends-table .friends-table-body::-webkit-scrollbar-thumb {
+  background: RGB(var(--tc-color-5));
+}
+
+@media (max-width: 1300px) {
+    #friends .friends-table .friends-column-guilds {
+        display: flex!important;
+    }
+}

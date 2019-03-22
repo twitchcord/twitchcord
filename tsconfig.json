@@ -2,19 +2,19 @@
   "compilerOptions": {
     "outDir": "./dist/",
     "noImplicitAny": true,
-    "types": ["@types/node", "electron"],
+    "typeRoots": ["typings", "node_modules/@types"],
     "baseUrl": ".",
     "paths": {
       "*": [
         "*",
         "node_modules/@types/*",
-        "definitions/*"
+        "resources/definitions/*"
       ]
     },
     "esModuleInterop": true,
     "target": "es5"
   },
   "include": [
-    "src/**/*"
+    "src/index.ts"
   ]
 }

@@ -1,0 +1,26 @@
+// main: _module.scss
+
+//** DM convo sub top nav
+
+.titleText-3X-zRE {
+  @include size(100%, var(--sub-nav-height));
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: RGB(var(--tc-color-1));
+  border: none;
+  margin: 0;
+  padding: 0 10px 0 16px;
+  box-sizing: border-box;
+  font-weight: 400;
+  font-size: 16px;
+  cursor: default;
+  #{$status} {
+    @include absolute(top unset bottom 11px left 58px, !important);
+    @include size(12px!important);
+    border-radius: var(--status-roundness);
+    border: 2px solid RGB(var(--tc-color-1));
+    box-sizing: border-box;
+    z-index: 10;
+  }
+}

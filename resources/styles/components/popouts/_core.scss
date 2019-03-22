@@ -1,0 +1,54 @@
+// main: _module.scss
+
+//** Popouts core
+
+
+#{$popout} {
+  box-shadow: none;
+}
+
+// Remove popout transform slide animation
+#{$popouttop} {
+  transform: translateX(-50%) translateY(-100%) translateZ(0px)!important;
+}
+#{$popoutright} {
+  transform: translateX(0%) translateY(0%) translateZ(0px)!important;
+}
+#{$popoutbottom} {
+  transform: translateX(-50%) translateY(0%) translateZ(0px)!important;
+}
+#{$popoutbottomleft} {
+  transform: translateX(0%) translateY(0%) translateZ(0px)!important;
+}
+#{$popoutleft} {
+  transform: translateX(-100%) translateY(0%) translateZ(0px)!important;
+}
+
+// Make game popout look like a modal
+#{$popouts} {
+  &#{classes('twitchcord.gamePopout')} {
+    @include size(100%);
+    @include fixed(top 0 left 0);
+    align-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.65);
+    box-sizing: border-box;
+    contain: content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 340px;
+    padding: 60px 0;
+    user-select: none;
+    z-index: 99;
+    opacity: 0;
+    animation: fadeIn 0.1s forwards;
+    #{$popout} {
+      top: unset!important;
+      left: unset!important;
+      transform: translate3d(0, 0, 0);
+      animation: scaleInGamePopout 0.15s ease-in forwards;
+      will-change: transform;
+    }
+  }
+}

@@ -1,0 +1,67 @@
+// main: _module.scss
+
+//** Game search popout
+
+.container-3ayLPN {
+  background-color: RGB(var(--tc-color-3))!important;
+  border: 1px solid RGB(var(--tc-color-4));
+  border-radius: 0;
+  box-shadow: 0 2px 4px -1px rgba(0,0,0,0.34), 0 2px 2px -2px rgba(0,0,0,0.26), 0 1px 4px 0 rgba(0,0,0,0.28) !important;
+  margin: -9px 0 0 16px;
+  .queryContainer-RKFJW- {
+    color: RGB(var(--tc-color-10)) !important;
+    font-weight: 400;
+    height: 34px;
+    align-items: center;
+    background: RGB(var(--tc-color-2));
+    padding: 0 10px;
+    border: none!important;
+  }
+  .queryText-3xoOY7 {
+      font-size: 11px;
+  }
+  .queryShortcut-hJIQMF {
+    display: none;
+  }
+  .result-2S5Awv {
+    &::after {
+      background: RGB(var(--tc-color-2))!important;
+    }
+    .resultAsset-2ULFWc {
+      background: RGB(var(--tc-color-2))!important;
+      border-radius: 0;
+    }
+    .price-_ZRMIA {
+      color: RGB(var(--tc-tint-6))!important;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    .resultContent-1b6_y4 {
+      overflow: hidden;
+    }
+    .nitroWheel-3Zi8Ke {
+      @include mask(var(--discord-nitro-badge), RGB(var(--tc-tint-6)));
+      @include relative(top -1px);
+      path {
+        display: none;
+      }
+    }
+    .resultName-raPnaf {
+      @include ellipsis;
+      color: RGB(var(--contrasted-color))!important;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    &.focused-1Yu0L3 {
+      background: RGB(var(--tc-color-6))!important;
+      .resultName-raPnaf,
+      .price-_ZRMIA {
+        color: #fff!important;
+      }
+      .nitroWheel-3Zi8Ke {
+        background-color: #fff;
+      }
+    }
+  }
+}

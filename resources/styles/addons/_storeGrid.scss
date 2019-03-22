@@ -1,0 +1,84 @@
+// main: _module.scss
+
+// Store view, grid-style game video previews
+// <html>.storeGrid
+//
+
+.storeGrid {
+  .applicationStore-1pNvnv {
+    .tile-2H4MQG {
+      background: none!important;
+      box-shadow: none;
+      transition: none;
+      width: 100%;
+      padding: 10px 20px 10px 10px;
+      &:hover {
+        background: RGB(var(--tc-color-3), 0.5)!important;
+      }
+      &.anchor-3Z-8Bb {
+        display: none;
+      }
+    }
+    .tileWrapper-2khh-w {
+      align-items: center;
+      flex-direction: row;
+    }
+    .splashContainer-3tHzVL {
+      margin-right: 20px;
+      padding: 0;
+      min-width: 150px;
+      min-height: 88px;
+    }
+    .mediaSplashContainer-2t7arR {
+      margin: 0 20px 0 0;
+      padding: 0;
+      position: relative;
+      min-width: 150px;
+      min-height: 88px;
+    }
+    .mediaFade-4Pqtcc {
+      display: none;
+    }
+    .mediaDescription-31GsyQ {
+      background: none!important;
+      display: flex;
+      flex: 1 1 auto;
+      flex-direction: row;
+      padding: 0;
+      align-items: center;
+      position: relative;
+    }
+    .description-1eVELi {
+      flex-direction: row;
+      padding: 0;
+      align-items: center;
+    }
+    .gameTitle-3aKSZn {
+      @include ellipsis;
+      flex: 0 1 180px;
+      font-size: 14px;
+      font-weight: 700;
+      color: RGB(var(--contrasted-color));
+      margin-right: 50px;
+    }
+    .tagline-LsAYEH {
+      @include ellipsis;
+      color: RGB(var(--tc-tint-9));
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+      margin: 0 60px 0 0;
+      flex: 0 1 75%;
+    }
+    .priceOSSection-1uhTom {
+      color: RGB(var(--tc-tint-9));
+      font-size: 14px;
+      font-weight: 400;
+      margin: 0;
+      flex: 1 0 270px;
+    }
+    .platform-1bSyGO {
+      opacity: 1!important;
+    }
+  }
+}

@@ -1,0 +1,46 @@
+// main: _module.scss
+
+/*==={ BETTERDISCORD SPOILERS }===*/
+
+.chat .content .message-group .comment .markup.spoiler,
+.chat .content .message-group .comment .markup.spoiler .mention{
+    color: transparent!important;
+    transition: color 200ms;
+}
+
+.chat .content .message-group .comment .markup.spoiler {
+    min-height: 28px;
+    position: relative;
+}
+
+.chat .content .message-group .comment .markup.spoiler:before{
+    content: "SPOILER";
+    width: 100%;
+    height: 100%;
+    min-height: initial;
+    font-size: 11px;
+    background-color: hsla(var(--channels-color), var(--alpha-100));
+    border: 1px solid hsla(var(--modal-color), var(--alpha-100));
+    color: #fff!important;
+    font-family: var(--font);
+    border-radius: 0;
+    line-height: normal;
+    padding: 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 200ms;
+    user-select: none;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.chat .content .message-group .comment .markup.spoiler:hover {color: #cbc8d0!important;}
+.chat .content .message-group .comment .markup.spoiler:hover .mention{color: var(--links-color)!important;}
+
+.chat .content .message-group .comment .markup.spoiler:hover::before {
+    color: transparent!important;
+    opacity: 0;
+}

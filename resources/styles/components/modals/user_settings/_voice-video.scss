@@ -1,0 +1,32 @@
+// main: _module.scss
+
+//** Voice & Video settings
+
+.user-settings-voice .preview-overlay img {
+    content: image('boo-pixelart.gif');
+    width: 64px;
+    height: 64px;
+}
+
+.layer-3QrUeG .ui-standard-sidebar-view .scrollerWrap-2lJEkd .user-settings-voice .h3-3PDeKG {
+    color: #fff!important;
+    font-size: 12px!important;
+}
+
+.user-settings-voice .cardPrimary-1Hv-to {
+    background-color: RGB(var(--tc-color-4))!important;
+    border: 2px solid RGB(var(--tc-color-8))!important;
+}
+
+.user-settings-voice .media-engine-video {
+    border-radius: 0;
+}
+
+.user-settings-voice .preview-overlay {
+    background-color: RGB(var(--tc-color-2))!important;
+    border-color: RGB(var(--tc-color-4))!important;
+}
+
+.theme-dark .user-settings-voice .preview-overlay.dismiss {
+    background-color: transparent!important;
+}

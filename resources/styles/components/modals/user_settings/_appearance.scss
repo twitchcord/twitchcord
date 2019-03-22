@@ -1,0 +1,58 @@
+// main: _module.scss
+
+//** Appearance settings
+
+// Chat preview background
+.container-1RjyoP .preview-2nSL_2 {
+  background-color: RGB(var(--tc-color-1))!important;
+}
+
+// The Aa's seen here
+// https://i.imgur.com/fOhy58S.png
+.fontScaleSmall-368quy {
+  margin-right: 15px;
+}
+.fontScaleLarge-3xtq7i {
+    margin-left: 15px;
+}
+
+/* chat font scaling / zoom level bars */
+.markDash-3hAolZ {
+    display: none;
+}
+
+.font-scale-sample-large, .font-scale-sample-small {
+    display: none;
+}
+
+.bar-2Qqk5Z {
+    border-radius: 0;
+    height: 12px;
+    background: #ccc!important;
+}
+
+.barFill-23-gu- {
+    background: RGB(var(--tc-color-8));
+    position: absolute;
+    z-index: 1;
+}
+
+.barFill-23-gu-[style*="background: rgb(105, 196, 154);"] {
+    background: rgb(105, 196, 154)!important;
+}
+
+.slider-1PF9SW {
+    margin-left: 0!important;
+    margin-right: 0!important;
+}
+
+.grabber-3mFHz2 {
+    border-radius: 0;
+    box-shadow: none;
+    border: 1px solid RGB(var(--tc-color-4));
+    width: 12px;
+    margin-top: -10px;
+    z-index: 1;
+}
+
+/* ----------------------- */

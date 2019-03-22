@@ -1,0 +1,60 @@
+// main: _module.scss
+
+//** Detected platform account modal
+// https://i.imgur.com/mamzjHZ.png (not edited yet)
+
+.detected-platform-accounts-modal {
+  background-color: RGB(var(--tc-color-3));
+  border: 1px solid RGB(var(--tc-color-4));
+  padding: 20px;
+  .btn-group {
+    justify-content: center;
+    .btn-default {
+      @extend %button-hollow;
+      padding: 0 10px;
+    }
+    .btn-primary {
+      @extend %button-primary;
+      margin: 0!important;
+    }
+  }
+  .icons {
+    background: none!important;
+    .icon {
+      margin: 0;
+    }
+  }
+  .body {
+    font-size: 14px;
+    color: RGB(var(--tc-tint-7));
+    strong {
+      color: RGB(var(--contrasted-color));
+    }
+  }
+  .detected-accounts {
+    .detected-account {
+      .detected-account-details {
+        h3 {
+          color: RGB(var(--contrasted-color));
+        }
+        h4 {
+          color: RGB(var(--tc-tint-6));
+          font-size: 12px;
+        }
+      }
+    }
+  }
+  .divider {
+    display: none;
+  }
+  .privacy {
+    p {
+      color: RGB(var(--tc-tint-7));
+      font-size: 14px;
+      line-height: 20px;
+    }
+    a {
+      color: RGB(var(--tc-color-10));
+    }
+  }
+}

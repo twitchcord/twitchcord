@@ -1,0 +1,63 @@
+// main: _module.scss
+
+//** Notices
+
+.notice .platform-icon {
+    margin-right: 5px;
+    margin-top: 0;
+    transform: scale(0.75);
+}
+
+.notice-2FJMB4 {
+  width: 100%;
+  border-radius: 0;
+  z-index: 9999;
+}
+
+.noticePremium-12Zvj9 {
+    background-color: mediumpurple;
+}
+
+.notice-2FJMB4 .button-1MICoQ {
+  border-radius: 0;
+  text-decoration: none;
+  color: #fff;
+}
+
+.notice-2FJMB4 .textLink-3eOiS- {
+  color: #fff!important;
+}
+
+.notice .notice-dismiss {
+    position: fixed;
+    right: 4px;
+    top: 79px;
+}
+
+#pluginNotice {
+    -webkit-app-region: no-drag!important;
+}
+
+.notice .btn {
+    color: #fff!important;
+}
+
+.notice.notice-facebook .btn:hover {
+    color: #355089!important;
+}
+
+.notice.notice-info .btn:hover {
+    color: #4a90e2!important;
+}
+
+.notice.notice-danger .btn:hover {
+    color: #f04747!important;
+}
+
+.notice.notice-streamer-mode .btn:hover {
+    color: #593695!important;
+}
+
+.notice.notice-spotify .btn:hover {
+    color: #1db954!important;
+}

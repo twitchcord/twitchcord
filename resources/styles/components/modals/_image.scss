@@ -1,0 +1,156 @@
+// main: _module.scss
+
+//** Image modal for images and GIF 'videos'
+
+.modal-1UGdnR > .inner-1JeGVc > .modal-3HD5ck .imageWrapper-2p5ogY,
+.modal-1UGdnR > .inner-1JeGVc > .modal-3HD5ck .imageWrapper-2p5ogY img {
+  @include size(100%!important);
+}
+
+
+.modal-1UGdnR > .inner-1JeGVc > div > .imageWrapper-2p5ogY {
+    background: RGB(var(--tc-color-2));
+    border: 1px solid RGB(var(--tc-color-4));
+    width: calc(100vw - 160px)!important;
+    height: calc(100vh - 160px)!important;
+    padding: 110px 40px 40px;
+    border-radius: 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+// Hide the "Open original" link to insert one with JS
+.modal-1UGdnR > .inner-1JeGVc > div > .imageWrapper-2p5ogY ~ .downloadLink-1ywL9o {
+  display: none;
+}
+
+#{classes('twitchcord.imageTopbar')} {
+  $grandparent: &;
+  &-container {
+    width: calc(100% - 2px);
+    position: absolute;
+    top: 1px;
+    height: 70px;
+    display: flex;
+    border-bottom: 1px solid RGB(var(--tc-color-4));
+    background: RGB(var(--tc-color-3));
+    align-items: center;
+    left: 1px;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+  &-avatar {
+    flex: 0 0 auto;
+    #{$avatarwrapper} {
+      @include size(48px);
+      opacity: 1!important;
+      margin: 0;
+      cursor: default;
+      #{$avatarimage} {
+        @include size(48px);
+      }
+    }
+  }
+  &-text {
+    margin-left: 14px;
+    flex: 1 1 auto;
+    #{$grandparent}-imgname {
+      @include ellipsis;
+      color: RGB(var(--tc-tint-9));
+      font-weight: 400;
+      font-size: 14px;
+      user-select: initial;
+      float: left;
+      line-height: 20px;
+      max-width: 300px;
+    }
+    #{$grandparent}-userdetails {
+      display: flex;
+      align-items: center;
+      #{$messageusername} {
+        color: #fff;
+        font-weight: 700;
+        font-size: 14px;
+        order: 0;
+        overflow: hidden;
+        filter: var(--soften-role-colors);
+        cursor: text;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+      time {
+        color: RGB(var(--tc-tint-7));
+        font-size: 12px;
+        line-height: 20px;
+        margin-left: 7px;
+      }
+    }
+  }
+  &-buttons {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    #copyImage, #copyImageAddress, #downloadA, #openOriginal, #{$grandparent}-close {
+      background-color: RGB(var(--tc-tint-9))!important;
+      opacity: 1;
+      display: flex;
+      align-items: center;
+      margin-left: 10px;
+      text-decoration: none;
+      &:hover {
+        background-color: #fff!important;
+      }
+    }
+    #copyImage {
+      @include size(24px);
+      @include mask(var(--picture-icon));
+    }
+    #copyImageAddress {
+      @include size(22px);
+      @include mask(var(--link-icon));
+    }
+    #openOriginal {
+      @include size(20px);
+      @include mask(var(--open-new-window-icon));
+      text-indent: -9999999px;
+    }
+    #downloadA {
+      @include size(20px);
+      @include mask(var(--download-icon));
+    }
+    #{$grandparent}-close {
+      @include size(26px);
+      @include mask(var(--close-icon));
+      margin: 0;
+    }
+    #copyImage, #copyImageAddress, #openOriginal {
+      margin-left: 20px;
+    }
+  }
+  &-separator {
+    @include size(1px, 40px);
+    background: RGB(var(--tc-color-4));
+    margin: 0 20px;
+  }
+}
+
+.modal-1UGdnR > .inner-1JeGVc > div > .imageWrapper-2p5ogY > img,
+.modal-1UGdnR > .inner-1JeGVc > div > .imageWrapper-2p5ogY > video {
+  max-width: 100% !important;
+  max-height: 100%!important;
+  position: relative;
+  width: auto!important;
+  height: auto!important;
+}
+
+
+.modal-1UGdnR > .inner-1JeGVc > div > .imageWrapper-2p5ogY .imagePlaceholder-1AxUV5 {
+  margin: auto;
+  padding-top: 60px;
+  z-index: 9;
+  opacity: 0.2;
+}

@@ -1,0 +1,1 @@
+require('./old-core').load()

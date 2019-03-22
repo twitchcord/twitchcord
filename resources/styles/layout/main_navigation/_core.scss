@@ -1,0 +1,512 @@
+///  main: _module.scss
+///  ==========================================================================
+///  Main navigation
+///  ==========================================================================
+
+// Temporary removal since LFG isn't available
+#{classes('twitchcord.titleWrapper')}-nav-lfg-btn {
+  display: none!important;
+}
+
+.tc-appbackground {
+  &-image-video {
+    background: url(https://imgur.com/RG03PyX.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999999999999999;
+    height: 100%;
+    width: 100%;
+    opacity: 0.05;
+    pointer-events: none;
+    mix-blend-mode: luminosity;
+  }
+}
+
+// Twitchcord update bar
+#{classes('twitchcord.updateBar')} {
+  @include flex-center;
+  background: RGB(var(--tc-green-color));
+  flex: 1 0 30px;
+  height: 30px;
+  max-height: 0;
+  overflow: hidden;
+  position: relative;
+  transition: max-height 250ms;
+  z-index: 99;
+  &.update-available {
+    max-height: 30px;
+  }
+  &-p {
+    @include text(#fff, 12px, 400, 1.5);
+  }
+  &-btn {
+    @include text(#fff, 10px, 700, 18px, uppercase);
+    border: 1px solid #fff!important;
+    background: transparent;
+    border-radius: 0;
+    margin: 0 0 0 10px;
+    padding: 0 8px;
+    &:hover {
+      background: #fff;
+      color: RGB(var(--tc-green-color));
+    }
+  }
+  &-btn-dismiss {
+    @include absolute(right 16px);
+    @include text(#fff!important, 12px);
+    background: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Twitchcord top nav bar
+#{classes('twitchcord.titleWrapper')} {
+  width: 100%;
+  display: flex;
+  flex: 1 0 50px;
+  position: relative;
+  background: RGB(var(--tc-color-5));
+  z-index: 100;
+  // Spoofing the top nav bar so users see it while the JS is loading
+  // http://i68.tinypic.com/2567pqw.png
+  // @at-root #{$channels} {
+  //   &::before {
+  //     content: '';
+  //     @include size(100%, var(--main-nav-height));
+  //     @include fixed(top var(--titlebar-height) left 0);
+  //     background: RGB(var(--tc-color-5));
+  //     border-bottom: 2px solid RGB(var(--tc-color-2));
+  //     pointer-events: none;
+  //     z-index: 10;
+  //   }
+  // }
+  // Spoofing the top nav bar so users see it while the JS is loading
+  // http://i68.tinypic.com/2567pqw.png
+  // @at-root #{$guildswrapper} {
+  //   &::before {
+  //     content: '';
+  //     @include size(var(--guilds-width), var(--main-nav-height));
+  //     @include fixed(top var(--titlebar-height) left 0);
+  //     background: RGB(var(--tc-color-5));
+  //     z-index: 3;
+  //     pointer-events: none;
+  //   }
+  // }
+  // Remove spoof bars once Javascript loads top nav bar
+  ~ #{$flex} #{$channels},
+  ~ #{$flex} #{$guildswrapper} {
+    &::before {
+      display: none;
+    }
+  }
+  &-nav {
+    $grandparent: &;
+    display: flex;
+    flex: 1 1 0%;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    &-logo-settings {
+      @include size(72px, 50px);
+      @include flex-center;
+      align-content: center;
+      cursor: pointer;
+      min-width: 72px;
+      position: relative;
+      z-index: 99;
+    }
+    &-logo-svg {
+      @include size(36px, 37px);
+      fill: #fff;
+      margin-top: 2px;
+    }
+    &-view-name {
+      @include text(RGB(var(--tc-color-12)), 14px, 400, 20px);
+      margin: 0;
+      padding: 0 15px;
+      white-space: nowrap;
+    }
+    &-icon-friends,
+    &-icon-activity,
+    &-icon-messages,
+    &-icon-library,
+    &-icon-store,
+    &-icon-lfg {
+      @include size(37px, 50px);
+      display: inline-block;
+      float: left;
+      opacity: 0.5;
+      display: none;
+    }
+    &-friends-btn,
+    &-activity-btn,
+    &-messages-btn,
+    &-library-btn,
+    &-store-btn,
+    &-lfg-btn {
+      @include flex-center;
+      flex-direction: column;
+      flex: 0 0 auto;
+      cursor: pointer;
+      position: relative;
+      text-decoration: none;
+      min-width: 18px;
+      height: 100%;
+      &.disabled {
+        pointer-events: none!important;
+      }
+      &::after {
+        content: attr(data-tc-tooltip);
+        display: block;
+        height: 0;
+        visibility: hidden;
+        font-weight: 700;
+        font-size: 14px;
+        padding: 0 15px;
+      }
+      &.disabled #{$grandparent} {
+        &-view-name {
+          pointer-events: all;
+          cursor: not-allowed;
+          &:hover {
+            color: RGB(var(--tc-color-12));
+          }
+        }
+      }
+      &.active #{$grandparent} {
+        &-view-name {
+          color: #fff;
+          font-weight: 700;
+        }
+        &-icon-friends,
+        &-icon-activity,
+        &-icon-messages,
+        &-icon-library,
+        &-icon-store,
+        &-icon-lfg {
+          background-color: #fff;
+        }
+      }
+      &:hover #{$grandparent} {
+        &-view-name {
+          color: #fff;
+        }
+        &-icon-friends,
+        &-icon-activity,
+        &-icon-messages,
+        &-icon-library,
+        &-icon-store,
+        &-icon-lfg {
+          background-color: #fff;
+        }
+      }
+    }
+    &-messages-btn {
+      #{$grandparent}-icon-messages {
+        @include mask(var(--envelope-icon), RGB(var(--tc-color-12)), 26px);
+      }
+    }
+    &-friends-btn {
+      #{$grandparent}-icon-friends {
+        @include mask(var(--friends-icon), RGB(var(--tc-color-12)), 26px);
+      }
+    }
+    &-activity-btn {
+      #{$grandparent}-icon-activity {
+        @include mask(var(--game-controller-icon), RGB(var(--tc-color-12)), 26px);
+      }
+    }
+    &-library-btn {
+      #{$grandparent}-icon-library {
+        @include mask(var(--game-controller-icon), RGB(var(--tc-color-12)), 26px);
+      }
+    }
+    &-store-btn {
+      #{$grandparent}-icon-store {
+        @include mask(var(--game-controller-icon), RGB(var(--tc-color-12)), 26px);
+      }
+    }
+    &-lfg-btn {
+      #{$grandparent}-icon-lfg {
+        @include mask(var(--lfg-icon), RGB(var(--tc-color-12)), 26px);
+      }
+    }
+    &-global-search-outer {
+      margin-left: 15px;
+      flex: 0 1 350px;
+      margin-right: 20px;
+    }
+    &-global-search-inner {
+      position: relative;
+    }
+    &-global-search-input {
+      border: 1px solid RGB(var(--tc-color-5));
+      background: RGB(var(--tc-color-1));
+      color: #fff;
+      height: 30px;
+      display: block;
+      position: relative;
+      width: 100%;
+      padding: 5px 30px 5px 30px;
+      transition: box-shadow .12s ease-in, border .12s ease-in;
+      outline: 0;
+      font-size: 12px;
+      line-height: 1.5;
+      -webkit-appearance: none;
+      box-sizing: border-box;
+      &::-webkit-input-placeholder {
+        color: RGB(var(--tc-tint-6));
+      }
+      &:focus {
+        border-color: RGB(var(--tc-color-8))!important;
+        box-shadow: 0 0 6px -2px RGB(var(--tc-color-8))!important;
+        &+.tc-search-bar-icon {
+          opacity: 1;
+        }
+      }
+    }
+    &-search-bar-icon {
+      width: 14px;
+      height: 14px;
+      position: absolute;
+      left: 9px;
+      top: 8px;
+      opacity: 1;
+      z-index: 5;
+    }
+    .tc-icon.search {
+      opacity: 1;
+      @include size(14px);
+      @include mask(var(--search-icon), RGB(var(--tc-tint-6)));
+      display: block;
+    }
+    .tc-icon.close {
+      @include size(20px);
+      position: absolute;
+      right: 0;
+      top: 3px;
+      margin: 2px;
+      margin-right: 6px;
+    }
+  }
+  &-account {
+    // So we can refer to this later below
+    $grandparent: &;
+    display: flex;
+    flex: 0 1 auto;
+    flex-flow: row nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    &-update-outer,
+    &-mentions-outer {
+      @include flex-center;
+      cursor: pointer;
+      position: relative;
+      min-width: 30px;
+      height: 100%;
+      flex-direction: column;
+      flex: 0 0 auto;
+      width: 30px;
+    }
+    &-update-outer {
+      display: none;
+      &.listener-added {
+        display: flex;
+      }
+    }
+    &-update-inner,
+    &-mentions-inner {
+      @include flex-center;
+      height: 20px;
+      position: relative;
+    }
+    &-mentions-indicator {
+      @include size(4px);
+      @include absolute(top -2px right -2px);
+      background: RGB(var(--notification-color));
+      border: 2px solid RGB(var(--tc-color-5));
+      z-index: 10;
+    }
+    &-update {
+      @include size(18px);
+      @include mask(var(--update-icon), RGB(var(--tc-green-color)));
+      display: block;
+      &.updating {
+        animation: rotate360 1s infinite forwards;
+      }
+    }
+    &-mentions {
+      @include size(18px);
+      @include mask(var(--notification-bell-icon), #fff);
+      display: block;
+      &-new-indicator {
+        @include absolute(top -3px right -1px);
+        @include size(11px);
+        background: RGB(var(--tc-red-color));
+        border: 2px solid RGB(var(--tc-color-5));
+        display: none;
+        @at-root .newMentions & {
+          display: block;
+        }
+      }
+    }
+    &-panel-outer {
+      @include flex-center;
+      flex: 1 1 0%;
+      flex-direction: column;
+      box-sizing: border-box;
+      width: 240px;
+      cursor: pointer;
+      position: relative;
+      margin-left: 5px;
+    }
+    &-panel-inner {
+      display: flex;
+      flex: 1 1 0%;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: flex-start;
+      position: relative;
+      width: 100%;
+    }
+    &-avatar-container {
+      position: relative;
+      margin-right: 8px;
+    }
+    &-avatar {
+      @include size(30px);
+      border-radius: var(--user-roundness);
+      background-color: transparent;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-clip: content-box;
+      border: none;
+      overflow: hidden;
+      backface-visibility: hidden;
+      margin: 0;
+    }
+    &-details-outer {
+      overflow: hidden;
+      display: flex;
+      position: relative;
+      justify-content: space-between;
+      margin-right: 16px;
+      flex: 1 1 0%;
+    }
+    &-details-inner {
+      white-space: nowrap;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: 0;
+      flex-direction: column;
+      width: calc(100% - 18px);
+    }
+    &-username-container {
+      @include text(#fff, 14px, 400, 16px);
+      @include ellipsis;
+      flex: 1 1 0%;
+    }
+    &-status-container {
+      @include text(RGB(var(--tc-color-12)), 11px, 400, 14px);
+      display: flex;
+      text-align: left;
+      margin: 2px 0 0;
+      max-width: 100%;
+      align-items: baseline;
+    }
+    &-status-indicator {
+      @include size(6px);
+      border: none;
+      margin: 0 4px 0 0;
+      overflow: hidden;
+      flex: 0 0 auto;
+      box-sizing: initial;
+      &.online {
+        background-color: RGB(var(--status-online));
+        // Cheeky way of referencing .tc-titlewrapper-account
+        + #{$grandparent}-activity-container {
+          #{$grandparent}-activity {
+            &:empty {
+              &::after {
+                @extend %status-online;
+              }
+            }
+          }
+        }
+      }
+      &.idle {
+        background-color: RGB(var(--status-idle));
+        // Cheeky way of referencing .tc-titlewrapper-account
+        + #{$grandparent}-activity-container {
+          #{$grandparent}-activity {
+            &:empty {
+              &::after {
+                @extend %status-idle;
+              }
+            }
+          }
+        }
+      }
+      &.dnd {
+        background-color: RGB(var(--status-dnd));
+        // Cheeky way of referencing .tc-titlewrapper-account
+        + #{$grandparent}-activity-container {
+          #{$grandparent}-activity {
+            &:empty {
+              &::after {
+                @extend %status-dnd;
+              }
+            }
+          }
+        }
+      }
+      &.offline,
+      &.invisible,
+      &.unknown {
+        background-color: RGB(var(--status-offline));
+        // Cheeky way of referencing .tc-titlewrapper-account
+        + #{$grandparent}-activity-container {
+          #{$grandparent}-activity {
+            &:empty {
+              &::after {
+                @extend %status-invisible;
+              }
+            }
+          }
+        }
+      }
+    }
+    &-activity-container {
+      @include ellipsis;
+      flex: 1 1 0%;
+      line-height: 13px;
+    }
+    &-arrow {
+      @include mask(var(--down-arrow-icon), #fff);
+      @include size(15px);
+      margin: 1px -1px 0 5px;
+      align-self: center;
+      transition: var(--transition-none, transform 0.25s);
+      #{$grandparent}-panel-outer.opened & {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+
+.input-2VB9rf:focus + #{classes('twitchcord.titleWrapper')}-nav-global-search-input {
+  border: 1px solid RGB(var(--tc-color-8))!important;
+  box-shadow: 0 0 6px -2px RGB(var(--tc-color-8))!important;
+  &~.tc-search-bar-icon {
+      opacity: 1;
+  }
+}

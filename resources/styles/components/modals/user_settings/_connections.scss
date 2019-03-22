@@ -1,0 +1,64 @@
+// main: _module.scss
+
+//** Connections settings
+
+.accountList-33MS45 .primary-jw0I4K {
+    margin-bottom: 20px;
+}
+
+.accountBtn-2Nozo3 .accountBtnInner-sj5jLs {
+  @include button-undo-active;
+  border-radius: 0;
+  background-color: transparent!important;
+  border: none!important;
+  &:hover {
+    background-color: transparent!important;
+    border: none!important;
+  }
+  &:hover:active,
+  &:active {
+    background-color: transparent!important;
+  }
+}
+
+.connectionIcon-2ElzVe {
+    height: 42px;
+    width: 42px;
+    top: -4px;
+    position: relative;
+}
+
+
+.connection-1fbD7X {
+    box-shadow: none!important;
+    border: 1px solid RGB(var(--tc-color-4))!important;
+    margin-bottom: 15px;
+    border-radius: 0;
+}
+
+.connectionHeader-2MDqhu {
+    border-radius: 0;
+    border: none;
+    margin-bottom: 0;
+}
+
+.connectionHeader-2MDqhu .connectionAccountValue-3VdBGs {
+    color: #fff!important;
+    font-size: 16px!important;
+    margin-bottom: 6px;
+    margin-left: 10px;
+}
+
+.connectionHeader-2MDqhu .connectionAccountLabel-1DiK0A {
+    display: none!important;
+}
+
+.connectionOptionsWrapper-3KIj1Z {
+    padding: 10px 10px;
+    background: RGB(var(--tc-color-2));
+    border: none;
+}
+
+.connectionOptionsWrapper-3KIj1Z .connectionOptions-YE9FAM {
+    padding-top: 20px;
+}

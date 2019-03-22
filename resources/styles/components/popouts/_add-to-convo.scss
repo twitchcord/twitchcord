@@ -1,0 +1,119 @@
+// main: _module.scss
+
+//** Group DM conversation invite
+
+
+#{$modalsub}.popout-3Nppv9 {
+  background-color: RGB(var(--tc-color-2))!important;
+  color: RGB(var(--tc-tint-10));
+  box-sizing: border-box;
+  max-height: 70vh!important;
+  z-index: 1100;
+  margin-top: 1px;
+  border-radius: 0 0 2px 2px!important;
+  border: none!important;
+  box-shadow: 0 0 0 1px RGB(var(--tc-color-4)), 0 1px 1px rgba(0, 0, 0, 0.25), 0 15px 25px rgba(0, 0, 0, 0.6) !important;
+  .scrollerWrap-2lJEkd {
+    border: none;
+  }
+  .friend-2PO6ke {
+    background:RGB(var(--tc-color-2))!important;
+    &:hover {
+      background: RGB(var(--tc-color-3))!important;
+    }
+    &.friendSelected--wQP3f {
+      background: RGB(var(--tc-color-4))!important;
+      &:hover {
+        background: RGB(var(--tc-color-4))!important;
+      }
+    }
+  }
+  .header {
+    background: RGB(var(--tc-color-3))!important;
+    box-shadow: none!important;
+    border-radius: 0!important;
+    border-bottom: 1px solid RGB(var(--tc-color-4))!important;
+  }
+  .search-bar {
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    margin-top: 10px!important;
+  }
+  .search-bar-tag {
+    border-radius: 0;
+    background-color: RGB(var(--tc-color-7));
+    &:hover {
+      background-color: RGB(var(--tc-color-8));
+    }
+    + input {
+       margin-top: 10px;
+    }
+    .footer-1W7DZI {
+      background: transparent!important;
+      button {
+        border-radius: 0;
+        color: #fff;
+        font-size: 12px;
+        padding: 8px;
+        background-color: RGB(var(--tc-color-7));
+        transition: background-color 0.2s;
+        &:hover {
+          color: #fff;
+          background-color: RGB(var(--tc-color-8));
+        }
+        &:disabled:hover {
+          background-color: RGB(var(--tc-color-7));
+        }
+      }
+    }
+  }
+}
+
+.private-channel-recipients-invite .error-state.not-friends .icon, .notFriendsImage-1APfeE {
+        display: inline-block;
+        margin: 2em;
+        margin-top: 0;
+        position: relative;
+        width: 112px;
+        height: 112px;
+        background: none!important;
+}
+
+.notFriendsImage-1APfeE {
+    margin: 30px 124px;
+    margin-top: 0;
+}
+
+
+.private-channel-recipients-invite .error-state.not-friends .icon:after, .notFriendsImage-1APfeE::after {
+    content: '';
+    position: absolute;
+    top: -7px;
+    left: -7px;
+    width: 7px;
+    height: 7px;
+    box-shadow: 7px 7px transparent,14px 7px transparent,21px 7px transparent,28px 7px transparent,35px 7px transparent,42px 7px #000,49px 7px #000,56px 7px #000,63px 7px #000,70px 7px #000,77px 7px #000,84px 7px transparent,91px 7px transparent,98px 7px transparent,105px 7px transparent,112px 7px transparent,7px 14px transparent,14px 14px transparent,21px 14px transparent,28px 14px #000,35px 14px #000,42px 14px #f00,49px 14px #f00,56px 14px #f00,63px 14px #f00,70px 14px #fff,77px 14px #fff,84px 14px #000,91px 14px #000,98px 14px transparent,105px 14px transparent,112px 14px transparent,7px 21px transparent,14px 21px transparent,21px 21px #000,28px 21px #fff,35px 21px #fff,42px 21px #f00,49px 21px #f00,56px 21px #f00,63px 21px #f00,70px 21px #fff,77px 21px #fff,84px 21px #fff,91px 21px #fff,98px 21px #000,105px 21px transparent,112px 21px transparent,7px 28px transparent,14px 28px #000,21px 28px #fff,28px 28px #fff,35px 28px #f00,42px 28px #f00,49px 28px #f00,56px 28px #f00,63px 28px #f00,70px 28px #f00,77px 28px #fff,84px 28px #fff,91px 28px #fff,98px 28px #fff,105px 28px #000,112px 28px transparent,7px 35px transparent,14px 35px #000,21px 35px #fff,28px 35px #f00,35px 35px #f00,42px 35px #fff,49px 35px #fff,56px 35px #fff,63px 35px #fff,70px 35px #f00,77px 35px #f00,84px 35px #fff,91px 35px #fff,98px 35px #fff,105px 35px #000,112px 35px transparent,7px 42px #000,14px 42px #f00,21px 42px #f00,28px 42px #f00,35px 42px #fff,42px 42px #fff,49px 42px #fff,56px 42px #fff,63px 42px #fff,70px 42px #fff,77px 42px #f00,84px 42px #f00,91px 42px #f00,98px 42px #f00,105px 42px #f00,112px 42px #000,7px 49px #000,14px 49px #f00,21px 49px #f00,28px 49px #f00,35px 49px #fff,42px 49px #fff,49px 49px #fff,56px 49px #fff,63px 49px #fff,70px 49px #fff,77px 49px #f00,84px 49px #f00,91px 49px #fff,98px 49px #fff,105px 49px #f00,112px 49px #000,7px 56px #000,14px 56px #fff,21px 56px #f00,28px 56px #f00,35px 56px #fff,42px 56px #fff,49px 56px #fff,56px 56px #fff,63px 56px #fff,70px 56px #fff,77px 56px #f00,84px 56px #fff,91px 56px #fff,98px 56px #fff,105px 56px #fff,112px 56px #000,7px 63px #000,14px 63px #fff,21px 63px #fff,28px 63px #f00,35px 63px #f00,42px 63px #fff,49px 63px #fff,56px 63px #fff,63px 63px #fff,70px 63px #f00,77px 63px #f00,84px 63px #fff,91px 63px #fff,98px 63px #fff,105px 63px #fff,112px 63px #000,7px 70px #000,14px 70px #fff,21px 70px #fff,28px 70px #f00,35px 70px #f00,42px 70px #f00,49px 70px #f00,56px 70px #f00,63px 70px #f00,70px 70px #f00,77px 70px #f00,84px 70px #f00,91px 70px #fff,98px 70px #fff,105px 70px #f00,112px 70px #000,7px 77px #000,14px 77px #fff,21px 77px #f00,28px 77px #f00,35px 77px #000,42px 77px #000,49px 77px #000,56px 77px #000,63px 77px #000,70px 77px #000,77px 77px #000,84px 77px #000,91px 77px #f00,98px 77px #f00,105px 77px #f00,112px 77px #000,7px 84px transparent,14px 84px #000,21px 84px #000,28px 84px #000,35px 84px #fff,42px 84px #fff,49px 84px #000,56px 84px #fff,63px 84px #fff,70px 84px #000,77px 84px #fff,84px 84px #fff,91px 84px #000,98px 84px #000,105px 84px #000,112px 84px transparent,7px 91px transparent,14px 91px transparent,21px 91px #000,28px 91px #fff,35px 91px #fff,42px 91px #fff,49px 91px #000,56px 91px #fff,63px 91px #fff,70px 91px #000,77px 91px #fff,84px 91px #fff,91px 91px #fff,98px 91px #000,105px 91px transparent,112px 91px transparent,7px 98px transparent,14px 98px transparent,21px 98px #000,28px 98px #fff,35px 98px #fff,42px 98px #fff,49px 98px #fff,56px 98px #fff,63px 98px #fff,70px 98px #fff,77px 98px #fff,84px 98px #fff,91px 98px #fff,98px 98px #000,105px 98px transparent,112px 98px transparent,7px 105px transparent,14px 105px transparent,21px 105px transparent,28px 105px #000,35px 105px #fff,42px 105px #fff,49px 105px #fff,56px 105px #fff,63px 105px #fff,70px 105px #fff,77px 105px #fff,84px 105px #fff,91px 105px #000,98px 105px transparent,105px 105px transparent,112px 105px transparent,7px 112px transparent,14px 112px transparent,21px 112px transparent,28px 112px transparent,35px 112px #000,42px 112px #000,49px 112px #000,56px 112px #000,63px 112px #000,70px 112px #000,77px 112px #000,84px 112px #000,91px 112px transparent,98px 112px transparent,105px 112px transparent,112px 112px transparent;
+  }
+
+  .private-channel-recipients-invite .error-state.not-friends .btn {
+      background-color: RGB(var(--tc-color-7));
+      border-radius: 0;
+      padding: 2px 10px;
+      font-size: 12px;
+      transition: background-color 0.2s;
+    }
+
+    .private-channel-recipients-invite .error-state.not-friends .btn:hover,
+    .private-channel-recipients-invite .error-state.not-friends .btn:active {
+        background-color: RGB(var(--tc-color-8));
+    }
+
+.private-channel-recipients-invite .error-state.not-friends .text {
+    width: 90%;
+    color: RGB(var(--tc-tint-6))!important;
+    line-height: 20px!important;
+    font-size: 14px;
+    margin-top: -20px;
+    margin-bottom: 30px;
+}

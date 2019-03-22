@@ -1,0 +1,67 @@
+// main: _module.scss
+
+/*==={ TITLEBAR ADVERTISEMENT }===
+
+.guilds-wrapper .guild-separator:before {
+    content: "We are recruiting JS/React developers! Join us at https://discord.me/twitchcord for more info.";
+    z-index: 999999999999;
+    color: var(--dark-text-tint);
+    text-transform: none;
+    background: transparent;
+    width: 100%;
+    top: -4px;
+    left: 105px;
+    position: absolute;
+    padding: 5px 15px;
+    will-change: transform;
+    transform: translateY(-200px);
+    -webkit-animation: advert 315s ease-in-out 5s infinite;
+    animation: advert 315s ease-in-out 5s infinite;
+    font-size: 12px;
+    pointer-events: none;
+}
+
+body[tc-plugin-enabled] .guilds-wrapper .guild-separator {
+  left: 15px;
+}
+
+.guilds-wrapper .guild-separator {
+    position: fixed;
+    width: 700px;
+    top: 9px;
+    left: 0;
+    height: 10px;
+    background: transparent;
+    z-index: 99999999;
+    font-size: 12px;
+    border: none;
+    box-shadow: none;
+    text-transform: uppercase;
+}
+
+body[tc-plugin-enabled] .guilds-wrapper .guild-separator::before {
+    left: 125px;
+}
+
+@keyframes advert {
+    0% {
+        transform: translateY(-200px) ;
+    }
+    0.5% {
+        transform: translateY(0);
+    }
+    10% {
+        transform: translateY(0);
+    }
+    10.5% {
+        transform: translateY(-200px);
+    }
+    100% {
+        transform: translateY(-200px);
+    }
+}
+
+.guilds-wrapper .guild-separator:after {
+    display: none;
+}
+*/

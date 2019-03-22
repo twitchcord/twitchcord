@@ -1,0 +1,117 @@
+// main: _module.scss
+
+//** Direct message core elements
+
+
+// Fixes for group DMs
+.private {
+  .titleText-3X-zRE {
+    &.groupDM-3qU0Ks {
+      #{classes('twitchcord.channelInfo')} {
+        &-header {
+          display: none;
+        }
+      }
+      .channelName-3stJzi {
+        height: 20px;
+        padding: 0;
+        margin: 0;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        &::before {
+          display: none;
+        }
+      }
+      .input-autosize-inner {
+        max-width: 100%;
+      }
+      .input-autosize-input {
+        @include ellipsis(100%, inline-block);
+        font-size: 16px;
+        border-radius: 0px;
+        background: none;
+      }
+    }
+  }
+}
+
+#{$messages} {
+  // "This is the beginning of your direct message history with..." container
+  .default-1VPH9n {
+    &.base-34jWEe {
+      background: image('shyguy-pixelart.png');
+      background-repeat: no-repeat;
+      background-size: auto 50px;
+      background-position: top 5px left;
+      height: 70px;
+      display: flex;
+      align-items: flex-start;
+      margin: 0 20px 20px 20px;
+      border: none;
+      border-bottom: 1px solid RGB(var(--tc-tint-3));
+      h1 {
+        color: RGB(var(--tc-tint-9));
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 40px;
+        margin: 0 10px 0 60px;
+        // User's name
+        strong {
+          color: RGB(var(--contrasted-color));
+        }
+      }
+    }
+    + #{$chatdivider}#{$chatdividernew} {
+      margin-top: 30px;
+    }
+  }
+}
+
+#{classes('twitchcord.channelInfo')} {
+  $grandparent: &;
+  @at-root #{classes('html.routes.private')} & {
+    &-topic {
+      color: RGB(var(--contrasted-color));
+    }
+    &-topic-type,
+    &-listening-song,
+    &-listening-by,
+    &-listening-artist,
+    &-listening-on {
+      display: inline-block;
+      &:empty {
+        display: none;
+      }
+    }
+    // Fix to make sure the song fields aren't displayed if user goes offline
+    &-topic-type:empty {
+      ~ #{$grandparent} {
+        &-listening-song,
+        &-listening-by,
+        &-listening-artist,
+        &-listening-on {
+          display: none;
+        }
+      }
+    }
+    &-listening-song,
+    &-listening-artist {
+      color: RGB(var(--contrasted-color));
+    }
+    &-listening-song {
+      &:empty {
+        + #{$grandparent}-listening-by {
+          display: none;
+        }
+      }
+    }
+    &-listening-artist {
+      &:empty {
+        + #{$grandparent}-listening-on {
+          display: none;
+        }
+      }
+    }
+  }
+}

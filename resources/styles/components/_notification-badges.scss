@@ -1,0 +1,17 @@
+// main: _module.scss
+
+//** Notification badges
+
+#{$badgewrapper} {
+  @include text(#fff, 10px, 700, 14px);
+  background: RGB(var(--notification-color));
+  border-radius: var(--notification-badge-roundness)!important;
+  box-shadow: none;
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: center;
+  left: auto;
+  min-width: 10px;
+  padding: 0 2px!important;
+  top: auto;
+}

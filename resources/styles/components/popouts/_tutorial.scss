@@ -1,0 +1,30 @@
+// main: _module.scss
+
+//** Tutorial popout
+
+.tutorial-popout {
+    border: 1px solid RGB(var(--tc-color-4));
+    border-radius: 0;
+}
+
+.tutorial-popout section {
+background: RGB(var(--tc-color-3));
+}
+
+.tutorial-popout header {
+    background: RGB(var(--tc-color-3));
+    color: RGB(var(--tc-tint-10))!important;
+    font-weight: 400!important;
+    text-transform: none!important;
+    font-size: 24px!important;
+    line-height: 30px!important;
+    padding: 15px 20px 0;
+}
+
+.tutorial-popout p {
+    color: RGB(var(--tc-tint-7));
+}
+
+.tutorial-popout .button-area .skip-tips a {
+    color: RGB(var(--tc-color-10));
+}

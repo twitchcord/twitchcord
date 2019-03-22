@@ -1,0 +1,77 @@
+// main: _module.scss
+
+//** Roles
+
+// Role outer container
+#{$userpopoutrole} {
+  @include text($size: 11px, $lh: 16px);
+  background: none;
+  border-radius: var(--role-roundness);
+  border-width: 2px;
+  box-sizing: content-box;
+  cursor: default;
+  display: block;
+  height: 16px;
+  margin: 3px;
+  padding: 2px;
+  position: relative;
+  &:hover {
+    // Remove role button
+    #{$userpopoutroleremovebutton} {
+      opacity: 1;
+    }
+  }
+  // Add role button
+  &#{$userpopoutroleaddbutton} {
+    @include size(16px!important, 24px!important);
+    @include text($lh: 24px);
+    align-content: center;
+    background: none!important;
+    border: none!important;
+    box-sizing: border-box;
+    margin: 3px 0 0 0;
+    min-width: 20px;
+    padding: 0;
+    // Add role button svg
+    @at-root #{$userpopoutroleaddbuttonsvg} {
+      @include size(10px);
+      background: none!important;
+    }
+    &:hover {
+      color: var(--contrasted-color)!important;
+    }
+  }
+  // Remove role button
+  @at-root #{$userpopoutroleremovebutton} {
+    @include absolute(top 0 left 0);
+    @include size(100%, 20px);
+    background: RGBA(var(--tc-color-3), 0.8)!important;
+    border-radius: 0;
+    display: flex!important;
+    margin: 0;
+    min-width: 0;
+    opacity: 0;
+    padding: 0;
+    z-index: 2;
+    // Remove role button svg
+    @at-root #{$userpopoutroleremovebuttonsvg} {
+      @include mask(var(--close-icon), #fff);
+      @include size(16px);
+      display: block;
+      path {
+        display: none;
+      }
+    }
+  }
+  // Discord's role circle
+  @at-root #{$userpopoutrolecircle} {
+    display: none;
+  }
+  // Role name text
+  @at-root #{$userpopoutrolename} {
+    @include text(var(--contrasted-color), 11px, 700, $transform: uppercase);
+    margin: 0 4px;
+    position: relative;
+    z-index: 1;
+  }
+}

@@ -1,0 +1,33 @@
+// main: _module.scss
+
+//** PERMISSIONSVIEWER by Zerebos
+
+.member-perms {
+    margin-bottom: 10px;
+    padding: 5px 10px;
+}
+.perm-details {
+    top: 10px;
+    position: relative;
+}
+.userPopout-3XzG_A .body-3iLsc4 .member-perms-header::before {
+    background: image('privacy-ico-micro.png') no-repeat 50%!important;
+    height: 11px;
+    top: 11px;
+}
+#permissions-modal-wrapper .modal-wrapper {
+    z-index: 10000!important;
+}
+#permissions-modal-wrapper #permissions-modal {
+    border-radius: 0!important;
+    background: RGB(var(--tc-color-3))!important;
+    border: 1px solid RGB(var(--tc-color-4))!important;
+    width: 466px!important;
+}
+#permissions-modal-wrapper .perm-side {
+    width: 275px!important;
+    background-color: RGB(var(--tc-tint-2));
+}
+#permissions-modal-wrapper .role-side {
+    width: 175px!important;
+}

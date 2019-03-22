@@ -1,0 +1,133 @@
+// main: _module.scss
+
+/*==={ NITRO SETTINGS }===*/
+
+/* nitro video */
+.premium-settings iframe {
+  display: none!important;
+}
+
+/* Discord Nitro page */
+.premium-settings .premium-header.splash {
+    border: none;
+    border-bottom: 1px solid RGB(var(--tc-color-4));
+    padding: 30px 40px 0;
+    height: 220px;
+}
+
+.premium-settings .premium-features {
+    padding: 0 20px;
+}
+
+.premium-settings .premium-header .premium-logo {
+    background: image('nitro.svg') no-repeat;
+}
+
+.premium-description .primary-jw0I4K {
+    color: #978cb4!important;
+}
+
+.premium-settings .premium-header .premium-free-months {
+    font-weight: 700;
+    font-size: 10px;
+    margin: 5px 0 0;
+    color: #78daff;
+}
+
+.premium-settings .premium-header .premium-splash-wumpus {
+    right: 27px;
+    top: 15px;
+    width: 168px;
+    height: 192px;
+    transform: scaleX(-1);
+  }
+
+  .premium-settings .premium-header .premium-description {
+      width: 100%;
+  }
+
+  .premium-settings .premium-header .premium-splash-wumpus::after {
+    width: 8px;
+    height: 8px;
+    background: transparent;
+    position: absolute;
+    left: -8px;
+    top: -8px;
+    content: '';
+    box-shadow: 168px 192px 0 #000, 160px 192px 0 #000, 152px 192px 0 #000, 144px 192px 0 #000, 136px 192px 0 #000, 128px 192px 0 #000, 120px 192px 0 #000, 112px 192px 0 #000, 104px 192px 0 #000, 96px 192px 0 transparent, 88px 192px 0 transparent, 80px 192px 0 transparent, 72px 192px 0 #000, 64px 192px 0 #000, 56px 192px 0 #000, 48px 192px 0 #000, 40px 192px 0 #000, 32px 192px 0 #000, 24px 192px 0 #000, 16px 192px 0 #000, 8px 192px 0 #000, 168px 192px 0 #000, 160px 184px 0 #6137c0, 152px 184px 0 #6137c0, 144px 184px 0 #6137c0, 136px 184px 0 #6137c0, 128px 184px 0 #6137c0, 120px 184px 0 #6137c0, 112px 184px 0 #6137c0, 104px 184px 0 #000, 96px 184px 0 transparent, 88px 184px 0 transparent, 80px 184px 0 transparent, 72px 184px 0 #000, 64px 184px 0 #6137c0, 56px 184px 0 #6137c0, 48px 184px 0 #6137c0, 40px 184px 0 #6137c0, 32px 184px 0 #6137c0, 24px 184px 0 #6137c0, 16px 184px 0 #6137c0, 8px 184px 0 #000, 168px 184px 0 #000, 160px 176px 0 #000, 152px 176px 0 #000, 144px 176px 0 #6137c0, 136px 176px 0 #6137c0, 128px 176px 0 #6137c0, 120px 176px 0 #6137c0, 112px 176px 0 #6137c0, 104px 176px 0 #000, 96px 176px 0 transparent, 88px 176px 0 transparent, 80px 176px 0 transparent, 72px 176px 0 #000, 64px 176px 0 #6137c0, 56px 176px 0 #6137c0, 48px 176px 0 #6137c0, 40px 176px 0 #6137c0, 32px 176px 0 #6137c0, 24px 176px 0 #000, 16px 176px 0 #000, 8px 176px 0 transparent, 168px 176px 0 transparent, 160px 168px 0 transparent, 152px 168px 0 transparent, 144px 168px 0 #000, 136px 168px 0 #000, 128px 168px 0 #6137c0, 120px 168px 0 #6137c0, 112px 168px 0 #6137c0, 104px 168px 0 #a78deb, 96px 168px 0 #000, 88px 168px 0 transparent, 80px 168px 0 #000, 72px 168px 0 #a78deb, 64px 168px 0 #6137c0, 56px 168px 0 #6137c0, 48px 168px 0 #6137c0, 40px 168px 0 #000, 32px 168px 0 #000, 24px 168px 0 transparent, 16px 168px 0 transparent, 8px 168px 0 transparent, 168px 168px 0 transparent, 160px 160px 0 transparent, 152px 160px 0 transparent, 144px 160px 0 transparent, 136px 160px 0 #000, 128px 160px 0 #6137c0, 120px 160px 0 #a78deb, 112px 160px 0 #a78deb, 104px 160px 0 #a78deb, 96px 160px 0 #a78deb, 88px 160px 0 #000, 80px 160px 0 #a78deb, 72px 160px 0 #a78deb, 64px 160px 0 #a78deb, 56px 160px 0 #6137c0, 48px 160px 0 #6137c0, 40px 160px 0 #000, 32px 160px 0 transparent, 24px 160px 0 transparent, 16px 160px 0 transparent, 8px 160px 0 transparent, 168px 160px 0 transparent, 160px 152px 0 transparent, 152px 152px 0 transparent, 144px 152px 0 transparent, 136px 152px 0 transparent, 128px 152px 0 #000, 120px 152px 0 #a78deb, 112px 152px 0 #a78deb, 104px 152px 0 #a78deb, 96px 152px 0 #6137c0, 88px 152px 0 #6137c0, 80px 152px 0 #6137c0, 72px 152px 0 #6137c0, 64px 152px 0 #a78deb, 56px 152px 0 #a78deb, 48px 152px 0 #000, 40px 152px 0 transparent, 32px 152px 0 transparent, 24px 152px 0 transparent, 16px 152px 0 transparent, 8px 152px 0 transparent, 168px 152px 0 transparent, 160px 144px 0 transparent, 152px 144px 0 #000, 144px 144px 0 #000, 136px 144px 0 #000, 128px 144px 0 transparent, 120px 144px 0 #000, 112px 144px 0 #6137c0, 104px 144px 0 #6137c0, 96px 144px 0 #6137c0, 88px 144px 0 #6137c0, 80px 144px 0 #6137c0, 72px 144px 0 #6137c0, 64px 144px 0 #6137c0, 56px 144px 0 #000, 48px 144px 0 transparent, 40px 144px 0 #000, 32px 144px 0 #000, 24px 144px 0 #000, 16px 144px 0 transparent, 8px 144px 0 transparent, 168px 144px 0 transparent, 160px 136px 0 #000, 152px 136px 0 #6137c0, 144px 136px 0 #6137c0, 136px 136px 0 #6137c0, 128px 136px 0 #000, 120px 136px 0 #000, 112px 136px 0 #6137c0, 104px 136px 0 #6137c0, 96px 136px 0 #6137c0, 88px 136px 0 #6137c0, 80px 136px 0 #6137c0, 72px 136px 0 #6137c0, 64px 136px 0 #6137c0, 56px 136px 0 #000, 48px 136px 0 #000, 40px 136px 0 #6137c0, 32px 136px 0 #6137c0, 24px 136px 0 #6137c0, 16px 136px 0 #000, 8px 136px 0 transparent, 168px 136px 0 transparent, 160px 128px 0 #000, 152px 128px 0 #6137c0, 144px 128px 0 #6137c0, 136px 128px 0 #6137c0, 128px 128px 0 #000, 120px 128px 0 #000, 112px 128px 0 #a78deb, 104px 128px 0 #a78deb, 96px 128px 0 #a78deb, 88px 128px 0 #a78deb, 80px 128px 0 #a78deb, 72px 128px 0 #a78deb, 64px 128px 0 #a78deb, 56px 128px 0 #000, 48px 128px 0 #000, 40px 128px 0 #6137c0, 32px 128px 0 #6137c0, 24px 128px 0 #6137c0, 16px 128px 0 #000, 8px 128px 0 transparent, 168px 128px 0 transparent, 160px 120px 0 #000, 152px 120px 0 #6137c0, 144px 120px 0 #6137c0, 136px 120px 0 #000, 128px 120px 0 #000, 120px 120px 0 #000, 112px 120px 0 #a78deb, 104px 120px 0 #a78deb, 96px 120px 0 #a78deb, 88px 120px 0 #a78deb, 80px 120px 0 #a78deb, 72px 120px 0 #a78deb, 64px 120px 0 #a78deb, 56px 120px 0 #000, 48px 120px 0 #000, 40px 120px 0 #000, 32px 120px 0 #6137c0, 24px 120px 0 #6137c0, 16px 120px 0 #000, 8px 120px 0 transparent, 168px 120px 0 transparent, 160px 112px 0 #000, 152px 112px 0 #6137c0, 144px 112px 0 #6137c0, 136px 112px 0 #6137c0, 128px 112px 0 #a78deb, 120px 112px 0 #000, 112px 112px 0 #a78deb, 104px 112px 0 #a78deb, 96px 112px 0 #a78deb, 88px 112px 0 #a78deb, 80px 112px 0 #a78deb, 72px 112px 0 #a78deb, 64px 112px 0 #a78deb, 56px 112px 0 #000, 48px 112px 0 #a78deb, 40px 112px 0 #6137c0, 32px 112px 0 #6137c0, 24px 112px 0 #6137c0, 16px 112px 0 #000, 8px 112px 0 transparent, 168px 112px 0 transparent, 160px 104px 0 transparent, 152px 104px 0 #000, 144px 104px 0 #6137c0, 136px 104px 0 #6137c0, 128px 104px 0 #a78deb, 120px 104px 0 #a78deb, 112px 104px 0 #000, 104px 104px 0 #000, 96px 104px 0 #000, 88px 104px 0 #000, 80px 104px 0 #000, 72px 104px 0 #a78deb, 64px 104px 0 #a78deb, 56px 104px 0 #a78deb, 48px 104px 0 #a78deb, 40px 104px 0 #6137c0, 32px 104px 0 #6137c0, 24px 104px 0 #000, 16px 104px 0 transparent, 8px 104px 0 transparent, 168px 104px 0 transparent, 160px 96px 0 transparent, 152px 96px 0 #000, 144px 96px 0 #6137c0, 136px 96px 0 #a78deb, 128px 96px 0 #a78deb, 120px 96px 0 #000, 112px 96px 0 #fbdb7b, 104px 96px 0 #fbdb7b, 96px 96px 0 #fbdb7b, 88px 96px 0 #fbdb7b, 80px 96px 0 #fbdb7b, 72px 96px 0 #000, 64px 96px 0 #a78deb, 56px 96px 0 #a78deb, 48px 96px 0 #a78deb, 40px 96px 0 #a78deb, 32px 96px 0 #6137c0, 24px 96px 0 #000, 16px 96px 0 transparent, 8px 96px 0 transparent, 168px 96px 0 transparent, 160px 88px 0 transparent, 152px 88px 0 transparent, 144px 88px 0 #000, 136px 88px 0 #000, 128px 88px 0 #000, 120px 88px 0 #fbdb7b, 112px 88px 0 #000, 104px 88px 0 #000, 96px 88px 0 #000, 88px 88px 0 #000, 80px 88px 0 #fbdb7b, 72px 88px 0 #6137c0, 64px 88px 0 #000, 56px 88px 0 #a78deb, 48px 88px 0 #a78deb, 40px 88px 0 #000, 32px 88px 0 #000, 24px 88px 0 transparent, 16px 88px 0 transparent, 8px 88px 0 transparent, 168px 88px 0 transparent, 160px 80px 0 transparent, 152px 80px 0 transparent, 144px 80px 0 transparent, 136px 80px 0 #000, 128px 80px 0 #fbdb7b, 120px 80px 0 #fff, 112px 80px 0 #fbdb7b, 104px 80px 0 #fff, 96px 80px 0 #fff, 88px 80px 0 #fff, 80px 80px 0 #fbdb7b, 72px 80px 0 #fbdb7b, 64px 80px 0 #6137c0, 56px 80px 0 #000, 48px 80px 0 #000, 40px 80px 0 transparent, 32px 80px 0 transparent, 24px 80px 0 transparent, 16px 80px 0 transparent, 8px 80px 0 transparent, 168px 80px 0 transparent, 160px 72px 0 transparent, 152px 72px 0 transparent, 144px 72px 0 transparent, 136px 72px 0 #000, 128px 72px 0 #fff, 120px 72px 0 #000, 112px 72px 0 #fbdb7b, 104px 72px 0 #000, 96px 72px 0 #000, 88px 72px 0 #fff, 80px 72px 0 #fff, 72px 72px 0 #fbdb7b, 64px 72px 0 #6137c0, 56px 72px 0 #000, 48px 72px 0 transparent, 40px 72px 0 transparent, 32px 72px 0 transparent, 24px 72px 0 transparent, 16px 72px 0 transparent, 8px 72px 0 transparent, 168px 72px 0 transparent, 160px 64px 0 transparent, 152px 64px 0 transparent, 144px 64px 0 transparent, 136px 64px 0 #000, 128px 64px 0 #fff, 120px 64px 0 #000, 112px 64px 0 #fbdb7b, 104px 64px 0 #000, 96px 64px 0 #000, 88px 64px 0 #fff, 80px 64px 0 #fff, 72px 64px 0 #fbdb7b, 64px 64px 0 #6137c0, 56px 64px 0 #a78deb, 48px 64px 0 #000, 40px 64px 0 transparent, 32px 64px 0 transparent, 24px 64px 0 transparent, 16px 64px 0 transparent, 8px 64px 0 transparent, 168px 64px 0 transparent, 160px 56px 0 transparent, 152px 56px 0 transparent, 144px 56px 0 transparent, 136px 56px 0 #000, 128px 56px 0 #fff, 120px 56px 0 #6137c0, 112px 56px 0 #6137c0, 104px 56px 0 #fff, 96px 56px 0 #fff, 88px 56px 0 #fff, 80px 56px 0 #fbdb7b, 72px 56px 0 #6137c0, 64px 56px 0 #6137c0, 56px 56px 0 #a78deb, 48px 56px 0 #000, 40px 56px 0 transparent, 32px 56px 0 transparent, 24px 56px 0 transparent, 16px 56px 0 transparent, 8px 56px 0 transparent, 168px 56px 0 transparent, 160px 48px 0 transparent, 152px 48px 0 transparent, 144px 48px 0 transparent, 136px 48px 0 #000, 128px 48px 0 #6137c0, 120px 48px 0 #000, 112px 48px 0 #000, 104px 48px 0 #6137c0, 96px 48px 0 #6137c0, 88px 48px 0 #6137c0, 80px 48px 0 #6137c0, 72px 48px 0 #6137c0, 64px 48px 0 #6137c0, 56px 48px 0 #a78deb, 48px 48px 0 #000, 40px 48px 0 transparent, 32px 48px 0 transparent, 24px 48px 0 transparent, 16px 48px 0 transparent, 8px 48px 0 transparent, 168px 48px 0 transparent, 160px 40px 0 transparent, 152px 40px 0 transparent, 144px 40px 0 transparent, 136px 40px 0 #000, 128px 40px 0 #6137c0, 120px 40px 0 #a78deb, 112px 40px 0 #a78deb, 104px 40px 0 #000, 96px 40px 0 #6137c0, 88px 40px 0 #6137c0, 80px 40px 0 #6137c0, 72px 40px 0 #6137c0, 64px 40px 0 #6137c0, 56px 40px 0 #000, 48px 40px 0 transparent, 40px 40px 0 transparent, 32px 40px 0 transparent, 24px 40px 0 transparent, 16px 40px 0 transparent, 8px 40px 0 transparent, 168px 40px 0 transparent, 160px 32px 0 transparent, 152px 32px 0 transparent, 144px 32px 0 transparent, 136px 32px 0 transparent, 128px 32px 0 #000, 120px 32px 0 #000, 112px 32px 0 #000, 104px 32px 0 #000, 96px 32px 0 #6137c0, 88px 32px 0 #6137c0, 80px 32px 0 #6137c0, 72px 32px 0 #6137c0, 64px 32px 0 #6137c0, 56px 32px 0 #000, 48px 32px 0 transparent, 40px 32px 0 transparent, 32px 32px 0 transparent, 24px 32px 0 transparent, 16px 32px 0 transparent, 8px 32px 0 transparent, 168px 32px 0 transparent, 160px 24px 0 transparent, 152px 24px 0 transparent, 144px 24px 0 transparent, 136px 24px 0 transparent, 128px 24px 0 transparent, 120px 24px 0 #000, 112px 24px 0 #a78deb, 104px 24px 0 #a78deb, 96px 24px 0 #000, 88px 24px 0 #6137c0, 80px 24px 0 #6137c0, 72px 24px 0 #6137c0, 64px 24px 0 #000, 56px 24px 0 transparent, 48px 24px 0 transparent, 40px 24px 0 transparent, 32px 24px 0 transparent, 24px 24px 0 transparent, 16px 24px 0 transparent, 8px 24px 0 transparent, 168px 24px 0 transparent, 160px 16px 0 transparent, 152px 16px 0 transparent, 144px 16px 0 transparent, 136px 16px 0 transparent, 128px 16px 0 transparent, 120px 16px 0 transparent, 112px 16px 0 #000, 104px 16px 0 #a78deb, 96px 16px 0 #a78deb, 88px 16px 0 #000, 80px 16px 0 #000, 72px 16px 0 #000, 64px 16px 0 transparent, 56px 16px 0 transparent, 48px 16px 0 transparent, 40px 16px 0 transparent, 32px 16px 0 transparent, 24px 16px 0 transparent, 16px 16px 0 transparent, 8px 16px 0 transparent, 168px 16px 0 transparent, 160px 8px 0 transparent, 152px 8px 0 transparent, 144px 8px 0 transparent, 136px 8px 0 transparent, 128px 8px 0 transparent, 120px 8px 0 transparent, 112px 8px 0 transparent, 104px 8px 0 #000, 96px 8px 0 #000, 88px 8px 0 #000, 80px 8px 0 transparent, 72px 8px 0 transparent, 64px 8px 0 transparent, 56px 8px 0 transparent, 48px 8px 0 transparent, 40px 8px 0 transparent, 32px 8px 0 transparent, 24px 8px 0 transparent, 16px 8px 0 transparent, 8px 8px 0 transparent;
+  }
+
+.premium-settings .premium-header .premium-splash-wumpus .no-user-drag {
+    display: none;
+}
+/* ................................. */
+
+
+.premium-settings .premium-feature .premium-text-title {
+    font-size: 12px!important;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    color: #fff!important;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.premium-settings .premium-header .premium-options-button {
+    border: 1px solid RGB(var(--tc-color-7))!important;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.premium-settings .premium-header .premium-options-button:hover {
+    border: 1px solid RGB(var(--tc-color-8))!important;
+}
+
+.premium-settings .premium-feature .premium-feature-icon {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 17px;
+}
+
+/* animated avatar */
+.premium-settings .premium-feature .premium-feature-icon[src="/assets/8c35f8c63f67b4217051ec65c92f7503.svg"] {
+    content: image('nitro-animated-avatar.png');
+    left: 17px;
+}
+
+/* higher quality screen share */
+.premium-settings .premium-feature .premium-feature-icon[src="/assets/1c2a4867bd79715207e3cc3af0d3f476.svg"] {
+    content: image('nitro-hq-screen.png');
+    left: 20px;
+}
+
+/* custom emojis */
+.premium-settings .premium-feature .premium-feature-icon[src="/assets/222e7361d9f298ecb525cb9d9d9d7312.svg"] {
+    content: image('nitro-custom-emoji.png');
+    left: 20px;
+}
+
+/* animated emojis */
+.premium-settings .premium-feature .premium-feature-icon[src="/assets/0f76453bc5c4ffa345a4bef1f9de0020.svg"] {
+    content: image('nitro-animated-emojis.png');
+    left: 20px;
+}
+
+/* boosted upload limit */
+.premium-settings .premium-feature .premium-feature-icon[src="/assets/3812cc319f8afb89d82187aa07f65e8f.svg"] {
+    content: image('nitro-boosted-upload.png');
+    left: 25px;
+}
+
+/* discord support badge */
+.premium-settings .premium-feature .premium-feature-icon[src="/assets/07208d2e9e612bc93dcc54562311c9a4.svg"] {
+    content: image('nitro-badge-support.png');
+    width: 72px;
+    height: 46px;
+    left: 15px;
+    top: 20px;
+    transform: scale(0.8);
+}
+
+.premium-settings .premium-feature {
+    padding-left: 124px;
+}

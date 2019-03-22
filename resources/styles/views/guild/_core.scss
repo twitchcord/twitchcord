@@ -1,0 +1,565 @@
+/// main: _module.scss
+/// ==========================================================================
+///  Chat area
+/// ==========================================================================
+
+// Just in case it isn't margin-left: 0
+// https://i.imgur.com/0wAgpbV.png
+// guildswrapper direct sibling div
+.base-3dtUhz {
+  margin-left: 0!important;
+  border-radius: 0;
+}
+
+#{$messageswrapper} {
+  // Links
+  @at-root #{$messagemarkup} a,
+  // Channel tagging
+  #{$messagechanneltag} {
+    background: none!important;
+    color: RGB(var(--tc-color-10))!important;
+    &:hover {
+      background: none!important;
+      color: RGB(var(--tc-color-10))!important;
+    }
+  }
+  #{$messages} {
+    // Dividers
+    #{$chatdivider} {
+      height: 30px;
+      padding: 0 48px;
+      margin: 10px 0;
+      z-index: 4;
+      overflow: hidden;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      position: sticky;
+      top: -9px;
+      margin-left: 12px;
+      background: RGB(var(--tc-color-1));
+      #{$chatdividerspan} {
+        @include text(RGB(var(--tc-tint-9))!important, 16px);
+        background-color: transparent !important;
+        padding: 0;
+        width: 100%;
+        &::before,
+        &::after {
+          border-color: RGB(var(--tc-tint-3))!important;
+        }
+        &::before {
+          margin-right: 30px;
+        }
+        &::after {
+          margin-left: 30px;
+        }
+      }
+      &#{$chatdividernew} {
+        position: relative;
+        margin: 20px 0 0 12px;
+        #{$chatdividerspan} {
+          @include text(RGB(var(--glow-color))!important, 12px!important, 700, $transform: uppercase);
+          &::before,
+          &::after {
+            border-color: RGB(var(--tc-color-7))!important;
+          }
+        }
+      }
+    }
+    // Message border lines
+    #{$messagedivider} {
+      display: none;
+    }
+    // Message group container
+    @at-root #{$messagegroup} {
+      margin-left: 16px;
+      min-height: calc(var(--chat-avatar-size) + 20px);
+      overflow: visible;
+      padding: 11px 0 0 0;
+      // Local bot message
+      &#{$messageislocalbot} {
+        background: RGB(var(--tc-color-2));
+        box-shadow: none;
+        margin: 15px 0;
+        padding: 15px 12px!important;
+        border-right: 1px solid RGB(var(--tc-color-1));
+        border-left: 4px solid RGB(var(--tc-color-7));
+        #{$messagelocalbot} {
+          @include text(RGB(var(--tc-tint-6)), 12px, 400);
+          margin: 8px 0 0 44px;
+          #{$message} {
+            h2 {
+              // Clyde username
+              #{$messageusername} {
+                color: transparent;
+                margin-right: -35px;
+                visibility: hidden;
+                // Change it to 'Twitchcord Bot'
+                &::before {
+                  content: 'Twitchcord Bot';
+                  color: #fff;
+                  visibility: visible;
+                }
+                &:hover {
+                  &::before {
+                    text-decoration: underline;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      // Message edit textarea
+      #{$textareawrapall} {
+        margin-top: 4px;
+        margin-left: -3px;
+        #{$textareainner} {
+          background-color: RGB(var(--tc-color-2))!important;
+          border: 1px solid RGB(var(--tc-tint-3));
+          border-radius: 0;
+          min-height: 33px;
+          line-height: 33px;
+          box-sizing: border-box;
+          #{$textarea} {
+            color: RGB(var(--tc-tint-9))!important;
+            background-color: transparent;
+            border: none;
+            font-size: 14px;
+            max-height: 400px!important;
+            overflow: hidden;
+            margin: 0;
+            letter-spacing: 0;
+            padding: 6px 105px 6px 12px
+          }
+        }
+      }
+      // Action messages, like "x pinned a message to this channel"
+      // This is backup styling in case Twitchcord JS isn't loaded yet
+      // for whatever reason
+      #{$messagesystem} {
+        @include text(RGB(var(--tc-tint-6)), 12px, 400, 16px);
+        align-items: center;
+        background: RGB(var(--tc-color-2));
+        border-bottom: 1px solid RGBA(var(--tc-color-4), 0.4);
+        border-top: 1px solid RGBA(var(--tc-color-4), 0.4);
+        border-right: 1px solid RGBA(var(--tc-color-4), 0.4);
+        border-left: 4px solid RGB(var(--tc-color-7));
+        padding: 9px 15px;
+        margin: 0;
+        #{$messagesystemicon} {
+          @include reset;
+          line-height: 16px;
+          height: 16px;
+          position: relative;
+        }
+        #{$messagesystemcontent} {
+          font-weight: 400;
+          line-height: 16px;
+          margin-left: 5px;
+          overflow: hidden;
+        }
+        // User's name link
+        a {
+          color: RGB(var(--tc-tint-10))!important;
+          font-weight: 700;
+          // Any other links
+          &:nth-of-type(2) {
+            color: RGB(var(--tc-color-10))!important;
+            font-weight: 400;
+          }
+        }
+        #{$messagesystemtimestamp} {
+          color: RGB(var(--tc-tint-6))!important;
+        }
+      }
+      // Container for 'escape to cancel - enter to save'
+      #{$messageeditoperations} {
+        color: RGB(var(--tc-tint-6))!important;
+        padding-right: 10px;
+        a {
+          color: RGB(var(--tc-color-10))!important;
+        }
+      }
+      &#{classes('twitchcord.systemMessage')} {
+        margin: 0;
+        padding: 10px 0;
+        + #{classes('twitchcord.systemMessage')} {
+          padding: 0 0 10px 0;
+        }
+        #{$messagecontent} {
+          padding: 0;
+        }
+        #{$messagebuttoncontainerouter} {
+          display: none;
+        }
+        #{$messagesystem} {
+          @include text(RGB(var(--tc-tint-6)), 12px, 700, 16px);
+          border: none;
+          border-right: 1px solid RGB(var(--tc-color-1));
+          border-left: 4px solid RGB(var(--tc-color-7));
+          padding: 10px 15px;
+          margin: 0;
+        }
+      }
+      // Message container
+      #{$message} {
+        margin-bottom: 6px;
+        // Message failed to send
+        #{$messagesendfailed} {
+          #{$messagemarkup} {
+            color: RGB(var(--notification-color))!important;
+            a {
+              color: RGB(var(--notification-color))!important;
+            }
+          }
+        }
+        #{$messagecontent} {
+          margin: -1px 6px 0 calc(var(--chat-avatar-size) + var(--chat-avatar-margin));
+          #{$messagemarkup} {
+            color: RGB(var(--tc-tint-9));
+            line-height: 1.5;
+            font-size: 14px;
+            font-weight: 400;
+            overflow: hidden;
+            margin: 0 45px 0 0;
+            user-select: initial;
+          }
+        }
+        // Username + timestamp outer container
+        h2 {
+          padding-top: 0;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          > span,
+          #{$messageusernamewrapper},
+          time {
+            @include ellipsis(100%);
+            line-height: 18px;
+            display: flex;
+            align-items: center;
+            color: RGB(var(--tc-tint-6));
+          }
+          time {
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 0;
+            margin-left: 6px;
+            margin-bottom: -2px;
+          }
+          // Username
+          @at-root #{$messageusername} {
+            @include ellipsis(100%);
+            color: RGB(var(--contrasted-color));
+            font-size: 14px;
+            line-height: 18px;
+            font-weight: 700;
+            order: 2;
+            filter: var(--soften-role-colors);
+          }
+        }
+        // Avatar container
+        #{$avatarwrapper} {
+          @include size(var(--chat-avatar-size));
+          border: none;
+          margin: 2px 14px 0 0;
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: calc(var(--chat-avatar-size) - 4px) calc(var(--chat-avatar-size) - 4px)!important;
+          border-radius: var(--user-roundness);
+          &:hover {
+            opacity: 1;
+          }
+          // Avatar image
+          #{$avatarimage} {
+            @include size(var(--chat-avatar-size));
+            border: 2px solid transparent;
+            background-color: transparent;
+            margin: 0;
+            background-size: calc(var(--chat-avatar-size) - 4px) calc(var(--chat-avatar-size) - 4px)!important;
+            background-repeat: no-repeat;
+            box-sizing: border-box;
+            &:hover {
+              opacity: 1;
+              border-color: RGB(var(--tc-color-10));
+            }
+          }
+        }
+        // Someone is mentioned
+        .mention {
+          color: RGB(var(--tc-color-10));
+          font-weight: 400;
+          font-size: 14px;
+          background-color: transparent!important;
+          padding: 0;
+          cursor: pointer;
+          &:hover {
+            background-color: transparent!important;
+            text-decoration: none;
+            color: RGB(var(--tc-color-10));
+          }
+        }
+        // User is specifically mentioned
+        .isMentioned-N-h9aa {
+          @include reset;
+          background: none!important;
+          border-radius: 0;
+          .mention {
+            color: #fff!important;
+            background-color: RGB(var(--tc-color-7))!important;
+            padding: 3px 6px;
+            &:hover {
+              color: #fff;
+              background-color: RGB(var(--tc-color-8))!important;
+            }
+          }
+          // Remove mentioned pill
+          &::after {
+            display: none;
+          }
+        }
+        // (edited) indicator after edited messages
+        #{$messageedited} {
+          color: RGB(var(--tc-tint-6))!important;
+          cursor: help!important;
+          font-size: 12px;
+        }
+      }
+      // Search highlighting message fix
+      > div[style*="background-color: rgba(114, 137, 218"] {
+        border-radius: 0!important;
+        background-color: transparent;
+        color: inherit;
+        animation: searchHighlightFix 2s forwards;
+      }
+      // Accessory (embeds and stuff)
+      #{$messageaccessory} {
+        > * {
+          margin: 8px 0;
+        }
+      }
+    }
+    // Blocked messages
+    @at-root #{$messagegroupblocked} {
+      border-radius: 0;
+      background: RGB(var(--tc-color-1))!important;
+      border: 1px solid RGBA(var(--tc-color-4), 0.8)!important;
+      margin: 15px;
+      display: none;
+      &#{$messagegroupblockedrevealed}{
+        border: 1px solid RGB(var(--tc-color-4))!important;
+        background: RGB(var(--tc-color-1))!important;
+        #{$messagegroup} {
+          padding: 11px 20px;
+        }
+      }
+      #{$messagegroupblockedbtn} {
+        background: RGB(var(--tc-color-2))!important;
+        color: RGB(var(--tc-tint-6))!important;
+        font-size: 11px;
+        font-weight: 700;
+        border-radius: 0;
+        border: none!important;
+      }
+    }
+  }
+}
+
+// Chat area container
+#{$chat} {
+  background: RGB(var(--tc-color-1))!important;
+  // Chat area outer container
+  #{$chatcontent} {
+    background: none!important;
+  }
+  // Chat area inner container
+  #{$messageswrapper} {
+    background: none!important;
+    padding-right: 2px;
+  }
+  #{$chatscrollerwrap} {
+    padding: 0 2px 0 0;
+  }
+  // Chat area scroller container
+  #{$messages} {
+    @include scrollbars;
+    padding-bottom: 50px;
+    // Set overflow to auto for DM's
+    @at-root #{classes('html.routes.private')} & {
+      overflow-y: auto;
+    }
+    // "Welcome to your server"
+    .welcomeMessage-3_Mcht {
+      padding: 20px;
+      margin: 0 16px 16px;
+      .base-34jWEe {
+        background-image: none;
+        @include size(100%, 150px);
+        @include mask(var(--castle-image), RGB(var(--tc-tint-9)));
+        margin: 0 auto;
+        padding: 0;
+        opacity: 0.6;
+        order: 1;
+        border: none;
+      }
+      .h1-1IDj26 {
+        font-weight: 400;
+        color: RGB(var(--tc-tint-9));
+        font-size: 12px;
+        text-transform: none;
+        margin: 20px 0 15px;
+        order: 2;
+      }
+      .itemContainer-WiE19S {
+        display: none;
+      }
+    }
+  }
+}
+
+
+// Changes to the upload textarea
+.channelTextArea-1LDbYG.channelTextAreaUpload-3t7EIx {
+  margin-bottom: 0!important;
+  margin-top: 10px;
+  .inner-zqa7da {
+    background: none!important;
+    .textArea-2Spzkt {
+      @extend %input-text;
+      min-height: 34px;
+      line-height: 20px;
+      letter-spacing: 0;
+      padding: 7px 38px 7px 14px;
+    }
+    .emojiButton-2wRZts {
+      top: 9px;
+    }
+  }
+}
+
+//## Wrapper for blocked users in DMs and verification countdown message and phone verification in guilds
+#{$chat} {
+  #{$chatbottomwrapper} {
+    color: RGB(var(--tc-tint-7));
+    background: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    // Unblock button
+    button {
+      margin-top: 20px!important;
+    }
+  }
+}
+
+//## Message textarea
+#{$chat} {
+  form {
+    border-top: none!important;
+    background: none!important;
+    box-shadow: none!important;
+    padding: 0 27px 0 15px;
+    margin: 0;
+    #{$textareawrapall} {
+      margin: 0 0 10px;
+      padding: 0;
+      border: none;
+    }
+    #{$textarea} {
+      color: RGB(var(--tc-tint-9))!important;
+      background-color: transparent;
+      border: none;
+      letter-spacing: 0;
+      font-size: 14px;
+      max-height: 400px!important;
+      margin: 0;
+      margin-right: 5px;
+      padding: 6px 6px 6px 12px;
+      &::-webkit-input-placeholder {
+        color: RGB(var(--tc-tint-6))!important;
+      }
+    }
+    .textAreaDisabled-2_o-kZ,
+    .textAreaEdit-bNLDk3,
+    .textAreaEnabledNoAttach-1WxUwj,
+    .textAreaForm-18s4EO {
+      padding: 6px 70px 6px 12px;
+    }
+    #{$textareainnernoautocomplete} {
+      border-radius: 0;
+    }
+    #{$textareainner} {
+      background-color: RGB(var(--tc-color-2))!important;
+      border: 1px solid RGB(var(--tc-tint-3));
+      border-radius: 0;
+      min-height: 33px;
+      line-height: 33px;
+      box-sizing: border-box;
+      // Attach button container
+      > #{$flex} {
+        flex: 0 0 95px!important;
+        order: 2;
+        width: 95px;
+      }
+    }
+  }
+  .attachButton-1UjEWA,
+  .attachButton-1UjEWA.button-38aScr.lookBlank-3eh9lL {
+    @include mask(var(--paperclip-icon), RGB(var(--tc-color-10))!important);
+    @include size(20px!important);
+    min-width: 20px!important;
+    min-height: 20px!important;
+    margin: 0!important;
+    right: -8px;
+    top: 6px;
+    padding: 0;
+    position: relative;
+    opacity: 1;
+    overflow: visible;
+    transition: none!important;
+    filter: none!important;
+    .attachButtonInner-1iyZ9F {
+      height: 20px;
+    }
+    &:hover {
+      transform: none;
+      background-color: RGB(var(--tc-color-11))!important;
+      opacity: 1;
+    }
+  }
+  .attachButton-1UjEWA svg[name="PlusCirclePlay"] {
+    display: none;
+  }
+  // Attach button divider
+  .attachButtonDivider-3Glu60 {
+    display: none!important;
+  }
+}
+
+.textAreaEnabled-3vQ5WZ.textArea-2Spzkt.textAreaEdit-bNLDk3 {
+  padding: 6px 45px 0 15px;
+  min-height: 40px;
+}
+
+//## Channel loading new messages line
+#{$chat} {
+  #{$chatloadingmessage} {
+    height: 50px;
+    #{$spinnerold} {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      height: 1px;
+      background: linear-gradient(to right, RGBA(var(--tc-color-1), 0) 0%, RGB(var(--tc-color-10)) 40%, RGB(var(--tc-color-10)) 60%, RGBA(var(--tc-color-1), 0) 100%);
+      top: 35px;
+      animation: chatLoadingMessages 1s infinite;
+      &::after {
+        display: none;
+      }
+      #{$spinnerinnerold} {
+        display: none;
+      }
+    }
+  }
+}

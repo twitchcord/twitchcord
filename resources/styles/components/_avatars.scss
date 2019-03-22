@@ -1,0 +1,81 @@
+///  main: _module.scss
+///  ==========================================================================
+///  Replacement avatars
+///  ==========================================================================
+
+// Discord default avatars
+#{classes('components.avatars.image')},
+// For friends list and other rare occurences
+#{classes('components.avatars.largeOld')},
+#{classes('components.avatars.smallOld')},
+#{classes('components.avatars.xlargeOld')},
+#{classes('components.avatars.xxlargeOld')},
+#{classes('components.avatars.xsmallOld')} {
+  &[style*="#{discordImages('avatars.user.blurple')}"],
+  &[style*="#{discordImages('avatars.user.gold')}"],
+  &[style*="#{discordImages('avatars.user.green')}"],
+  &[style*="#{discordImages('avatars.user.grey')}"],
+  &[style*="#{discordImages('avatars.user.red')}"] {
+    background-image: url(https://static-cdn.jtvnw.net/jtv_user_pictures/xarth/404_user_300x300.png)!important;
+    background-size: contain!important;
+  }
+  // Groups avatar
+  &[style*="#{discordImages('avatars.group')}"] {
+    background: url(https://i.imgur.com/yllzq9o.png) no-repeat 50%!important;
+    background-size: 100%!important;
+  }
+  // Clyde bot avatar
+  &[style*="#{discordImages('avatars.clyde')}"] {
+    background: image('twitchcord-bot.png') no-repeat 50%!important;
+    background-size: contain!important;
+  }
+
+
+  ///  Fallbacks to make sure we catch all the avatars we want
+  ///  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  // Default Discord avatars
+  @at-root
+  [style*="#{discordImages('avatars.user.blurple')}"],
+  [style*="#{discordImages('avatars.user.gold')}"],
+  [style*="#{discordImages('avatars.user.green')}"],
+  [style*="#{discordImages('avatars.user.grey')}"],
+  [style*="#{discordImages('avatars.user.red')}"] {
+    background-image: url(https://static-cdn.jtvnw.net/jtv_user_pictures/xarth/404_user_300x300.png)!important;
+    background-size: contain!important;
+  }
+  // Groups avatar
+  @at-root
+  &[style*="#{discordImages('avatars.group')}"] {
+    background: url(https://i.imgur.com/yllzq9o.png) no-repeat 50%!important;
+    background-size: 100%!important;
+  }
+  // Twitchcord bot
+  @at-root
+  [src*="#{discordImages('avatars.clyde')}"] {
+    content: image('twitchcord-bot.png')!important;
+  }
+}
+
+
+// Twitchcord Bot avatar replacing Clyde name / avatar
+#{$messagegroup} {
+  &#{$messageislocalbot} {
+    #{$message} {
+      h2 {
+        // Clyde username
+        #{$messageusername} {
+          color: transparent;
+          margin-right: -35px;
+          visibility: hidden;
+          // Change it to 'Twitchcord Bot'
+          &::before {
+            content: 'Twitchcord Bot';
+            color: #fff;
+            visibility: visible;
+          }
+        }
+      }
+    }
+  }
+}

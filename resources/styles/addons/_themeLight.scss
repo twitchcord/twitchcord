@@ -1,0 +1,22 @@
+// main: _module.scss
+
+//** Special adjustments needed for the light version
+
+// The checkmark icon for checkbox inputs
+.themeLight {
+  .checkbox .checkbox-inner input[type=checkbox]:checked+span:after {
+    background-color: #fff;
+  }
+  #{$contextmenu} {
+    #{$contextmenuitem} {
+      #{$slider} {
+        #{$sliderbar} {
+          background: RGB(var(--tc-tint-11))!important;
+        }
+        #{$sliderbarfill} {
+          background: RGB(var(--tc-color-9));
+        }
+      }
+    }
+  }
+}

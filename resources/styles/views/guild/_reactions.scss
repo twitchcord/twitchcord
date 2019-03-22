@@ -1,0 +1,126 @@
+// main: _module.scss
+
+//** Reactions
+
+#{$messagebtnoption},
+	#{$messagebtnreaction} {
+  visibility: hidden;
+  transition: none;
+  width: 18px;
+  height: 18px;
+  margin-right: 0!important;
+  z-index: 900;
+  opacity: 1;
+  border-radius: 0;
+  box-sizing: border-box;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+	&#{$optionpopoutopen},
+	&:hover {
+		background-color: RGB(var(--contrasted-color))!important;
+    visibility: visible;
+	}
+}
+#{$messagebtnoption} {
+  background: none;
+	@include mask(var(--horizontal-dots-icon), RGB(var(--tc-tint-6)), 24px, $important: true)
+  background-color: RGB(var(--tc-tint-6));
+  transform: rotate(90deg);
+}
+#{$messagebtnreaction} {
+  background: none;
+	@include mask(var(--emoji-icon), RGB(var(--tc-tint-6)), 18px, $important: true);
+}
+
+
+#{$messagereactioninner} {
+	pointer-events: all;
+	padding: 0 5px;
+}
+#{$messagereactions} {
+	width: 100%;
+	flex: 100%;
+	order: 9999999999;
+  margin: 2px!important;
+	&:hover {
+		#{$messagebtnreaction} {
+			opacity: 0.5!important;
+		}
+	}
+	#{$messagebtnreaction} {
+    margin-left: 0;
+    visibility: hidden;
+		margin-top: 6px;
+		opacity: 0.5!important;
+		&:hover {
+			opacity: 1!important;
+			border-color: RGB(var(--contrasted-color));
+			&::before {
+				color: RGB(var(--contrasted-color));
+			}
+		}
+	}
+}
+#{$messagereaction} {
+	border-radius: 0;
+	position: relative;
+  margin: 6px 8px 0 0;
+  background: RGB(var(--tc-color-2))!important;
+	box-shadow: 0 0 0 1px RGB(var(--tc-color-3));
+	padding: 0;
+  pointer-events: none;
+	&::before,
+	&::after {
+		content: "";
+    display: block;
+    position: absolute;
+    border-radius: 0;
+    opacity: 0;
+    pointer-events: none;
+		z-index: 99;
+	}
+	#{$emoji} {
+		border-radius: 0;
+  	padding: 4px 0;
+    margin: 0!important;
+    width: 22px !important;
+    height: 26px !important;
+	}
+	&#{$messagereactionme} {
+		background: RGBA(var(--tc-green-color), 0.2)!important;
+		#{$messagereactioncount} {
+			color: RGB(var(--contrasted-color))!important;
+		}
+		&::before {
+	    box-shadow: inset 0 0 7px RGB(var(--tc-green-color));
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	    animation: .6s 1 pulseReact cubic-bezier(.075, .82, .165, 1), .6s 1 fadeOut;
+		}
+		&::after {
+	    opacity: 1;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			box-shadow: 0 0 0 2px RGB(var(--tc-green-color)), 0px 0px 20px RGBA(var(--tc-green-color), 0.3);
+		}
+	}
+	#{$messagereactioncount} {
+		@include text(RGB(var(--tc-tint-6)), 11px, 400);
+    letter-spacing: 0;
+		margin: 0;
+	}
+}
+#{$messageaccessory} {
+	&:hover {
+		#{$messagereactions} {
+			#{$messagebtnreaction} {
+				visibility: visible;
+			}
+		}
+	}
+}

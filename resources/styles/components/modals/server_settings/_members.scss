@@ -1,0 +1,105 @@
+// main: _module.scss
+
+//** Server members settings
+
+.guild-settings-members-filter-popout .ui-search-bar .input {
+  padding-right: 30px;
+}
+
+.guild-settings-members-filter-popout {
+  padding-bottom: 7px;
+}
+
+.guild-settings-members-filter-popout .ui-search-bar .ui-search-bar-icon {
+  position: absolute;
+  right: 10px;
+}
+
+.guild-settings-members-filter-popout .ui-search-bar .input:focus + .ui-search-bar-icon .icon.visible {
+  opacity: 1;
+}
+
+.guild-settings-members-filter-popout svg g {
+  display: none;
+}
+
+.guild-settings-members-filter-popout svg {
+    background: image('friends.png') no-repeat 50%;
+    background-size: 30px;
+    top: -1px;
+    position: relative;
+}
+
+.guild-settings-members-filter-popout .scrollerWrap-2lJEkd {
+  background: none;
+  border: none;
+}
+
+.guild-settings-members-filter-popout .scroller-2CvAgC {
+    padding-bottom: 0;
+}
+
+.guild-settings-members-filter-popout .ui-selectable-item {
+  border-radius: 0;
+  background-color: RGB(var(--tc-color-3));
+  margin: 0;
+  margin-right: 10px;
+  transition: background-color 0.2s;
+  line-height: 16px;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 30px;
+}
+
+.guild-settings-members-filter-popout .ui-selectable-item.selected,
+.guild-settings-members-filter-popout .ui-selectable-item.selected:hover {
+  background-color: RGB(var(--tc-color-7))!important;
+  transition: background-color 0.2s;
+}
+
+.guild-settings-members-filter-popout .ui-selectable-item:hover {
+  background-color: RGB(var(--tc-color-2))!important;
+  transition: background-color 0.2s;
+}
+
+.guild-settings-members-filter-popout svg[name="Checkmark"] {
+    background: image('checkmark.png') no-repeat 50%;
+    background-size: 18px;
+    top: 0;
+}
+
+.guild-settings-members-filter-popout {
+    background: RGB(var(--tc-color-3))!important;
+    border: 1px solid RGB(var(--tc-color-4));
+    border-radius: 0;
+    box-shadow: 0 0 45px rgba(0, 0, 0, 0.6) !important;
+}
+
+
+.guild-settings-members-header .ui-search-bar-icon {
+    left: 0;
+}
+
+.guild-settings-members-header .ui-search-bar .input:focus + .ui-search-bar-icon .icon.visible {
+    opacity: 1!important;
+}
+
+.guild-settings-members-header .ui-search-bar {
+    margin-left: 30px;
+}
+
+.guild-settings-members-header .ui-search-bar .input {
+    padding-right: 27px;
+    margin-right: -27px;
+}
+
+.guild-settings-members-header .description-3_Ncsb.primary-jw0I4K {
+    margin-bottom: 0;
+}
+
+.guild-settings-members-member .name {
+    color: #fff!important;
+    font-size: 16px;
+    margin-bottom: 5px;
+    line-height: 16px;
+}

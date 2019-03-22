@@ -1,0 +1,32 @@
+///  main: _module.scss
+///  ==========================================================================
+///  Spotify listening along section
+///  ==========================================================================
+///  Appears at the bottom of the channels list when someone is listening along
+///  to you on Spotify
+
+
+// Main container
+#{classes('layout.channels.listeningAlong.listeningAlong')} {
+  background: RGB(var(--tc-color-3));
+  border-top: 1px solid RGB(var(--tc-color-4));
+  #{classes('layout.channels.listeningAlong.subtitle')} {
+    @include text(RGB(var(--tc-tint-6)), 12px, 400, 20px);
+  }
+  // Info icon container
+  #{classes('layout.channels.listeningAlong.icons')} {
+    margin: 0;
+    #{classes('layout.channels.listeningAlong.actionIcon')} {
+      border-radius: 0;
+      padding: 0;
+    }
+  }
+}
+
+// Can be used for testing Spotify listen along
+/*
+<div class="listeningAlong-2UPsxf flex-1O1GKY alignCenter-1dQNNs" style="
+    background: hsl(var(--modal-color));
+    border-top: 1px solid hsl(var(--titlebar-color));
+"><div class="textWrap-1Dl7rK vertical-V37hAW flex-1O1GKY directionColumn-35P_nr"><div class="title-223e2Y size14-3iUx6q">2 Listeners</div><div class="subtitle-Qv5s8c size10-39i14u height14-RAZbc0">on Spotify</div></div><div class="flex-1xMQg5 flex-1O1GKY horizontal-1ae9ci horizontal-2EEEnY flex-1O1GKY directionRow-3v3tfG justifyEnd-2E6vba alignStretch-DpGPf3 noWrap-3jynv6 party-1X4mrL" style="flex: 1 1 auto;"><div class="container-1qJFPO flex-1O1GKY alignCenter-1dQNNs"><div tabindex="0" class="wrapper-2F3Zv8 xsmall-3afG_L clickable-24K1Zd avatarMasked-3y6o4j avatar-1j43gH" role="button"><div class="image-33JSyf xsmall-3afG_L " style="background-image: url(&quot;https://cdn.discordapp.com/avatars/97549189629636608/c9f78f1bf96bea0168e43678d28743c9.png?size=256&quot;);"></div></div><div tabindex="0" class="wrapper-2F3Zv8 xsmall-3afG_L clickable-24K1Zd" role="button"><div class="image-33JSyf xsmall-3afG_L " style="background-image: url(&quot;https://cdn.discordapp.com/avatars/139102588762193920/2ad539ec6b4173a6bc96414388167efc.png?size=256&quot;);"></div></div></div></div><div class="icons-2iqSHd flex-1O1GKY"><a tabindex="0" class="anchor-3Z-8Bb iconLink-3wh4A- flex-1O1GKY" href="https://support.discordapp.com/hc/en-us/articles/360000167212" rel="noreferrer noopener" target="_blank" role="button"><svg name="Info" class="actionIcon-h73Pge clickable-24K1Zd" width="16" height="16" viewBox="0 0 24 24"><g fill="none" fill-rule="evenodd"><rect width="24" height="24"></rect><path fill="currentColor" d="M9,7 L11,7 L11,5 L9,5 L9,7 Z M10,18 C5.59,18 2,14.41 2,10 C2,5.59 5.59,2 10,2 C14.41,2 18,5.59 18,10 C18,14.41 14.41,18 10,18 L10,18 Z M10,4.4408921e-16 C4.4771525,-1.77635684e-15 4.4408921e-16,4.4771525 0,10 C-1.33226763e-15,12.6521649 1.0535684,15.195704 2.92893219,17.0710678 C4.80429597,18.9464316 7.3478351,20 10,20 C12.6521649,20 15.195704,18.9464316 17.0710678,17.0710678 C18.9464316,15.195704 20,12.6521649 20,10 C20,7.3478351 18.9464316,4.80429597 17.0710678,2.92893219 C15.195704,1.0535684 12.6521649,2.22044605e-16 10,0 L10,4.4408921e-16 Z M9,15 L11,15 L11,9 L9,9 L9,15 L9,15 Z" transform="translate(2 2)"></path></g></svg></a></div></div>
+*/

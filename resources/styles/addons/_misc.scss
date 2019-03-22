@@ -1,0 +1,27 @@
+// main: _module.scss
+
+//** Miscellaneous Twitchcord options with short CSS
+
+//## showBlocked - Show blocked user's messages
+// DEFAULT: false
+.showBlocked:root {
+  #{$messageswrapper} {
+    #{$messages} {
+      #{$messagegroupblocked} {
+        display: block;
+      }
+    }
+  }
+}
+
+//## noAnimations - Removes most or all animations
+// DEFAULT: false
+.noAnimations:root {
+  --no-animations: none!important;
+}
+
+//## noAnimations - Removes most or all transitions
+// DEFAULT: false
+.noTransitions:root {
+  --no-transitions: none!important;
+}

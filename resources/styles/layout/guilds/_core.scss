@@ -1,0 +1,299 @@
+///  main: _module.scss
+///  ==========================================================================
+///  Guilds list section
+///  ==========================================================================
+
+.hideGuildsUntilHover {
+  --guilds-width: 0;
+  #{$guildswrapper} {
+    @include size(var(--guilds-width), var(--guilds-height));
+  }
+}
+
+// Guilds outer container
+#{$guildswrapper} {
+  @include size(var(--guilds-width), var(--guilds-height));
+  background: RGB(var(--tc-color-3))!important;
+  border-radius: 0;
+  border-right: 1px solid RGB(var(--tc-color-4));
+  #{$guildsscrollerwrap} {
+    @include size(calc(var(--guilds-width) + 10px), var(--guilds-height));
+  }
+  #{$guildseparator} {
+    display: none;
+    &, &::before, &::after { pointer-events: none; }
+  }
+  // Mentions indicators
+  #{$guildmentionsindicatortop},
+  #{$guildmentionsindicatorbottom} {
+    transform: none!important;
+    transition: none;
+    overflow: visible;
+    z-index: 2;
+  }
+  // Top mentions indicator
+  #{$guildmentionsindicatortop} {
+    // Mentions indicator is active
+    #{$mentionsindicatorbaractive} {
+      transform: translate3d(0, 30px, 0)!important;
+    }
+  }
+  // Bottom mentions indicator
+  #{$guildmentionsindicatorbottom} {
+    // Mentions indicator is active
+    #{$mentionsindicatorbaractive} {
+      transform: translate3d(0, -73px, 0)!important;
+    }
+  }
+  #{$guilds} {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 0 calc(var(--guild-icon-size) + 21px) 0;
+    flex-direction: column;
+    // Needed in order to center guilds horizontally when there are very few
+    &#{$scrollerold} {
+      overflow-y: scroll;
+    }
+    // DMs container
+    #{$dms} {
+      border-bottom: 1px solid RGB(var(--tc-color-4));
+      border-top: 1px solid RGB(var(--tc-color-4));
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      flex: 0 0 auto;
+      width: calc(100% - 2px);
+      padding-top: 15px;
+      margin-top: 0;
+      background: RGB(var(--tc-color-1));
+      &:empty {
+        margin-bottom: 0; display: none;
+      }
+      #{$guild} {
+        // Adjust the shadow border color
+        #{$badgewrapper} {
+          box-shadow: 0 0 0 2px RGB(var(--tc-color-1));
+        }
+        // First DM margin fix
+        &:first-child {
+          margin-top: 0
+        }
+        // Last DM margin fix
+        &:last-child {
+          margin-bottom: 15px;
+        }
+      }
+    }
+    // Friends online count
+    #{$friendsonline} {
+      @include text(RGB(var(--tc-tint-9)), 10px, 400, 36px, uppercase);
+      @include sticky(top 0);
+      @include reset;
+      width: calc(100% - 2px);
+      background: RGB(var(--tc-color-3));
+      z-index: 2;
+    }
+    // Guild outer container
+    #{$guild} {
+      @include size(var(--guild-icon-size));
+      margin: 9px auto;
+      // Selected guild indicator
+      &, &#{$guildunread}, &#{$guildselected}, &#{$guildunread}#{$guildselected} {
+        &::before {
+          @include absolute(top 20px!important left -13px!important);
+          @include size(5px!important, var(--guild-icon-size)!important);
+          border-radius: 0!important;
+          border: none!important;
+          background: RGB(var(--tc-color-7));
+          transition: none!important;
+          transform: translateX(100px);
+        }
+      }
+      // Guild badge
+      #{$badgewrapper} {
+        @include absolute(top unset right -4px bottom -4px);
+        box-shadow: 0 0 0 2px RGB(var(--tc-color-3));
+        min-width: 15px;
+      }
+      // To overwrite Discord's .guild+.guild rules
+      & + & {
+        margin: 9px 0;
+      }
+      &#{$guildaudio},
+      &#{$guildvideo} {
+        #{$guildinner} {
+          &::after {
+            content: '';
+            @include absolute(top -6px right -6px);
+            @include size(18px);
+            background: RGB(var(--tc-color-7)) var(--video-volume-icon) no-repeat center / 18px;
+            border: 2px solid RGB(var(--tc-color-3));
+            border-radius: var(--guild-roundness);
+            overflow: hidden;
+            pointer-events: none;
+          }
+        }
+      }
+      #{$guildinner} {
+        @include flex-center;
+        @include size(var(--guild-icon-size));
+        line-height: calc(var(--guild-icon-size) + 2px);
+        border-radius: var(--guild-roundness)!important;
+        background: none!important;
+        overflow: visible;
+        a {
+          @include flex-center;
+          @include size(calc(var(--guild-icon-size) + 4px));
+          border: 2px solid transparent;
+          border-radius: var(--guild-roundness);
+        }
+        // Guild icon
+        #{$guildicon},
+        // DM user avatar
+        #{$avatarsmallold} {
+          @include flex-center;
+          @include size(var(--guild-icon-size));
+          box-sizing: border-box;
+          background: none;
+          background-repeat: no-repeat;
+          background-color: transparent;
+          background-clip: initial;
+          border-radius: var(--guild-roundness);
+          background-size: var(--guild-icon-size) var(--guild-icon-size);
+          margin: 0;
+          // When there is no icon present
+          &#{$avatarnoicon} {
+            background: RGB(var(--tc-color-5));
+          }
+          // DM user avatar wrapper div
+          #{$avatarwrapper} & {
+            // Fix for inner DM avatar border messing up
+            border: none;
+          }
+        }
+        // DM user avatar wrapper div
+        #{$avatarwrapper} {
+          background-image: url(https://client.forgecdn.net/Avatars/UserAvatar.png);
+          // DM user avatar
+          #{$avatarsmallold} {
+            border: none;
+          }
+        }
+      }
+      // Guild unread
+      &#{$guildunread} {
+        #{$guildinner} {
+          a {
+            border-color: RGB(var(--glow-color));
+          }
+        }
+        // Fix for when Discord adds .stop-animations class to layers when settings is closed
+        @at-root #{$stopanimations} &, // targetting '.stop-animations guild'
+        & { // targetting 'guild'
+          @include hardware;
+          animation: guildUnreadShake 0.82s cubic-bezier(.36, .07, .19, .97) both 1!important;
+          transform: translate3d(0, 0, 0);
+        }
+        &::after {
+          content: '';
+          @include size(100%);
+          @include absolute(top 0 left 0);
+          box-shadow: 0px 0px 10px RGBA(var(--glow-color), 0.3)!important;
+          display: block;
+          pointer-events: none;
+          transform: scale(1.2);
+          transition: transform 0.2s;
+        }
+        // This is to make sure it's only targeting unread guilds, not unread and selected guilds
+        &:not(#{$guildselected}) {
+          #{$guildinner} {
+            #{$guildicon} {
+              border: 2px solid RGB(var(--tc-color-2));
+              background-size: calc(var(--guild-icon-size) - 4px) calc(var(--guild-icon-size) - 4px);
+              // Fix for the border being off at 110% zoom
+              @at-root .zoomLevel1 & {
+                border-width: 3px;
+              }
+            }
+          }
+        }
+        // Guild selected and unread
+        &#{$guildselected} {
+          #{$guildinner} {
+            a {
+              border-color: transparent;
+            }
+          }
+          &::after {
+            transform: scale(0);
+            transition: transform 0.2s;
+          }
+        }
+      }
+      // Guild selected (not unread)
+      &#{$guildselected} {
+        // Selected guild indicator
+        &::before {
+          animation: bounceIn 0.3s forwards;
+        }
+      }
+    }
+    // Join / Create Server button
+    #{$guildsadd} {
+      @include absolute(bottom 0 left 0, !important);
+      @include size(calc(var(--guilds-width) - 1px)!important, calc(var(--guild-icon-size) + 25px)!important);
+      border: none;
+      background: RGB(var(--tc-color-3));
+      border-radius: 0;
+      margin: 0!important;
+      pointer-events: none;
+      z-index: 3;
+      &:hover,
+      &:hover:active,
+      &:active {
+        border: none!important;
+        box-shadow: none!important;
+        color: #fff!important;
+      }
+      #{$guildsaddinner} {
+        @extend %button-primary;
+        @include flex-center;
+        @include size(var(--guild-icon-size));
+        @include text(#fff, calc(var(--guild-icon-size) - 2px), 400, var(--guild-icon-size));
+        background: RGB(var(--tc-color-6))!important;
+        border-color: RGB(var(--tc-color-6))!important;
+        border-radius: var(--guild-roundness);
+        box-sizing: border-box;
+        margin: 0 auto;
+        pointer-events: all;
+        top: 0;
+        transition: var(--transition-none, background 0.12s ease-in, color 0.12s ease-in, box-shadow 0.12s ease-in);
+      }
+    }
+    // Guild not loaded error
+    #{$guildserror} {
+      @include size(var(--guild-icon-size));
+      @include reset;
+      border-radius: var(--guild-roundness);
+      background: RGB(var(--notification-color));
+      color: #fff!important;
+      border: 2px solid RGB(var(--notification-color));
+      font-size: calc(var(--guild-icon-size) - 2px);
+      line-height: var(--guild-icon-size);
+      box-sizing: border-box;
+      text-decoration: none;
+    }
+    // Used to hide the 'home icon' guild
+    // div is needed because the guild-add is of type button
+    > div#{$guild}:first-of-type {
+      display: none;
+    }
+    // Placeholder when dragging guild
+    #{$guildplaceholder} {
+      border: 2px dashed RGB(var(--tc-color-4));
+      border-radius: var(--guild-roundness);
+      background: RGB(var(--tc-color-2));
+    }
+  }
+}

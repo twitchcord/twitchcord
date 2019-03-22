@@ -1,0 +1,31 @@
+// main: _module.scss
+
+//** Modals core
+
+//## Sub modal
+.content-8biNdB a {
+    color: RGB(var(--tc-color-10));
+}
+
+div[class*="modal-"] {
+    z-index: 1000000;
+}
+
+.modal-3HD5ck {
+    border-radius: 0;
+    border: 1px solid RGB(var(--tc-color-4))!important;
+    background: RGB(var(--tc-color-3))!important;
+    padding: 0 20px!important;
+    box-sizing: border-box;
+    box-shadow: none!important;
+}
+
+  // Close button
+#{$button}#{$buttonlookblank} {
+  &#{$modalclose} {
+    background: none!important;
+    border: none!important;
+    min-width: auto!important;
+    top: 10px;
+  }
+}

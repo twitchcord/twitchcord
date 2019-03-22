@@ -1,0 +1,27 @@
+// main: _module.scss
+
+//** Library game added confirmation modal
+
+#{$modalsub} {
+  .confirmContent-GnT1qw #{$gameicon} {
+    @include size(113px, 150px);
+    border: 1px solid #fff;
+    border-radius: var(--boxart-roundness);
+    box-shadow: 0px 0px 100px RGBA(var(--glow-color), 0.2), 0px 0px 10px RGBA(var(--glow-color), 0.5)!important;
+    background: var(--game-boxart-placeholder) / 140%, radial-gradient(circle at center, RGB(var(--tc-color-8)), RGB(var(--tc-color-7)))!important;
+    background-color: RGB(var(--tc-color-7))!important;
+  }
+  .confirmTitle-1K9S8K {
+    @extend %header-24px;
+    padding-bottom: 5px;
+  }
+  .confirmBlurb-2LiLkM {
+    @include text(RGB(var(--tc-tint-7)), 14px);
+  }
+  // Go to Library button
+  #{$button}#{$buttonlookfilled} {
+    .confirmButton-1VXU_S {
+      margin: 20px 0!important;
+    }
+  }
+}

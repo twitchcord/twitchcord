@@ -1,0 +1,197 @@
+// main: _module.scss
+
+// Friends view
+// <html>.friendsGrid
+// https://i.imgur.com/1WJKNyJ.png
+
+#{classes('html.styles.friends.grid')} {
+  #friends .scroller>div {
+    margin-top: 0;
+  }
+
+  #friends .friends-table .friends-row#{classes('twitchcord.friendPlaceholder')} {
+    max-width: 10px!important;
+    width: 10px!important;
+    padding: 0!important;
+    height: 20px!important;
+  }
+
+  #friends .friends-table {
+    .friends-row {
+      .friends-column {
+        &.friends-column-status {
+            margin-left: 16px!important;
+        }
+        &.friends-column-guilds {
+            margin-left: 8px!important;
+            &:empty {
+              &::before {
+                content: 'No mutual servers found';
+              }
+            }
+        }
+        &.friends-column-actions {
+            padding-left: 10px;
+        }
+      }
+    }
+    .friends-column {
+      @include ellipsis(100%, flex);
+      flex: 1 1 100px;
+      line-height: 30px;
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      cursor: pointer;
+      align-items: center;
+      justify-content: flex-start;
+      letter-spacing: 0;
+      color: RGB(var(--tc-tint-9))!important;
+      font-size: 12px;
+      &.friends-column-name {
+        flex: 1 1 180px;
+        min-width: 180px;
+      }
+    }
+    .friends-table-header {
+        margin-bottom: 8px;
+        height: 16px;
+        padding: 0 0 0 20px;
+        display: flex;
+        flex: 0 0 auto;
+        font-size: 12px;
+        border: none!important;
+        .friends-column-separator {
+          display: none;
+        }
+        .friends-column {
+          color: RGB(var(--tc-tint-6))!important;
+          text-transform: uppercase;
+          font-weight: 700;
+          cursor: default;
+          &:hover {
+            color: RGB(var(--tc-color-10))!important;
+          }
+        }
+      }
+  }
+
+  #friends .friends-table .friends-row .friends-column+.friends-column {
+    margin: 0;
+  }
+
+  #friends .friends-table .scrollerWrap-2lJEkd, #friends .friends-table .scroller-wrap {
+      margin: -2px 10px 0 0;
+  }
+
+  #friends .scroller-2FKFPG, #friends .scroller {
+      margin-top: -2px;
+  }
+
+#friends .friends-table .friends-row .friends-column-status .status {
+    bottom: 0;
+    right: 0;
+}
+
+#friends .friends-table .friends-row .friends-column-status .friend-activity-text, #friends .friends-table .friends-row .friends-column-status .status-text {
+    color: RGB(var(--tc-tint-9));
+}
+
+#friends .friends-table .friends-row .friends-column-status .friend-activity-text strong {
+  color: RGB(var(--tc-color-10));
+}
+
+  #friends .friends-table .friends-row .avatar-small {
+    @include size(32px);
+    background-size: 32px 32px;
+    margin-right: 10px;
+  }
+
+#friends .friends-table .friends-table-body {
+    padding-top: 3px;
+}
+
+#friends .friends-table .friends-row .friends-column-actions {
+  visibility: visible;
+  position: relative;
+}
+
+  #friends .friends-table .friends-row {
+    width: 100%;
+    margin: 0;
+    padding: 0 0 0 20px;
+    height: 46px!important;
+    border: none!important;
+    border-radius: 0;
+    font-size: 12px;
+    display: flex;
+    flex: 0 0 auto;
+    overflow: visible;
+    opacity: 1!important;
+    &:hover {
+      background: RGBA(var(--tc-color-3), 0.5)!important;
+      box-shadow: none;
+    }
+  }
+
+#friends .friends-table .friends-row .friends-column-actions .friends-action {
+  box-shadow: none;
+}
+
+  #friends .friends-table .friends-row .friends-column-actions .friends-action.friends-action-video-call,
+  #friends .friends-table .friends-row .friends-column-actions .friends-action.friends-action-voice-call {
+    border: 1px solid RGB(var(--tc-color-10));
+    height: 30px;
+    margin-right: 10px;
+  }
+
+  #friends .friends-table .friends-row .friends-column-actions .friends-action.friends-action-video-call {
+    background: transparent var(--video-camera-icon) / 16px;
+    &:hover {
+      background: RGB(var(--tc-color-8)) var(--video-camera-icon) / 16px;
+      border: 1px solid RGB(var(--tc-color-8));
+    }
+  }
+
+  #friends .friends-table .friends-row .friends-column-actions .friends-action.friends-action-voice-call {
+    background: transparent var(--phone-icon) / 16px;
+    &:hover {
+      background: RGB(var(--tc-color-8)) var(--phone-icon) / 16px;
+      border: 1px solid RGB(var(--tc-color-8));
+    }
+  }
+
+  #friends .friends-table .friends-row .friends-column-actions .friends-action.friends-action-remove, #friends .friends-table .friends-row .friends-column-actions .friends-action.friends-action-ignore, #friends .friends-table .friends-row .friends-column-actions .friends-action.friends-action-cancel {
+    background: transparent var(--close-icon) / 16px;
+    border: 1px solid RGB(var(--notification-color));
+    height: 30px;
+    &:hover {
+      background: RGB(var(--notification-color-hover)) var(--close-icon) / 16px;
+      border: 1px solid RGB(var(--notification-color-hover));
+    }
+  }
+
+#friends .friends-table .friends-row .discord-tag .discriminator {
+  line-height: 16px;
+  margin: 0;
+  opacity: 0.7;
+  color: RGB(var(--tc-tint-7));
+  margin-left: 4px;
+  font-size: 11px;
+}
+
+  #friends .friends-table .friends-row .friends-column-name {
+    font-size: 14px;
+    color: RGB(var(--tc-tint-9));
+    background: none!important;
+    overflow: visible;
+  }
+
+  #friends .friends-table .friends-row+.friends-row {
+    border: none!important;
+  }
+
+  #friends .friends-table .friends-table-header .friends-column.friends-column-actions::before {
+    content: 'Actions';
+  }
+}

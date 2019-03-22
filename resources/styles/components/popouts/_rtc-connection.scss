@@ -1,0 +1,81 @@
+// main: _module.scss
+
+//** RTC Connection popout
+
+#rtc-connection-popout {
+    border-radius: 0;
+    background: RGB(var(--tc-color-3));
+    border: 1px solid RGB(var(--tc-color-4));
+    border-left: 0;
+    width: 238px;
+    left: 71px;
+    bottom: 55px;
+    position: fixed;
+    height: 0;
+    z-index: 100000000;
+    animation: .2s getBigger forwards;
+}
+
+#rtc-connection-popout {
+    height: auto;
+    bottom: 92px;
+    animation: 0.2s fadeIn forwards;
+}
+
+#rtc-connection-popout .sparkline g polyline:first-of-type {
+    fill: RGB(var(--tc-color-1))!important;
+}
+
+#rtc-connection-popout .sparkline g polyline:nth-of-type(2) {
+    stroke: RGB(var(--tc-color-8))!important;
+}
+
+#rtc-connection-popout .sparkline line {
+    display: none;
+}
+
+#rtc-connection-popout header {
+    background: RGB(var(--tc-color-7));
+    font-size: 12px;
+    font-weight: 700;
+}
+
+#rtc-connection-popout section {
+    padding: 0;
+    background: RGB(var(--tc-color-3));
+}
+
+#rtc-connection-popout section div:first-of-type {
+    padding: 14px 20px;
+}
+
+#rtc-connection-popout section p {
+    color: RGB(var(--tc-tint-7));
+    line-height: 22px;
+}
+
+#rtc-connection-popout .debug-button {
+    color: RGB(var(--tc-color-10));
+}
+
+#rtc-connection-popout .popout-bottom {
+    background: RGB(var(--tc-color-2));
+    padding: 20px;
+}
+
+#rtc-connection-popout hr {
+    margin: 0;
+    border-color: RGB(var(--tc-color-4));
+}
+
+.graph-2xSPwT svg line {
+    display: none;
+}
+
+.graph-2xSPwT svg path:first-of-type {
+    fill: RGB(var(--tc-color-1))!important;
+}
+
+.graph-2xSPwT svg path:nth-of-type(2) {
+    stroke: RGB(var(--tc-color-8))!important;
+}

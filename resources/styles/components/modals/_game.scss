@@ -1,0 +1,102 @@
+// main: _module.scss
+
+//** Game modal
+
+.gamePreview-9weYR2 {
+  background: RGB(var(--tc-color-3))!important;
+  box-shadow: none!important;
+  border-radius: 0;
+  .sideBar-2_lxpG {
+    border: 1px solid RGB(var(--tc-color-4));
+    margin: 0;
+    padding: 30px;
+    cursor: default;
+    #{$button} {
+      margin: 0 auto!important;
+      display: flex;
+    }
+    .gameIcon-gg34Dz {
+      height: 125px;
+      width: 90px;
+      border-radius: var(--boxart-roundness);
+      border: 1px solid #fff;
+      box-shadow: 0px 0px 100px RGBA(var(--glow-color), 0.2), 0px 0px 10px RGBA(var(--glow-color), 0.5)!important;
+      background: var(--game-boxart-placeholder) / 140%, radial-gradient(circle at center, RGB(var(--tc-color-8)), RGB(var(--tc-color-7)))!important;
+      background-color: RGB(var(--tc-color-7))!important;
+      // Fix for the question block icon Twitchcord injects
+      svg {
+        display: none;
+      }
+    }
+    .gameName-1W6Ym- {
+      color: RGB(var(--contrasted-color));
+    }
+    .publisher-2ZxPEd {
+      border-bottom: 1px solid RGBA(var(--tc-color-4), 0.5);
+      font-size: 12px;
+      margin-top: 5px;
+      color: #898395;
+    }
+  }
+  .news-2KwXHF {
+    background: RGB(var(--tc-color-1));
+    padding: 0;
+  }
+  .background-3zYSQO {
+    height: 100%;
+    -webkit-mask: none!important;
+    mask: none!important;
+  }
+  .body-3NySJS {
+    background: RGBA(var(--tc-color-1), 0.95);
+    width: 100%;
+    .title-1oZsbs {
+      @include ellipsis(480px, block);
+      @include text(#fff, 18px, 400, 30px);
+      box-sizing: border-box;
+      margin-bottom: 4px;
+      padding: 10px 20px 0;
+    }
+    .description-13oVu5 {
+      color: RGB(var(--tc-tint-9));
+      padding: 0 20px;
+      margin-bottom: 15px;
+    }
+    .subtitle-rPfx7J {
+      color: RGB(var(--tc-color-10));
+      text-transform: capitalize;
+      padding: 0 20px 15px;
+    }
+  }
+  .body-1SVoBw {
+    background: RGB(var(--tc-color-2));
+    border: 1px solid RGB(var(--tc-color-3));
+    border-left: none;
+    .info-P9dFwH {
+      background: RGB(var(--tc-color-2));
+      border-radius: 0;
+      padding: 0;
+      transform: translateZ(0);
+    }
+    .overlay-n52Tzn {
+      -webkit-mask: none;
+      mask: none;
+    }
+    .splashBackup-1SNkdx {
+      background: var(--games-background-placeholder);
+      background-size: cover;
+      mix-blend-mode: luminosity;
+      background-repeat: no-repeat;
+    }
+    .summary-2pfBY6 {
+      background: RGBA(var(--tc-color-1), 0.85);
+      padding: 20px;
+      line-height: 20px;
+      cursor: default;
+      // For empty game summaries
+      &:empty {
+        display: none;
+      }
+    }
+  }
+}

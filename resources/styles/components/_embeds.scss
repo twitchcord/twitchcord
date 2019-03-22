@@ -1,0 +1,199 @@
+// main: _module.scss
+
+//** Embeds
+
+#{$embed} {
+	margin-bottom: 10px;
+	// Not ure why this is needed
+	@at-root #{$messagegroup} #{$message} & {
+		#{$messagemarkup} {
+			margin: 0!important;
+			pre {
+				max-width: 100%;
+			}
+		}
+	}
+	#{$imagewrapper} {
+		border-radius: 0;
+		overflow: visible;
+		#{$imagewrapperinner} {
+	    background-color: RGB(var(--tc-color-2));
+		}
+		img {
+			@include size(100%!important, auto!important);
+	    position: relative;
+		}
+	}
+	// Gif file attachment 'GIF' container
+	// https://i.imgur.com/2YhxtMz.png
+	@at-root #{$imagewrapper} {
+		border-radius: 0;
+		#{$imageaccessory} {
+			@include absolute(top 4px right 4px);
+	    z-index: 2;
+			// Actual 'GIF'
+			// https://i.imgur.com/BKDCMrD.png
+			@at-root #{$giftag} {
+				background: none;
+				@include absolute(top 8px right 8px);
+				@include mask(var(--gif-icon), #fff);
+				@include size(26px, 14px);
+				opacity: 0.8;
+			}
+		}
+	}
+	#{$embedinner} {
+    background-color: RGB(var(--tc-color-3))!important;
+    border-color: RGB(var(--tc-color-4))!important;
+		border-radius: 0!important;
+		overflow: visible;
+    padding: 10px 15px!important;
+		&:empty {
+			margin: 0;
+		}
+	}
+	// Embed pills
+	#{$embedpill} {
+		background-color: RGB(var(--tc-color-7));
+		border-radius: 0!important;
+		// General grey pill color replace (Epic Games)
+		&[style="background-color: rgb(42, 42, 42);"],
+		// General grey pill color replace
+		&[style="background-color: rgb(51, 51, 51);"],
+		// General black pill color replace
+		&[style="background-color: rgb(0, 0, 0);"],
+		&[style="background-color: rgb(3, 3, 3);"],
+		// Youtube pill color replace
+		&[style="background-color: rgb(255, 0, 0);"],
+		// Github pill color replace
+		&[style="background-color: rgb(30, 35, 39);"],
+		// Steam pill color replace
+		&[style="background-color: rgb(23, 26, 33);"] {
+		  background-color: RGB(var(--tc-color-7))!important;
+		}
+		+ #{$embedinner} {
+	    border-left: none;
+			width: 100%;
+		}
+	}
+	#{$embedauthor},
+	#{$embedtitlelink} {
+	  display: flex!important;
+	  margin: 0;
+	}
+	#{$embedtitlelink} {
+		@include text(RGB(var(--tc-color-10))!important, $weight: 400, $lh: 1.5);
+	}
+	#{$embedimage} {
+	  border-radius: 0;
+	  max-width: 100%;
+	}
+	#{$embeddescription},
+	#{$embedfieldvalue} {
+		color: RGB(var(--tc-tint-9))!important;
+	}
+	#{$embeddescription} {
+		line-height: 20px!important;
+		code.inline {
+			margin-right: 5px;
+		}
+	}
+	#{$embedprovider} {
+		@include text(RGB(var(--contrasted-color))!important, $weight: 700, $lh: 1.5);
+	}
+	#{$embedauthoricon} {
+		@include size(26px);
+	  border-radius: var(--user-roundness);
+		margin-bottom: 5px;
+		+ #{$embedauthorname} {
+			margin-top: -5px;
+		}
+	}
+	#{$embedauthorname} {
+	  font-weight: 400;
+		color: RGB(var(--contrasted-color))!important;
+		&:hover {
+			color: RGB(var(--contrasted-color))!important;
+		}
+	}
+	#{$embedfields} {
+		#{$embedfieldname} {
+	    font-size: 12px;
+	    font-weight: 700;
+		}
+	}
+	#{$embedfootertext},
+	.embedFooterSeparator-3klTIQ {
+	  color: RGB(var(--tc-tint-6));
+	}
+	// Video embeds
+	@at-root #{$embedvideo} {
+		border-radius: 0;
+		min-height: 130px;
+		min-width: 150px;
+		// Image thumbnail
+		#{$imagewrapper} {
+    	border-radius: 0!important;
+			height: auto!important;
+		}
+		@at-root #{$embedvideoactions} {
+			#{$embedvideoactionsinner} {
+				background: transparent;
+				border-radius: 0;
+				padding: 0;
+				// Play button outer container
+				@at-root #{$iconwrapper},
+				& #{$iconwrapper} {
+					@include size(70px);
+					background: none!important;
+					// Play button inner container
+					#{$iconwrapperwrapper} {
+						// Open in new window button link
+						+ #{$iconwrapperwrapper} {
+							display: none!important;
+						}
+						&:hover {
+							opacity: 0.9;
+						}
+						&:hover:active,
+						&:active {
+							transform: none;
+						}
+					}
+					// Play button
+					#{$iconplay} {
+						@include absolute(top 0 left 0);
+						@include size(100%);
+						background-color: transparent;
+						background: var(--video-play-circle-image);
+						background-size: 70px 70px;
+						transition: none;
+						polygon,
+						+ a {
+							display: none;
+						}
+						&:hover:active,
+						&:active {
+							box-shadow: none;
+						}
+					}
+				}
+			}
+		}
+	}
+	// Make Steam embed logo white instead of black
+	// https://i.imgur.com/nQqmt52.png
+	img[src*="share_steam_logo.png"],
+	// Make Vimeo embed logo white instead of dark gray
+	// https://i.imgur.com/dwZfvjo.png
+	img[src*="vimeocdn.com"] {
+    filter: grayscale(1) brightness(1000%);
+	}
+}
+
+
+
+// Not sure why this is needed
+#{$messagegroup} .mentioned .markup:not(.embedDescription-1Cuq9a) {
+    padding: 3px 0 5px 0 !important;
+}

@@ -1,0 +1,44 @@
+// main: _module.scss
+
+//** 'No channels' screen, appears sometimes when deleting channels or initial starting of Discord
+
+.noChannel-Z1DQK7 {
+  background: RGB(var(--tc-color-1))!important;
+  .image-1GzsFd {
+    margin: 0 auto 30px;
+    position: relative;
+    width: 272px;
+    height: 222px;
+    background: url(https://sloanreview.mit.edu/content/uploads/2017/11/FR-Colony-CIO-Future-Ba…usiness-Technology-IT-Information-Customer-Driven-Mindset-1200-300x300.jpg)!important;
+  }
+  .spinner-2enMB9 {
+    position: relative;
+    top: 50px;
+    .inner-1gJC7_ {
+      opacity: 1;
+      transition-delay: 0.2s;
+      size: 28px;
+      margin-top: -25px;
+      margin-left: -15px;
+      width: 28px;
+      height: 28px;
+      left: 50%;
+      top: 50%;
+      border-radius: 28px;
+      border-style: solid;
+      border-width: 2px;
+      display: block;
+      // the rgba are var(--button-color)
+      border-color: RGB(var(--tc-color-7)) RGBA(var(--tc-color-7), 0.4) RGBA(var(--tc-color-7), 0.4);
+      animation: rotate360 750ms linear infinite;
+      position: absolute;
+      background: none;
+      box-shadow: none;
+      z-index: 99;
+      .circular-2NaZOq {
+        display: none;
+      }
+    }
+  }
+
+}

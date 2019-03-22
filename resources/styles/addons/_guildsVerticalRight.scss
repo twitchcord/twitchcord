@@ -1,0 +1,24 @@
+// main: _module.scss
+
+// Guilds vertical right
+// <html>.guildsVerticalRight
+//
+
+.guildsVerticalRight {
+  #{$guildswrapper} {
+    border-right: none;
+    border-left: 1px solid RGB(var(--tc-color-4));
+    order: 2;
+  }
+  #{$guilds} {
+    // Guild outer container
+    #{$guild} {
+      // Selected guild indicator
+      &, &#{$guildunread}, &#{$guildselected}, &#{$guildunread}#{$guildselected} {
+        &::before {
+          @include absolute(left 50px!important);
+        }
+      }
+    }
+  }
+}

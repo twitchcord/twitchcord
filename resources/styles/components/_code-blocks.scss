@@ -1,0 +1,520 @@
+// main: _module.scss
+
+// ==========================================================================
+//  Codeblocks
+// ==========================================================================
+
+// Aggressive targeting of code elements
+[class*="hljs-"], [class*="cm-"] {
+  font-family: var(--font-coding)!important;
+}
+
+#{$messagegroup} {
+  // Codeblocks scrollbar
+  @at-root body & {
+    #{$hljs} {
+      &::-webkit-scrollbar-thumb {
+        border: none!important;
+      }
+      &::-webkit-scrollbar {
+        width: 8px!important;
+      }
+    }
+  }
+  #{$messagemarkup} {
+    // Code block container
+    pre {
+      background: none!important;
+      border: none!important;
+      border-radius: 0;
+      max-width: 90%;
+      margin: 0;
+    }
+    // Inline and full code blocks
+    code.inline,
+    pre code {
+      @include text(RGB(var(--tc-tint-9)), 14px, $lh: 1.5!important);
+      background-color: RGB(var(--tc-color-2))!important;
+      border: 1px solid RGB(var(--tc-color-3))!important;
+    }
+    // Inline code only
+    code.inline {
+      border-radius: 0;
+      display: inline-block;
+      font-family: var(--font)!important;
+      letter-spacing: 0!important;
+      margin: 2px 0;
+      max-width: 90%;
+      padding: 0 5px;
+      word-wrap: break-word;
+    }
+    // Full code blocks only
+    pre code {
+      margin: 6px 0;
+      padding: 10px 15px!important;
+      font-family: var(--font)!important;
+      max-height: 500px;
+      overflow-x: hidden;
+      position: relative;
+      white-space: pre-wrap!important;
+    }
+  }
+  // Adjust for code blocks in embeds
+  #{$embed} {
+    #{$messagemarkup} {
+      code.inline,
+      pre code {
+        border: 1px solid RGBA(var(--tc-color-4), 0.7)!important;
+      }
+    }
+  }
+}
+
+//## Codeblocks color theme: Ocean
+// #{$messagegroup} {
+//   #{$hljs} {
+//     &-comment,
+//     &-quote {
+//      color:#65737e
+//     }
+//     &-variable,
+//     &-template-variable,
+//     &-tag,.hljs-name,
+//     &-selector-id,
+//     &-selector-class,
+//     &-regexp,
+//     &-deletion {
+//      color:#bf616a
+//     }
+//     &-number,
+//     &-built_in,
+//     &-builtin-name,
+//     &-literal,
+//     &-type,
+//     &-params,
+//     &-meta,
+//     &-link {
+//      color:#d08770
+//     }
+//     &-attribute {
+//      color:#ebcb8b
+//     }
+//     &-string,
+//     &-symbol,
+//     &-bullet,
+//     &-addition {
+//      color:#a3be8c
+//     }
+//     &-title,
+//     &-section {
+//      color:#8fa1b3
+//     }
+//     &-keyword,
+//     &-selector-tag {
+//      color:#b48ead
+//     }
+//     & {
+//      color:#c0c5ce;
+//     }
+//     &-emphasis {
+//      font-style:italic
+//     }
+//     &-strong {
+//      font-weight:bold
+//     }
+//   }
+// }
+
+//## Codeblocks color theme: Monokai Sublime
+#{$messagegroup} {
+  #{$hljs} {
+    &,
+    &-tag,
+    &-subst {
+      color: #f8f8f2;
+    }
+    &-strong,
+    &-emphasis {
+      color: #a8a8a2;
+    }
+    &-bullet,
+    &-quote,
+    &-number,
+    &-regexp,
+    &-literal,
+    &-link {
+      color: #ae81ff;
+    }
+    &-code,
+    &-title,
+    &-section,
+    &-selector-class {
+      color: #a6e22e;
+    }
+    &-strong {
+      font-weight: bold;
+    }
+    &-emphasis {
+      font-style: italic;
+    }
+    &-keyword,
+    &-selector-tag,
+    &-name {
+      color: #f92672;
+    }
+    &-attr {
+      color: #f92672;
+    }
+    &-symbol,
+    &-attribute {
+      color: #66d9ef;
+    }
+    &-params,
+    &-class &-title {
+      color: teal;
+    }
+    &-string,
+    &-type,
+    &-built_in,
+    &-builtin-name,
+    &-selector-id,
+    &-selector-attr,
+    &-selector-pseudo,
+    &-addition,
+    &-variable,
+    &-template-variable {
+      color: #e6db74;
+    }
+    &-comment,
+    &-deletion,
+    &-meta {
+      color: RGB(var(--tc-tint-6));
+    }
+  }
+}
+
+#{$messagegroup} {
+    #{$hljs} {
+      padding-bottom: 10px!important;
+      &::before {
+        @include size(200%, 24px);
+        @include text(#fff, 11px, 400, $transform: uppercase);
+        margin: -10px -15px 10px -15px;
+        padding: 0 0 0 25px;
+        @include sticky(top -10px);
+        align-items: center;
+        background: RGB(var(--tc-color-3)) var(--codeblock-icon) no-repeat center / 18px;
+        background-position: center left 10px!important;
+        box-sizing: border-box;
+        display: flex;
+        filter: grayscale(10%);
+        font-family: var(--font)!important;
+        justify-content: flex-start;
+        text-indent: 10px;
+      }
+
+      // Used for darkening codeblock language header colors below
+      $darkness: 20%;
+
+      &[class~='1c']::before {
+        background-color: darken(#814CCC, $darkness);
+      }
+      &[class~='actionscript']::before,
+      &[class~='as']::before {
+        background-color: #a74b38;
+      }
+      &[class~='ada']::before {
+        background-color: darken(#02f88c, $darkness);
+      }
+      &[class~='applescript']::before {
+        background-color: darken(#101F1F, $darkness);
+      }
+      &[class~='arduino']::before {
+        background-color: darken(#bd79d1, $darkness);
+      }
+      &[class~='aspectj']::before {
+        background-color: darken(#a957b0, $darkness);
+      }
+      &[class~='autohotkey']::before {
+        background-color: darken(#6594b9, $darkness);
+      }
+      &[class~='autoit']::before {
+        background-color: darken(#1C3552, $darkness);
+      }
+      &[class~='dos']::before,
+      &[class~='bat']::before,
+      &[class~='cmd']::before {
+        background-color: darken(#C1F12E, $darkness);
+      }
+      &[class~='brainfuck']::before {
+        background-color: darken(#2F2530, $darkness);
+      }
+      &[class~='c']::before,
+      &[class~='cc']::before,
+      &[class~='cpp']::before,
+      &[class~='h']::before,
+      &[class~='hpp']::before {
+        background-color: darken(#555555, $darkness);
+      }
+      &[class~='cs']::before,
+      &[class~='csharp']::before {
+        background-color: darken(red, $darkness);
+      }
+      &[class~='ceylon']::before {
+        background-color: darken(#dfa535, $darkness);
+      }
+      &[class~='clean']::before {
+        background-color: darken(#3F85AF, $darkness);
+      }
+      &[class~='clojure']::before {
+        background-color: darken(#db5855, $darkness);
+      }
+      &[class~='coffeescript']::before,
+      &[class~='coffee']::before,
+      &[class~='cson']::before,
+      &[class~='iced']::before {
+        background-color: darken(#244776, $darkness);
+      }
+      &[class~='crystal']::before {
+        background-color: darken(#776791, $darkness);
+      }
+      &[class~='css']::before,
+      &[class~='sass']::before,
+      &[class~='scss']::before,
+      &[class~='less']::before,
+      &[class~='stylus']::before,
+      &[class~='styl']::before {
+        background-color: #ed143d;
+      }
+      &[class~='d']::before {
+        background-color: darken(#ba595e, $darkness);
+      }
+      &[class~='dart']::before {
+        background-color: darken(#00B4AB, $darkness);
+      }
+      &[class~='elixir']::before {
+        background-color: darken(#6e4a7e, $darkness);
+      }
+      &[class~='elm']::before {
+        background-color: darken(#60B5CC, $darkness);
+      }
+      &[class~='erlang']::before,
+      &[class~='erl']::before {
+        background-color: darken(#B83998, $darkness);
+      }
+      &[class~='fs']::before,
+      &[class~='fsharp']::before {
+        background-color: darken(#b845fc, $darkness);
+      }
+      &[class~='fortran']::before {
+        background-color: darken(#4d41b1, $darkness);
+      }
+      &[class~='gherkin']::before {
+        background-color: darken(#5B2063, $darkness);
+      }
+      &[class~='go']::before,
+      &[class~='golang']::before {
+        background-color: darken(#375eab, $darkness);
+      }
+      &[class~='groovy']::before {
+        background-color: darken(#e69f56, $darkness);
+      }
+      &[class~='haskell']::before,
+      &[class~='hs']::before {
+        background-color: darken(#5e5086, $darkness);
+      }
+      &[class~='haxe']::before,
+      &[class~='hx']::before {
+        background-color: darken(#df7900, $darkness);
+      }
+      &[class~='html']::before {
+        background-color: darken(#e34c26, $darkness);
+      }
+      &[class~='hy']::before,
+      &[class~='hylang']::before {
+        background-color: darken(#7790B2, $darkness);
+      }
+      &[class~='java']::before,
+      &[class~='jsp']::before {
+        background-color: darken(#b07219, $darkness);
+      }
+      &[class~='javascript']::before,
+      &[class~='js']::before,
+      &[class~='jsx']::before {
+        background-color: desaturate(#f77a1e, 15%);
+      }
+      &[class~='json']::before {
+        background-color: darken(#40d47e, $darkness);
+      }
+      &[class~='julia']::before {
+        background-color: darken(#a270ba, $darkness);
+      }
+      &[class~='kotlin']::before {
+        background-color: darken(#F18E33, $darkness);
+      }
+      &[class~='lasso']::before,
+      &[class~='lassoscript']::before,
+      &[class~='ls']::before {
+        background-color: darken(#999999, $darkness);
+      }
+      &[class~='livescript']::before,
+      &[class~='ls']::before {
+        background-color: darken(#499886, $darkness);
+      }
+      &[class~='llvm']::before {
+        background-color: darken(#185619, $darkness);
+      }
+      &[class~='lsl']::before {
+        background-color: darken(#3d9970, $darkness);
+      }
+      &[class~='lua']::before {
+        background-color: darken(#000080, $darkness);
+      }
+      &[class~='makefile']::before,
+      &[class~='mk']::before,
+      &[class~='mak']::before {
+        background-color: darken(#427819, $darkness);
+      }
+      &[class~='markdown']::before,
+      &[class~='md']::before,
+      &[class~='mkd']::before,
+      &[class~='mkdown']::before {
+        background-color: darken(#ff6375, 40%);
+      }
+      &[class~='mercury']::before {
+        background-color: darken(#ff2b2b, 45%);
+      }
+      &[class~='nix']::before {
+        background-color: darken(#7e7eff, $darkness);
+      }
+      &[class~='objectivec']::before {
+        background-color: darken(#438eff, $darkness);
+      }
+      &[class~='ocaml']::before {
+        background-color: darken(#3be133, $darkness);
+      }
+      &[class~='pascal']::before,
+      &[class~='pas']::before,
+      &[class~='freepascal']::before,
+      &[class~='lazarus']::before,
+      &[class~='lfm']::before,
+      &[class~='lpr']::before {
+        background-color: darken(#E3F171, $darkness);
+      }
+      &[class~='perl']::before,
+      &[class~='pl']::before,
+      &[class~='pm']::before {
+        background-color: darken(#0298c3, $darkness);
+      }
+      &[class~='php']::before {
+        background-color: darken(#4F5D95, $darkness);
+      }
+      &[class~='powershell']::before,
+      &[class~='ps']::before {
+        background-color: darken(#012456, $darkness);
+      }
+      &[class~='processing']::before {
+        background-color: #2c2541;
+      }
+      &[class~='prolog']::before {
+        background-color: darken(#74283c, $darkness);
+      }
+      &[class~='puppet']::before,
+      &[class~='pp']::before {
+        background-color: darken(#302B6D, $darkness);
+      }
+      &[class~='purebasic']::before {
+        background-color: darken(#5a6986, $darkness);
+      }
+      &[class~='python']::before,
+      &[class~='py']::before,
+      &[class~='gyp']::before {
+        background-color: darken(#3572A5, $darkness);
+      }
+      &[class~='qml']::before {
+        background-color: darken(#44a51c, $darkness);
+      }
+      &[class~='r']::before {
+        background-color: darken(#198CE7, $darkness);
+      }
+      &[class~='ruby']::before,
+      &[class~='rb']::before {
+        background-color: darken(#701516, $darkness);
+      }
+      &[class~='rust']::before,
+      &[class~='rs']::before {
+        background-color: darken(#dea584, $darkness);
+      }
+      &[class~='scala']::before {
+        background-color: darken(#c22d40, $darkness);
+      }
+      &[class~='scheme']::before {
+        background-color: darken(#1e4aec, $darkness);
+      }
+      &[class~='shell']::before,
+      &[class~='console']::before {
+        background-color: darken(#89e051, $darkness);
+      }
+      &[class~='smalltalk']::before,
+      &[class~='st']::before {
+        background-color: darken(#596706, $darkness);
+      }
+      &[class~='sqf']::before {
+        background-color: darken(#3F3F3F, $darkness);
+      }
+      &[class~='stan']::before {
+        background-color: darken(#b2011d, $darkness);
+      }
+      &[class~='swift']::before {
+        background-color: darken(#ffac45, $darkness);
+      }
+      &[class~='tcl']::before,
+      &[class~='tk']::before {
+        background-color: darken(#e4cc98, $darkness);
+      }
+      &[class~='tex']::before {
+        background-color: darken(#3D6117, $darkness);
+      }
+      &[class~='typescript']::before,
+      &[class~='ts']::before {
+        background-color: darken(#2b7489, $darkness);
+      }
+      &[class~='vala']::before {
+        background-color: darken(#fbe5cd, $darkness);
+      }
+      &[class~='vbnet']::before,
+      &[class~='vb']::before {
+        background-color: darken(#945db7, $darkness);
+      }
+      &[class~='verilog']::before,
+      &[class~='v']::before {
+        background-color: darken(#b2b7f8, $darkness);
+      }
+      &[class~='vhdl']::before {
+        background-color: darken(#adb2cb, $darkness);
+      }
+      &[class~='vim']::before {
+        background-color: darken(#199f4b, $darkness);
+      }
+      &[class~='xquery']::before,
+      &[class~='xq']::before,
+      &[class~='xpath']::before {
+        background-color: darken(#5232e7, $darkness);
+      }
+      &[class~='zephir']::before,
+      &[class~='zep']::before {
+        background-color: darken(#118f9e, $darkness);
+      }
+		@each $name, $n in $codeLanguages {
+			@each $extension, $e in $n {
+				&[class~="#{$extension}"] {
+          border-top: none!important;
+          font-family: var(--font-coding)!important;
+					&::before {
+            content: "#{$name}";
+					}
+				}
+			}
+    }
+  }
+}

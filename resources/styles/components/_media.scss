@@ -1,0 +1,26 @@
+///  main: _module.scss
+///  ==========================================================================
+///  HTML5 embedded audio and video files
+///  ==========================================================================
+
+// All videos
+.video-8eMOth {
+  border-radius: 0;
+}
+
+// Audio / video container
+.wrapper-2TxpI8 {
+  background: RGB(var(--tc-color-2))!important;
+  border-radius: 0;
+  min-height: 130px;
+  // Audio
+  .wrapperAudio-1jDe0Q {
+
+  }
+  // Video
+  &.wrapperPaused-19pWuK,
+  &.wrapperControlsHidden-35Gtol,
+  &.wrapperPlaying-1pXOW5  {
+
+  }
+}

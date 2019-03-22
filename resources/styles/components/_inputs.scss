@@ -1,0 +1,372 @@
+// main: _module.scss
+
+//** Different input types
+
+//## Select input
+.ui-select .Select-menu::-webkit-scrollbar-thumb,
+.Select-menu::-webkit-scrollbar-thumb {
+    margin-top: 2px;
+}
+
+.Select-control .Select-arrow {
+    border: none;
+    background: url(data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2012%2012%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20fill%3D%22%23898395%22%3E%3Cpolygon%20points%3D%226%2C1%2010%2C5%202%2C5%22/%3E%20%3Cpolygon%20points%3D%226%2C11%2010%2C7%202%2C7%22/%3E%3C/svg%3E);
+    width: 10px;
+    height: 10px;
+    top: 0!important;
+}
+
+.ui-select>.Select .Select-control,
+.form.deprecated .Select-control,
+.Select-control {
+    box-shadow: inset 0 0 0 1px RGB(var(--tc-color-5)), 0 0 0 transparent!important;
+    background-color: RGB(var(--tc-color-1))!important;
+    border: none!important;
+    border-radius: 0;
+    transition: box-shadow 0.2s;
+}
+
+.ui-select>.Select.is-focused .Select-control,
+.form.deprecated .Select.is-focused .Select-control,
+.Select.is-focused .Select-control {
+    box-shadow: inset 0 0 0 1px RGB(var(--tc-color-8)), 0 0 6px -2px RGB(var(--tc-color-8))!important;
+    transition: box-shadow 0.2s;
+}
+
+.ui-select>.Select .Select-control .Select-value>.Select-value-label,
+.has-value.is-pseudo-focused.Select--single>.Select-control .Select-value .Select-value-label,
+.has-value.Select--single>.Select-control .Select-value .Select-value-label,
+.Select .Select-control .Select-value .Select-value-label {
+    color: RGB(var(--contrasted-color))!important;
+}
+
+.Select--single>.Select-control .Select-value,
+.Select-control .Select-value,
+.Select-placeholder {
+    line-height: 36px;
+}
+
+.Select .Select-value-label {
+    font-size: 12px;
+}
+
+.Select .Select-control {
+    padding-top: 0;
+    border-radius: 0!important;
+}
+
+
+//## Region select input
+.anchor-3Z-8Bb {
+  color: RGB(var(--tc-color-10));
+}
+.regionSelect-3lf4eE button {
+  @extend %button-primary;
+  height: 32px;
+  margin-right: -10px;
+  min-height: 0;
+  padding: 0 10px;
+}
+.regionSelect-3lf4eE {
+    @extend %input-text;
+}
+.regionSelect-3lf4eE {
+   height: 40px;
+   padding-left: 6px;
+}
+.regionSelect-3lf4eE:hover {
+   box-shadow: inset 0 0 0 1px RGB(var(--tc-color-5)), 0 0 0 transparent;
+}
+.regionSelect-3lf4eE .regionSelectInner-24f4Ce {
+   padding: 0;
+   border: none;
+   border-radius: 0;
+}
+.regionSelect-3lf4eE .regionSelectName-2-2FWh {
+   font-weight: 700;
+   font-size: 12px;
+   line-height: 20px;
+   color: RGB(var(--contrasted-color))!important;
+}
+
+
+//## Checkbox switch inputs
+
+//## Radio buttons
+.checkbox-1ix_J3, .checked-3_4uQ9, .box-mmYMsp {
+    border-radius: 0;
+    border: none!important;
+}
+
+.checked-3_4uQ9 {
+    background: RGB(var(--tc-color-5))!important;
+    border: 1px solid #fff!important;
+}
+
+.checked-3_4uQ9 polyline {
+    stroke: #fff!important;
+}
+
+.radioGroup-1GBvlr .checked-3_4uQ9 polyline {
+    stroke: #fff!important;
+}
+
+.radioGroup-1GBvlr .checkbox-1ix_J3.checked-3_4uQ9 {
+    background: RGB(var(--tc-color-5))!important;
+    border: 1px solid RGB(var(--tc-color-8))!important
+}
+
+.radioGroup-1GBvlr .checkbox-1ix_J3 {
+    background: RGB(var(--tc-color-2))!important;
+}
+
+//## Text inputs
+.input-cIJ7To, .ui-input-button, .need-help-modal.deprecated .header input[type=text], #instant-invite-modal .clipboard-input-inner input, .copyInputDefault-21sXtF, .copyInputSuccess-XZc7BO,
+.ui-search-bar .input, .bda-slist input[type="text"], .root-SR8cQa .userInfoSection-2acyCx .note textarea, .ui-phone-field .input-field, .form.deprecated .control-group input[type=text] {
+    @extend %input-text;
+}
+
+.input-cIJ7To:focus, .need-help-modal.deprecated .header input[type=text]:focus, .ui-search-bar .input:focus, .bda-slist input[type="text"]:focus, .root-SR8cQa .userInfoSection-2acyCx .note textarea:focus,
+.ui-phone-field .input-field:focus, .form.deprecated .control-group input[type=text]:focus, .quick-message:focus, .search-bar .search-bar-inner input:focus {
+    box-shadow: inset 0 0 0 1px RGB(var(--tc-color-8)), 0 0 6px -2px RGB(var(--tc-color-8));
+    transition: box-shadow .12s ease-in;
+    outline: none;
+    outline-style: none;
+}
+
+// The checkmark icon
+.checkbox .checkbox-inner input[type=checkbox]:checked+span:after {
+  @include mask(var(--checkmark-icon), RGB(var(--tc-color-2)));
+  @include relative(top 0 left 0);
+  @include size(12px);
+  border: none;
+  display: block;
+  transform: none;
+}
+
+
+.modal-2O4A7c .checkbox-1ix_J3.checked-3_4uQ9,
+.checkbox .checkbox-inner input[type=checkbox]:checked+span,
+.checkbox.disabled .checkbox-inner input[type=checkbox]:checked+span {
+    @include flex-center;
+    background: RGB(var(--tc-color-8))!important;
+    border: 1px solid RGB(var(--tc-color-8))!important;
+}
+
+.modal-2O4A7c .checkbox-1ix_J3,
+.checkbox .checkbox-inner span, #instant-invite-modal .checkbox .checkbox-inner span {
+    border: 1px solid RGB(var(--tc-color-4))!important;
+    background: RGB(var(--tc-color-1))!important;
+    width: 16px;
+    height: 16px;
+    margin: 0px;
+    padding: 0px;
+    border-radius: 0;
+}
+
+
+
+//## Switches
+
+// Switches
+.switch-1bkg5j {
+  width: 42px;
+  height: 22px;
+  .slider-2-A75I {
+    background: linear-gradient(to right, RGB(var(--tc-tint-3)), RGB(var(--tc-tint-4)));
+    border: none;
+    border-radius: 0;
+    &::before {
+      border-radius: 0;
+      bottom: 0;
+      top: 1px;
+      left: 1px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+  input {
+    &:checked {
+      &+.slider-2-A75I {
+        background: linear-gradient(to right, RGB(var(--tc-color-7)), RGB(var(--tc-color-8)));
+      }
+    }
+  }
+}
+
+div[class*="switchDisabled"]:before {
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 0;
+}
+
+.modal-3HD5ck div[class*="switchEnabled"],
+.modal-3HD5ck div[class*="switchDisabled"] {
+    width: 30px;
+    height: 10px;
+}
+
+div[class*="switchEnabled"],
+div[class*="switchDisabled"] {
+    -webkit-appearance: none;
+    cursor: pointer;
+    width: 38px;
+    height: 18px;
+    margin: 0px;
+    padding: 4px;
+    outline: none;
+    border-radius: 0;
+}
+
+div[class*="switchEnabled"][class*=valueChecked],
+div[class*="switchDisabled"][class*=valueChecked] {
+    background: linear-gradient(to right, RGB(var(--tc-color-7)), RGB(var(--tc-color-8)));
+}
+
+div[class*="switchEnabled"][class*=valueUnchecked],
+div[class*="switchDisabled"][class*=valueUnchecked] {
+    background: linear-gradient(to right, RGB(var(--tc-tint-3)), RGB(var(--tc-tint-4)));
+}
+
+div[class*="switchEnabled"]::after,
+div[class*="switchDisabled"]::after,
+div[class*="switchEnabled"]::before,
+div[class*="switchDisabled"]::before {
+    border-radius: 0;
+}
+
+div[class*="switchEnabled"][class*=valueChecked]::after,
+div[class*="switchEnabled"][class*=valueUnchecked]::after,
+div[class*="switchDisabled"][class*=valueChecked]::after,
+div[class*="switchDisabled"][class*=valueUnchecked]::after {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 20px;
+    height: 16px;
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
+}
+
+div[class*="switchEnabled"][class*=valueChecked]::after,
+div[class*="switchDisabled"][class*=valueChecked]::after {
+    background-color: rgba(255, 255, 255, 0.9);
+    margin: 1px 0 0 -1px;
+}
+
+div[class*="switchEnabled"][class*=valueUnchecked]::after,
+div[class*="switchDisabled"][class*=valueUnchecked]::after {
+    background-color: rgba(255, 255, 255, 0.9);
+    margin: 1px 0 0 1px;
+}
+
+
+
+
+
+
+.switchDisabled-3HsXAJ {
+    opacity: 0.3;
+}
+
+.guildName-3WI6ml .checkbox-1ix_J3,
+.override-2YgiXd .checkbox-1ix_J3,
+.overrideHighlight-YPcBxt .checkbox-1ix_J3 {
+    border-radius: 50%;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin: 0px 12px 0px 0px;
+    background: hsla(var(--chat-color), 1)!important;
+    width: 15px;
+    height: 15px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(100, 66, 164)!important;
+    transition: transform 125ms linear;
+}
+
+.guildName-3WI6ml .checkbox-1ix_J3::after,
+.override-2YgiXd .checkbox-1ix_J3::after,
+.overrideHighlight-YPcBxt .checkbox-1ix_J3::after {
+    content: '';
+    position: absolute;
+    height: 9px;
+    width: 9px;
+    border-radius: 50%;
+    display: block;
+    background-color: var(--button-color);
+    margin: 0px;
+    transform-origin: center;
+    transform: scale(0);
+    transition: transform 125ms linear;
+}
+
+.guildName-3WI6ml .checked-3_4uQ9::after,
+.override-2YgiXd .checked-3_4uQ9::after,
+.overrideHighlight-YPcBxt .checked-3_4uQ9::after {
+    transform: scale(1);
+    transition: transform 125ms linear;
+}
+
+.guildName-3WI6ml .checkbox-1ix_J3 svg,
+.override-2YgiXd .checkbox-1ix_J3 svg,
+.overrideHighlight-YPcBxt .checkbox-1ix_J3 svg {
+    display: none;
+}
+
+.cardPrimaryEditable-3KtE4g {
+    background: hsla(var(--channels-color), 1)!important;
+    border-color: hsla(var(--titlebar-color), 1)!important;
+    border-radius: 0;
+    color: var(--dark-text-tint);
+    transition: all 0.2s;
+}
+
+.cardPrimaryEditable-3KtE4g .checkbox-1ix_J3 {
+    border: 1px solid hsla(var(--titlebar-color), 1)!important;
+}
+
+.cardPrimaryEditable-3KtE4g:hover {
+    border-color: var(--button-color-hover)!important;
+    transition: all 0.2s;
+}
+
+.cardPrimaryEditable-3KtE4g[style*="background-color: rgb(114, 137, 218);"] {
+    background: var(--button-color)!important;
+    border-color: var(--button-color-hover)!important;
+}
+
+.cardPrimaryEditable-3KtE4g[style*="background-color: rgb(114, 137, 218);"]:hover {
+    background: var(--button-color-hover)!important;
+}
+
+.cardPrimaryEditable-3KtE4g[style*="background-color: rgb(250, 166, 26);"] {
+    background: rgb(250, 166, 26)!important;
+    border-color: transparent!important;
+}
+
+.cardPrimaryEditable-3KtE4g[style*="background-color: rgb(245, 119, 49);"] {
+    background: rgb(245, 119, 49)!important;
+    border-color: transparent!important;
+}
+
+.cardPrimaryEditable-3KtE4g[style*="background-color: rgb(67, 181, 129);"] {
+    background: rgb(67, 181, 129)!important;
+    border-color: transparent!important;
+}
+
+.cardPrimaryEditable-3KtE4g[style*="background-color: rgb(240, 71, 71);"] {
+    background: rgb(240, 71, 71)!important;
+    border-color: transparent!important;
+}
+
+.disabled-1FsPTr.cardPrimaryEditable-3KtE4g {
+    opacity: 0.2;
+    transition: all 0.2s;
+}

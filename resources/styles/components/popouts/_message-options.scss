@@ -1,0 +1,53 @@
+// main: _module.scss
+
+//** Message options popout
+
+#{$optionpopout} {
+  background: RGB(var(--tc-color-2))!important;
+  border: 1px solid RGB(var(--tc-tint-3))!important;
+  border-radius: 2px;
+  width: 170px;
+  box-sizing: border-box;
+  padding: 10px 0;
+  margin: -25px 200px 0 10px;
+  box-shadow: rgba(0, 0, 0, 0.12) 3px 3px 8px!important;
+  // Move the modal down when it has popouttop class
+  @at-root #{$popouttop} & {
+    top: 40px;
+  }
+  #{$button} {
+    &#{$optionpopoutitem} {
+      @include button-undo-active;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      list-style-type: none;
+      white-space: nowrap;
+      padding: 6px 10px;
+      margin: 0 10px!important;
+      width: calc(100% - 20px);
+      border-radius: 2px;
+      text-align: left;
+      height: auto;
+      min-height: 0;
+      justify-content: flex-start;
+      border: none!important;
+      transition: none;
+      &:hover {
+        background-color: RGB(var(--tc-color-4))!important;
+      }
+      &:hover:active,
+      &:active {
+        background-color: RGB(var(--tc-color-4))!important;
+      }
+      #{$buttoncontents} {
+        @include text(RGB(var(--tc-tint-9))!important, 14px, 400, 18px);
+      }
+    }
+    &:hover {
+      #{$buttoncontents} {
+        color: RGB(var(--contrasted-color))!important;
+      }
+    }
+  }
+}

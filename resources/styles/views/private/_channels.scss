@@ -1,0 +1,167 @@
+// main: _module.scss
+
+//** Private channels list section
+
+// DM channel container
+#{$dmchannels} {
+  // Empty div directly inside scroller
+  // https://i.imgur.com/wjaaY2t.png
+  #{$scroller} {
+    @include hardware;
+    padding-top: 9px!important;
+    transform: translate3d(0, 0, 0);
+    > div:first-child {
+      margin-top: -20px;
+    }
+  }
+  // 'Direct Messages' header
+  header {
+    @extend %members-list-header;
+    align-items: center;
+    cursor: default;
+    display: flex;
+    height: 25px;
+    margin: 15px 0 5px 0;
+    opacity: 1;
+    padding: 0;
+    &:first-of-type {
+      margin-top: -5px;
+    }
+  }
+  // DM convo container
+  #{$dmchannel} {
+    max-height: 40px!important;
+    line-height: 40px;
+    a {
+      border-radius: 0;
+      height: 40px;
+      margin: 0;
+      padding: 0 4px;
+      // Activity, LFG, Friends buttons
+      &:not([href*="/channels/@me/"]) {
+        display: none;
+      }
+    }
+    &:hover {
+      // DM close button
+      #{$dmchannelclose} {
+        transform: translate3d(-2px, 0, 0);
+      }
+      a {
+        color: RGB(var(--contrasted-color))!important;
+        background-color: RGB(var(--tc-color-4));
+      }
+      #{$status} {
+        border-color: RGB(var(--tc-color-4))!important;
+      }
+    }
+    // DM convo avatar wrapper and avatar
+    #{$avatarsmallold} {
+      @include size(30px);
+      margin: 0 10px 0 0;
+      background-color: transparent;
+      background-size: 26px 26px!important;
+      background-repeat: no-repeat;
+    }
+    // Status
+    #{$status} {
+      border-color: RGB(var(--tc-color-2))!important;
+      right: -2px;
+      bottom: -2px;
+      &#{$statustyping} {
+        width: 24px!important;
+        right: -3px !important;
+      }
+    }
+    // DM close button
+    #{$dmchannelclose} {
+      @extend %button-primary;
+      padding: 11px;
+      height: auto;
+      display: block;
+      opacity: 1!important;
+      transform: translate3d(30px, 0, 0);
+      transition: var(--transition-none, all 0.15s ease-in)!important;
+      will-change: transform;
+    }
+    // User activity text outer container
+    // This first bit is specifically targetting/fixing 'activity' for group
+    // DMs. The next flex part is for all other activities
+    #{$dmchannelactivity} {
+      @include text(RGB(var(--tc-tint-6)), 12px, 400, 19px);
+      margin-top: -4px;
+      width: 100%;
+      // For activities
+      &#{$flex} {
+        margin-top: -1px;
+        line-height: 12px;
+      }
+      // Actual activity text
+      strong {
+        @include text(inherit, 12px, 400)
+        @include ellipsis(140px, inline-block);
+      }
+    }
+    // User activity text inner container
+    #{$dmchannelactivitytext} {
+      font-size: 0;
+      height: 16px;
+    }
+    // DM convo inner container
+    #{$dmchannelname} {
+      @include ellipsis
+      @include text(RGB(var(--tc-tint-9)), 12px, 400, 20px);
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 0 10px 0 0;
+      opacity: 1;
+      padding: 0;
+    }
+    // DM selected / hovered
+    &#{$dmchannelselected},
+    &:hover {
+      // User activity text outer container
+      #{$dmchannelactivity} {
+        color: RGB(var(--tc-tint-9));
+      }
+      // DM convo inner container
+      #{$dmchannelname} {
+        color: RGB(var(--contrasted-color));
+      }
+    }
+    // DM selected
+    &#{$dmchannelselected},
+    &#{$dmchannelselected}:hover {
+      a {
+        color: RGB(var(--contrasted-color));
+        background-color: RGB(var(--tc-color-3));
+        border-radius: 0;
+      }
+      #{$status} {
+        border-color: RGB(var(--tc-color-3))!important;
+      }
+    }
+  }
+  // Default Discord quickswitcher search bar container and search bar
+  #{$dmchannelsearchbarcontainer},
+  #{$dmchannelsearchbar},
+  // Rich presence icon
+  #{$dmchannelactivityicon} {
+    display: none;
+  }
+}
+
+.channels-Ie2l6A .private-channels .scrollerThemed-2oenus::-webkit-scrollbar-thumb {
+  border: 3px solid RGB(var(--tc-color-2))!important;
+  width: 20px!important;
+}
+
+.channels-Ie2l6A .private-channels .scrollerThemed-2oenus::-webkit-scrollbar {
+  width: 14px!important;
+}
+
+.channels-Ie2l6A .private-channels .scrollerThemed-2oenus::-webkit-scrollbar,
+.channels-Ie2l6A .private-channels .scrollerThemed-2oenus::-webkit-scrollbar-thumb,
+.channels-Ie2l6A .private-channels .scrollerThemed-2oenus::-webkit-scrollbar-track {
+  margin-bottom: 104px;
+}

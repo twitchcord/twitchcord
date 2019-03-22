@@ -1,0 +1,13 @@
+// main: _module.scss
+
+//** Recent mentions filter popout
+// https://i.imgur.com/UEnNCWm.png
+
+// Popout inner container
+#{$recentmentionsfilterpopout} {
+  // Class added to popout to adjust positioning
+  @at-root #{$popout}#{classes('twitchcord.fixRecentMentionsFilterPopout')} {
+    margin-top: 30px;
+    margin-left: -175px;
+  }
+}

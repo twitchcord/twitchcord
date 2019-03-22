@@ -1,0 +1,25 @@
+// main: _module.scss
+
+//** Citador - Plugin by Nirewen
+
+.quote-msg .message-group {
+  padding: 15px 0;
+  margin: 5px 0;
+  margin-top: 0;
+  border: 1px solid RGB(var(--tc-color-4))!important;
+}
+
+.quote-msg .message-group .comment {
+  left: 10px;
+  position: relative;
+}
+
+.quote-msg .avatar-large:hover:after {
+  display: none!important;
+}
+
+.quote-msg .quote-close {
+  background-color: RGB(var(--contrasted-color));
+  -webkit-mask: var(--close-icon);
+  mask: var(--close-icon);
+}

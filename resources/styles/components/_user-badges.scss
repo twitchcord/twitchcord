@@ -1,0 +1,77 @@
+// main: _module.scss
+
+//** User badges
+
+#{classes('twitchcord.userBadge')} {
+  // Badge container
+  &-container {
+    display: inline-block;
+    position: relative;
+  }
+  // Badge base
+  &-badge {
+    @include reset;
+    @include size(var(--user-badge-size));
+    border-radius: var(--user-badge-roundness);
+    background-position: center center;
+    background-repeat: no-repeat!important;
+    background-size: var(--user-badge-size) var(--user-badge-size)!important;
+    cursor: default;
+    display: inline-block;
+    float: left;
+    margin-right: 3px;
+    &.staff {
+      background: var(--staff-badge);
+    }
+    &.admin {
+      background: var(--admin-badge);
+    }
+    &.developer {
+      background: var(--developer-badge);
+    }
+    &.verified {
+      background: var(--verified-badge);
+    }
+    &.contributor {
+      background: var(--beta-badge);
+    }
+    &.turbo {
+      background: var(--turbo-badge);
+    }
+    &.donor {
+      background: var(--donor-badge);
+    }
+    &.beta {
+      background: var(--beta-badge);
+    }
+    &.nitro {
+      background: var(--nitro-badge);
+    }
+  }
+  // Bot badge base
+  @at-root #{$bottag},
+  #{$bottagregular},
+  #{$bottaginvert},
+  #{$bottagold} {
+    @include relative(top 0 bottom 0);
+    @include reset;
+    @include size(var(--user-badge-size));
+    background: var(--bot-badge);
+    background-color: transparent !important;
+    background-position: center center;
+    background-repeat: no-repeat!important;
+    background-size: var(--user-badge-size) var(--user-badge-size)!important;
+    border-radius: var(--user-badge-roundness);
+    cursor: default;
+    display: inline-block;
+    float: left;
+    font-size: 0;
+    margin-right: 3px;
+    order: 1;
+    // Bot badges on members lists
+    @at-root #{$memberswrap} & {
+      @include size(12px);
+      background-size: 12px 12px!important;
+    }
+  }
+}

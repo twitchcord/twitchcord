@@ -1,0 +1,44 @@
+// main: _module.scss
+
+//** Region select modal
+
+.regionSelectModal-12e-57 .regionSelectModalHeader-21khC1 {
+    color: RGB(var(--tc-tint-10))!important;
+    font-weight: 400!important;
+    text-transform: none!important;
+    font-size: 24px!important;
+    line-height: 30px!important;
+    padding-bottom: 5px;
+}
+
+.regionSelectModal-12e-57 {
+    background: RGB(var(--tc-color-3));
+    border: 1px solid RGB(var(--tc-color-4));
+    border-radius: 0;
+    width: 702px;
+}
+
+.regionSelectModal-12e-57 .regionSelectModalOption-2DSIZ3 {
+    border-radius: 0;
+    background: RGB(var(--tc-color-2));
+    color: RGB(var(--tc-tint-7));
+    border: none;
+    box-shadow: inset 0 0 0 1px RGB(var(--tc-color-4));
+    transition: box-shadow 0.2s;
+    width: 22%;
+}
+
+.regionSelectModal-12e-57 .regionSelectModalOption-2DSIZ3:hover {
+  box-shadow: inset 0 0 0 1px RGB(var(--tc-color-8)), 0 0 6px -2px RGB(var(--tc-color-8));
+  transition: box-shadow 0.2s;
+}
+
+.regionSelectModal-12e-57 .regionSelectModalOption-2DSIZ3 .regionSelectName-2-2FWh {
+  font-size: 14px;
+  font-weight: 400;
+  color: RGB(var(--tc-tint-6));
+}
+
+.regionSelectModal-12e-57 .regionSelectModalFooter-20C5iA {
+  color: RGB(var(--tc-tint-7));
+}

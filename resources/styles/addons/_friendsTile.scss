@@ -1,0 +1,225 @@
+// main: _module.scss
+
+// Friends view
+// <html>.friendsTile
+// https://i.imgur.com/0kf9cCa.jpg
+
+
+#{classes('html.styles.friends.tile')} {
+  #friends .friends-table .friends-row+.friends-row#{classes('twitchcord.friendPlaceholder')} {
+    border: none!important;
+  }
+
+  #friends .friends-table .friends-row#{classes('twitchcord.friendPlaceholder')} {
+    width: 230px;
+    max-width: 50%;
+  }
+
+  #friends .friends-table .friends-row .friends-column-guilds .avatar-small {
+      background-color: transparent;
+  }
+
+  #friends .friends-table .friends-table-header {
+      display: none;
+  }
+
+  #friends .friends-table .friends-row {
+    height: auto!important;
+    width: 230px;
+    max-width: 280px;
+    display: flex;
+    position: relative;
+    margin: 10px;
+    padding: 0px;
+    background-color: RGB(var(--tc-color-1));
+    border: none !important;
+    box-shadow: none !important;
+    flex: 1 0 auto;
+    border: 1px solid RGB(var(--tc-color-3))!important;
+    flex-direction: column;
+    opacity: 1!important;
+  }
+
+  #friends .friends-table .friends-row:hover {
+      background-color: RGB(var(--tc-color-1))!important;
+  }
+
+  #friends .friends-table .friends-row+.friends-row {
+      border-top: 1px solid RGB(var(--tc-color-3))!important;
+  }
+
+  #friends .friends-table .friends-row:hover {
+      box-shadow: none;
+      border-radius: 0;
+      margin: 10px;
+      padding: 0px;
+  }
+
+  #friends .friends-table .friends-row .friends-column-status .status-text {
+      color: RGB(var(--tc-tint-7));
+      opacity: 0.7;
+      font-size: 12px;
+      line-height: 20px;
+      padding: 0 10px;
+  }
+
+  #friends .friends-table .friends-row .friends-column-name {
+      @include size(100%, auto !important);
+      display: block;
+      position: relative;
+      background: none!important;
+  }
+
+  #friends .friends-table .friends-row .friends-column-name .avatar-small {
+      width: 100%!important;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      background-color: RGB(var(--tc-color-2));
+      background-repeat: no-repeat;
+      padding-bottom: 100%;
+      background-size: 100%;
+  }
+
+  #friends .friends-table .friends-row .friends-column-status {
+      width: 100%;
+  }
+
+  #friends .friends-table .friends-row .friends-column-status .status {
+    margin: 0;
+    width: 100%;
+    height: 4px;
+    border-top: 1px solid RGB(var(--tc-color-1));
+    border-right: none;
+    position: absolute!important;
+    bottom: 46px;
+    right: 0;
+    box-sizing: border-box;
+  }
+
+  #friends .friends-table .friends-row .discord-tag {
+      position: relative;
+      width: 100%;
+      padding: 5px 5px 0 5px;
+      &:hover {
+        .discriminator {
+          opacity: 0.5;
+        }
+      }
+  }
+
+  #friends .friends-table .friends-row .discord-tag .discriminator {
+      opacity: 0;
+      visibility: visible;
+      font-size: 10px;
+      margin-left: 4px;
+      margin-right: 15px;
+  }
+
+  #friends .friends-table .friends-row .discord-tag .username {
+    color: RGB(var(--tc-tint-10));
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 20px;
+    display: block;
+    position: relative;
+    margin-top: 5px;
+    padding-left: 5px;
+  }
+
+  #friends .friends-table .friends-column-guilds {
+    padding-left: 4px!important;
+    margin-top: 10px!important;
+    display: flex!important;
+    width: 100%;
+    height: 46px;
+    position: relative;
+    background: RGB(var(--tc-color-3));
+  }
+
+  #friends .friends-table .friends-column-guilds:empty::after {
+    content: 'No mutual servers found.';
+    width: 100%;
+    height: 30px;
+    margin-left: 3px;
+    margin-right: 11px;
+    box-sizing: border-box;
+    color: RGB(var(--tc-tint-7));
+    text-align: left;
+    font-size: 12px;
+    line-height: 30px;
+  }
+
+  #friends .friends-table .friends-row .friends-column-guilds .more-mutual-guilds-btn {
+    @include size(36px, 30px);
+    margin-left: 2px;
+  }
+
+  #friends .friends-table .friends-row .friends-column+.friends-column {
+    margin: 0;
+  }
+
+  #friends .friends-table .friends-row .friends-column-guilds a {
+    text-align: center;
+    margin: 3px!important;
+  }
+
+  #friends .friends-table .friends-row .friends-column-actions {
+    display: block;
+  }
+
+  #friends .friends-table .friends-row .friends-column-actions .friends-action {
+    transform: translateX(200px);
+  }
+
+  #friends .friends-table .friends-row:hover .friends-column-actions .friends-action:nth-of-type(1),
+  #friends .friends-table .friends-row:hover .friends-column-actions .friends-action:nth-of-type(2),
+  #friends .friends-table .friends-row:hover .friends-column-actions .friends-action:nth-of-type(3),
+  #friends .friends-table .friends-row .friends-column-actions.friends-column-actions-visible .friends-action,
+  #friends .friends-table .friends-row:hover .friends-column-actions {
+    transform: translateX(0);
+  }
+
+  #friends .friends-table .friends-row .friends-column-actions .friends-action+div {
+    margin-left: 0;
+  }
+
+  #friends .friends-table .friends-row .friends-suggestion-inner {
+    @include size(100%, auto !important);
+
+    position: relative;
+
+    display: block;
+  }
+
+  #friends .friends-table .friends-row .friends-suggestion-inner .discord-tag .username {
+    display: inline-flex;
+  }
+
+  #friends .friends-table .friends-row .friends-suggestion-inner .friends-suggestion-info .friends-suggestion-platforms .friends-suggestion-platform-icon {
+    @include size(20px);
+  }
+
+  #friends .friends-table .friends-row .friends-suggestion-inner .friends-suggestion-info .friends-suggestion-platforms .friends-suggestion-platform-name {
+    font-size: 14px;
+  }
+
+  #friends .friends-table .friends-row .friends-suggestion-inner .friends-suggestion-info .friends-suggestion-platforms {
+    margin-left: 10px;
+  }
+
+  #friends .friends-table .friends-row .friends-suggestion-inner .avatar-large {
+    @include size(100% !important);
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    background-color: RGB(var(--tc-color-2));
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+
+  #friends .friends-table .friend-table-add-wrapper+.scroller-wrap .friends-row {
+    height: 300px!important;
+  }
+}

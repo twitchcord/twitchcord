@@ -1,0 +1,59 @@
+// main: _module.scss
+
+//** Activity attachment popout
+// https://i.imgur.com/zSvgkGG.png
+
+.attachPopout-1n-ZKM {
+  background: RGB(var(--tc-color-2))!important;
+  border: 1px solid RGB(var(--tc-tint-3))!important;
+  border-radius: 2px;
+  box-sizing: border-box;
+  padding: 10px 0;
+  z-index: 99999999;
+  box-shadow: rgba(0, 0, 0, 0.12) 3px 3px 8px!important;
+  margin-left: -211px;
+  margin-bottom: -2px;
+  width: 300px;
+  .attachPopoutRow-KrE-f6 {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+    list-style-type: none;
+    white-space: nowrap;
+    padding: 3px 10px;
+    border-radius: 2px;
+    margin: 0 10px;
+    cursor: pointer;
+    opacity: 1!important;
+    transition: none;
+    > #{$flex} {
+      overflow: hidden;
+    }
+    .attachPopoutIcon-26Np2W {
+      flex: 0 0 auto;
+      opacity: 1;
+      .attachPopoutIconForeground-OohRrL {
+        fill: RGB(var(--tc-tint-9));
+      }
+    }
+    .attachPopoutRowText-1tIocA {
+      @include ellipsis;
+      color: RGB(var(--tc-tint-9))!important;
+    }
+    &:hover {
+      background: RGB(var(--tc-color-4))!important;
+      .attachPopoutIcon-26Np2W {
+        .attachPopoutIconForeground-OohRrL {
+          fill: RGB(var(--contrasted-color));
+        }
+      }
+      .attachPopoutRowText-1tIocA {
+        color: RGB(var(--contrasted-color))!important;
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+// main: _module.scss
+
+// Activity style 2 view
+// <html>.activityStyle2
+//
+
+.activityFeed-28jde9 {
+  $grandfather: &;
+  .pagination-1GYdtQ {
+    margin-bottom: 15px;
+  }
+  .feedCarousel-3F1_Q- {
+    &::before {
+      content: 'Featured News';
+    }
+    @at-root #{$grandfather} .carousel-2WxMes {
+      margin-top: 5px;
+    }
+  }
+  .body-vr4WiF {
+    > div {
+      background-color: RGB(var(--tc-color-3))!important;
+      border: 1px solid RGB(var(--tc-color-4))!important;
+      margin: 5px 0;
+      padding: 10px;
+      &:first-of-type {
+        margin-top: 10px;
+      }
+    }
+  }
+  .feed-1o0xmF {
+    padding: 10px;
+  }
+  .headerText-2niCs_,
+  .feedCarousel-3F1_Q-::before {
+    border: none;
+    font-size: 12px;
+    line-height: 1.5;
+    margin: -10px 0 15px 0;
+    padding: 0;
+  }
+  .dock-10JPBX {
+    margin: 0;
+  }
+  .card-7JP0BX {
+    background: RGB(var(--tc-color-1))!important;
+    @at-root #{$grandfather} .header-1RC2Wb {
+      background-color: RGB(var(--tc-color-1))!important;
+    }
+  }
+  .status-oxiHuE {
+    border-color: RGB(var(--tc-color-1))!important;
+  }
+}

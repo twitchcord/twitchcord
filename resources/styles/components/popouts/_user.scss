@@ -1,0 +1,556 @@
+// main: _module.scss
+
+//** User popouts
+// Don't forget about Discord default avatars in components/replaceavatars.SCSS
+
+.userPopout-3XzG_A .wrapper-2F3Zv8 {
+  @include size(86px);
+  bottom: -65px;
+  margin: 0px 7px;
+  z-index: 2;
+}
+
+.userPopout-3XzG_A {
+  width: var(--user-popout-width);
+  border-radius: 1px;
+  border: 1px solid RGB(var(--tc-tint-3));
+  position: relative;
+  box-shadow: 0 2px 4px -1px rgba(0,0,0,.34),0 2px 2px -2px rgba(0,0,0,.26),0 1px 4px 0 rgba(0,0,0,.28)!important;
+  opacity: 0;
+  animation: fadeIn 0.3s forwards;
+  // Fix to move left user popouts further to the left slightly
+  #{$popoutleft}#{classes('twitchcord.fixLeftUserPopout')} & {
+    margin-right: 25px;
+  }
+}
+
+.userPopout-3XzG_A .header-2BwW8b {
+    background-color: RGB(var(--tc-color-3));
+}
+
+.userPopout-3XzG_A .headerTop-3C2Zn0 {
+  padding: 0;
+}
+
+.userPopout-3XzG_A .botTag-2WPJ74 {
+    margin-top: 0;
+    order: 1;
+}
+
+.userPopout-3XzG_A .actionsUserPopout-2MrzCa:empty {
+  display: none;
+}
+
+// Fix for when there is no cover art or buttons... Seems to be only
+// for the user viewing their own popout, when they're playing local
+// songs via Spotify
+.userPopout-3XzG_A .listeningActionsUserPopout-Ga2V_N:empty {
+  padding: 5px 15px 0;
+}
+
+.userPopout-3XzG_A .actionsUserPopout-2MrzCa .playButtonWrapper-3-YFAn:only-of-type {
+    width: 100%;
+    padding: 5px 15px 15px;
+}
+
+// User bg area: https://i.imgur.com/5UYFuyZ.png
+.userPopout-3XzG_A .avatarWrapper-3H_478 {
+    background-color: RGB(var(--tc-color-3));
+    border: none;
+    height: 120px;
+    width: var(--user-popout-width);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 0;
+    margin: 0;
+    &::before,
+    &::after {
+      display: none;
+    }
+    &:not([style*="background-image"]) {
+      background-color: RGB(var(--tc-color-7));
+      background-image: url(https://i.imgur.com/GKqK6Cy.png);
+      background-blend-mode: multiply;
+    }
+}
+
+// Note textarea container
+.userPopout-3XzG_A .note-3HfJZ5 {
+    margin-left: -8px;
+}
+
+.userPopout-3XzG_A .root-3-B5F3 {
+    padding: 8px 10px;
+    margin: 0;
+    max-height: 160px;
+    overflow-y: auto;
+}
+
+.userPopout-3XzG_A .root-3-B5F3:empty {
+  margin-top: 2px;
+  padding: 0;
+}
+
+//## Xbox specific fixes
+.userPopout-3XzG_A .headerXbox-3G-4PF {
+  // Playing icon
+  .headerText-1HLrL7 {
+    &::before {
+      @include mask(var(--d-pad-icon), RGB(var(--tc-tint-9)), $size: 12px);
+      @include relative(top 1px left -5px);
+      @include size(10px);
+      content: '';
+      display: inline-block;
+      margin-right: 1px;
+    }
+  }
+  // Xbox icon and game info container
+  .bodyAlignCenter-1KzvJk {
+    padding: 0;
+    // 'Connect Xbox Live' button
+    + .actionsUserPopout-2MrzCa {
+      margin: 0;
+    }
+  }
+  // Game info container
+  .contentGameImageUserPopout-2KWIsz {
+    padding: 13px 5px;
+    margin-right: 10px;
+  }
+}
+
+//## Spotify stuff
+.userPopout-3XzG_A .timeBarUserPopout-AWPFf2 {
+    margin-top: 4px;
+    padding: 0 15px;
+}
+.userPopout-3XzG_A .bar-3urHkF, .userPopout-3XzG_A .barInner-3NDaY_ {
+  border-radius: 0;
+}
+.userPopout-3XzG_A .bar-3urHkF {
+  background-color: RGB(var(--tc-tint-11));
+}
+.userPopout-3XzG_A .barInner-3NDaY_ {
+  background-color: RGB(var(--tc-color-7));
+}
+.userPopout-3XzG_A .listeningActionsUserPopout-Ga2V_N {
+  padding: 5px 15px 15px;
+}
+.userPopout-3XzG_A .bar-3urHkF {
+  margin-bottom: 6px;
+}
+// Play button on Listening user popout
+// https://i.imgur.com/iwLbit8.png
+.userPopout-3XzG_A .playButtonWrapper-3-YFAn button {
+  width: 100%!important;
+}
+
+.userPopout-3XzG_A button {
+  min-width: 40px;
+}
+
+.userPopout-3XzG_A .headerStreaming-2FjmGz .actionsUserPopout-2xcO1O button {
+  width: auto;
+  margin: 0 10px 10px!important;
+  display: flex;
+  flex: 1 0 auto;
+}
+
+.userPopout-3XzG_A .footer-1fjuF6 .protip-YaFfgO {
+  display: none;
+}
+
+.userPopout-3XzG_A .footer-1fjuF6 .quickMessage-2XpSaN.isBlocked {
+    cursor: not-allowed!important;
+    opacity: 0.3;
+}
+
+// Rich presence game icon
+// https://i.imgur.com/DO7XmIh.png
+.userPopout-3XzG_A .iconHover-27CwXP:hover {
+  opacity: 1;
+}
+
+// Status circle
+.userPopout-3XzG_A .status-oxiHuE {
+  position: absolute;
+  height: 12px;
+  width: 12px;
+  box-shadow: none;
+  border: 2px solid RGB(var(--tc-color-1));
+  box-sizing: border-box;
+  bottom: -1px;
+  right: -1px;
+}
+
+.userPopout-3XzG_A .image-33JSyf {
+  @include size(86px !important);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 3px solid RGB(var(--tc-color-1));
+  background-color: transparent;
+}
+
+.userPopout-3XzG_A .headerText-2sdzFM {
+  width: 100%;
+  height: 40px;
+  background: RGB(var(--tc-color-1));
+  position: relative;
+  pointer-events: none;
+}
+
+.userPopout-3XzG_A .headerTop-27AvhA {
+    padding: 0;
+}
+
+.userPopout-3XzG_A .headerTag-2pZJzA {
+  font-size: 16px;
+  height: 40px;
+  position: absolute;
+  text-align: left;
+  left: 105px;
+  display: flex;
+  align-items: center;
+}
+
+.userPopout-3XzG_A .activity-11LB_k {
+  padding: 0;
+  background: none;
+}
+
+.userPopout-3XzG_A .headerName-fajvi9 {
+  @include ellipsis;
+  width: 100%;
+  background: RGBA(var(--tc-color-1), 0.5);
+  font-size: 20px;
+  font-weight: 700;
+  box-sizing: border-box;
+  bottom: 40px;
+  position: absolute;
+  z-index: 1;
+  margin: 0;
+  text-align: left;
+  padding-left: 108px;
+  padding-right: 10px;
+  line-height: 40px;
+  height: 0;
+  transition: height 0.15s;
+  animation: userPopoutNicknameHide 2s;
+}
+
+.userPopout-3XzG_A:hover .headerName-fajvi9 {
+    height: 40px;
+  }
+
+.userPopout-3XzG_A .headerTag-2pZJzA > .username {
+  @include ellipsis(155px, inline-block);
+  color: RGB(var(--contrasted-color));
+  font-weight: 700;
+  line-height: 18px;
+  pointer-events: all;
+  order: 2;
+}
+
+.userPopout-3XzG_A .headerTag-2pZJzA > .discriminator {
+  font-size: 11px;
+  position: relative;
+  margin-left: 3px;
+  color: RGB(var(--tc-tint-6));
+  opacity: 0;
+  order: 3;
+}
+
+.userPopout-3XzG_A .headerText-2sdzFM:hover .discriminator {
+  opacity: 1;
+}
+
+.userPopout-3XzG_A .headerTextNormal-2mGWX3,
+.userPopout-3XzG_A .body-3iLsc4 .bodyTitle-Y0qMQz {
+    height: 34px;
+    line-height: 34px;
+    padding: 0 15px;
+    margin: 0;
+    margin-top: -1px;
+    background: RGB(var(--tc-color-2));
+    font-size: 12px;
+    font-weight: 700;
+    color: RGB(var(--tc-tint-9))!important;
+    text-transform: capitalize;
+}
+
+.userPopout-3XzG_A .headerStreaming-2FjmGz .activityUserPopout-2yItg2 .headerText-1HLrL7::before {
+  content: '';
+  background: #f00;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  margin-top: 12px;
+  left: 15px;
+}
+
+.userPopout-3XzG_A .headerStreaming-2FjmGz .activityUserPopout-2yItg2 .headerText-1HLrL7::after {
+  content: '';
+  background: #f00;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  margin-top: 12px;
+  left: 15px;
+  animation: StreamLivePulseCircle 2s;
+  animation-iteration-count: infinite;
+  }
+
+.userPopout-3XzG_A .note-3kmerW textarea:focus {
+    background-color: transparent!important;
+}
+
+// Activity popout section container
+.userPopout-3XzG_A .activityUserPopout-2yItg2 {
+    color: RGB(var(--tc-tint-9))!important;
+}
+// 1st heading -- game title
+.userPopout-3XzG_A .activityName-1IaRLn {
+    color: RGB(var(--contrasted-color));
+    font-weight: 700;
+}
+// 3rd/4th heading after game title
+.userPopout-3XzG_A .activityUserPopout-2yItg2 .textRow-19NEd_ {
+    font-size: 12px;
+    margin: 0;
+    font-weight: 400;
+    color: RGB(var(--tc-tint-9));
+}
+
+.userPopout-3XzG_A .activityUserPopout-2yItg2 .textRow-19NEd_ + .textRow-19NEd_ {
+  margin-top: 2px;
+}
+
+.userPopout-3XzG_A .activityUserPopout-2yItg2 .bodyNormal-2D39hT {
+    background-color: RGB(var(--tc-color-3));
+    align-items: center;
+}
+
+.userPopout-3XzG_A .activity-3NviKQ {
+    padding: 0;
+    background-color: RGB(var(--tc-color-3));
+    overflow: hidden;
+}
+
+.userPopout-3XzG_A .assetsLargeImageUserPopout-3Pp8BK {
+    height: 74px;
+    width: 74px;
+}
+
+.userPopout-3XzG_A .assets-VMAukC {
+    position: relative;
+    padding: 10px 15px;
+    padding-right: 0;
+}
+
+.userPopout-3XzG_A .assets-VMAukC.xboxAssets-aGhVw8 {
+  flex: 0;
+}
+
+.userPopout-3XzG_A .contentImagesUserPopout-1vLdRA {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 13px 5px;
+    margin-right: 10px;
+}
+
+.userPopout-3XzG_A .body-3iLsc4 .bodyTitle-Y0qMQz::before,
+.userPopout-3XzG_A .headerPlaying-j0WQBV .activityUserPopout-2yItg2 .headerTextNormal-2mGWX3::before,
+.userPopout-3XzG_A .headerSpotify-zpWxgT .activityUserPopout-2yItg2 .headerTextNormal-2mGWX3::before {
+  content: '';
+  @include mask(var(--user-icon), RGB(var(--tc-tint-9)));
+  @include size(10px);
+  @include relative(top 1px left -5px)
+  margin-right: 1px;
+  display: inline-block;
+}
+
+#{classes('html.routes.private')},
+#{classes('html.routes.activity')} {
+  .userPopout-3XzG_A .body-3iLsc4 .bodyTitle-Y0qMQz::before {
+    @include mask(var(--pencil-icon), $size: 16px);
+  }
+}
+
+.userPopout-3XzG_A .headerPlaying-j0WQBV .activityUserPopout-2yItg2 .headerTextNormal-2mGWX3::before {
+  @include mask(var(--d-pad-icon), $size: 12px);
+}
+
+.userPopout-3XzG_A .body-3iLsc4 .bodyTitle-Y0qMQz~.bodyTitle-Y0qMQz::before {
+  @include mask(var(--pencil-icon), $size: 16px);
+}
+
+.userPopout-3XzG_A .headerSpotify-zpWxgT .activityUserPopout-2yItg2 .headerTextNormal-2mGWX3::before {
+  @include mask(var(--music-note-icon), $size: 18px);
+}
+
+.userPopout-3XzG_A .activityUserPopout-2yItg2 .playTime-2uWd1Z {
+    opacity: 0.6;
+}
+
+.userPopout-3XzG_A .headerStreaming-2FjmGz .activityUserPopout-2yItg2 .headerTextNormal-2mGWX3 {
+    font-size: 11px;
+    text-transform: uppercase;
+    padding-left: 32px;
+    color: #fff!important;
+    background: repeating-linear-gradient(45deg, RGB(var(--tc-color-7)), RGB(var(--tc-color-7)) 10px, RGB(var(--tc-color-8)) 10px, RGB(var(--tc-color-8)) 20px);
+    background-repeat: repeat-x;
+    border-top: 1px solid RGB(var(--tc-tint-3));
+    border-bottom: 1px solid RGB(var(--tc-tint-3));
+    transition: all 0.2s;
+    width: 300%;
+    margin-top: 0;
+    animation: StreamingInfiniteLeft 10s linear 0s normal none infinite;
+}
+
+.userPopout-3XzG_A .actionsUserPopout-2xcO1O {
+    margin: 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.userPopout-3XzG_A .button-38aScr.lookOutlined-3sRXeN {
+  @extend %button-primary;
+  color: #fff!important;
+  padding: 0;
+  #{$buttoncontents} {
+    > #{$flex} {
+      color: #fff;
+      justify-content: center;
+    }
+  }
+}
+
+.userPopout-3XzG_A .headerStreaming-2FjmGz .actionsUserPopout-2xcO1O {
+  margin: 0 5px;
+}
+
+.userPopout-3XzG_A .actionsUserPopout-2xcO1O button {
+    margin: 0 0 10px!important;
+    flex: 1 1 auto!important;
+}
+
+.userPopout-3XzG_A .actionsUserPopout-2xcO1O button:nth-of-type(n+2) {
+  margin-left: 0;
+}
+
+.userPopout-3XzG_A .body-3iLsc4 {
+  background-color: RGB(var(--tc-color-3))!important;
+  padding: 0;
+  margin-top: 0;
+}
+
+.userPopout-3XzG_A .body-3iLsc4 .note-3kmerW textarea {
+  outline: none;
+  resize: none;
+  border: none;
+  margin: 0;
+  padding: 12px 10px 10px 25px;
+  background: transparent;
+  font-size: 12px;
+  line-height: 18px;
+  color: RGB(var(--contrasted-color));
+  width: 100%;
+  max-height: 88px;
+  box-sizing: border-box;
+  font-family: var(--font)!important;
+  &::-webkit-input-placeholder {
+    color: RGB(var(--tc-tint-6))!important;
+  }
+}
+
+.userPopout-3XzG_A .footer-1fjuF6 {
+    background-color: RGB(var(--tc-color-2))!important;
+    border-top: 1px solid RGB(var(--tc-tint-3))!important;
+}
+
+.userPopout-3XzG_A .footer-1fjuF6 .quickMessage-2XpSaN {
+    @extend %input-text;
+    border: 1px solid RGB(var(--tc-color-4))!important;
+    box-shadow: none!important;
+    width: 100%;
+    padding: 8px 10px;
+    resize: none;
+    &:focus {
+      box-shadow: none!important;
+    }
+}
+
+.userPopout-3XzG_A .bodyAlignCenter-1KzvJk {
+    padding: 12px 15px;
+}
+
+
+.userPopout-3XzG_A .contentNoImagesUserPopout-PCCPyZ {
+    padding: 15px;
+}
+
+.userPopout-3XzG_A .headerStreaming-2FjmGz .contentNoImagesUserPopout-PCCPyZ {
+    padding: 5px 15px;
+}
+
+.userPopout-3XzG_A .contentNoImagesUserPopout-PCCPyZ:empty {
+    margin-top: -27px;
+}
+
+// Game icons and Spotify cover arts
+.userPopout-3XzG_A .assetsLargeImage-eYwpTX,
+.userPopout-3XzG_A .gameIcon-gg34Dz {
+    border-radius: 0;
+    background-color: RGB(var(--tc-color-3));
+}
+
+.userPopout-3XzG_A .assetsSmallImage-3_3Bzj {
+    @include size(28px);
+    background-color: RGB(var(--tc-color-3));
+    border: 4px solid RGB(var(--tc-color-3));
+}
+
+.userPopout-3XzG_A .avatarHint-1qgaV3 {
+    display: none;
+}
+
+.userPopout-3XzG_A .avatarHintInner-2PEhr7 {
+    display: none;
+}
+
+.userPopout-3XzG_A .assetsSmallImageUserPopout-2yc71g {
+    bottom: 3px;
+    position: absolute;
+    right: -8px;
+}
+
+.assetsSmallImageUserPopout-2yc71g {
+    bottom: 3px;
+    position: absolute;
+    right: -8px;
+}
+
+.userPopout-3XzG_A .assetsLargeMaskUserPopout-12EBBc {
+  border-radius: var(--image-roundness);
+  -webkit-mask: none;
+  mask: none;
+}
+
+.gameIcon-gg34Dz[style*="/assets/a5eba102f5b5e413df2b65c73f288afa.svg"] {
+    background: none!important;
+}
+
+// User popout scrollbars for roles
+.userPopout-3XzG_A ::-webkit-scrollbar-thumb {
+  border: 3px solid RGB(var(--tc-color-3))!important;
+}
+.userPopout-3XzG_A ::-webkit-scrollbar-track,
+.userPopout-3XzG_A ::-webkit-scrollbar-track-piece {
+  background: transparent!important;
+}

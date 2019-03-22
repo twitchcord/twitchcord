@@ -1,0 +1,115 @@
+// main: _module.scss
+
+//** Games settings
+
+.user-settings-games .game-name {
+    height: 32px;
+}
+
+.user-settings-games .game .remove-game {
+    right: 199px;
+    top: 34px;
+    z-index: 1;
+}
+
+.user-settings-games .now-playing-add {
+    margin-top: 20px;
+}
+
+.user-settings-games .button-38aScr {
+    display: block;
+    margin-top: 10px;
+}
+
+.add-game-popout {
+    background-color: RGB(var(--tc-color-3))!important;
+    border: 1px solid RGB(var(--tc-color-4))!important;
+    border-radius: 0;
+    box-shadow: 0 0 45px rgba(0, 0, 0, 0.6) !important;
+}
+
+.add-game-popout .cancel-button {
+    margin-right: 10px;
+}
+
+.add-game-popout .divider-3573oO {
+    background: transparent!important;
+}
+
+.user-settings-games .game-name-input {
+    border-radius: 2px;
+}
+
+.user-settings-games .game-name-input:hover {
+    background-color: RGB(var(--tc-color-2))!important;
+    border-color: none!important;
+    box-shadow: inset 0 0 0 1px RGB(var(--tc-color-5)), 0 0 0 transparent;
+}
+
+.user-settings-games .game-name-input:focus {
+    background-color: hsla(var(--channels-color), 1)!important;
+    border-color: none!important;
+    box-shadow: inset 0 0 0 1px RGB(var(--tc-color-8)), 0 0 6px -2px RGB(var(--tc-color-8));
+}
+
+
+.theme-dark .user-settings-games .now-playing, .theme-light .user-settings-games .now-playing {
+    border: 2px solid #31d31c;
+    background-color: #326125;
+}
+
+.theme-dark .user-settings-games .not-detected, .theme-light .user-settings-games .not-detected {
+    border: 2px solid #d32b1c;
+    background-color: #612526;
+}
+
+.theme-dark .user-settings-games .not-detected .last-played, .theme-light .user-settings-games .not-detected .last-played {
+    color: RGB(var(--tc-tint-10))!important;
+}
+
+.theme-dark .user-settings-games .now-playing .game-name-input:focus, .theme-dark .user-settings-games .now-playing .game-name-input:hover,
+.theme-light .user-settings-games .now-playing .game-name-input:focus, .theme-light .user-settings-games .now-playing .game-name-input:hover {
+    background: RGB(var(--tc-color-1));
+}
+
+.user-settings-games .game-name-input {
+    padding: 15px 4px;
+    margin-bottom: 5px;
+}
+
+.user-settings-games .last-played {
+    line-height: 16px;
+    color: RGB(var(--tc-tint-7))!important;
+}
+
+.user-settings-games .now-playing .last-played {
+    color: #b4e1cd!important;
+}
+
+.user-settings-games .game {
+    background: RGB(var(--tc-color-2))!important;
+    padding: 20px;
+    margin: 10px 0;
+    box-shadow: none!important;
+}
+
+.user-settings-games .overlay-status-text {
+    width: auto;
+    margin-right: 24px;
+    font-size: 12px;
+}
+
+.game.ui-hover-card::before {
+    display: none;
+}
+/* Settings page - Game Activity */
+
+.user-settings-games .game-verified-icon {
+    background: image('verified5.png') no-repeat;
+    width: 18px;
+    height: 18px;
+}
+
+.user-settings-games .not-detected, .user-settings-games .now-playing {
+    border-radius: 2px;
+}

@@ -1,0 +1,60 @@
+// main: _module.scss
+
+//** Keyboard shortcuts modal
+
+.ragingDemon-bDcoXE .symbol-3ffeCr img {
+    height: auto;
+    max-height: none;
+    max-width: none;
+    width: 50%;
+    filter: hue-rotate(20deg);
+}
+
+.keyboardShortcutsModal-3piNz7 {
+    background-color: RGB(var(--tc-color-3))!important;
+    border: 1px solid RGB(var(--tc-color-4));
+    border-radius: 0;
+}
+
+.keybindShortcut-1BD6Z1 span {
+  background-color: RGB(var(--tc-color-2)) !important;
+  border: 1px solid RGB(var(--tc-color-4))!important;
+  box-shadow: none!important;
+  padding: 0 6px;
+  line-height: 23px;
+  height: 23px;
+  font-size: 11px;
+  color: RGB(var(--contrasted-color));
+}
+
+.keybindShortcut-1BD6Z1 {
+  color: RGB(var(--tc-color-8));
+  font-family: var(--font)!important;
+}
+
+.keybindShortcut-1BD6Z1 span .bindArrow-2X3Aom *,
+.keybindShortcut-1BD6Z1 span .bindArrow-2X3Aom.up-2cOsD2 *,
+.keybindShortcut-1BD6Z1 span .bindArrow-2X3Aom.left-3u1rVI *,
+.keybindShortcut-1BD6Z1 span .bindArrow-2X3Aom.right-CbUyiH * {
+  fill: RGB(var(--tc-color-8))!important;
+}
+
+.keyboardShortcutsModal-3piNz7 .modalTitle-37O4n6 .content-2Add9f {
+    color: RGB(var(--tc-tint-10))!important;
+}
+
+.keyboardShortcutsModal-3piNz7 .ddrArrows-lSnH7P .arrow-2enltQ {
+    filter: hue-rotate(40deg) saturate(2);
+}
+
+.keyboardShortcutsModal-3piNz7 .ddrArrows-lSnH7P .arrow-2enltQ.active-2X6Ewx {
+    filter: none;
+}
+
+.keyboardShortcutsModal-3piNz7 .keyboardShortcutList-13cQ-8 .keybindGroup--6Qp-w .keybindDescription-2RDbC2 {
+    color: RGB(var(--contrasted-color));
+}
+.keyboardShortcutsModal-3piNz7 .modalSubtitle-1Pj5nv {
+    color: RGB(var(--tc-tint-7));
+    font-size: 14px;
+}

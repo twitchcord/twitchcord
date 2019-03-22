@@ -1,0 +1,43 @@
+// main: _module.scss
+
+//** Typing indicator
+
+#{$chat} form .typing-2GQL18 {
+  cursor: default;
+  display: flex;
+  font-size: 12px;
+  line-height: 40px;
+  height: 40px;
+  position: absolute;
+  bottom: 100%;
+  top: inherit;
+  background-color: RGBA(var(--tc-color-1), 0.9) !important;
+  width: calc(100% - 42px);
+  animation: chatTypingIndicator 0.15s forwards;
+  margin-left: 15px;
+}
+
+// Rich presence game thing "Fortnite supports game invites"
+// https://i.imgur.com/BmfoSGa.png
+#{$chat} form .typing-2GQL18 .activityInviteEducationArrow-3DEpKU {
+  margin: 0 5px 0 9px;
+  top: 2px;
+}
+
+#{$chat} form .typing-2GQL18 .text-1y-e8- {
+    color: RGB(var(--tc-tint-6))!important;
+}
+
+#{$chat} form .typing-2GQL18 .text-1y-e8- strong {
+    color: RGB(var(--contrasted-color))!important;
+    font-weight: 400;
+}
+
+#{$chat} form .typing-2GQL18 .ellipsis-19qdx6 {
+    margin: 0px 4px 0 3px;
+    display: inline-block;
+}
+
+#{$chat} form .typing-2GQL18 .spinner-pulsing-ellipsis .spinner-item {
+    background: RGB(var(--contrasted-color));
+}

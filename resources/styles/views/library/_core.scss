@@ -1,0 +1,267 @@
+// main: _module.scss
+
+//** Library view
+
+.gameLibrary-TTDw4Y {
+  $grandfather: &;
+  background: RGB(var(--tc-color-1))!important;
+  .emptyStateSmall-2Ttdgm {
+    border: none!important;
+    padding-top: 100px;
+  }
+  #{$scrollerwrap} {
+    padding: 2px 2px 0 0;
+  }
+  #{$scroller} {
+    overflow-y: auto;
+    &::-webkit-scrollbar,
+    &::-webkit-scrollbar-track {
+      margin-top: 40px;
+    }
+  }
+  .emptyStateButtons-2u6vlI {
+    margin-top: 10px;
+  }
+  .emptyStateHeader-3CJtAy {
+    @extend %header-24px;
+  }
+  .emptyStateDescription-2IePen {
+    @include text(RGB(var(--tc-tint-7)), 14px);
+    margin-bottom: 20px;
+  }
+  // Header
+  .libraryHeader-1y0rDV {
+    background: RGB(var(--tc-color-2))!important;
+    border-bottom: 1px solid RGBA(var(--tc-color-4), 0.7);
+    height: 60px;
+    justify-content: flex-end;
+    // Fix for filter search bar
+    > #{$flex} {
+      margin: 0 10px!important;
+    }
+  }
+  .libraryFilter-31ZUa2 {
+    .inputWrapper-31_8H8 {
+      width: 230px;
+    }
+    .libraryFilterInput-3JzqZD {
+      font-size: 12px;
+      text-indent: 20px;
+    }
+    .icon-2oIyBi {
+      color: RGB(var(--tc-tint-6));
+      g,
+      path {
+        display: block;
+      }
+      &[name="Search"] {
+        @include absolute(top 5px right unset left 9px);
+        opacity: 1!important;
+        transform: none;
+      }
+      &[name="Clear"] {
+        display: none;
+      }
+    }
+  }
+  .emptyStateButtons-2u6vlI {
+    #{$button}#{$buttonlookfilled} {
+      &:first-of-type {
+        @extend %button-hollow;
+      }
+    }
+  }
+  // 'Games Library' header text
+  .title-CZQTru {
+    display: none;
+  }
+  .row-ZLfFhY {
+    @include text(RGB(var(--tc-tint-10)), 14px, 400!important);
+    height: 89px;
+    margin: 0 20px;
+  }
+  .nameBodyCell-3JOlnK {
+    padding: 0!important;
+  }
+  .nameCellInfo-11WjkQ {
+    width: 100%;
+    align-items: center;
+    display: flex;
+  }
+  .nameCellTextWrapper-2MTsbx {
+    max-width: 100%;
+    order: 1;
+  }
+  .nameCellNew-3SokLB {
+    @include text(#fff, 10px, 400, $transform: uppercase);
+    background: RGB(var(--tc-color-5));
+    border-radius: 2px;
+    margin: 0 0 0 5px;
+    padding: 2px 4px;
+    display: inline-flex;
+    order: 2;
+  }
+  .headerCell-3L6rFG {
+    @include text(RGB(var(--tc-tint-6)), 12px, 700, $transform: uppercase);
+    border: none!important;
+    padding: 0;
+    &:hover {
+      color: RGB(var(--tc-color-10))!important;
+    }
+    &.headerCellSorted-3a5AzJ {
+      color: RGB(var(--tc-color-10))!important;
+    }
+  }
+  // Add spoof header to install button section
+  .headerCell-3L6rFG:last-of-type .headerCellContent-1pLtOr::after {
+    content: 'Status';
+  }
+  .settingIcon-1nXguX,
+  .textCell-1aBIUP {
+    @include text(RGB(var(--tc-tint-9)), 12px);
+  }
+  .rowWrapperDim-2Y1SDG {
+    .nameBodyCell-3JOlnK,
+    .settingIcon-1nXguX,
+    .textCell-1aBIUP {
+      opacity: 1!important;
+    }
+  }
+  .hidden-QHDCKo {
+    pointer-events: none;
+  }
+  .gameIcon-gg34Dz {
+    @include size(57px, 76px);
+    background-color: RGB(var(--tc-color-1))!important;
+    background: var(--game-boxart-placeholder) / 140%, radial-gradient(circle at center, RGB(var(--tc-color-8)), RGB(var(--tc-color-7))) !important;
+    background-repeat: no-repeat!important;
+    background-size: 100% 100%!important;
+    border: 2px solid RGB(var(--tc-color-1));
+    border-radius: var(--boxart-roundness);
+  }
+  .header-39GIC8 {
+    background: RGB(var(--tc-color-1)) !important;
+    border: none !important;
+    width: calc(100% - 20px);
+    height: 38px;
+    padding: 10px 0 0 20px;
+    margin: 0;
+    position: sticky;
+    top: 0;
+  }
+  .spacerHeader-3eoEE2 {
+    display: none;
+  }
+  .bodyCell-9xKjWE {
+    padding: 0 0 0 2px;
+  }
+  .rowWrapper-2fB6P0 {
+    @include reset;
+    border-radius: 0;
+    height: 89px;
+    position: relative;
+    +.rowWrapper-2fB6P0 .row-ZLfFhY {
+      border: none;
+    }
+  }
+  .rowBackground-3MeNoN {
+    display: none;
+  }
+  .rowWrapperActive-2L7i9f {
+    background: RGBA(var(--tc-color-3), 0.5)!important;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+  }
+  @at-root #{classes('twitchcord.libraryGamePlaceholder')} {
+    height: 0!important;
+    visibility: hidden;
+  }
+  @at-root #{classes('twitchcord.libraryOptions')}-options {
+    $grandfather: &;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    flex-direction: row;
+    padding: 0 20px;
+    &-ul {
+      display: flex;
+      flex: 1 1 0%;
+      flex-wrap: wrap;
+      align-items: center;
+      list-style: none;
+      margin: 0px;
+      padding: 0px;
+      #{$grandfather}-li {
+        display: inline-block;
+        margin-right: 3px;
+        &:first-of-type {
+          margin-right: 15px;
+        }
+        &:last-of-type {
+          margin: 0 15px;
+        }
+        #{$grandfather}-item {
+          position: relative;
+          font-size: 14px;
+          white-space: nowrap;
+          line-height: 24px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-weight: 400;
+        }
+        .tc-icon {
+          @include size(24px);
+          background-color: RGB(var(--tc-tint-6));
+          margin: 0px 6px 0px 0px;
+          cursor: pointer;
+          &:hover {
+            background-color: RGB(var(--contrasted-color));
+          }
+          &.tc-refreshing {
+            background-color: RGB(var(--tc-color-7));
+          }
+          &.refresh {
+            -webkit-mask: var(--update-icon);
+            mask: var(--update-icon);
+            -webkit-mask-size: 24px;
+            mask-size: 24px;
+          }
+          &.tile {
+            -webkit-mask: var(--tile-4-icon);
+            mask: var(--tile-4-icon);
+            -webkit-mask-size: 24px;
+            mask-size: 24px;
+          }
+          &.grid {
+            -webkit-mask: var(--table-icon);
+            mask: var(--table-icon);
+            -webkit-mask-size: 24px;
+            mask-size: 24px;
+          }
+          &.filter-options {
+            -webkit-mask: var(--filter-options-icon);
+            mask: var(--filter-options-icon);
+            -webkit-mask-size: 18px;
+            mask-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}
+
+#{LibraryFilter(libraryTile)} {
+  #{classes('twitchcord.libraryOptions')}-tile {
+    background: RGB(var(--tc-color-7))!important;
+  }
+}
+
+#{LibraryFilter(libraryGrid)} {
+  #{classes('twitchcord.libraryOptions')}-grid {
+    background: RGB(var(--tc-color-7))!important;
+  }
+}

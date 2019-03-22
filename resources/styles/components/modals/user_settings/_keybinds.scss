@@ -1,0 +1,44 @@
+// main: _module.scss
+
+//** Keybinds settings
+
+.user-settings-keybinds .keybind-group {
+    padding: 0 15px;
+    padding-bottom: 19px;
+    padding-top: 20px;
+}
+
+.user-settings-keybinds .remove-keybind {
+    right: 0;
+    top: 0;
+}
+
+.user-settings-keybinds .keybind-group {
+    border-bottom-color: RGB(var(--tc-color-4))!important;
+}
+
+.user-settings-keybinds .ghost-pill {
+    display: block;
+    width: 100%;
+    color: #fff;
+    padding: 20px;
+    line-height: 13px;
+    font-size: 16px;
+}
+
+.user-settings-keybinds .image-1GzsFd {
+    width: 200px!important;
+    height: 200px!important;
+    position: relative;
+    display: block;
+    background: image('chompy-pixelart.gif') no-repeat!important;
+}
+
+.user-settings-keybinds .ghost-pill {
+    border: 2px solid rgba(250,166,26,.75);
+}
+
+.user-settings-keybinds .ghost-pill {
+    background-color: rgba(250,166,26,.3);
+    border-radius: 2px;
+}

@@ -1,0 +1,108 @@
+// main: _module.scss
+
+//** Server settings
+
+/* server settings popout menu */
+  .menu-Sp6bN1 .separator-2zcjq8 {
+      display: none;
+  }
+
+.menu-Sp6bN1 {
+  border-radius: 0;
+  background: RGB(var(--tc-color-1));
+  border: 1px solid RGB(var(--tc-color-4));
+  width: 240px;
+  opacity: 0;
+  top: 140px;
+  left: 309px;
+  position: fixed;
+  height: inherit !important;
+  overflow: hidden;
+  z-index: 100000000;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  animation: 0.2s fadeIn forwards;
+}
+
+  .menu-Sp6bN1 .icon-3ICDZz {
+      background-size: 100%;
+  }
+
+  /* Invite People */
+  .menu-Sp6bN1 .icon-3ICDZz[style='background-image: url("/assets/d4ff0d2af68cd1119f0d16ef79d1369c.svg");'] {
+      background: image('add-user-small.png') no-repeat 50%!important;
+      width: 18px;
+  }
+
+  /* Privacy Settings */
+  .menu-Sp6bN1 .icon-3ICDZz[style='background-image: url("/assets/6afcd5d6a8c9d467e27e1bb48755dce0.svg");'] {
+      background: image('protect.png') no-repeat 50%!important;
+  }
+
+  /* Leave Server */
+  .menu-Sp6bN1 .icon-3ICDZz[style='background-image: url("/assets/00de6b3cbb5c4dbcec817c91262f5f5b.svg");'] {
+      background: image('leave-server.png') no-repeat 50%!important;
+      width: 24px;
+      height: 15px;
+  }
+
+  /* Notification Settings */
+  .menu-Sp6bN1 .icon-3ICDZz[style='background-image: url("/assets/6a711bd91522e885413464a88a4e3c69.svg");'] {
+      background: image('notification-settings.png') no-repeat 50%!important;
+  }
+
+  /* Change Nickname */
+  .menu-Sp6bN1 .icon-3ICDZz[style='background-image: url("/assets/bc11a9099f5729962c095cb49d5042f6.svg");'] {
+      background: image('edit-nickname.png') no-repeat 50%!important;
+  }
+
+  /* Server Settings */
+  .menu-Sp6bN1 .icon-3ICDZz[style='background-image: url("/assets/9a93097ab591379729c68f15a17b26af.svg");'] {
+      background: image('settings-small.png') no-repeat 50%!important;
+  }
+
+  /* Create Channel */
+  .menu-Sp6bN1 .icon-3ICDZz[style='background-image: url("/assets/2fc862597335421b35a79aa9aaba4a86.svg");'] {
+      background: image('plus.png') no-repeat 50%!important;
+  }
+
+  /* Create Category */
+  .menu-Sp6bN1 .icon-3ICDZz[style='background-image: url("/assets/52bc30f8a2b1a51f808a785819ca00b5.svg");'] {
+      background: image('categories.png') no-repeat 50%!important;
+  }
+
+  /* Hide Muted Channels */
+  .menu-Sp6bN1 .icon-3ICDZz[style='background-image: url("/assets/858df73648ac3877a22156da2e69a5fd.svg");'] {
+      background: image('hidemuted.png') no-repeat 50%!important;
+  }
+
+  /* Show Muted Channels */
+  .menu-Sp6bN1 .icon-3ICDZz[style='background-image: url("/assets/50f8ef2cdb4e7697a4202fb9c6d0e1fc.svg");'] {
+      background: image('show-muted.png') no-repeat 50%!important;
+  }
+
+  .menu-Sp6bN1 .icon-3ICDZz.leave-2bjeRM:hover {
+      background-color: RGB(var(--notification-color));
+  }
+
+  .menu-Sp6bN1 .item-1GzJrl {
+      color: RGB(var(--tc-tint-9));
+      font-size: 12px;
+      line-height: 18px;
+      letter-spacing: 0;
+      padding: 8px 16px;
+  }
+
+  .bd-blue .menu-Sp6bN1 .item-1GzJrl.invite-YM1l0n,
+  .menu-Sp6bN1 .item-1GzJrl.invite-YM1l0n {
+      color: RGB(var(--tc-tint-9));
+  }
+
+  .menu-Sp6bN1 .item-1GzJrl:hover {
+      background-color: RGB(var(--tc-color-4));
+      opacity: 1;
+  }
+
+  .menu-Sp6bN1 .item-1GzJrl:hover.invite-YM1l0n {
+      color: RGB(var(--contrasted-color));
+  }

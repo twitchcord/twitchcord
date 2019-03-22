@@ -1,0 +1,94 @@
+// main: _module.scss
+
+//** User labels
+
+//## Base
+#{$message} {
+  #{$messageusernamewrapper} {
+    + time::before {
+      content: none;
+      text-transform: uppercase;
+      border-radius: 3px;
+      font-weight: 400;
+      margin: 0;
+      color: #fff;
+      font-size: 10px;
+      outline: none;
+      margin-right: 6px;
+      padding: 0 6px;
+      line-height: 16px;
+      position: relative;
+    }
+  }
+}
+
+
+//## Beta Tester
+.avatar-large[style*="269929826075410432"]+.comment .timestamp::before,
+.avatar-large[style*="284122164582416385"]+.comment .timestamp::before,
+.avatar-large[style*="71575679543549952"]+.comment .timestamp::before,
+.avatar-large[style*="173449041181409281"]+.comment .timestamp::before,
+.avatar-large[style*="258591131758100481"]+.comment .timestamp::before,
+.avatar-large[style*="111476801762537472"]+.comment .timestamp::before,
+.avatar-large[style*="96269247411400704"]+.comment .timestamp::before,
+.avatar-large[style*="90076279646212096"]+.comment .timestamp::before,
+.avatar-large[style*="112008049975099392"]+.comment .timestamp::before,
+.avatar-large[style*="111894694652280832"]+.comment .timestamp::before,
+.avatar-large[style*="212749887803097088"]+.comment .timestamp::before,
+.avatar-large[style*="250322741406859265"]+.comment .timestamp::before,
+.avatar-large[style*="318401651029442560"]+.comment .timestamp::before,
+.avatar-large[style*="98270968945864704"]+.comment .timestamp::before,
+.avatar-large[style*="98829797735559168"]+.comment .timestamp::before,
+.avatar-large[style*="274950159195176963"]+.comment .timestamp::before {
+    content: 'Beta Tester';
+    background: #e56b2e;
+}
+
+
+//## Donor
+.avatar-large[style*="167335587488071682"]+.comment .timestamp::before,
+.avatar-large[style*="98270968945864704"]+.comment .timestamp::before,
+.avatar-large[style*="119321587026493441"]+.comment .timestamp::before,
+.avatar-large[style*="145799943980843008"]+.comment .timestamp::before,
+.avatar-large[style*="157887056608100352"]+.comment .timestamp::before,
+.avatar-large[style*="71575679543549952"]+.comment .timestamp::before,
+.avatar-large[style*="219078125974192128"]+.comment .timestamp::before,
+.avatar-large[style*="178214422890676224"]+.comment .timestamp::before,
+.avatar-large[style*="211403732158513152"]+.comment .timestamp::before,
+.avatar-large[style*="173449041181409281"]+.comment .timestamp::before {
+    content: 'Donor';
+    background: #e52e2e;
+}
+
+
+//## Turbo User
+.avatar-large[style*="98270968945864704"]+.comment .timestamp::before,
+.avatar-large[style*="145799943980843008"]+.comment .timestamp::before,
+.avatar-large[style*="211403732158513152"]+.comment .timestamp::before,
+.avatar-large[style*="219078125974192128"]+.comment .timestamp::before {
+    content: 'Turbo User';
+    background: #5f29cc;
+ }
+
+
+//## Turbo User v2 Custom labels
+ .avatar-large[style*="98270968945864704"]+.comment .timestamp::before {
+    content: 'Eidolon Primary';
+    background: #aa09a7;
+ }
+
+
+//## Developer
+.avatar-large[style*="284122164582416385"]+.comment .timestamp::before,
+.avatar-large[style*="95567914089844736"]+.comment .timestamp::before,
+.avatar-large[style*="137236165899059200"]+.comment .timestamp::before {
+    content: 'Developer';
+    background: #22638f;
+}
+
+
+//## Special label for Baked
+.avatar-large[style*="97549189629636608"]+.comment .timestamp::before {
+    content: 'Twitchcord Creator';
+    background: #b82553;
+}

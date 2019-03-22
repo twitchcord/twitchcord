@@ -1,0 +1,450 @@
+///  main: _module.scss
+///  ==========================================================================
+///  Selectors
+///  ==========================================================================
+///  See 'utilities/_functions.scss' for example use-case
+
+$classes: (
+  //  HTML option classes // injected by Twitchcord
+  html: (
+    routes: (
+      activity: 'activity', // Indicates the user is currently viewing the Activity page
+      friends: 'friends', // Indicates the user is currently viewing friends list
+      gameDetails: 'gameDetails', // Indicates the user is currently viewing a Game page
+      library: 'library', // Indicates the user is currently viewing the Library page
+      private: 'private', // Indicates the user is currently viewing a DM conversation
+      guilds: 'guilds', // Indicates the user is currently viewing a server
+      store: 'store', // Indicates the user is currently viewing the Store page
+      storeBrowse: 'storeBrowse', // Indicates the user is currently viewing Store search page
+    ),
+    options: (
+      hideBlocked: 'hideBlocked', // Hides blocked user messages
+      hideGuildsUntilHover: 'hideGuildsUntilHover', // Hides guilds until hovered
+      isMaximized: 'isMaximized', // When Discord is maximized
+      localSearch: 'localSearch', // When local server/dm search is active
+      videoMaximized: 'videoMaximized', // When fixed video is fullscreen
+      zoomLevel: 'zoomLevel' // Tracks what zoom level the user has Discord set at
+    ),
+    styles: (
+      friends: (
+        backgroundTile: 'friendsBackgroundTile', // Shows friends as rectangular tiles with custom profile background images
+        grid: 'friendsGrid', // Shows friends as a table
+        tile: 'friendsTile' // Shows friends as large avatar tiles
+      ),
+      library: (
+        bigTile: 'libraryBigTile', // Shows library games as large boxarts
+        grid: 'libraryGrid', // Shows library games as a table
+        tile: 'libraryTile' // Shows library games as rectangular boxarts
+      ),
+      store: (
+        bigTile: 'storeBigTile', // Shows store game items as 50% width tiles (2 per line)
+        fullTile: 'storeFullTile', // Shows store game items as 100% width tiles (1 per line)
+        tile: 'storeTile' // Shows store game items as 2x25% width 1x50% width tiles (3 per line)
+      )
+    )
+  ),
+  // Twitchcord-specific classes // injected by Twitchcord
+  twitchcord: (
+    activityPlaying: 'tc-activityPlaying', // Channel members list activity images // https://i.imgur.com/n5Oup2d.png
+    appLoading: 'tc-appLoading', // Initial app startup loading 'spinner' //
+    addFriend: 'tc-addFriend',
+    channelInfo: 'tc-channelInfo', // Channel top bar // https://i.imgur.com/LufQlo3.png
+    clearAllMentions: 'tc-clearAllMentions', // Clear all mentions button on mentions popout // https://i.imgur.com/gbFIvwu.png
+    contextItem: 'tc-contextItem', // Context menu item class for setting icons // https://i.imgur.com/JxNg5DL.png
+    fixLeftUserPopout: 'tc-fixLeftUserPopout', // Fix positioning on left user popouts // https://i.imgur.com/tbD0H2B.png
+    fixRecentMentionsFilterPopout: 'tc-fixRecentMentionsFilterPopout', // Fix positioning on recent mentions filter popout // https://i.imgur.com/mnToyVy.png
+    fixedVideo: 'tc-fixedVideo', // Fixed video container // https://i.imgur.com/6T9e9r4.png
+    friendPlaceholder: 'tc-friendPlaceholder',
+    friendsListOptions: 'tc-friendsListOptions',
+    gamePopout: 'tc-gamePopout', // Make game popout look like a modal // https://i.imgur.com/O2vIwdX.png
+    imageTopbar: 'tc-imageTopbar', // Image/video modal top bar // https://i.imgur.com/1fSYwX5.png
+    libraryGamePlaceholder: 'tc-libraryGamePlaceholder',
+    libraryOptions: 'tc-libraryOptions',
+    settingsItem: 'tc-settingsItem',
+    systemMessage: 'tc-systemMessage',
+    titleWrapper: 'tc-titleWrapper', // Main nav bar // https://i.imgur.com/RmCpBsE.png
+    updateBar: 'tc-updateBar', // Bar displayed for Twitchcord updates // https://i.imgur.com/ROltuvw.png
+    userBadge: 'tc-userBadge', // User badges // https://i.imgur.com/p4NkYeB.png
+    videoTooltip: 'tc-videoTooltip', // Tooltip class for fixed videos // https://i.imgur.com/5lWf3G4.png
+    videoTimebarTooltip: 'tc-videoTimebarTooltip', // Tooltip class specifically for fixed videos' timebar // https://i.imgur.com/OzUTJlt.png
+    voiceConnected: 'tc-voiceConnected' // Replaces Discord's normal voice connected box in channels // https://i.imgur.com/fL4taCs.png
+  ),
+  base: (
+    directionRowReverse: 'directionRowReverse-m8IjIq',
+    flex: (
+      flex: 'flex-1O1GKY',
+      flex2: 'flex-1xMQg5',
+      flexCenter: 'flexCenter-3_1bcw',
+      flexChild: 'flexChild-faoVW3'
+    ),
+    app: 'app-2rEoOp'
+  ),
+  components: (
+    attachments: (
+      attachment: 'attachment-33OFj0',
+      attachmentInner: 'attachmentInner-3vEpKt',
+      cancelButton: 'cancelButton-3hVEV6',
+      fileName: 'filename-3eBB_v',
+      fileNameLink: 'fileNameLink-9GuxCo',
+      icon: 'icon-1kp3fr',
+      metaData: 'metadata-3WGS0M',
+      progress: 'progress-2XXRYo',
+      progressBar: 'progressBar-3u8FBM',
+      progressContainer: 'progressContainer-3ao-eu',
+      progressFileSize: 'size-1Arx_I'
+    ),
+    avatars: (
+      avatar: 'avatar-17mtNa',
+      image: 'image-33JSyf',
+      icon: 'icon-3o6xvg',
+      wrapper: 'wrapper-2F3Zv8',
+
+      iconActiveLarge: 'iconActiveLarge-2nzn9z',
+      iconActiveMedium: 'iconActiveMedium-1UaEIR',
+      iconActiveMini: 'iconActiveMini-3PzjMn',
+      iconActiveSmall: 'iconActiveSmall-3IUUtn',
+      iconActiveXLarge: 'iconActiveXLarge-_qKvKn',
+      iconInactive: 'iconInactive-98JN5i',
+
+      iconSizeLarge: 'iconSizeLarge-161qtT',
+      iconSizeMedium: 'iconSizeMedium-2OqPjI',
+      iconSizeMini: 'iconSizeMini-3dKErj',
+      iconSizeSmall: 'iconSizeSmall-3aWgx9',
+      iconSizeXLarge: 'iconSizeXLarge-1AvWOw',
+
+      large: 'large-3ChYtB',
+      largeOld: 'avatar-large',
+      small: 'small-5Os1Bb',
+      smallOld: 'avatar-small',
+      xlarge: 'xlarge-2z2DtB',
+      xlargeOld: 'avatar-xlarge',
+      xxlarge: 'xxlarge-1R_NA5',
+      xxlargeOld: 'avatar-xxlarge',
+      xsmall: 'xsmall-3afG_L',
+      xsmallOld: 'avatar-xsmall'
+    ),
+    buttons: (
+      button: "button-38aScr",
+      buttonShine: "buttonShine-1CSUM8",
+
+      colorBlack: "colorBlack-1jwPVL",
+      colorBrand: "colorBrand-3pXr91",
+      colorGreen: "colorGreen-29iAKY",
+      colorGrey: "colorGrey-2DXtkV",
+      colorLink: "colorLink-35jkBc",
+      colorPrimary: "colorPrimary-3b3xI6",
+      colorRed: "colorRed-1TFJan",
+      colorTransparent: "colorTransparent-1ewNp9",
+      colorWhite: "colorWhite-rEQuAQ",
+      colorYellow: "colorYellow-2JqYwt",
+
+      contents: "contents-18-Yxp",
+      fullWidth: "fullWidth-1orjjo",
+      grow: "grow-q77ONN",
+      hasHover: "hasHover-3X1-zV",
+
+      hoverBlack: "hoverBlack-3jULb8",
+      hoverBrand: "hoverBrand-1_Fxlk",
+      hoverGreen: "hoverGreen-1gjdJc",
+      hoverGrey: "hoverGrey-2CBXu0",
+      hoverLink: "hoverLink-i1fEKS",
+      hoverPrimary: "hoverPrimary-2D1j2r",
+      hoverRed: "hoverRed-2NoOXI",
+      hoverTransparent: "hoverTransparent-2Lz5CN",
+      hoverWhite: "hoverWhite-2uUmXw",
+      hoverYellow: "hoverYellow-171chs",
+
+      lookBlank: "lookBlank-3eh9lL",
+      lookFilled: "lookFilled-1Gx00P",
+      lookGhost: "lookGhost-2Fn_0-",
+      lookInverted: "lookInverted-2D7oAl",
+      lookLink: "lookLink-9FtZy-",
+      lookOutlined: "lookOutlined-3sRXeN",
+
+      sizeIcon: "sizeIcon-1-kvKI",
+      sizeLarge: "sizeLarge-1vSeWK",
+      sizeMax: "sizeMax-1Mj0eU",
+      sizeMedium: "sizeMedium-1AC_Sl",
+      sizeMin: "sizeMin-1mJd1x",
+      sizeSmall: "sizeSmall-2cSMqn",
+      sizeXlarge: "sizeXlarge-2yFAlZ",
+
+      shine: 'shine-2f1uEU',
+      shineContainer: "shineContainer-1HHuZ1",
+      shineContainerDefault: "shineContainerDefault-2bbFgu",
+      shineContainerSmall: "shineContainerSmall-1MIVgq",
+      shineInner: "shineInner-fWUhvE",
+      shinyButton: "shinyButton-3uFlM-",
+
+      spinner: "spinner-3a9zLT",
+      spinnerItem: "spinnerItem-3GlVyU",
+      submitting: "submitting-3qlO9O"
+    ),
+    calendars: (
+
+    ),
+    codeblocks: (
+
+    ),
+    colorPickers: (
+
+    ),
+    contextMenus: (
+
+    ),
+    embeds: (
+
+    ),
+    inputs: (
+
+    ),
+    modals: (
+
+    ),
+    notices: (
+
+    ),
+    notificationBadges: (
+
+    ),
+    popouts: (
+      User: (
+        userPopout: 'userPopout-3XzG_A'
+      )
+    ),
+    roles: (
+
+    ),
+    spinners: (
+
+    ),
+    tooltips: (
+
+    ),
+    userLabels: (
+
+    )
+  ),
+  layout: (
+    channelMembers: (
+
+    ),
+    channels: (
+      actionIcon: 'actionIcon-2Hi9ZG',
+      background: 'background-2OVjk_',
+      badge: 'wrapper-232cHJ',
+      channels: 'channels-Ie2l6A',
+      container0: 'container-0',
+      content: 'content-20Aix8',
+      foreground: 'foreground-2W-aJk',
+      iconSpacing: 'iconSpacing-3JkGQO',
+      innerContainer: 'container-PNkimc',
+      marginReset: 'marginReset-3RfdVe',
+      marginResetOld: 'margin-reset',
+      name: 'name-3M0b8v',
+      scroller: 'scroller-2FKFPG',
+      scrollerWrap: 'scrollerWrap-2lJEkd',
+      serverHeaderContainer: 'container-2Rl01u',
+      unread: 'unread-1Dp-OI',
+      wrapper: 'wrapper-KpKNwI',
+
+      categoryAddChannelIcon: 'addButtonIcon-3u-3Hu',
+      categoryContainerDefault: 'containerDefault-3GGEv_',
+      categoryContainerDragAfter: 'containerDragAfter-3TEhpe',
+      categoryContainerDragBefore: 'containerDragBefore-3Dzc5x',
+      categoryContainerUserOver: 'containerUserOver-1Tcb7l',
+
+      categoryIconCollapsed: 'iconCollapsed-3hFp_8',
+      categoryIconDefault: 'iconDefault-3Gr8d2',
+      categoryIconHovered: 'iconHovered-2L3-fB',
+      categoryIconHoveredCollapsed: 'iconHoveredCollapsed-3caIIZ',
+      categoryIconMuted: 'iconMuted-1HVBGH',
+      categoryIconTransition: 'iconTransition-2pOJ7l',
+      categoryIconUnread: 'iconUnread-2eGkvX',
+
+      categoryNameCollapsed: 'nameCollapsed-34uFWo',
+      categoryNameDefault: 'nameDefault-2DI02H',
+      categoryNameHovered: 'nameHovered-1gxhWH',
+      categoryNameHoveredCollapsed: 'nameHoveredCollapsed-2orEWB',
+      categoryNameMuted: 'nameMuted-1MCOt4',
+      categoryNameUnread: 'nameUnread-njOjIS',
+
+      categoryWrapperCollapsed: 'wrapperCollapsed-3Fbxl6',
+      categoryWrapperDefault: 'wrapperDefault-10Jfvz',
+      categoryWrapperHovered: 'wrapperHovered-28fu1D',
+      categoryWrapperHoveredCollapsed: 'wrapperHoveredCollapsed-1PADEo',
+      categoryWrapperMuted: 'wrapperMuted-3KeA2M',
+      categoryWrapperUnread: 'wrapperUnread-1JPWj3',
+
+      channelContainerDefault: 'containerDefault-1ZnADq',
+      channelContainerDragAfter: 'containerDragAfter-1F4fgZ',
+      channelContainerDragBefore: 'containerDragBefore-31UGCO',
+      channelContainerUserOver: 'containerUserOver-1U5YnL',
+
+      colorConnectedText: 'colorConnectedText-1c_uzY',
+      colorDefaultText: 'colorDefaultText-oas-QM',
+      colorHoveredText: 'colorHoveredText-OZnAgu',
+      colorLockedText: 'colorLockedText-1VRkPt',
+      colorMutedText: 'colorMutedText-36M8WR',
+      colorSelectedText: 'colorSelectedText-1y4Wvs',
+      colorUnreadText: 'colorUnreadText-2t7XRb',
+
+      colorConnectedVoice: 'colorConnectedVoice-3kyvUN',
+      colorDefaultVoice: 'colorDefaultVoice-3wYlhb',
+      colorHoveredVoice: 'colorHoveredVoice-1kucsK',
+      colorLockedVoice: 'colorLockedVoice-2UlBjl',
+      colorMutedVoice: 'colorMutedVoice-3ghIuw',
+      colorSelectedVoice: 'colorSelectedVoice-Xcb_9R',
+      colorUnreadVoice: 'colorUnreadVoice-137o4S',
+
+      contentConnectedText: 'contentConnectedText-16O0fe',
+      contentDefaultText: 'contentDefaultText-3vZplL',
+      contentHoveredText: 'contentHoveredText-2D9B-x',
+      contentLockedText: 'contentLockedText-1aHuz8',
+      contentMutedText: 'contentMutedText-2y6aPQ',
+      contentSelectedText: 'contentSelectedText-3wUhMi',
+      contentUnreadText: 'contentUnreadText-2vNnZc',
+
+      contentConnectedVoice: 'contentConnectedVoice-qL-YrL',
+      contentDefaultVoice: 'contentDefaultVoice-2ko43i',
+      contentHoveredVoice: 'contentHoveredVoice-3p_NEO',
+      contentLockedVoice: 'contentLockedVoice-1gx-SP',
+      contentMutedVoice: 'contentMutedVoice-2lJ0UD',
+      contentSelectedVoice: 'contentSelectedVoice-1WDIBM',
+      contentUnreadVoice: 'contentUnreadVoice-1dijOt',
+
+      nameConnectedText: 'nameConnectedText-3CzNQn',
+      nameDefaultText: 'nameDefaultText-24KCy5',
+      nameHoveredText: 'nameHoveredText-1uO31y',
+      nameLockedText: 'nameLockedText-3pqQcL',
+      nameMutedText: 'nameMutedText-3Vj4bM',
+      nameSelectedText: 'nameSelectedText-sp_EUw',
+      nameUnreadText: 'nameUnreadText-DfkrI4',
+
+      nameConnectedVoice: 'nameConnectedVoice-MHUX5F',
+      nameDefaultVoice: 'nameDefaultVoice-3WUH7s',
+      nameHoveredVoice: 'nameHoveredVoice-YJ1Vfd',
+      nameLockedVoice: 'nameLockedVoice-26MhB1',
+      nameMutedVoice: 'nameMutedVoice-3oxyQZ',
+      nameSelectedVoice: 'nameSelectedVoice-1qSph5',
+      nameUnreadVoice: 'nameUnreadVoice-EVo-wI',
+
+      unreadBar: 'bar-30k2ka',
+      unreadBarActive: 'mention-1f5kbO',
+      unreadBarContainer: 'container-35XQWE',
+
+      voiceAvatarContainer: 'avatarContainer-72bSfM',
+      voiceAvatarDefault: 'avatarDefault-35WC3R',
+      voiceAvatarSpeaking: 'avatarSpeaking-1wJCNq',
+      voiceCollapsedIconContainer: 'iconContainer-1dtWOo',
+      voiceDeafenedIcon: 'icon-29PTzq',
+      voiceIconSpacing: 'iconSpacing-3jB4W5',
+      voiceListCollapse: 'listCollapse-3hmWwX',
+      voiceLimitWrapper: 'wrapper-2NJDcI',
+      voiceListDefault: 'listDefault-36Sktb',
+      voiceMutedIcon: 'icon-3nr6O-',
+      voiceNameDefault: 'nameDefault-2s3kbY',
+      voiceNameHovered: 'nameHovered-21k1eo',
+      voiceNameSpeaking: 'nameSpeaking-3UhoEZ',
+      voiceUserContainer: 'draggable-1KoBzC',
+      voiceUserHovered: 'userHovered-2_fT4Z',
+
+      wrapperDefaultText: 'wrapperDefaultText-2IWcE8',
+      wrapperHoveredText: 'wrapperHoveredText-2geN_M',
+      wrapperLockedText: 'wrapperLockedText-wfOnM5',
+      wrapperMutedText: 'wrapperMutedText-1YBpvv',
+      wrapperSelectedText: 'wrapperSelectedText-3dSUjC',
+      wrapperUnreadText: 'wrapperUnreadText-2zuiuD',
+
+      wrapperDefaultVoice: 'wrapperDefaultVoice-1yvceo',
+      wrapperHoveredVoice: 'wrapperHoveredVoice-3ItgyI',
+      wrapperLockedVoice: 'wrapperLockedVoice-3QrBs-',
+      wrapperMutedVoice: 'wrapperMutedVoice-10gPcW',
+      wrapperSelectedVoice: 'wrapperSelectedVoice-xzxa2u',
+      wrapperUnreadVoice: 'wrapperUnreadVoice-23GIYe',
+
+      accountPanel: (
+        accoutnDetails: 'accountDetails-3k9g4n',
+        button: 'button-2b6hmh',
+        container: 'container-2Thooq',
+        discriminator: 'discriminator',
+        username: 'username'
+      ),
+
+      listeningAlong: (
+        actionIcon: 'actionIcon-h73Pge',
+        icons: 'icons-2iqSHd',
+        listeningAlong: 'listeningAlong-2UPsxf',
+        subtitle: 'subtitle-Qv5s8c'
+      ),
+
+      notices: (
+        btn: 'btn-11C5_u',
+        channelNotice: 'channelNotice-1-XFjC',
+        channelNotices: 'channelNotices-41mJbj',
+        close: 'close-relY5R',
+        invite: 'invite-OjTXrW',
+        message: 'message-3SOT5P',
+        quickSwitcher: 'quickswitcher-35bYg4'
+      ),
+
+      voiceConnected: (
+        channel: 'channel-SEolQq',
+        container: 'container-1UB9sr',
+        inner: 'inner-btChU7',
+        ping: 'ping',
+        rtcConnectionQualityAverage: 'rtc-connection-quality-average',
+        rtcConnectionQualityBad: 'rtc-connection-quality-bad',
+        rtcConnectionQualityFine: 'rtc-connection-quality-fine',
+        rtcConnectionStatus: 'rtc-connection-status'
+      )
+    ),
+    guilds: (
+
+    ),
+    nav: (
+
+    ),
+    titlebar: (
+
+    )
+  ),
+  routes: (
+    activity: (
+
+    ),
+    channelSettings: (
+
+    ),
+    chat: (
+      messages: (
+        group: 'container-1YxwTf',
+
+      )
+    ),
+    directMessages: (
+
+    ),
+    friends: (
+
+    ),
+    lfg: (
+
+    ),
+    library: (
+
+    ),
+    misc: (
+
+    ),
+    serverSettings: (
+
+    ),
+    store: (
+
+    ),
+    userSettings: (
+
+    )
+  )
+);

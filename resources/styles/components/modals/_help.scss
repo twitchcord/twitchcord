@@ -1,0 +1,165 @@
+// main: _module.scss
+
+//** Help modal
+
+.need-help-modal.deprecated {
+  border: 1px solid RGB(var(--tc-color-4));
+  .header {
+    padding-bottom: 20px;
+    border-radius: 0;
+    background-color: RGB(var(--tc-color-2));
+    h1 {
+      font-weight: 400;
+      text-transform: lowercase;
+      color: RGB(var(--tc-tint-10));
+      font-size: 24px;
+      line-height: 30px;
+      padding-bottom: 5px;
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
+    input[type=text] {
+      margin: 20px 0;
+      border-radius: 0;
+      box-shadow: none;
+      border: none;
+      line-height: 40px !important;
+      &:focus {
+        margin: 20px 0;
+        border: none;
+      }
+    }
+  }
+  .footer {
+    border: none;
+    border-radius: 0;
+    background: RGB(var(--tc-color-2));
+  }
+  a {
+    color: RGB(var(--tc-color-10));
+    &:hover {
+      color: RGB(var(--tc-color-10));
+      text-decoration: underline;
+    }
+  }
+}
+
+// Help modal input
+.need-help-modal.deprecated .header input[type=text] {
+  box-shadow: 0 0 0px 1px RGB(var(--tc-color-4));
+}
+
+
+
+.modal-content.need-help-modal .form-inner ul li{
+    display: inline-block;
+    height:130px;
+    opacity: 0.9;
+    width:127px;
+    margin-left:10px;
+    margin-right:10px;
+    margin-top:10px;
+    margin-bottom:5px;
+    border-radius:0;
+    position: relative;
+    transition:200ms ease;
+    background-size:50%;
+    background-position: 50% 20px;
+    background-repeat: no-repeat;
+    box-shadow: inset 0 0 0 1px RGB(var(--tc-color-4));
+    transition: box-shadow 0.2s ease-in, opacity 0.2s ease-in;
+    background-color: RGB(var(--tc-color-2));
+}
+
+.form.deprecated .form-inner {
+    background: RGB(var(--tc-color-3));
+    color: RGB(var(--tc-tint-7));
+}
+
+.form.deprecated .control-group .help-text {
+  color: RGB(var(--tc-tint-7));
+  font-size: 12px!important;
+  line-height: 18px;
+  opacity: 0.7;
+}
+
+.modal-content.need-help-modal .form-inner ul li:hover {
+    opacity: 1;
+    box-shadow: inset 0 0 0 1px RGB(var(--tc-color-8)), 0 0 6px -2px RGB(var(--tc-color-8));
+}
+
+.modal-content.need-help-modal .form-inner ul li:active{
+    opacity: 1;
+    box-shadow: 0 0 6px 0 RGB(var(--tc-color-8)), inset 0 0 0 1px RGBA(var(--tc-color-7), 0.5)!important;
+    transition: box-shadow 0.2s ease-in, opacity 0.2s ease-in;
+}
+
+.modal-content.need-help-modal .form-inner ul li:nth-of-type(1){
+    background-image: image('email-large.png');
+}
+.modal-content.need-help-modal .form-inner ul li:nth-of-type(2){
+  background-image: image('video-large.png');
+}
+.modal-content.need-help-modal .form-inner ul li:nth-of-type(3){
+  background-image: image('audio-large.png');
+  background-size: 36px;
+}
+.modal-content.need-help-modal .form-inner ul li:nth-of-type(4){
+  background-image: image('bug-large.png');
+  background-size: 56px;
+}
+.modal-content.need-help-modal .form-inner ul li:nth-of-type(5){
+  background-image: image('nitro-large.png');
+}
+.modal-content.need-help-modal .form-inner ul li:nth-of-type(6){
+    background-image:image('edit-large.png');
+    background-size: 46px;
+}
+.modal-content.need-help-modal .form-inner ul li::after{
+    font-size:15px;
+    color: RGB(var(--tc-tint-9));
+    bottom:20px;
+    left:0;
+    position: absolute;
+    width:100%;
+    text-align: center;
+    display: block;
+    transition:200ms ease;
+    pointer-events: none;
+}
+
+.modal-content.need-help-modal .form-inner ul li:nth-of-type(1)::after{
+    content:"Categories Info";
+}
+.modal-content.need-help-modal .form-inner ul li:nth-of-type(2)::after{
+    content:"Video";
+}
+.modal-content.need-help-modal .form-inner ul li:nth-of-type(3)::after{
+    content:"Audio";
+}
+.modal-content.need-help-modal .form-inner ul li:nth-of-type(4)::after{
+    content:"Report Bugs";
+}
+.modal-content.need-help-modal .form-inner ul li:nth-of-type(5)::after{
+    content:"Nitro";
+}
+.modal-content.need-help-modal .form-inner ul li:nth-of-type(6)::after{
+    content:"Text Formatting";
+}
+.modal-content.need-help-modal .form-inner ul li a{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    margin:0!important;
+    padding:0!important;
+    background:transparent!important;
+    box-shadow: none!important;
+    color: transparent;
+
+}
+.need-help-modal.deprecated ul li+li{
+    margin-top:0;
+}

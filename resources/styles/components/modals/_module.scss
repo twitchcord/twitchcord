@@ -1,0 +1,24 @@
+// main: ../_module.scss
+
+@import "core";
+@import "ban";
+@import "changelog";
+@import "detected-platform-account";
+@import "game";
+@import "help";
+@import "image";
+@import "instant-invite";
+@import "join-create-server";
+@import "keyboard-shortcuts";
+@import "library-game-added";
+@import "new-terms-of-service";
+@import "phone-verification";
+@import "record-scratch";
+@import "region";
+@import "server-invite";
+@import "upload";
+
+@import "channel_settings/module";
+@import 'server_settings/module';
+@import 'user_profile/module';
+@import 'user_settings/module';

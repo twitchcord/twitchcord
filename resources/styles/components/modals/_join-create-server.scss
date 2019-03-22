@@ -1,0 +1,172 @@
+// main: _module.scss
+
+//** Join or create a server modal
+
+.create-guild-container.deprecated {
+  background: RGB(var(--tc-color-3));
+  border: 1px solid RGB(var(--tc-color-4));
+  border-radius: 0;
+  height: 430px;
+  h5 {
+    color: RGB(var(--tc-tint-10))!important;
+    font-weight: 400!important;
+    text-transform: none!important;
+    font-size: 24px!important;
+    line-height: 30px!important;
+    margin-bottom: 5px;
+  }
+  p {
+    line-height: 18px;
+    font-size: 12px;
+    color: RGB(var(--tc-tint-7));
+  }
+  .create-guild .guild-form li:first-child {
+    margin-left: 20px;
+  }
+  .join-server {
+    .btn-primary {
+      width: auto;
+    }
+    .sample-link {
+        color: RGB(var(--tc-color-10));
+    }
+    .link-container {
+      label {
+        color: RGB(var(--tc-tint-6))!important;
+        margin: 10px 0;
+      }
+    }
+  }
+  .form.deprecated {
+    .form-inner {
+      padding: 20px 20px 0;
+      margin-bottom: 20px;
+      background: none;
+    }
+  }
+  .form-actions {
+    padding-left: 20px;
+    .btn-primary {
+      @extend %button-primary;
+      margin: 0 20px 0 0;
+      padding: 5px 20px;
+    }
+    .btn-default {
+      @extend %button-hollow;
+      padding: 5px 20px;
+      margin: 0 20px;
+      &:before {
+        display: none;
+      }
+    }
+  }
+  .create-or-join header {
+    color: RGB(var(--tc-tint-10))!important;
+    font-weight: 400!important;
+    text-transform: none!important;
+    font-size: 24px!important;
+    line-height: 30px!important;
+    margin-bottom: 25px;
+  }
+  // Create and Join server modal button containers
+  // https://i.imgur.com/f6Bsx72.png
+  .action {
+    border: 1px solid RGB(var(--tc-color-4));
+    border-radius: 0;
+    background-color: RGB(var(--tc-color-2));
+    width: 50%;
+    padding: 0;
+    box-shadow: none !important;
+    transition: box-shadow 0.15s ease-in;
+    &:hover {
+      background-color: RGB(var(--tc-color-1));
+      .action-icon {
+        background-color: #fff!important;
+      }
+      &.join .btn,
+      &.create .btn {
+        @extend %button-primary;
+      }
+    }
+    // Normal body text
+    // https://i.imgur.com/OeDDAIs.png
+    .action-body {
+        color: RGB(var(--tc-tint-7));
+        font-size: 12px;
+        line-height: 18px;
+    }
+    // Create and Join server modal buttons
+    // https://i.imgur.com/Q7MjewL.png
+    .btn {
+      @extend %button-primary;
+      @include size(calc(100% - 50px), 36px);
+      line-height: 1.5;
+      margin: 0 10px 20px;
+      padding: 0 20px;
+    }
+    // 'Create' and 'Join' header texts
+    // https://i.imgur.com/QeNOy3r.png
+    .action-header {
+      font-size: 12px;
+      color: RGB(var(--contrasted-color))!important;
+      font-weight: 700;
+    }
+    // Create icon
+    .action-icon {
+      height: 130px!important;
+      margin: 20px 0;
+    }
+    &.create {
+      .action-icon {
+        background: none;
+        @include mask(var(--discord-staff-badge), RGB(var(--tc-tint-9)), 100px);
+      }
+    }
+    &.join {
+      .action-icon {
+        background: none;
+        @include mask(var(--handshake-icon), RGB(var(--tc-tint-9)));
+      }
+    }
+  }
+  .or {
+    background: none;
+    line-height: 0;
+    padding: 0;
+    font-size: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    display: none;
+    &::after {
+      content: 'or';
+      color: RGB(var(--tc-tint-6));
+      background: RGB(var(--tc-color-3));
+      height: 50px;
+      width: 50px;
+      visibility: visible;
+      border-radius: 50%;
+      position: absolute;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 400;
+      margin-left: -25px;
+    }
+  }
+}
+
+.form.deprecated .control-group label {
+  font-size: 12px;
+  color: RGB(var(--contrasted-color))!important;
+}
+
+.form.deprecated .form-inner:first-child {
+    border-radius: 0;
+}

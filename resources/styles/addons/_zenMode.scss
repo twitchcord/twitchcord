@@ -1,0 +1,106 @@
+// main: _module.scss
+
+//## zenMode - Hides the text/voice channels list and titlebar and makes the channel members list smaller
+// <html>.zenMode
+// DEFAULT: false
+// https://i.imgur.com/S1G2YVj.png
+
+//## zenMode - Hides the text/voice channels list and titlebar and makes the channel members list smaller
+// DEFAULT: false
+.zenMode:root {
+  --channels-width: 0px;
+  .channels-Ie2l6A {
+    border-right: none;
+    .scrollerWrap-2lJEkd {
+      padding: 0;
+    }
+  }
+}
+
+.tc-zenmode {
+  @include size(100%);
+  @include flex-center;
+  @include fixed(top 0 left 0);
+  align-content: center;
+  flex-wrap: wrap;
+  z-index: 99999;
+  opacity: 0;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.8);
+  transition: opacity 0.25s ease-in;
+  &.activated,
+  &.activated-in {
+    opacity: 1;
+  }
+  &.activated {
+    &-txt-container {
+      animation: fly-in2 0.5s ease-out 1 forwards;
+    }
+    &-buddha {
+     animation: fly-in 0.5s ease-out 1 forwards;
+   }
+  }
+  &.activated-in {
+    &-buddha,
+    &-txt-container {
+      transform: translateX(0)!important;
+      opacity: 1!important;
+      transition: transform 0.5s, opacity 0.5s;
+    }
+  }
+  &-txt-container {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateX(200px);
+    transition: transform 0.5s, opacity 0.5s;
+    &-zen-txt {
+      display: inline-block;
+      color: #fff;
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 44px;
+    }
+    &-mode-txt {
+      margin-left: -3px;
+      display: inline-block;
+      color: #ff5d0c;
+      font-weight: 400;
+      text-transform: uppercase;
+      font-size: 44px;
+    }
+    &-has-been-txt {
+      display: inline-block;
+      color: #bababa;
+      font-weight: 400;
+      font-size: 18px;
+      vertical-align: top;
+    }
+    &-activated-txt {
+      display: inline-block;
+      color: #fcf88b;
+      font-weight: 700;
+      font-size: 31px;
+      margin-left: -5px;
+      letter-spacing: -1px;
+      text-transform: uppercase;
+    }
+    &-three-four {
+      margin-top: -7px;
+      margin-left: 5px;
+    }
+  }
+  &-buddha {
+    background: url(https://i.imgur.com/2n8X4E7.png) no-repeat center;
+    background-size: 100%;
+    opacity: 0;
+    transform: translateX(-200px);
+    transition: transform 0.5s, opacity 0.5s;
+    width: 100%;
+    height: 302px;
+    width: 250px;
+  }
+}

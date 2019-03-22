@@ -1,0 +1,568 @@
+// main: _module.scss
+
+// ==========================================================================
+//  Context menus
+// ==========================================================================
+
+// Context menu
+#{$contextmenu} {
+  background: RGB(var(--tc-color-2))!important;
+  border: 1px solid RGB(var(--tc-tint-3))!important;
+  border-radius: var(--context-menu-roundness);
+  box-shadow: rgba(0, 0, 0, 0.12) 3px 3px 8px!important;
+  box-sizing: border-box;
+  margin: 0 10px;
+  min-width: 180px;
+  max-width: 300px;
+  padding: 10px 0;
+  width: auto;
+  z-index: 99999999;
+  // Item that shows a new context menu on hover
+  #{$contextmenuitemsubmenu} {
+    @include ellipsis($display: flex);
+    background: none!important;
+    padding-right: 30px!important;
+    position: relative;
+    &::after {
+      content: '';
+      @include absolute(top 11px right 16px);
+      @include triangle(right, RGB(var(--tc-tint-9)), 5px);
+    }
+  }
+  // Context menu inside an left side context menu
+  &#{$contextmenuinvertchildx} & {
+    //margin-left: -210px;
+  }
+  // Context menu inside a context menu
+  @at-root body & & {
+    background: RGB(var(--tc-color-2))!important;
+    border: 1px solid RGB(var(--tc-tint-3))!important;
+    margin-left: 188px;
+    #{$scroller} {
+      overflow-y: auto;
+    }
+  }
+  // Context menu inside a context menu inside a context menu
+  & & & {
+    //margin-left: 191px;
+  }
+  // Context menu inside a context menu inside a context menu inside a context menu
+  & & & & {
+    //margin-left: 170px;
+  }
+  #{$contextmenuitem} {
+    @include text(RGB(var(--tc-tint-9)), 14px, 400, 18px);
+    align-items: center;
+    border-radius: var(--menu-item-roundness);
+    display: flex;
+    list-style-type: none;
+    margin: 0 8px;
+    overflow: hidden;
+    padding: 6px 10px;
+    white-space: nowrap;
+    width: calc(100% - 20px);
+    &:hover,
+    &:hover:active,
+    &:active {
+      #{$contextmenuhint} {
+        color: RGB(var(--contrasted-color));
+      }
+    }
+    // Normal context items
+    &:not([style*="color: rgb"]) {
+      &:hover,
+      &:hover:active,
+      &:active {
+        background: RGB(var(--tc-color-4))!important;
+        color: #fff!important;
+      }
+    }
+    // Role context items
+    &[style*="color: rgb"] {
+      &:hover,
+      &:hover:active,
+      &:active {
+        background: currentColor!important;
+        > span,
+        > #{$contextmenulabel} {
+          filter: grayscale(1) brightness(5);
+        }
+      }
+    }
+    span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex: 1;
+      padding-right: 10px;
+    }
+    // Every context item except volume slider
+    &:not(#{$contextmenuitemslider}) {
+      cursor: pointer;
+    }
+    // Kick, ban, leave server, etc. Red items.
+    &#{$contextmenuitemdanger} {
+      &:hover,
+      &:active,
+      &:hover:active {
+        background: RGB(var(--notification-color))!important;
+        color: #fff!important;
+      }
+    }
+    // Disabled context items
+    &#{$contextmenuitemdisabled} {
+      background: none!important;
+      color: RGB(var(--tc-tint-9))!important;
+      cursor: not-allowed;
+      opacity: 0.5;
+      &::before {
+        background-color: RGB(var(--tc-tint-9))!important;
+        opacity: 0.5;
+      }
+      &:hover,
+      &:active,
+      &:hover:active {
+        color: RGB(var(--tc-tint-6));
+        cursor: not-allowed;
+        opacity: 0.5;
+      }
+    }
+    // Volume slider item
+    &#{$contextmenuitemslider} {
+      flex-wrap: wrap;
+      overflow: visible;
+      &:hover,
+      &:hover:active,
+      &:active {
+        background: RGB(var(--tc-color-2))!important;
+      }
+      // Volume slider outer container
+      #{$slider} {
+        display: block;
+        width: 100%!important;
+        // Entire slider bar
+        #{$sliderbar} {
+          @include size(100%, 7px);
+          background: #fff!important;
+          border: none;
+          border-radius: 0;
+          cursor: default!important;
+          margin-top: 0px;
+          outline: none;
+          -webkit-appearance: none;
+        }
+        // Filled portion of the slider
+        #{$sliderbarfill} {
+          background: RGB(var(--tc-color-7));
+          cursor: default!important;
+        }
+        // Slider grabber
+        #{$slidergrabber} {
+          @include size(8px, 18px);
+          background: RGB(var(--tc-tint-11));
+          border: 1px solid RGB(var(--tc-color-2));
+          border-radius: 0;
+          cursor: -webkit-grab;
+          margin-left: -5px;
+          margin-top: 0;
+          &:hover:active,
+          &:active {
+            cursor: -webkit-grabbing;
+          }
+        }
+      }
+      // Volume % tooltip
+      #{$bubble} {
+        left: -21px;
+        overflow: visible;
+        padding: 5px 0;
+        width: 50px;
+      }
+      // "User Volume" label
+      #{$contextmenulabel} {
+        display: inline-flex;
+        margin-bottom: 6px;
+      }
+    }
+    &#{$contextmenuitembrand} {
+      color: RGB(var(--tc-tint-9))!important;
+    }
+    // Conext menu custom icons
+    &#{classes('twitchcord.contextItem')} {
+      &#{$contextmenuitemdanger} {
+        &::before {
+          background-color: RGB(var(--notification-color));
+        }
+      }
+      // Context item pseudoelement; base for icons
+      &::before {
+        content: '';
+        @include size(20px);
+        background-color: RGB(var(--tc-tint-9));
+        display: inline-block;
+        margin-right: 10px;
+        -webkit-mask-size: 18px!important;
+        mask-size: 18px!important;
+        min-width: 20px;
+      }
+      // Context item hover
+      &:hover {
+        &::before {
+          background-color: #fff!important;
+        }
+      }
+      &.context {
+        &-mark-as-read,
+        &-spellcheck {
+          &::before {
+            @include mask(var(--checkmark-icon));
+          }
+        }
+        &-change-icon {
+          &::before {
+            @include mask(var(--change-icon-icon), $size: 24px, $important: true);
+          }
+        }
+        &-invite-people,
+        &-instant-invite,
+        &-instant-invites,
+        &-invite-to-server {
+          &::before {
+            @include mask(var(--add-user-icon), $size: 20px, $important: true);
+          }
+        }
+        &-server-mute,
+        &-mute-channel {
+          &::before {
+            @include mask(var(--server-muted-icon));
+          }
+        }
+        &-languages {
+          &::before {
+            @include mask(var(--language-icon), $size: 20px, $important: true);
+          }
+        }
+        &-paste {
+          &::before {
+            @include mask(var(--paste-icon), $size: 17px, $important: true);
+          }
+        }
+        &-user-volume {
+          &::before {
+            @include mask(var(--video-volume-icon), $size: 25px, $important: true);
+            margin-top: -6px;
+          }
+        }
+        &-guild-settings-action-filter-channel-create,
+        &-clone-channel,
+        &-create-text-channel,
+        &-create-voice-channel {
+          &::before {
+            @include mask(var(--plus-icon), $size: 27px, $important: true);
+          }
+        }
+        &-create-category {
+          &::before {
+            @include mask(var(--create-category-icon));
+            margin-left: 1px;
+            margin-right: 9px;
+          }
+        }
+        &-server-settings {
+          &::before {
+            @include mask(var(--gear-icon));
+          }
+        }
+        &-application-context-menu-toggle-overlay-disable {
+          &::before {
+            @include mask(var(--overlay-off-icon));
+            transform: scale(-1, 1);
+          }
+        }
+        &-game-action-button-view-in-store {
+          &::before {
+            @include mask(var(--store-icon), $size: 22px, $important: true);
+          }
+        }
+        &-game-action-button-install {
+          &::before {
+            @include mask(var(--download-icon));
+          }
+        }
+        &-hide-muted-channels,
+        &-voice-channel-hide-names,
+        &-application-context-menu-hide-status,
+        &-application-context-menu-hide {
+          &::before {
+            @include mask(var(--eye-closed-icon));
+          }
+        }
+        &-notification-settings {
+          &::before {
+            @include mask(var(--exclamation-circle-icon));
+          }
+        }
+        &-privacy-settings {
+          &::before {
+            @include mask(var(--lock-icon), $size: 20px, $important: true);
+          }
+        }
+        &-mention {
+          &::before {
+            @include mask(var(--mention-icon), $size: 30px, $important: true);
+          }
+        }
+        &-user-popout-message {
+          &::before {
+            @include mask(var(--envelope-icon), $size: 22px, $important: true);
+          }
+        }
+        &-mute {
+          &::before {
+            @include mask(var(--muted-icon), $size: 31px, $important: true);
+          }
+        }
+        &-deafen {
+          &::before {
+            @include mask(var(--deafened-icon), $size: 18px, $important: true);
+          }
+        }
+        &-kick-from-server {
+          &::before {
+            @include mask(var(--kick-icon), $size: 20px, $important: true);
+          }
+        }
+        &-block,
+        &-ban {
+          &::before {
+            @include mask(var(--universal-no-icon));
+          }
+        }
+        &-watch-stream {
+          &::before {
+            @include mask(var(--twitch-logo), $size: 20px, $important: true);
+          }
+        }
+        &-roles {
+          &::before {
+            @include mask(var(--user-icon), $size: 14px, $important: true);
+            // Needed in case the server has a role named 'Members' or some other
+            // blacklisted term
+            display: inline-block!important;
+          }
+        }
+        &-search-with-google {
+          &::before {
+            @include mask(var(--google-logo), $size: 14px, $important: true);
+          }
+        }
+        &-add-to-dictionary {
+          &::before {
+            @include mask(var(--open-book-icon));
+          }
+        }
+        &-join-server-title {
+          &::before {
+            @include mask(var(--handshake-icon), $size: 20px, $important: true);
+          }
+        }
+        &-cut {
+          &::before {
+            @include mask(var(--scissors-icon), $size: 16px, $important: true);
+          }
+        }
+        &-create-server-button-cta {
+          &::before {
+            @include mask(var(--discord-staff-badge));
+          }
+        }
+        &-unblock {
+          &::before {
+            @include mask(var(--unblock-icon), $size: 16px, $important: true);
+          }
+        }
+        &-add-friend,
+        &-add-friend-button-after {
+          &::before {
+            @include mask(var(--add-friend-left-icon), $size: 24px, $important: true);
+          }
+        }
+        &-game-feed-settings-visibility {
+          &::before {
+            @include mask(var(--game-controller-icon), $size: 22px, $important: true);
+          }
+        }
+        &-add-note,
+        &-edit-note,
+        &-change-nickname,
+        &-edit-message,
+        &-edit-channel,
+        &-edit-category {
+          &::before {
+            @include mask(var(--pencil-icon), $size: 22px, $important: true);
+          }
+        }
+        &-remove-friend,
+        &-remove-from-group,
+        &-delete-message-title,
+        &-delete-channel,
+        &-delete-category,
+        &-delete-message {
+          &::before {
+            @include mask(var(--garbage-icon), $size: 20px, $important: true);
+          }
+        }
+        &-collapse-category {
+          &::before {
+            @include mask(var(--down-arrow-icon));
+          }
+        }
+        &-close-dm {
+          &::before {
+            @include mask(var(--close-icon));
+          }
+        }
+        &-call {
+          &::before {
+            @include mask(var(--phone-icon));
+          }
+        }
+        &-profile {
+          &::before {
+            @include mask(var(--profile-icon));
+          }
+        }
+        &-leave-server,
+        &-leave-group-dm {
+          &::before {
+            @include mask(var(--leave-icon));
+            margin-right: 7px;
+            width: 24px;
+          }
+        }
+        &-pin-message {
+          &::before {
+            @include mask(var(--thumbtack-icon), $size: 13px, $important: true);
+          }
+        }
+        &-add-reaction,
+        &-reactions {
+          &::before {
+            @include mask(var(--emoji-icon), $size: 16px, $important: true);
+          }
+        }
+        &-remove-all-reactions {
+          &::before {
+            @include mask(var(--emoji-frown-icon), $size: 16px, $important: true);
+          }
+        }
+        &-twitch-emote-add-to-favorites {
+          &::before {
+            @include mask(var(--solid-star-icon), $size: 20px, $important: true);
+          }
+        }
+        &-copy {
+          &::before {
+            @include mask(var(--clipboard-icon));
+          }
+        }
+        &-copy-id {
+          &::before {
+            @include mask(var(--user-id-icon));
+          }
+        }
+        &-copy-link {
+          &::before {
+            @include mask(var(--link-icon));
+          }
+        }
+        // 'Play Game'
+        &-application-context-menu-launch {
+          &::before {
+            @include mask(var(--d-pad-icon));
+          }
+        }
+        &-open-link {
+          &::before {
+            @include mask(var(--open-new-window-icon), $size: 16px, $important: true);
+          }
+        }
+        // False positive items... things like role names and server names
+        &-members,
+        &-member,
+        &-other-reactions,
+        &-windows,
+        &-platform-linux,
+        &-form-label-muted,
+        &-recent-mentions-filter-everyone,
+        &-recent-mentions-filter-roles {
+          &::before {
+            display: none;
+          }
+        }
+      }
+    }
+    #{$contextmenuhint} {
+      color: RGB(var(--tc-tint-6));
+      opacity: 1;
+    }
+  }
+  // Item with a toggle button
+  #{$contextmenuitemtoggle} {
+    #{$contextmenulabel} {
+      flex: 1 1 auto;
+      max-width: 250px;
+      padding-right: 14px;
+    }
+    // item with a toggle button checkbox
+    .checkbox {
+      @include size(18px);
+    }
+  }
+  // Item group adjustments
+  #{$contextmenuitemgroup} {
+    border-color: RGB(var(--tc-tint-3))!important;
+    // Remove any empty item groups, not sure why they exist
+    &:empty {
+      display: none;
+      // Fix: Some context menus have empty item groups for whatever reason. If one appears at
+      // the start of the context menu, a large gap appears at the top. This fixes that problem.
+      &:first-of-type {
+        + #{$contextmenuitemgroup}:not(:empty) {
+          margin: 0;
+          padding-top: 0;
+        }
+      }
+    }
+    &:not(:empty) {
+      padding: 8px 0;
+    }
+    &:first-child {
+      margin: 0;
+      padding-top: 0;
+    }
+    &:last-of-type {
+      margin: 0;
+      padding-bottom: 0;
+    }
+    + #{$contextmenuitem} {
+      margin-top: -10px;
+    }
+  }
+  // Scrollbar
+  #{$scroller} {
+    &::-webkit-scrollbar {
+      width: 14px!important;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-width: 6px 6px 6px 0!important;
+    }
+    &::-webkit-scrollbar-thumb,
+    &::-webkit-scrollbar-track {
+      margin: -6px 0;
+    }
+    &::-webkit-scrollbar-track,
+    &::-webkit-scrollbar-track-piece {
+      background: none!important;
+    }
+  }
+}

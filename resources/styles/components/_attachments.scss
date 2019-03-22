@@ -1,0 +1,100 @@
+///  ==========================================================================
+///  Attachments
+///  ==========================================================================
+
+
+
+// Attachment outer container
+#{classes('components.attachments.attachment')} {
+  background-color: RGB(var(--tc-color-2))!important;
+  border: none;
+  border-radius: 0;
+  margin: 8px 0;
+  max-width: none;
+  padding: 10px;
+  position: relative;
+  width: 410px;
+  // Attachment inner container
+  #{classes('components.attachments.attachmentInner')} {
+    // Discord download button
+    + a {
+      display: none;
+    }
+  }
+  // Attachment file name
+  #{classes('components.attachments.fileNameLink')} {
+    @include absolute(top 0 left 0);
+    @include ellipsis($display: block);
+    @include size(100%, auto);
+    @include text(RGB(var(--tc-tint-9))!important, 14px, 700, 20px);
+    min-height: 80px;
+    padding: 27px 140px 0 75px;
+    text-decoration: none;
+    // 'Shared a file' text
+    &::before {
+      @include absolute(top 8px);
+      @include localize('Shared a file');
+      @include text(RGB(var(--tc-tint-6)), 14px, 400);
+    }
+    // Attachment download button
+    &::after {
+      @extend %button-primary;
+      @include button-base;
+      @include absolute(bottom 16px right 10px);
+      @include flex-center;
+      @include localize('Download');
+      height: 30px;
+      padding: 0 10px;
+    }
+  }
+  // Attachment name while attachment is uploading
+  #{classes('components.attachments.fileName')} {
+    @include ellipsis(100%, block);
+    @include text(RGB(var(--tc-tint-9))!important, 14px, 700, 20px);
+    text-decoration: none;
+    // Attachment size while attachment is uploading
+    + #{classes('components.attachments.progressFileSize')} {
+      @include text(RGB(var(--tc-tint-6))!important, 12px);
+    }
+    &::before {
+      display: none;
+    }
+  }
+  // Attachment icon
+  #{classes('components.attachments.icon')} {
+    @include size(56px);
+    content: var(--transparent-pixel);
+    background: RGB(var(--tc-tint-3)) var(--attachment-file-image) no-repeat 50% / 30px 40px!important;
+  }
+  // Attachment meta data (file size, progress bar)
+  #{classes('components.attachments.metaData')}  {
+    margin: 35px 0 0 0;
+    &#{classes('components.attachments.progressContainer')} {
+      @include absolute(bottom -5px left 0);
+      @include size(100%, 5px);
+      background: RGB(var(--tc-color-2))!important;
+      border-radius: 0;
+      color: transparent;
+      margin: 0;
+      @at-root #{classes('components.attachments.progress')}  {
+        background: RGB(var(--contrasted-color))!important;
+        height: 5px;
+        @at-root #{classes('components.attachments.progressBar')}  {
+          background: RGB(var(--tc-color-8))!important;
+          border-radius: 0!important;
+        }
+      }
+    }
+  }
+  // Cancel upload button
+  #{classes('components.attachments.cancelButton')}  {
+    background: none;
+    @include mask(var(--close-icon), RGB(var(--tc-hint-9)));
+    &:hover {
+      background-color: RGB(var(--contrasted-color));
+    }
+    g {
+      display: none;
+    }
+  }
+}

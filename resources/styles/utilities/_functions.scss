@@ -1,0 +1,285 @@
+// main: _module.scss
+
+//** Functions
+
+@function DotNotation($map, $path) {
+    $keys: ();
+    $separator: '.';
+    $index : str-index($path, $separator);
+
+    @while $index != null {
+        $item: str-slice($path, 1, $index - 1);
+        $keys: append($keys, $item);
+        $path: str-slice($path, $index + 1);
+        $index : str-index($path, $separator);
+    }
+
+    $keys: append($keys, $path);
+
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+
+    @return $map;
+}
+
+// Localize function
+@function localize($path) {
+  @return "#{DotNotation($languages, $path)}";
+}
+// Discord Images function
+@function discordImages($path) {
+    @return "#{DotNotation($discordImagess, $path)}";
+}
+// Class function
+@function classes($path) {
+    @return ".#{DotNotation($classes, $path)}";
+}
+// Id function
+@function id($path) {
+    @return "##{DotNotation($classes, $path)}";
+}
+
+
+// STRIP UNIT
+// It strips the unit of measure and returns it
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+// CONVERT TO REM
+@function convert-to-rem($value, $base-value: 14px) {
+  $value: strip-unit($value) / strip-unit($base-value) * 1rem;
+  @if ($value == 0rem) { $value: 0; } // Turn 0rem into 0
+  @return $value;
+}
+// REM CALC
+// New Syntax, allows to optionally calculate on a different base value to counter compounding effect of rem's.
+// Call with 1, 2, 3 or 4 parameters, 'px' is not required but supported:
+//
+//   rem-calc(10 20 30px 40);
+//
+// Space delimited, if you want to delimit using comma's, wrap it in another pair of brackets
+//
+//   rem-calc((10, 20, 30, 40px));
+//
+// Optionally call with a different base (eg: 8px) to calculate rem.
+//
+//   rem-calc(16px 32px 48px, 8px);
+//
+// If you require to comma separate your list
+//
+//   rem-calc((16px, 32px, 48), 8px);
+@function rem-calc($values, $base-value: 14px) {
+  $max: length($values);
+
+  @if $max == 1 { @return convert-to-rem(nth($values, 1), $base-value); }
+
+  $remValues: ();
+  @for $i from 1 through $max {
+    $remValues: append($remValues, convert-to-rem(nth($values, $i), $base-value));
+  }
+  @return $remValues;
+}
+
+// NTH-SELECTOR
+@function nth-selector($str, $n) {
+  @for $i from 1 through $n {
+    @if (str_index($str, ' ')) {
+      @if $i == $n {
+        $str: str_slice($str, 0, str_index($str, ' ') - 1);
+      } @else {
+        $str: str_slice($str, str_index($str, ' ') + 1);
+      }
+    }
+  }
+  @return unquote($str);
+}
+// INPUT:
+// grand-parent {
+//   .parent {
+//     content: '' + nth-selector(#{&}, 1);
+//
+//     #{nth-selector(#{&}, 2)} .cc {
+//       width: 20px;
+//     }
+//
+//     @at-root #{nth-selector(#{&}, 2)} .cc {
+//       width: 10px;
+//     }
+//   }
+// }
+//
+//OUTPUT:
+// .grand-parent .parent {
+//   content: ".grand-parent";
+// }
+//
+// .grand-parent .parent .parent .cc {
+//   width: 20px;
+// }
+//
+// .parent .cc {
+//   width: 10px;
+// }
+
+/// Base path for assets (fonts, images...),
+/// should not include trailing slash
+/// @access public
+/// @type String
+$asset-base-path: 'https://twitchcord.github.io/twitchcord-theme' !default;
+
+
+/// Asset URL builder
+/// @access private
+/// @param {String} $type - Asset type, matching folder name
+/// @param {String} $file - Asset file name, including extension
+/// @return {URL} - A `url()` function leading to the asset
+@function asset($type, $file) {
+  @return url($asset-base-path + '/' + $type + '/' + $file);
+}
+
+
+/// Image asset helper
+/// @access public
+/// @param {String} $file - Asset file name, including extension
+/// @return {URL} - A `url()` function leading to the image
+/// @require {function} asset
+@function image($file) {
+  @return asset('images', $file);
+}
+
+
+// .jpg appended because all of these images are .jpg
+/// Boxart asset helper
+/// @access public
+/// @param {String} $file - Asset file name, including extension
+/// @return {URL} - A `url()` function leading to the image
+/// @require {function} asset
+@function boxart($file) {
+  @return asset('images/gameboxarts/285x380/', $file + '.jpg');
+}
+
+/// Font asset helper
+/// @access public
+/// @param {String} $file - Asset file name, including extension
+/// @return {URL} - A `url()` function leading to the font
+/// @require {function} asset
+@function font($file) {
+  @return asset('fonts', $file);
+}
+
+@function hsl($hsl) {
+    @return unquote('hsl(#{$hsl})');
+}
+
+@function hsla($hsl, $a) {
+    @return unquote('hsla(#{$hsl}, #{$a})');
+}
+
+@function slugify($string) {
+  $string: to_lower_case($string);
+  $string: str-replace($string, '.', '');
+  $string: str-replace($string, ';', '');
+  $string: str-replace($string, '/', '');
+  $string: str-replace($string, '\\', '');
+  $string: str-replace($string, '(', '');
+  $string: str-replace($string, ')', '');
+  $string: str-replace($string, '"', '');
+  $string: str-replace($string, '\'', '');
+  $string: str-replace($string, ':', '');
+  $string: str-replace($string, ',', '');
+  $string: str-replace($string, ';', '');
+  $string: str-replace($string, '<', '');
+  $string: str-replace($string, '>', '');
+  $string: str-replace($string, '~', '');
+  $string: str-replace($string, '!', '');
+  $string: str-replace($string, '@', '');
+  $string: str-replace($string, '#', '');
+  $string: str-replace($string, '$', '');
+  $string: str-replace($string, '%', '');
+  $string: str-replace($string, '^', '');
+  $string: str-replace($string, '&', 'and');
+  $string: str-replace($string, '*', '');
+  $string: str-replace($string, '|', '');
+  $string: str-replace($string, '+', '');
+  $string: str-replace($string, '=', '');
+  $string: str-replace($string, '[', '');
+  $string: str-replace($string, ']', '');
+  $string: str-replace($string, '{', '');
+  $string: str-replace($string, '}', '');
+  $string: str-replace($string, '`', '');
+  $string: str-replace($string, '~', '');
+  $string: str-replace($string, '?', '');
+  $string: str-replace($string, '®', '');
+  $string: str-replace($string, '²', '');
+  $string: str-replace($string, '™', '');
+  $string: str-replace($string, '_', '-');
+  $string: str-replace($string, ' ', '-');
+  $string: str-replace($string, '---', '-');
+  $string: str-replace($string, '--', '-');
+  $string: str-replace($string, '--', '-');
+  @return $string;
+}
+
+// inline svg encode
+@function svg-url($svg){
+    //
+    //  Add missing namespace
+    //
+    @if not str-index($svg,xmlns) {
+        $svg: str-replace($svg, '<svg','<svg xmlns="http://www.w3.org/2000/svg"');
+    }
+    //
+    //  Chunk up string in order to avoid
+    //  "stack level too deep" error
+    //
+    $encoded:'';
+    $slice: 2000;
+    $index: 0;
+    $loops: ceil(str-length($svg)/$slice);
+    @for $i from 1 through $loops {
+        $chunk: str-slice($svg, $index, $index + $slice - 1);
+        //
+        //   Encode
+        //
+        $chunk: str-replace($chunk, '"', '\'');
+        $chunk: str-replace($chunk, '%', '%25');
+        $chunk: str-replace($chunk, '#', '%23');
+        $chunk: str-replace($chunk, '{', '%7B');
+        $chunk: str-replace($chunk, '}', '%7D');
+        $chunk: str-replace($chunk, '<', '%3C');
+        $chunk: str-replace($chunk, '>', '%3E');
+
+        //
+        //    The maybe list
+        //
+        //    Keep size and compile time down
+        //    ... only add on documented fail
+        //
+        //  $chunk: str-replace($chunk, '&', '%26');
+        //  $chunk: str-replace($chunk, '|', '%7C');
+        //  $chunk: str-replace($chunk, '[', '%5B');
+        //  $chunk: str-replace($chunk, ']', '%5D');
+        //  $chunk: str-replace($chunk, '^', '%5E');
+        //  $chunk: str-replace($chunk, '`', '%60');
+        //  $chunk: str-replace($chunk, ';', '%3B');
+        //  $chunk: str-replace($chunk, '?', '%3F');
+        //  $chunk: str-replace($chunk, ':', '%3A');
+        //  $chunk: str-replace($chunk, '@', '%40');
+        //  $chunk: str-replace($chunk, '=', '%3D');
+
+        $encoded: #{$encoded}#{$chunk};
+        $index: $index + $slice;
+    }
+    @return url("data:image/svg+xml,#{$encoded}");
+}
+
+//  Helper function to replace characters in a string
+@function str-replace($string, $search, $replace: '') {
+    $index: str-index($string, $search);
+    @return if($index,
+        str-slice($string, 1, $index - 1) + $replace +
+        str-replace(str-slice($string, $index +
+        str-length($search)), $search, $replace),
+        $string);
+}

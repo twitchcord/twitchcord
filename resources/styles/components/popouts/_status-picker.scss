@@ -1,0 +1,55 @@
+// main: _module.scss
+
+/*==={ STATUS PICKER }===*/
+
+.menu-Sp6bN1.alt-3btY0e {
+    border-radius: 0;
+    background: RGB(var(--tc-color-2));
+    border: 1px solid RGB(var(--tc-tint-3));
+    border-top: none;
+    box-shadow: none;
+    width: 238px;
+    right: 1px;
+    opacity: 1;
+    left: unset;
+    top: 1px;
+    position: fixed;
+    z-index: 100000000;
+    transform: translate3d(0, 79px, 0);
+    animation: statusPickerGetBigger 0.2s forwards;
+}
+
+.menu-Sp6bN1.alt-3btY0e .item-1GzJrl .helper-2c73HK {
+  line-height: 1.5;
+  color: RGB(var(--tc-tint-7));
+  margin: 4px 0 0 17px;
+  display: none;
+}
+
+.menu-Sp6bN1.alt-3btY0e .item-1GzJrl .status-oxiHuE {
+  width: 6px!important;
+  height: 6px!important;
+  display: flex;
+  align-self: center;
+  border: none!important;
+  margin-right: 16px!important;
+  flex: 0 0 auto;
+  bottom: 0;
+  order: initial;
+  &.online-2S838R {
+      background-color: #5acc52;
+  }
+  &.idle-3DEnRT {
+      background-color: #f7cd24;
+  }
+  &.dnd-1_xrcq {
+      background-color: #ff4040;
+  }
+  &.invisible-1kp8Z0 {
+      background-color: #878787;
+  }
+}
+
+.menu-Sp6bN1.alt-3btY0e .item-1GzJrl:hover .helper-2c73HK {
+  color: RGB(var(--contrasted-color));
+}

@@ -1,0 +1,127 @@
+// main: _module.scss
+
+// Library view
+// <html>.libraryTile
+//
+
+.libraryTile {
+  .gameLibrary-TTDw4Y {
+    #{$scroller} {
+      padding: 15px 10px 2px;
+      &::-webkit-scrollbar,
+      &::-webkit-scrollbar-track {
+        margin-top: 0;
+      }
+    }
+    .table-1tDS6w {
+      width: 100%;
+      flex: 1 1 auto!important;
+      display: flex!important;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+    .header-39GIC8 {
+      display: none;
+    }
+    .row-ZLfFhY {
+      height: auto;
+      margin: 0;
+    }
+    .nitroIcon-2_2ZKS {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 4px;
+    }
+    #{$gameicon} {
+      @include size(auto);
+      border: none;
+      margin: 0 !important;
+      padding-bottom: calc(var(--boxart-aspect) * 100%);
+      position: relative;
+      &::before,
+      &::after {
+        @include absolute(top 0 left 0);
+        @include size(100%);
+        content: '';
+        display: block;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.15s ease-in;
+      }
+      &::before {
+        background: rgba(0, 0, 0, 0.6);
+      }
+      &::after {
+        background: RGBA(var(--tc-color-2), 0.77);
+      }
+    }
+    .settingIcons-3QYa5E {
+      margin: 0;
+      pointer-events: all;
+      position: absolute;
+      top: 20px;
+    }
+    .rowWrapper-2fB6P0 {
+      border-radius: 0;
+      height: auto;
+      position: relative;
+      margin: 0 10px 20px;
+      flex: 1 1 auto!important;
+      width: 163px;
+    }
+    .nameBodyCell-3JOlnK {
+      width: 100%;
+      position: relative;
+      > #{$flex} {
+        display: block;
+        width: 100%;
+      }
+    }
+    .nameCellInfo-11WjkQ {
+      margin-top: 10px;
+    }
+    .platformCell-XyBBs6,
+    .lastPlayedCell-2arbtc {
+      display: none;
+    }
+    .actionsCell-1awtNi {
+      position: absolute;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100%;
+      width: 100%;
+      pointer-events: none;
+      display: flex;
+      opacity: 0;
+      transform: translate3d(0, 15px, 0);
+      transition: opacity 0.15s ease-in, transform 0.15s ease-in;
+      > #{$button}#{$buttonlookfilled} {
+        margin-top: -30px!important;
+      }
+    }
+    .rowWrapperActive-2L7i9f {
+      background: none!important;
+      margin: 0 10px 20px;
+      .row-ZLfFhY {
+        color: RGB(var(--tc-color-10));
+      }
+      #{$gameicon} {
+        &::before,
+        &::after {
+          opacity: 1;
+        }
+      }
+      .actionsCell-1awtNi {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        > #{$button}#{$buttonlookfilled} {
+          pointer-events: all;
+        }
+      }
+    }
+  }
+}

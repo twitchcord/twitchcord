@@ -1,0 +1,219 @@
+// main: _module.scss
+
+//## Dividers
+
+//## Has more button
+#{$chat} {
+  #{$chathasmore} {
+    display: none;
+    button {
+      background: RGB(var(--tc-color-2))!important;
+      border: 1px solid RGBA(var(--tc-color-4), 0.5)!important;
+      color: #fff!important;
+      border-radius: 0!important;
+      height: 30px;
+      font-size: 10px;
+      font-weight: 700;
+      margin: 6px 13px 6px 15px;
+      &:hover {
+        box-shadow: none!important;
+      }
+    }
+  }
+  // When new messages bar is follow by "new" messages divider
+  + #{$chatdivider}#{$chatdividernew} {
+    padding-top: 20px;
+  }
+}
+
+//** New messages elements
+.new-messages-indicator.new-messages-indicator-mention {
+    background-color: RGB(var(--tc-color-8));
+    opacity: 1;
+    box-shadow: inset 0 4px 10px -2px #000, 0 4px 20px 0 #000;
+}
+
+#{$chat} {
+  #{$chatnewmessagesbar} {
+    left: 0;
+    right: 0;
+    border-radius: 0;
+    background-color: RGB(var(--tc-color-6));
+    opacity: 1;
+    // Needs this z-index to be higher than reaction and option message buttons
+    z-index: 901;
+    padding: 0 !important;
+    top: 0;
+    margin: 0 25px 0 15px;
+    &:hover {
+      background-color: RGB(var(--tc-color-6));
+      button {
+        &:last-child {
+          background-color: #fff;
+          color: RGB(var(--tc-color-6));
+        }
+      }
+    }
+    button {
+      text-align: center;
+      background: none;
+      color: #fff;
+      line-height: 0;
+      font-family: var(--font)!important;
+      &:first-child {
+        @include text(#fff, 12px, 400);
+      }
+      &:last-child {
+        text-transform: uppercase;
+        font-size: 9px;
+        color: #fff;
+        font-weight: 700;
+        border: 1px solid #fff;
+        box-sizing: border-box;
+        padding: 7px 10px;
+        height: 10px;
+        margin: 7px 12px;
+        background-color: transparent;
+        transition: none;
+        &:hover {
+          background-color: #fff;
+          color: RGB(var(--tc-color-6));
+        }
+      }
+    }
+  }
+}
+
+//## Rich presence invites (Games, Spotify)
+#{$chat} {
+  #{$messagerichpresenceinvite} {
+    background: RGB(var(--tc-color-2));
+    border: 1px solid RGB(var(--tc-color-3));
+    border-radius: 0;
+    // Music ended image
+    .artworkSpotifySessionEnded-11d_If {
+      background: none!important;
+      @include mask(var(--deafened-icon), RGB(var(--tc-tint-6)), $important: true);
+      border-radius: 0;
+    }
+    // Album artwork
+    .artwork-1vrmJ_ {
+      border-radius: 0;
+      height: 103px;
+      width: 103px;
+    }
+    // Song name and artist
+    .details-3NqflA,
+    .state-2dqgON {
+      font-size: 14px;
+    }
+    // 'by' text, artist name container
+    .state-2dqgON {
+      color: RGB(var(--tc-tint-6));
+    }
+    // Header text
+    .partyStatus-6AjDud {
+      color: RGB(var(--tc-tint-10));
+    }
+    // Empty party member slots
+    .partyMemberEmpty-2iyh5g {
+      background: RGB(var(--tc-color-1));
+      margin-left: 8px;
+      border-radius: var(--user-roundness);
+      border: 1px solid RGB(var(--tc-color-3));
+    }
+    // Filler text... 'Invite to Join Group', 'Invite to Listen Along on Spotify'
+    .header-Hg_qNF {
+      text-transform: none;
+      font-weight: 400;
+      color: RGB(var(--tc-tint-6));
+    }
+    // Game cover art image container
+    .coverImageWrapper-22d5LB {
+      opacity: 1;
+      border-radius: 0;
+    }
+    // Game/music cover art image
+    .coverImage-3cjWkd {
+      opacity: 0.6;
+    }
+    // Game covert art image
+    .coverImageNotActionable-1MP2Mx {
+      height: 80%;
+      top: 15px;
+      right: 15px;
+      width: 90px;
+      filter: none;
+      -webkit-mask: none;
+      mask: none;
+      position: absolute;
+      opacity: 1;
+      background-size: contain!important;
+    }
+    // Music album blurred
+    .coverImageActionable-1TMryE.blurred-UUeCTs {
+      mask: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2) 100%);
+    }
+    // Help ? icon
+    .helpIcon-2EyVTp {
+      display: none!important;
+    }
+    // Game name
+    .name-GG2Mcs {
+      display: none;
+    }
+  }
+}
+
+//** Jump to present "bar"
+#{$chat} {
+  #{$chatjumptopresentbar} {
+    @include flex-center;
+    background-color: RGB(var(--tc-color-2));
+    border: 1px solid RGB(var(--tc-tint-3))!important;
+    border-radius: 0;
+    left: unset;
+    right: 27px;
+    bottom: 10px;
+    box-sizing: border-box;
+    height: 35px;
+    width: auto;
+    margin: 0!important;
+    padding: 0 15px;
+    z-index: 900;
+    button {
+      @include button-undo-active;
+      border: none!important;
+      box-shadow: none!important;
+      &:first-child {
+        @include text(#fff, 12px);
+        flex: none;
+        padding: 0;
+        &::after {
+          content: '.';
+          margin-right: 4px;
+        }
+      }
+      &:last-child {
+        text-transform: lowercase;
+        font-size: 12px;
+        color: #fff;
+        padding: 0;
+        &::first-letter {
+          text-transform: uppercase;
+        }
+        &::after {
+          content: '.';
+          @include size(24px, 14px);
+          background: var(--forward-arrow-icon);
+          background-position: center left 10px;
+          background-repeat: no-repeat;
+          display: inline-block;
+        }
+      }
+    }
+    &:hover {
+      background: RGB(var(--tc-color-4));
+    }
+  }
+}

@@ -1,0 +1,60 @@
+///  main: _module.scss
+///  ==========================================================================
+///  Buttons
+///  ==========================================================================
+
+
+// Buttons
+#{classes('components.buttons.button')} {
+  @include button-base;
+  flex: none;
+  height: 30px;
+  min-height: 0;
+  min-width: 0;
+  // Left margin for buttons with another button as a direct sibling
+  & + & {
+    margin-left: 10px;
+  }
+  // Button contents/text
+  #{classes('components.buttons.contents')} {
+    @include flex-center;
+    // To get rid of Discord's cheeky underline background gradient on some buttons
+    background: none!important;
+    height: auto;
+    line-height: 100%;
+  }
+  // When buttons are placed next to each other inside a flex row reverse div,
+  // we need to put the margin on the right instead of the left
+  @at-root #{classes('base.directionRowReverse')} > & + & {
+    margin-left: 0;
+    margin-right: 10px;
+  }
+  // Shine animation on some buttons
+  #{classes('components.buttons.shine')} {
+    left: -25px;
+  }
+  // Spinner for buttons submitting on some buttons
+  #{classes('components.buttons.spinner')} {
+    position: relative;
+  }
+}
+
+// "Hollow" style buttons
+#{classes('components.buttons.lookGhost')},
+#{classes('components.buttons.lookInverted')},
+#{classes('components.buttons.lookOutlined')} {
+  @extend %button-hollow;
+}
+// "Empty" style button (don't look like buttons)
+#{classes('components.buttons.lookBlank')},
+#{classes('components.buttons.lookLink')} {
+  @extend %button-empty;
+}
+// Normal buttons ("primary")
+#{classes('components.buttons.lookFilled')} {
+  @extend %button-primary;
+}
+// "Danger" style buttons
+#{classes('components.buttons.colorRed')} {
+  @extend %button-danger;
+}
