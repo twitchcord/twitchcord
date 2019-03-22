@@ -18,3 +18,8 @@ window.addEventListener("DOMContentLoaded", () => {
       ._currentElement._owner._instance
   });
 });
+
+// To work on this, uncomment
+// PreventClose()
+// And update the Splash using
+// SplashComponent.setState({ update: { total: 14, current: 3, status: "downloading-updates", progress: 40 } })
