@@ -59,18 +59,23 @@ const PatchedBrowserWindow = Object.assign(function(
 },
 BrowserWindow);
 
-app.whenReady().then(() => {
-  const electronPath = require.resolve("electron");
-  const electronCache = require.cache[electronPath];
-  const BrowserWindowPath = require.resolve(
-    require.resolve(join(electronPath, "../../browser-window.js"))
-  );
-  // Replacing the BrowserWindow contstructor
-  require.cache[BrowserWindowPath].exports = PatchedBrowserWindow;
-  // Replace the exports object to allow assignment
-  electronCache.exports = Object.assign({}, electronCache.exports);
-  electronCache.exports.BrowserWindow = PatchedBrowserWindow;
-});
+const electronPath = require.resolve("electron");
+const electronCache = require.cache[electronPath];
+const BrowserWindowPath = require.resolve(
+  require.resolve(join(electronPath, "../../browser-window.js"))
+);
+// Replacing the BrowserWindow contstructor
+require.cache[BrowserWindowPath].exports = PatchedBrowserWindow;
+// Replace the exports object to allow assignment
+const NewExports = {}
+const NewDescriptors: { [key: string]: PropertyDescriptor } = {
+  "BrowserWindow": { value: PatchedBrowserWindow }
+}
+for (const key in electronCache.exports)
+  Object.defineProperty(NewExports, key, NewDescriptors[key] || Object.getOwnPropertyDescriptor(electronCache.exports, key))
+
+electronCache.exports = NewExports
+
 
 ipcMain.on("renderer-preload-paths", (evt: Event, arg: any) => {
   const returnValue: string[] = [];
