@@ -1,6 +1,6 @@
-[submodule "src/renderer/old-core"]
-	path = src/renderer/old-core
-	url = https://gitlab.com/Twitchcord/twitchcord-v1
 [submodule "resources/styles"]
 	path = resources/styles
-	url = https://gitlab.com/Twitchcord/twitchcord-sass
+	url = https://gitlab.com/Twitchcord/twitchcord-sass.git
+[submodule "src/renderer/old-core"]
+	path = src/renderer/old-core
+	url = https://gitlab.com/Twitchcord/twitchcord-v1.git
