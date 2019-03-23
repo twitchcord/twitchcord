@@ -2,7 +2,7 @@
   "compilerOptions": {
     "outDir": "./dist/",
     "noImplicitAny": true,
-    "typeRoots": ["typings", "node_modules/@types"],
+    "typeRoots": ["./typings", "./node_modules/@types"],
     "baseUrl": ".",
     "paths": {
       "*": [
@@ -15,6 +15,6 @@
     "target": "es5"
   },
   "include": [
-    "src/index.ts"
+    "src/**/*.ts"
   ]
 }
