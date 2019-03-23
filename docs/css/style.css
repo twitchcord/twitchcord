@@ -1,0 +1,1862 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0b1 | 201101 
+   NOTE: WORK IN PROGRESS
+   USE WITH CAUTION AND TEST WITH ABANDON */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+    font-size: 14px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+
+/* remember to define visible focus styles! 
+:focus {
+	outline: ?????;
+} */
+
+
+/* remember to highlight inserts somehow! */
+
+ins,
+a {
+    text-decoration: none;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.contain {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.clear {
+    clear: both;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.animateme {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    background: rgb(69, 45, 88);
+    background: linear-gradient(135deg, #0e0c13 0%, #241c3d 100%);
+}
+
+.bg-bubbles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.bg-bubbles li {
+    position: absolute;
+    list-style: none;
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: #433470;
+    bottom: 60px;
+    -webkit-animation: square 25s infinite;
+    animation: square 25s infinite;
+    -webkit-transition-timing-function: linear;
+    transition-timing-function: linear;
+    opacity: 0;
+}
+
+.bg-bubbles li:nth-child(1) {
+    left: 3%;
+    border-radius: 0;
+    background: transparent;
+    border: 4px solid #433470;
+}
+
+.bg-bubbles li:nth-child(2) {
+    left: 6%;
+    width: 75px;
+    height: 75px;
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+    -webkit-animation-duration: 17s;
+    animation-duration: 17s;
+}
+
+.bg-bubbles li:nth-child(3) {
+    left: 15%;
+    width: 175px;
+    height: 175px;
+    -webkit-animation-delay: 4s;
+    animation-delay: 4s;
+}
+
+.bg-bubbles li:nth-child(4) {
+    left: 40%;
+    width: 90px;
+    height: 90px;
+    -webkit-animation-duration: 22s;
+    animation-duration: 22s;
+}
+
+.bg-bubbles li:nth-child(5) {
+    left: 70%;
+    background: transparent;
+    border: 4px solid #433470;
+}
+
+.bg-bubbles li:nth-child(6) {
+    left: 90%;
+    width: 90px;
+    height: 90px;
+    -webkit-animation-delay: 3s;
+    animation-delay: 3s;
+    border-radius: 0;
+    background: transparent;
+    border: 4px solid #433470;
+}
+
+.bg-bubbles li:nth-child(7) {
+    left: 32%;
+    width: 60px;
+    height: 60px;
+    -webkit-animation-delay: 7s;
+    animation-delay: 7s;
+    background: transparent;
+    border: 4px solid #433470;
+}
+
+.bg-bubbles li:nth-child(8) {
+    left: 55%;
+    width: 50px;
+    height: 50px;
+    -webkit-animation-delay: 15s;
+    animation-delay: 15s;
+    -webkit-animation-duration: 40s;
+    animation-duration: 40s;
+}
+
+.bg-bubbles li:nth-child(9) {
+    left: 30%;
+    width: 140px;
+    height: 140px;
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+    -webkit-animation-duration: 40s;
+    animation-duration: 40s;
+    border-radius: 0;
+    background: transparent;
+    border: 4px solid #433470;
+}
+
+.bg-bubbles li:nth-child(10) {
+    left: 90%;
+    width: 60px;
+    height: 60px;
+    -webkit-animation-delay: 11s;
+    animation-delay: 11s;
+}
+
+.bg-bubbles li:nth-child(11) {
+    left: 10%;
+    width: 40px;
+    height: 40px;
+    -webkit-animation-delay: 13s;
+    animation-delay: 13s;
+    border-radius: 0;
+}
+
+.bg-bubbles li:nth-child(12) {
+    left: 55%;
+    width: 175px;
+    height: 175px;
+    -webkit-animation-delay: 7s;
+    animation-delay: 7s;
+    background: transparent;
+    border: 4px solid #433470;
+}
+
+.bg-bubbles li:nth-child(13) {
+    left: 65%;
+    width: 100px;
+    height: 100px;
+    -webkit-animation-delay: 8s;
+    animation-delay: 8s;
+    border-radius: 0;
+}
+
+@-webkit-keyframes square {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: translateY(-700px) rotate(600deg);
+        transform: translateY(-700px) rotate(600deg);
+        opacity: 1;
+    }
+}
+
+@keyframes square {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: translateY(-700px) rotate(600deg);
+        transform: translateY(-700px) rotate(600deg);
+        opacity: 0;
+    }
+}
+
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 64px;
+    background: #392e5c;
+    width: 100%;
+    padding: 0 20px;
+    z-index: 999;
+    -webkit-box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.download1 {
+    cursor: not-allowed;
+}
+
+.download1 .coming-soon,
+.download-button-a .coming-soon {
+    color: #666;
+    position: absolute;
+    bottom: 49px;
+    padding: 0;
+    font-size: 12px;
+    border-radius: 2px;
+    background: #fff;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    visibility: hidden;
+}
+
+.download1:hover .coming-soon,
+.download-button-a:hover .coming-soon {
+    visibility: visible;
+}
+
+.download-button-a .coming-soon {
+    bottom: 65px;
+    left: 97px;
+}
+
+
+/* pop-up text arrow */
+
+.download1 .coming-soon:before,
+.download-button-a .coming-soon:before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #fff;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.nav-ul {
+    float: right;
+}
+
+.nav-li {
+    display: inline-block;
+    padding: 0 15px;
+}
+
+.logo {
+    position: relative;
+    float: left;
+}
+
+.logo-a {
+    text-transform: uppercase;
+    font-size: 22px;
+    line-height: 62px;
+    text-decoration: none;
+}
+
+.nav-a {
+    text-transform: capitalize;
+    color: #D7CCEB;
+    font-size: 16px;
+    text-decoration: none;
+    line-height: 64px;
+    border-bottom: 3px solid transparent;
+    padding-bottom: 20px;
+}
+
+
+/*
+.nav-a.active{
+	border-bottom-color: #8f6ed2;
+	transition: border-color 0.3s;
+}*/
+
+.nav-a:hover,
+.nav-a:active {
+    color: #fff;
+}
+
+.logo-twitch {
+    font-weight: 900;
+    color: #fff;
+}
+
+.logo-cord {
+    position: relative;
+    font-weight: 400;
+    color: #ab8fff;
+    height: auto;
+    left: -4px;
+    right: 0;
+}
+
+.fadeInUp {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.ping {
+    color: transparent;
+    margin: 0;
+    z-index: 999;
+    top: 63px;
+    left: 0;
+    position: fixed;
+    width: 150%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.ping::before {
+    -webkit-animation: progress1 6s 1 forwards;
+    animation: progress1 6s 1 forwards;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    content: '';
+    position: fixed;
+    height: 1px;
+    top: 63px;
+    left: 0;
+    opacity: 0;
+    display: block;
+    width: 150%;
+    background: -webkit-linear-gradient(left, rgba(190, 158, 255, 0.4) 10%, #be9eff 80%, #be9eff);
+    background: linear-gradient(to right, rgba(190, 158, 255, 0.4) 10%, #be9eff 80%, #be9eff);
+}
+
+.ping::after {
+    content: "";
+    position: absolute;
+    animation: progress1 6s 1 forwards;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    max-height: 1px;
+    border-radius: 2px;
+    background: rgba(99, 54, 191, .15);
+    filter: blur(8px);
+    box-shadow: 0 0 10px 6px rgba(99, 54, 191, .4), -20px 0 15px 4px rgba(99, 54, 191, .3), -40px 0 15px 2px rgba(99, 54, 191, .2), -60px 0 10px 1px rgba(99, 54, 191, .1), -80px 0 10px 1px rgba(99, 54, 191, .05);
+}
+
+.logo-icon {
+    background: url('/images/twitchcord-logo.png') no-repeat 50%;
+    width: 35px;
+    height: 37px;
+    display: inline-block;
+    margin-bottom: -12px;
+    margin-right: 5px;
+}
+
+@-webkit-keyframes progress1 {
+    0% {
+        -webkit-transform: scalex(0);
+        transform: scalex(0);
+        opacity: .5;
+    }
+    90% {
+        -webkit-transform: scalex(1);
+        transform: scalex(1);
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: scalex(1);
+        transform: scalex(1);
+        opacity: 1;
+    }
+}
+
+@keyframes progress1 {
+    0% {
+        -webkit-transform: scalex(0);
+        transform: scalex(0);
+        opacity: .5;
+    }
+    90% {
+        -webkit-transform: scalex(1);
+        transform: scalex(1);
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: scalex(1);
+        transform: scalex(1);
+        opacity: 1;
+    }
+}
+
+audio {
+    display: none;
+}
+
+.nav-a.current {
+    color: #fff;
+    border-bottom: 3px solid #8f6ed2;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #6647a8;
+    border: 1px solid #9467f5;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #0e0c13;
+}
+
+.section-1-header {
+    text-align: center;
+    font-size: 30px;
+    color: #cdb9ff;
+    display: inline-block;
+    position: relative;
+    line-height: 64px;
+    vertical-align: top;
+}
+
+.section-1 .discord {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.discord-icon {
+    background: url('/images/discord-logo.png') no-repeat 50%;
+    width: 232px;
+    height: 64px;
+    display: block;
+}
+
+.discord-a {
+    display: block;
+    line-height: 64px;
+    width: 232px;
+    height: 64px;
+}
+
+.discord-a-span {
+    text-indent: -999999px;
+    display: block;
+    position: absolute;
+}
+
+.main-body {
+    margin-top: 130px;
+    min-height: 785px;
+}
+
+.section-1 {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.buttons-cont {
+    display: block;
+    margin-top: 50px;
+}
+
+.primary {
+    display: inline-block;
+    position: relative;
+    background: #6442a4;
+    font-size: 14px;
+    color: #fff;
+    border: 2px solid transparent;
+    height: 48px;
+    width: 190px;
+    line-height: 44px;
+    text-transform: capitalize;
+    margin-right: 30px;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.secondary {
+    display: inline-block;
+    background: transparent;
+    font-size: 14px;
+    color: #a68af7;
+    border: 2px solid #6442a4;
+    height: 48px;
+    width: 190px;
+    line-height: 44px;
+    text-transform: capitalize;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.primary:hover {
+    background-color: #7d5bbf;
+    transition: background-color 0.2s;
+}
+
+.secondary:hover {
+    background-color: #7d5bbf;
+    border-color: transparent;
+    color: #fff;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.github-txt {
+    color: #a68af7;
+    font-size: 14px;
+}
+
+.github-a-span {
+    text-indent: -99999px;
+    display: block;
+    position: absolute;
+}
+
+.github-icon {
+    background: url('/images/github-logo.png') no-repeat 50%;
+    width: 89px;
+    height: 23px;
+    display: inline-block;
+}
+
+.github-a {
+    display: inline-block;
+    position: relative;
+    margin: 10px 8px;
+    line-height: 24px;
+    width: 89px;
+    height: 23px;
+    top: 5px;
+}
+
+.join-github {
+    margin-top: 45px;
+}
+
+.section-1-preview-img {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+}
+
+.preview-img {
+    background: url('/images/preview-1.jpg') no-repeat 50%;
+    background-size: 954px 517px;
+    width: 954px;
+    height: 517px;
+    margin: auto;
+    position: absolute;
+    top: 700px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    box-shadow: 0 0 30px #000;
+    -webkit-animation-timing-function: cubic-bezier(0.52, 0.28, 0.28, 1);
+    animation-timing-function: cubic-bezier(0.52, 0.28, 0.28, 1);
+    visibility: hidden;
+}
+
+@-webkit-keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0)
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0)
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none
+    }
+}
+
+@-webkit-keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0)
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none
+    }
+}
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0)
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none
+    }
+}
+
+.fadeInLeft {
+    -webkit-animation-name: fadeInLeft;
+    animation-name: fadeInLeft
+}
+
+.wow.animated {
+    visibility: visible;
+}
+
+.wow {
+    visibility: hidden;
+}
+
+.animated {
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.about-twitchcord {
+    position: relative;
+    width: 100%;
+    height: 989px;
+    background: url('/images/section-2-bg.png') no-repeat 50%;
+    margin-top: -150px;
+    padding-top: 260px;
+    z-index: 3;
+}
+
+.section-2-header {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-2-header-txt {
+    text-transform: uppercase;
+    color: #e7e0f6;
+    font-size: 48px;
+    margin-bottom: 25px;
+}
+
+.black {
+    font-weight: 900;
+}
+
+.section-2-header-txt .purple {
+    color: #ae93e6;
+}
+
+.section-2-para {
+    color: #d5cced;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.twitchcord-logo {
+    display: inline-block;
+    width: 213px;
+    height: 217px;
+    background: url('/images/twitchcord-logo-big.png') no-repeat 50%;
+    transform: translatey(0px);
+    animation: float 4s ease-in-out infinite;
+}
+
+.section-2-heading {
+    text-align: left;
+    display: inline-block;
+    top: -80px;
+    position: relative;
+}
+
+@keyframes float {
+    0% {
+        transform: translatey(-10px);
+    }
+    50% {
+        transform: translatey(-40px);
+    }
+    100% {
+        transform: translatey(-10px);
+    }
+}
+
+.screenshots {
+    position: relative;
+    width: 100%;
+    height: 585px;
+    background: #0a090d;
+    margin-top: -180px;
+    padding-top: 90px;
+    z-index: 2;
+}
+
+@-webkit-keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0)
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none
+    }
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0)
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none
+    }
+}
+
+.fadeInRight {
+    -webkit-animation-name: fadeInRight;
+    animation-name: fadeInRight
+}
+
+.screenshots-header-txt {
+    color: #e7e0f6;
+    font-size: 48px;
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.screenshots-para {
+    font-size: 16px;
+    line-height: 24px;
+    color: #aca3c4;
+    display: block;
+    text-align: center;
+}
+
+.screenshot {
+    position: relative;
+    display: inline-block;
+    padding-right: 50px;
+    transition: transform .5s cubic-bezier(.31, 2.71, .8, .9);
+    transform-origin: 50% 50%;
+    z-index: 4;
+}
+
+.screenshot canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
+
+.screenshots-contain {
+    width: 200%;
+    margin-top: 80px;
+    margin-left: -16%;
+    overflow: hidden;
+    height: 310px;
+    -webkit-animation-timing-function: cubic-bezier(0.52, 0.28, 0.28, 1);
+    animation-timing-function: cubic-bezier(0.52, 0.28, 0.28, 1);
+    visibility: hidden;
+}
+
+#section0 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    height: 750px;
+}
+
+.download-now {
+    min-height: 450px;
+    padding-top: 50px;
+    background: #8e68d9 url('/images/twitchcord-bg.png');
+    -webkit-animation: 100s scroll infinite linear;
+    -moz-animation: 100s scroll infinite linear;
+    -o-animation: 100s scroll infinite linear;
+    -ms-animation: 100s scroll infinite linear;
+    animation: 100s scroll infinite linear;
+    top: 0;
+    left: 0;
+    width: 100%;
+    position: relative;
+}
+
+.download-header {
+    position: relative;
+}
+
+.download-header-txt {
+    font-size: 48px;
+    text-align: center;
+    color: #e7e0f6;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.download-para {
+    text-align: center;
+    color: #e6d9ff;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.section-small {
+    width: 25%;
+    height: 200px;
+    margin-left: 10%;
+}
+
+.section-large {
+    width: 55%;
+    padding-top: 40px;
+}
+
+.section-small,
+.section-large {
+    float: left;
+    text-align: center;
+}
+
+.treasurechest-contain {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    margin-top: 52px;
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes rupeeRise {
+    0% {
+        bottom: 130px;
+        z-index: 4;
+    }
+    100% {
+        bottom: 350px;
+        z-index: 4;
+    }
+}
+
+@keyframes topChest {
+    0% {
+        margin-top: 0;
+    }
+    100% {
+        margin-top: -100px;
+    }
+}
+
+@keyframes zChange {
+    0% {
+        z-index: 5;
+    }
+    100% {
+        z-index: 5;
+    }
+}
+
+#instructions {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+}
+
+#top-checkbox {
+    display: none;
+}
+
+#top-checkbox.active+label #treasurechest-top {
+    animation: topChest 0.5s linear 0s 1 forwards;
+}
+
+#top-checkbox.active+label+#treasurechest-bottom {
+    animation: zChange 0.5s linear 0.5s 1 forwards;
+}
+
+#top-checkbox.active+label~#rupee {
+    animation: rupeeRise 0.5s linear 1s 1 forwards;
+}
+
+#top-checkbox.active~#instructions {
+    display: none;
+}
+
+#treasurechest {
+    border-top: 10px solid #000;
+    border-left: 10px solid #000;
+    border-right: 10px solid #000;
+    position: absolute;
+    display: block;
+    left: 50%;
+    width: 200px;
+    height: 160px;
+    z-index: 3;
+    transform: translateX(-50%);
+    overflow: hidden;
+    bottom: 20px;
+    box-sizing: content-box;
+}
+
+#treasurechest-top {
+    width: 10px;
+    height: 10px;
+    display: block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    background: #838382;
+    box-shadow: -95px 0px #838382, -85px 0px #838382, -75px 0px #000, -65px 0px #6234a4, -55px 0px #6234a4, -45px 0px #FFF, -35px 0px #6234a4, -25px 0px #6234a4, -15px 0px #000, -5px 0px #838382, 5px 0px #838382, 15px 0px #000, 25px 0px #6234a4, 35px 0px #6234a4, 45px 0px #FFF, 55px 0px #6234a4, 65px 0px #6234a4, 75px 0px #000, 85px 0px #838382, 95px 0px #838382, -95px 10px #838382, -85px 10px #838382, -75px 10px #000, -65px 10px #6234a4, -55px 10px #6234a4, -45px 10px #000, -35px 10px #6234a4, -25px 10px #6234a4, -15px 10px #000, -5px 10px #838382, 5px 10px #838382, 15px 10px #000, 25px 10px #6234a4, 35px 10px #6234a4, 45px 10px #000, 55px 10px #6234a4, 65px 10px #6234a4, 75px 10px #000, 85px 10px #838382, 95px 10px #838382, -95px 20px #FFF, -85px 20px #FFF, -75px 20px #000, -65px 20px #966dd1, -55px 20px #966dd1, -45px 20px #966dd1, -35px 20px #966dd1, -25px 20px #966dd1, -15px 20px #000, -5px 20px #FFF, 5px 20px #FFF, 15px 20px #000, 25px 20px #966dd1, 35px 20px #966dd1, 45px 20px #966dd1, 55px 20px #966dd1, 65px 20px #966dd1, 75px 20px #000, 85px 20px #FFF, 95px 20px #FFF, 105px 20px #000, -105px 30px #000, -95px 30px #FFF, -85px 30px #FFF, -75px 30px #000, -65px 30px #966dd1, -55px 30px #966dd1, -45px 30px #966dd1, -35px 30px #966dd1, -25px 30px #966dd1, -15px 30px #000, -5px 30px #FFF, 5px 30px #FFF, 15px 30px #000, 25px 30px #966dd1, 35px 30px #966dd1, 45px 30px #966dd1, 55px 30px #966dd1, 65px 30px #966dd1, 75px 30px #000, 85px 30px #FFF, 95px 30px #FFF, -95px 40px #838382, -85px 40px #838382, -75px 40px #000, -65px 40px #6234a4, -55px 40px #6234a4, -45px 40px #6234a4, -35px 40px #6234a4, -25px 40px #6234a4, -15px 40px #000, -5px 40px #838382, 5px 40px #838382, 15px 40px #000, 25px 40px #6234a4, 35px 40px #6234a4, 45px 40px #6234a4, 55px 40px #6234a4, 65px 40px #6234a4, 75px 40px #000, 85px 40px #838382, 95px 40px #838382, -95px 50px #838382, -85px 50px #838382, -75px 50px #000, -65px 50px #6234a4, -55px 50px #6234a4, -45px 50px #FFF, -35px 50px #6234a4, -25px 50px #6234a4, -15px 50px #000, -5px 50px #838382, 5px 50px #838382, 15px 50px #000, 25px 50px #6234a4, 35px 50px #6234a4, 45px 50px #FFF, 55px 50px #6234a4, 65px 50px #6234a4, 75px 50px #000, 85px 50px #838382, 95px 50px #838382, -95px 60px #838382, -85px 60px #838382, -75px 60px #000, -65px 60px #6234a4, -55px 60px #6234a4, -45px 60px #000, -35px 60px #6234a4, -25px 60px #6234a4, -15px 60px #000, -5px 60px #838382, 5px 60px #838382, 15px 60px #000, 25px 60px #6234a4, 35px 60px #6234a4, 45px 60px #000, 55px 60px #6234a4, 65px 60px #6234a4, 75px 60px #000, 85px 60px #838382, 95px 60px #838382, -95px 70px #838382, -85px 70px #838382, -75px 70px #000, -65px 70px #6234a4, -55px 70px #6234a4, -45px 70px #6234a4, -35px 70px #6234a4, -25px 70px #6234a4, -15px 70px #000, -5px 70px #838382, 5px 70px #838382, 15px 70px #000, 25px 70px #6234a4, 35px 70px #6234a4, 45px 70px #6234a4, 55px 70px #6234a4, 65px 70px #6234a4, 75px 70px #000, 85px 70px #838382, 95px 70px #838382, -95px 80px #838382, -85px 80px #838382, -75px 80px #000, -65px 80px #6234a4, -55px 80px #6234a4, -45px 80px #6234a4, -35px 80px #6234a4, -25px 80px #6234a4, -15px 80px #000, -5px 80px #838382, 5px 80px #838382, 15px 80px #000, 25px 80px #6234a4, 35px 80px #6234a4, 45px 80px #6234a4, 55px 80px #6234a4, 65px 80px #6234a4, 75px 80px #000, 85px 80px #838382, 95px 80px #838382, -95px 90px #838382, -85px 90px #838382, -75px 90px #000, -65px 90px #000, -55px 90px #000, -45px 90px #000, -35px 90px #000, -25px 90px #000, -15px 90px #000, -5px 90px #838382, 5px 90px #838382, 15px 90px #000, 25px 90px #000, 35px 90px #000, 45px 90px #000, 55px 90px #000, 65px 90px #000, 75px 90px #000, 85px 90px #838382, 95px 90px #838382, -95px 100px #838382, -85px 100px #838382, -75px 100px #838382, -65px 100px #838382, -55px 100px #838382, -45px 100px #838382, -35px 100px #838382, -25px 100px #838382, -15px 100px #FFF, -5px 100px #FFF, 5px 100px #FFF, 15px 100px #FFF, 25px 100px #838382, 35px 100px #838382, 45px 100px #838382, 55px 100px #838382, 65px 100px #838382, 75px 100px #838382, 75px 100px #838382, 85px 100px #838382, 95px 100px #838382, -95px 110px #000, -85px 110px #000, -75px 110px #000, -65px 110px #000, -55px 110px #000, -45px 110px #000, -35px 110px #000, -25px 110px #000, -15px 110px #838382, -5px 110px #000, 5px 110px #000, 15px 110px #838382, 25px 110px #000, 35px 110px #000, 45px 110px #000, 55px 110px #000, 65px 110px #000, 75px 110px #000, 85px 110px #000, 95px 110px #000, -15px 120px #838382, 15px 120px #838382, -15px 130px #838382, -5px 130px #838382, 5px 130px #838382, 15px 130px #838382, -15px 140px #000, -5px 140px #000, 5px 140px #000, 15px 140px #000;
+}
+
+#treasurechest-top:before {
+    content: ' ';
+    width: 220px;
+    height: 190px;
+    display: block;
+    margin-left: -110px;
+}
+
+#treasurechest-bottom {
+    width: 10px;
+    height: 10px;
+    display: block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    position: absolute;
+    bottom: 180px;
+    box-shadow: -105px 90px #000, -95px 90px #000, -85px 90px #000, -75px 90px #000, -65px 90px #000, -55px 90px #000, -45px 90px #000, -35px 90px #000, -25px 90px #000, -15px 90px #000, -5px 90px #000, 5px 90px #000, 15px 90px #000, 25px 90px #000, 35px 90px #000, 45px 90px #000, 55px 90px #000, 65px 90px #000, 75px 90px #000, 85px 90px #000, 95px 90px #000, 105px 90px #000, -105px 100px #000, -95px 100px #838382, -85px 100px #838382, -75px 100px #000, -65px 100px #6234a4, -55px 100px #6234a4, -45px 100px #6234a4, -35px 100px #6234a4, -25px 100px #6234a4, -15px 100px #6234a4, -5px 100px #6234a4, 5px 100px #6234a4, 15px 100px #6234a4, 25px 100px #6234a4, 35px 100px #6234a4, 45px 100px #6234a4, 55px 100px #6234a4, 65px 100px #6234a4, 75px 100px #000, 85px 100px #838382, 95px 100px #838382, 105px 100px #000, -105px 110px #000, -95px 110px #838382, -85px 110px #838382, -75px 110px #000, -65px 110px #6234a4, -55px 110px #6234a4, -45px 110px #6234a4, -35px 110px #6234a4, -25px 110px #6234a4, -15px 110px #6234a4, -5px 110px #6234a4, 5px 110px #6234a4, 15px 110px #6234a4, 25px 110px #6234a4, 35px 110px #6234a4, 45px 110px #6234a4, 55px 110px #6234a4, 65px 110px #6234a4, 75px 110px #000, 85px 110px #838382, 95px 110px #838382, 105px 110px #000, -105px 120px #000, -95px 120px #838382, -85px 120px #838382, -75px 120px #000, -65px 120px #6234a4, -55px 120px #6234a4, -45px 120px #6234a4, -35px 120px #6234a4, -25px 120px #6234a4, -15px 120px #6234a4, -5px 120px #6234a4, 5px 120px #6234a4, 15px 120px #6234a4, 25px 120px #6234a4, 35px 120px #6234a4, 45px 120px #6234a4, 55px 120px #6234a4, 65px 120px #6234a4, 75px 120px #000, 85px 120px #838382, 95px 120px #838382, 105px 120px #000, -105px 130px #000, -95px 130px #838382, -85px 130px #838382, -75px 130px #000, -65px 130px #6234a4, -55px 130px #6234a4, -45px 130px #6234a4, -35px 130px #6234a4, -25px 130px #6234a4, -15px 130px #6234a4, -5px 130px #6234a4, 5px 130px #6234a4, 15px 130px #6234a4, 25px 130px #6234a4, 35px 130px #6234a4, 45px 130px #6234a4, 55px 130px #6234a4, 65px 130px #6234a4, 75px 130px #000, 85px 130px #838382, 95px 130px #838382, 105px 130px #000, -105px 140px #000, -95px 140px #838382, -85px 140px #838382, -75px 140px #000, -65px 140px #000, -55px 140px #000, -45px 140px #000, -35px 140px #000, -25px 140px #000, -15px 140px #000, -5px 140px #000, 5px 140px #000, 15px 140px #000, 25px 140px #000, 35px 140px #000, 45px 140px #000, 55px 140px #000, 65px 140px #000, 75px 140px #000, 85px 140px #838382, 95px 140px #838382, 105px 140px #000, -105px 150px #000, -95px 150px #838382, -85px 150px #838382, -75px 150px #838382, -65px 150px #838382, -55px 150px #838382, -45px 150px #838382, -35px 150px #838382, -25px 150px #838382, -15px 150px #838382, -5px 150px #838382, 5px 150px #838382, 15px 150px #838382, 25px 150px #838382, 35px 150px #838382, 45px 150px #838382, 55px 150px #838382, 65px 150px #838382, 75px 150px #838382, 85px 150px #838382, 95px 150px #838382, 105px 150px #000, -105px 160px #000, -95px 160px #838382, -85px 160px #838382, -75px 160px #838382, -65px 160px #838382, -55px 160px #838382, -45px 160px #838382, -35px 160px #838382, -25px 160px #838382, -15px 160px #838382, -5px 160px #838382, 5px 160px #838382, 15px 160px #838382, 25px 160px #838382, 35px 160px #838382, 45px 160px #838382, 55px 160px #838382, 65px 160px #838382, 75px 160px #838382, 85px 160px #838382, 95px 160px #838382, 105px 160px #000, -105px 170px #000, -95px 170px #000, -85px 170px #000, -75px 170px #000, -65px 170px #000, -55px 170px #000, -45px 170px #000, -35px 170px #000, -25px 170px #000, -15px 170px #000, -5px 170px #000, 5px 170px #000, 15px 170px #000, 25px 170px #000, 35px 170px #000, 45px 170px #000, 55px 170px #000, 65px 170px #000, 75px 170px #000, 85px 170px #000, 95px 170px #000, 105px 170px #000;
+}
+
+#treasurechest-bg {
+    width: 10px;
+    height: 10px;
+    display: block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+    position: absolute;
+    bottom: 160px;
+    background: #6234a4;
+    box-shadow: -105px 0px #000, -95px 0px #341b57, -85px 0px #341b57, -75px 0px #341b57, -65px 0px #341b57, -55px 0px #341b57, -45px 0px #341b57, -35px 0px #341b57, -25px 0px #341b57, -15px 0px #341b57, -5px 0px #341b57, 5px 0px #341b57, 15px 0px #341b57, 25px 0px #341b57, 35px 0px #341b57, 45px 0px #341b57, 55px 0px #341b57, 65px 0px #341b57, 75px 0px #341b57, 85px 0px #341b57, 95px 0px #341b57, 105px 0px #000, -105px 10px #000, -95px 10px #341b57, -85px 10px #341b57, -75px 10px #341b57, -65px 10px #341b57, -55px 10px #341b57, -45px 10px #341b57, -35px 10px #341b57, -25px 10px #341b57, -15px 10px #341b57, -5px 10px #341b57, 5px 10px #341b57, 15px 10px #341b57, 25px 10px #341b57, 35px 10px #341b57, 45px 10px #341b57, 55px 10px #341b57, 65px 10px #341b57, 75px 10px #341b57, 85px 10px #341b57, 95px 10px #341b57, 105px 10px #000, -105px 20px #000, -95px 20px #341b57, -85px 20px #341b57, -75px 20px #341b57, -65px 20px #341b57, -55px 20px #341b57, -45px 20px #341b57, -35px 20px #341b57, -25px 20px #341b57, -15px 20px #341b57, -5px 20px #341b57, 5px 20px #341b57, 15px 20px #341b57, 25px 20px #341b57, 35px 20px #341b57, 45px 20px #341b57, 55px 20px #341b57, 65px 20px #341b57, 75px 20px #341b57, 85px 20px #341b57, 95px 20px #341b57, 105px 20px #000, -105px 30px #000, -95px 30px #341b57, -85px 30px #341b57, -75px 30px #341b57, -65px 30px #341b57, -55px 30px #341b57, -45px 30px #341b57, -35px 30px #341b57, -25px 30px #341b57, -15px 30px #341b57, -5px 30px #341b57, 5px 30px #341b57, 15px 30px #341b57, 25px 30px #341b57, 35px 30px #341b57, 45px 30px #341b57, 55px 30px #341b57, 65px 30px #341b57, 75px 30px #341b57, 85px 30px #341b57, 95px 30px #341b57, 105px 30px #000, -105px 40px #000, -95px 40px #341b57, -85px 40px #341b57, -75px 40px #341b57, -65px 40px #341b57, -55px 40px #341b57, -45px 40px #341b57, -35px 40px #341b57, -25px 40px #341b57, -15px 40px #341b57, -5px 40px #341b57, 5px 40px #341b57, 15px 40px #341b57, 25px 40px #341b57, 35px 40px #341b57, 45px 40px #341b57, 55px 40px #341b57, 65px 40px #341b57, 75px 40px #341b57, 85px 40px #341b57, 95px 40px #341b57, 105px 40px #000, -105px 50px #000, -95px 50px #341b57, -85px 50px #341b57, -75px 50px #341b57, -65px 50px #341b57, -55px 50px #341b57, -45px 50px #341b57, -35px 50px #341b57, -25px 50px #341b57, -15px 50px #341b57, -5px 50px #341b57, 5px 50px #341b57, 15px 50px #341b57, 25px 50px #341b57, 35px 50px #341b57, 45px 50px #341b57, 55px 50px #341b57, 65px 50px #341b57, 75px 50px #341b57, 85px 50px #341b57, 95px 50px #341b57, 105px 50px #000, -105px 60px #000, -95px 60px #341b57, -85px 60px #341b57, -75px 60px #341b57, -65px 60px #341b57, -55px 60px #341b57, -45px 60px #341b57, -35px 60px #341b57, -25px 60px #341b57, -15px 60px #341b57, -5px 60px #341b57, 5px 60px #341b57, 15px 60px #341b57, 25px 60px #341b57, 35px 60px #341b57, 45px 60px #341b57, 55px 60px #341b57, 65px 60px #341b57, 75px 60px #341b57, 85px 60px #341b57, 95px 60px #341b57, 105px 60px #000, -105px 70px #000, -95px 70px #341b57, -85px 70px #341b57, -75px 70px #341b57, -65px 70px #341b57, -55px 70px #341b57, -45px 70px #341b57, -35px 70px #341b57, -25px 70px #341b57, -15px 70px #341b57, -5px 70px #341b57, 5px 70px #341b57, 15px 70px #341b57, 25px 70px #341b57, 35px 70px #341b57, 45px 70px #341b57, 55px 70px #341b57, 65px 70px #341b57, 75px 70px #341b57, 85px 70px #341b57, 95px 70px #341b57, 105px 70px #000;
+}
+
+#chest-shadow {
+    background: url(/images/chest-shadow.png) no-repeat 50%;
+    width: 419px;
+    height: 54px;
+    display: block;
+    position: absolute;
+    bottom: -7px;
+    left: -110px;
+    right: 0;
+    margin: auto;
+}
+
+#rupee {
+    width: 10px;
+    height: 10px;
+    display: block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    bottom: 130px;
+    z-index: 0;
+    background: #000;
+    margin-left: -5px;
+    box-shadow: 10px 0px #000, -10px 10px #000, 0px 10px #67bd39, 10px 10px #52962d, 20px 10px #000, -20px 20px #000, -10px 20px #67bd39, 0px 20px #67bd39, 10px 20px #52962d, 20px 20px #52962d, 30px 20px #000, -30px 30px #000, -20px 30px #67bd39, -10px 30px #67bd39, 0px 30px #325b1b, 10px 30px #325b1b, 20px 30px #52962d, 30px 30px #52962d, 40px 30px #000, -30px 40px #000, -20px 40px #67bd39, -10px 40px #325b1b, 0px 40px #84ce5b, 10px 40px #84ce5b, 20px 40px #325b1b, 30px 40px #52962d, 40px 40px #000, -30px 50px #000, -20px 50px #67bd39, -10px 50px #325b1b, 0px 50px #84ce5b, 10px 50px #84ce5b, 20px 50px #325b1b, 30px 50px #52962d, 40px 50px #000, -30px 60px #000, -20px 60px #67bd39, -10px 60px #325b1b, 0px 60px #84ce5b, 10px 60px #84ce5b, 20px 60px #325b1b, 30px 60px #52962d, 40px 60px #000, -30px 70px #000, -20px 70px #67bd39, -10px 70px #325b1b, 0px 70px #84ce5b, 10px 70px #84ce5b, 20px 70px #325b1b, 30px 70px #52962d, 40px 70px #000, -30px 80px #000, -20px 80px #67bd39, -10px 80px #67bd39, 0px 80px #325b1b, 10px 80px #325b1b, 20px 80px #52962d, 30px 80px #52962d, 40px 80px #000, -20px 90px #000, -10px 90px #67bd39, 0px 90px #67bd39, 10px 90px #52962d, 20px 90px #52962d, 30px 90px #000, -10px 100px #000, 0px 100px #67bd39, 10px 100px #52962d, 20px 100px #000, 0px 110px #000, 10px 110px #000;
+}
+
+@-webkit-keyframes scroll {
+    100% {
+        background-position: 0px -3000px;
+    }
+}
+
+@-moz-keyframes scroll {
+    100% {
+        background-position: 0px -3000px;
+    }
+}
+
+@-o-keyframes scroll {
+    100% {
+        background-position: 0px -3000px;
+    }
+}
+
+@-ms-keyframes scroll {
+    100% {
+        background-position: 0px -3000px;
+    }
+}
+
+@keyframes scroll {
+    100% {
+        background-position: 0px -3000px;
+    }
+}
+
+.download-now::before {
+    content: '';
+    background: rgba(0, 0, 0, .1);
+    height: 20px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.download-now::after {
+    content: '';
+    background: rgba(0, 0, 0, .1);
+    height: 20px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.download-button {
+    background: #7d5bbf;
+    display: block;
+    margin: 0 auto;
+    width: 300px;
+    margin-top: 45px;
+}
+
+.download-button-a {
+    background: #6442a4;
+    position: relative;
+    font-size: 20px;
+    text-align: center;
+    line-height: 66px;
+    color: #fff;
+    display: block;
+    border: 5px solid #442d70;
+    cursor: not-allowed;
+    transition: background-color 0.2s;
+}
+
+.download-button-a:hover,
+.download-button-a:active {
+    background: #7d5bbf;
+    transition: background-color 0.2s;
+}
+
+.support {
+    position: relative;
+    background: url('/images/crossthatch.png'), linear-gradient(to bottom, #17141f 0, #2a2247 100%);
+    width: 100%;
+    height: 450px;
+    padding-top: 50px;
+    box-shadow: 0 30px 100px -20px rgba(0, 0, 0, 1);
+}
+
+.support-header-txt,
+.donate-header-txt {
+    color: #e7e0f6;
+    font-size: 48px;
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.support-para,
+.donate-para {
+    color: #d5cced;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.support-button-a,
+.donate-button-a {
+    margin-top: 45px;
+}
+
+.support .section-large {
+    margin-left: 10%;
+}
+
+.heart-container {
+    text-align: center;
+    margin-top: 120px;
+}
+
+.heart {
+    display: inline-block;
+    width: 100px;
+    height: 74px;
+    position: relative;
+    -webkit-transform: scale(2);
+    transform: scale(2);
+    -webkit-animation: heartbeat 1.5s infinite 2s;
+    animation: heartbeat 1.5s infinite 2s;
+}
+
+.heart:after {
+    content: '';
+    position: absolute;
+    top: -65px;
+    left: -42px;
+    width: 6px;
+    height: 6px;
+    background: transparent;
+    box-shadow: 54px 72px #5f33a2, 48px 78px #5f33a2, 54px 78px #9b7ad5, 60px 84px #775da3, 60px 78px #e6ddf4, 54px 84px #e6ddf4, 54px 90px #9b7ad5, 66px 78px #9b7ad5, 78px 126px #48267a, 84px 120px #48267a, 90px 114px #48267a, 96px 108px #48267a, 102px 102px #48267a, 102px 96px #48267a, 108px 90px #48267a, 108px 84px #48267a, 108px 78px #48267a, 84px 120px #5f33a2, 78px 120px #5f33a2, 72px 120px #5f33a2, 90px 114px #5f33a2, 84px 114px #5f33a2, 78px 114px #5f33a2, 72px 114px #5f33a2, 66px 114px #5f33a2, 96px 108px #5f33a2, 90px 108px #5f33a2, 84px 108px #5f33a2, 78px 108px #5f33a2, 72px 108px #5f33a2, 66px 108px #5f33a2, 60px 108px #5f33a2, 102px 102px #5f33a2, 96px 102px #5f33a2, 90px 102px #5f33a2, 78px 102px #5f33a2, 84px 102px #5f33a2, 72px 102px #5f33a2, 66px 102px #5f33a2, 60px 102px #5f33a2, 54px 102px #5f33a2, 102px 96px #5f33a2, 90px 96px #5f33a2, 96px 96px #5f33a2, 84px 96px #5f33a2, 54px 96px #5f33a2, 60px 96px #5f33a2, 66px 96px #5f33a2, 72px 96px #5f33a2, 78px 96px #5f33a2, 108px 90px #5f33a2, 102px 90px #5f33a2, 96px 90px #5f33a2, 90px 90px #5f33a2, 84px 90px #5f33a2, 78px 90px #5f33a2, 72px 90px #5f33a2, 66px 90px #5f33a2, 60px 90px #5f33a2, 54px 90px #5f33a2, 48px 90px #5f33a2, 108px 84px #5f33a2, 102px 84px #5f33a2, 96px 84px #5f33a2, 90px 84px #5f33a2, 84px 84px #5f33a2, 78px 84px #5f33a2, 72px 84px #5f33a2, 66px 84px #5f33a2, 60px 84px #5f33a2, 54px 84px #5f33a2, 48px 84px #5f33a2, 108px 78px #5f33a2, 102px 78px #5f33a2, 96px 78px #5f33a2, 90px 78px #5f33a2, 84px 78px #5f33a2, 72px 78px #5f33a2, 66px 78px #5f33a2, 60px 78px #5f33a2, 54px 78px #5f33a2, 102px 72px #5f33a2, 96px 72px #5f33a2, 90px 72px #5f33a2, 66px 72px #5f33a2, 60px 72px #5f33a2, 78px 132px #000000, 84px 126px #000000, 90px 120px #000000, 96px 114px #000000, 102px 108px #000000, 108px 102px #000000, 108px 96px #000000, 114px 90px #000000, 114px 84px #000000, 114px 78px #000000, 108px 72px #000000, 102px 66px #000000, 90px 66px #000000, 96px 66px #000000, 84px 72px #000000, 78px 78px #000000, 72px 72px #000000, 66px 66px #000000, 60px 66px #000000, 54px 66px #000000, 48px 72px #000000, 42px 84px #000000, 42px 78px #000000, 42px 90px #000000, 48px 96px #000000, 48px 102px #000000, 54px 108px #000000, 60px 114px #000000, 66px 120px #000000, 72px 126px #000000, 78px 126px #5f33a2;
+}
+
+@-webkit-keyframes heartbeat {
+    0% {
+        -webkit-transform: scale(2);
+        transform: scale(2);
+    }
+    20% {
+        -webkit-transform: scale(3);
+        transform: scale(3);
+    }
+    40% {
+        -webkit-transform: scale(2);
+        transform: scale(2);
+    }
+    60% {
+        -webkit-transform: scale(3);
+        transform: scale(3);
+    }
+    80% {
+        -webkit-transform: scale(2);
+        transform: scale(2);
+    }
+    100% {
+        -webkit-transform: scale(2);
+        transform: scale(2);
+    }
+}
+
+@keyframes heartbeat {
+    0% {
+        -webkit-transform: scale(2);
+        transform: scale(2);
+    }
+    20% {
+        -webkit-transform: scale(3);
+        transform: scale(3);
+    }
+    40% {
+        -webkit-transform: scale(2);
+        transform: scale(2);
+    }
+    60% {
+        -webkit-transform: scale(3);
+        transform: scale(3);
+    }
+    80% {
+        -webkit-transform: scale(2);
+        transform: scale(2);
+    }
+    100% {
+        -webkit-transform: scale(2);
+        transform: scale(2);
+    }
+}
+
+.screenshots::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 575px;
+    box-shadow: inset 0 -40px 60px -25px #000;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.donate {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    padding-top: 50px;
+}
+
+.block-container {
+    margin: 80px 50px 0;
+    transform: scale(1.2);
+}
+
+.block-container .block {
+    height: 150px;
+    width: 150px;
+}
+
+.block-container .block .st0 {
+    fill: #5f33a2;
+}
+
+.block-container .block .st1 {
+    fill: #9b7ad5;
+}
+
+.block-container .block .st2 {
+    fill: #48267a;
+}
+
+.block-container .block .st3 {
+    fill: #FFFFFF;
+}
+
+.block-container .block .st4 {
+    fill: #48267a;
+}
+
+.block-cont {
+    z-index: 9999;
+    position: relative;
+}
+
+.block-cont.bounce {
+    -webkit-animation: blockbounce 0.1s ease-in-out;
+    -moz-animation: blockbounce 0.1s ease-in-out;
+    animation: blockbounce 0.1s ease-in-out;
+}
+
+.coin {
+    z-index: 1;
+    top: -140px;
+    left: 64px;
+    width: 120px;
+    height: 160px;
+    display: none;
+    position: absolute;
+    background: url("/images/coin.png") no-repeat;
+}
+
+.coin.active {
+    display: block;
+    -webkit-animation: coinmove 0.3s ease-in-out forwards;
+    -moz-animation: coinmove 0.3s ease-in-out forwards;
+    animation: coinmove 0.3s ease-in-out forwards;
+}
+
+@keyframes blockbounce {
+    0% {
+        bottom: 20px;
+    }
+    25%,
+    75% {
+        bottom: 60px;
+    }
+    50% {
+        bottom: 80px;
+    }
+    100% {
+        bottom: 0;
+    }
+}
+
+@keyframes coinmove {
+    0% {
+        -webkit-transform: translate(0, 0);
+        -moz-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+    50% {
+        -webkit-transform: translate(0, -80px);
+        -moz-transform: translate(0, -80px);
+        transform: translate(0, -80px);
+    }
+    100% {
+        -webkit-transform: translate(0, 0);
+        -moz-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+}
+
+.download-now .section-small {
+    margin-right: 5%
+}
+
+.donate .section-small {
+    margin-right: 2%
+}
+
+.footer {
+    background: transparent url('/images/footer-top.png') no-repeat 50%;
+    position: relative;
+    height: 300px;
+}
+
+.footer::after {
+    content: 'Copyright © 2017 Twitchcord.com. By a gamer, for gamers. All rights reserved.';
+    text-align: center;
+    color: #fff;
+    line-height: 45px;
+    position: absolute;
+    width: 100%;
+    height: 45px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, #6955ab, #231c38, #7d5bbf, #6442a4, #a68af7);
+    background-size: 1000% 1000%;
+    -webkit-animation: AnimationName 10s ease infinite;
+    -moz-animation: AnimationName 10s ease infinite;
+    -o-animation: AnimationName 10s ease infinite;
+    animation: AnimationName 10s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 00% 50%
+    }
+}
+
+@-moz-keyframes AnimationName {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 00% 50%
+    }
+}
+
+@-o-keyframes AnimationName {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 00% 50%
+    }
+}
+
+@keyframes AnimationName {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 00% 50%
+    }
+}
+
+.connected-header-txt {
+    text-transform: uppercase;
+    color: #ffffff;
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+
+/* Icons */
+
+.social-a {
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+    transform: scale(0.7);
+    transition: all 0.2s;
+}
+
+.social-a:hover {
+    transform: scale(1);
+    transition: all 0.2s;
+}
+
+
+/* pop-up text */
+
+.social-a-span {
+    color: #666;
+    position: absolute;
+    font-family: sans-serif;
+    bottom: 50px;
+    left: -25px;
+    right: -25px;
+    padding: 9px 7px;
+    font-size: 12px;
+    border-radius: 2px;
+    background: #fff;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s;
+}
+
+
+/* pop-up text arrow */
+
+.social-a-span:before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #fff;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+
+/* text pops up when icon is in hover state */
+
+.social-a:hover .social-a-span {
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.2s;
+}
+
+.social-foot .section-large {
+    padding: 0;
+}
+
+.social-foot {
+    position: relative;
+    top: 100px;
+}
+
+.my-gallery {
+    width: 100%;
+    float: left;
+}
+
+.my-gallery img {
+    width: 100%;
+    height: auto;
+}
+
+.my-gallery figure {
+    display: block;
+    float: left;
+    margin: 0 5px 5px 0;
+    width: 150px;
+}
+
+.my-gallery figcaption {
+    display: none;
+}
+
+.social-ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.social-li {
+    display: inline-block;
+}
+
+.social-a:not(.portfolio) {
+    margin-right: 5px;
+}
+
+.social-a.twitter {
+    background: url('/images/twitter-logo.png') no-repeat 50%;
+    width: 49px;
+    height: 40px;
+}
+
+.social-a.facebook {
+    background: url('/images/facebook-logo.png') no-repeat 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.social-a.youtube {
+    background: url('/images/youtube-logo.png') no-repeat 50%;
+    width: 57px;
+    height: 40px;
+}
+
+.social-a.twitch {
+    background: url('/images/twitch-logo.png') no-repeat 50%;
+    width: 38px;
+    height: 40px;
+}
+
+.social-a.discord {
+    background: url('/images/discord-logo2.png') no-repeat 50%;
+    width: 35px;
+    height: 40px;
+}
+
+.social-a.github {
+    background: url('/images/github-logo2.png') no-repeat 50%;
+    width: 47px;
+    height: 40px;
+}
+
+.social-a.bakedpvp {
+    background: url('/images/bakedpvp-logo.png') no-repeat 50%;
+    width: 33px;
+    height: 50px;
+    transform: scale(0.8);
+    margin-right: -2px;
+    top: 2px;
+}
+
+.social-a.bakedpvp:hover {
+    transform: scale(1);
+}
+
+.social-a.portfolio {
+    background: url('/images/portfolio-logo.png') no-repeat 50%;
+    width: 74px;
+    height: 40px;
+}
+
+.subpara {
+    color: #937ADA;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.section-2-body {
+    text-align: center;
+    margin-left: 40px;
+    margin-top: 40px;
+}
+
+.section-2-1,
+.section-2-2,
+.section-2-3 {
+    background: rgba(0, 0, 0, .15);
+    padding: 15px;
+    width: 330px;
+    min-height: 200px;
+    display: inline-table;
+    position: relative;
+}
+
+.section-2-1,
+.section-2-2 {
+    margin-right: 25px;
+}
+
+.top-left-corner {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.bottom-right-corner {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.bottom-right-corner::before {
+    content: '';
+    width: 50px;
+    height: 1px;
+    background: #aa88ff;
+    position: absolute;
+    bottom: -1px;
+    right: -1px;
+}
+
+.bottom-right-corner::after {
+    content: '';
+    width: 1px;
+    height: 50px;
+    background: #aa88ff;
+    position: absolute;
+    bottom: -1px;
+    right: -1px;
+}
+
+.top-left-corner::before {
+    content: '';
+    width: 50px;
+    height: 1px;
+    background: #aa88ff;
+    position: absolute;
+    top: -1px;
+    left: -1px;
+}
+
+.top-left-corner::after {
+    content: '';
+    width: 1px;
+    height: 50px;
+    background: #aa88ff;
+    position: absolute;
+    top: -1px;
+    left: -1px;
+}
+
+.subheading {
+    font-size: 30px;
+    font-weight: 900;
+    color: #cdb9ff;
+    text-transform: uppercase;
+    padding-top: 15px;
+    padding-bottom: 25px;
+}
+
+.everevolving {
+    background: url('/images/everevolving.png') no-repeat 50%;
+    width: 99px;
+    height: 66px;
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: -40px;
+}
+
+.fullystyled {
+    background: url('/images/fullystyled.png') no-repeat 50%;
+    width: 65px;
+    height: 70px;
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: -50px;
+}
+
+.pixelperfect {
+    background: url('/images/pixelperfect.png') no-repeat 50%;
+    width: 74px;
+    height: 77px;
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: -60px;
+}
+
+.stay-connected,
+.social-nav {
+    text-align: center;
+}

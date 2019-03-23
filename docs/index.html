@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+
+    <title>Twitchcord | Twitch styled theme for Discord</title>
+
+    <!-- StyleSheet -->
+    <link id="stylesheet" type="text/css" href="css/style.css" rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="css/lightgallery.css" />
+    <link type="text/css" rel="stylesheet" href="css/lg-fonts.css" />
+
+    <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.scrollto.js"></script>
+    <script type="text/javascript" src="js/tween.lite.min.js"></script>
+    <script type="text/javascript" src="js/timeline.max.min.js"></script>
+
+    <meta name="description" content="" />
+    <meta name="author" content="Dustin 'Baked' Perolio" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+    <link rel="shortcut icon" href="images/twitchcord-ico.ico" />
+    <link rel="apple-touch-icon" href="images/twitchcord-logo-ava.png" />
+
+    <script>
+        $(function() {
+            $('#screenshots-ani').lightGallery({
+                thumbnail: true,
+                showThumbByDefault: false
+            });
+
+            $('.logo-a').on('click', function(e) {
+                e.preventDefault();
+                $('body').find('.current').removeClass('current');
+                $('body').find('.home').addClass('current');
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 600);
+            });
+            /** 
+             * This part does the "fixed navigation after scroll" functionality
+             * We use the jQuery function scroll() to recalculate our variables as the 
+             * page is scrolled/
+             */
+            $(window).scroll(function() {
+                var window_top = $(window).scrollTop(); // the "12" should equal the margin-top value for nav.stick
+            });
+
+            /**
+             * This part causes smooth scrolling using scrollto.js
+             * We target all a tags inside the nav, and apply the scrollto.js to it.
+             */
+            $(".nav-a").click(function(evn) {
+                evn.preventDefault();
+                //$('html,body').scrollTo(this.hash, this.hash); 
+                $('html,body').scrollTo(this.hash, this.hash);
+            });
+
+            if ($(window).scrollTop() < 200) {
+                $('body').find('.home').addClass('current');
+            }
+            /**
+             * This part handles the highlighting functionality.
+             * We use the scroll functionality again, some array creation and 
+             * manipulation, class adding and class removing, and conditional testing
+             */
+            var aChildren = $(".nav-li").children(); // find the a children of the list items
+            var aArray = []; // create the empty aArray
+            for (var i = 0; i < aChildren.length; i++) {
+                var aChild = aChildren[i];
+                var ahref = $(aChild).attr('href');
+                aArray.push(ahref);
+            } // this for loop fills the aArray with attribute href values
+
+            $(window).scroll(function() {
+                var windowPos = $(window).scrollTop(); // get the offset of the window from the top of page
+                var windowHeight = $(window).height(); // get the height of the window
+                var docHeight = $(document).height();
+
+                for (var i = 0; i < aArray.length; i++) {
+                    var theID = aArray[i];
+                    var divPos = $(theID).offset().top - 200; // get the offset of the div from the top of page
+                    var divHeight = $(theID).height(); // get the height of the div in question
+                    if (windowPos >= divPos && windowPos < (divPos + divHeight)) {
+                        $(".nav-a[href='" + theID + "']").addClass("current");
+                    } else {
+                        $(".nav-a[href='" + theID + "']").removeClass("current");
+                    }
+                }
+
+                if (windowPos + windowHeight == docHeight) {
+                    if (!$(".nav-li:last-child .nav-a").hasClass("current")) {
+                        var navActiveCurrent = $(".current").attr("href");
+                        $(".nav-a[href='" + navActiveCurrent + "']").removeClass("current");
+                        $(".nav-li:last-child .nav-a").addClass("current");
+                    }
+                }
+            });
+
+            function isScrolledIntoView(elem) {
+                var docViewTop = $(window).scrollTop() - 100;
+                var docViewBottom = docViewTop + $(window).height();
+
+                var elemTop = $(elem).offset().top;
+                var elemBottom = elemTop + $(elem).height();
+
+                return (((elemTop >= docViewTop) && (elemTop <= docViewBottom)) || ((elemBottom >= docViewTop) && (elemBottom <= docViewBottom)));
+            }
+
+            $(window).scroll(function() {
+                $('.screenshots').each(function() {
+                    if (isScrolledIntoView(this) === true) {
+                        $('#screenshots-ani').addClass('animated fadeInRight')
+                    }
+                });
+                $('.footer').each(function() {
+                    if (isScrolledIntoView(this) === true) {
+                        $('.footer').addClass('animated fadeInUp')
+                    }
+                });
+                $('.section-2-body').each(function() {
+                    if (isScrolledIntoView(this) === true) {
+                        $('.section-2-body').addClass('animated fadeInLeft')
+                    }
+                });
+                $('.download-now').each(function() {
+                    if (isScrolledIntoView(this) === true) {
+                        $('.treasurechest-contain').addClass('animated fadeInLeft')
+                    }
+                });
+                $('.support').each(function() {
+                    if (isScrolledIntoView(this) === true) {
+                        $('.heart-container').addClass('animated fadeInRight')
+                    }
+                });
+                $('.donate').each(function() {
+                    if (isScrolledIntoView(this) === true) {
+                        $('.block-container').addClass('animated fadeInLeft')
+                    }
+                });
+            });
+
+            $(function() {
+                const block = document.querySelector('.block-cont');
+                const blockClick = document.querySelector('.donate-button-a');
+                const coin = document.querySelector('.coin');
+                const audio = document.querySelector('.donate-clicked');
+
+                function playSound() {
+                    if (!audio) return;
+                    audio.currentTime = 0;
+                    audio.play();
+                    coin.classList.add('active');
+                    block.classList.add('bounce');
+                }
+
+                function removeBounce(e) {
+                    if (e.animationName !== 'blockbounce') return;
+                    this.classList.remove('bounce');
+                }
+
+                function removeActive(e) {
+                    if (e.animationName !== 'coinmove') return;
+                    this.classList.remove('active');
+                }
+
+                block.addEventListener('webkitAnimationEnd', removeBounce);
+                block.addEventListener('animationend', removeBounce);
+
+                coin.addEventListener('webkitAnimationEnd', removeActive);
+                coin.addEventListener('animationend', removeActive);
+
+                blockClick.addEventListener('click', playSound);
+            });
+            /*
+            $(function() {
+                const checkBox = document.querySelector('#top-checkbox');
+                const downloadClick = document.querySelector('.download-button-a');
+                const audio2 = document.querySelector('.download-clicked');
+                const topChest = document.querySelector('#treasurechest-top');
+                const zChange = document.querySelector('#treasurechest-bottom');
+                const rupeeRise = document.querySelector('#rupee');
+
+                function playSound() {
+                    checkBox.classList.remove('active');
+                    if (audio2.paused || (audio2.currentTime <= 0)) {
+                        audio2.currentTime = 0;
+                        audio2.play();
+                        checkBox.classList.add('active');
+                    } else {
+                        checkBox.classList.remove('active');
+                        audio2.pause();
+                        audio2.currentTime = 0;
+                    }
+                }
+
+                downloadClick.addEventListener('click', playSound);
+            });
+            */
+
+            $('input[type=checkbox]').on('click', function(e) {
+                e.preventDefault();
+            });
+
+            $('.download-button-a').on('click', function(e) {
+                e.preventDefault();
+            });
+
+            $('audio').prop("volume", 0.3);
+            $('.logo-clicked').prop("volume", 0.5);
+            /*
+            $(".download1").on('click', function() {
+                $(".download1-clicked")[0].play();
+            });
+            */
+            $(".download1, .download-button-a").on('click', function() {
+                $(".disabled-clicked")[0].play();
+            });
+
+            $(".server1").on('click', function() {
+                $(".server1-clicked")[0].play();
+            });
+
+            $(".logo-a").on('click', function() {
+                $(".logo-clicked")[0].play();
+            });
+            $(".support-button-a").on('click', function() {
+                $(".server-clicked")[0].play();
+            });
+            /*
+            $(".download-button-a").on('click', function() {
+                $(".download-clicked")[0].play();
+            });
+            */
+        });
+    </script>
+
+</head>
+
+<body>
+    <header>
+        <div id="section0"></div>
+        <div class="animateme">
+            <ul class="bg-bubbles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="contain">
+            <div id="section1" class="main-body">
+                <div class="section-1">
+                    <h1 class="section-1-header">A Twitch-inspired gaming theme for</h1>
+                    <div class="discord">
+                        <a class="discord-a" href="https://discordapp.com" target="_blank">
+                            <span class="discord-icon"></span>
+                            <span class="discord-a-span">Discord</span>
+                        </a>
+                    </div>
+                    <div class="buttons-cont">
+                        <a class="download1 primary" href="#"><span class="coming-soon">Coming Soon</span>Download now</a>
+                        <a class="server1 secondary" href="https://discord.me/twitchcord" target="_blank">Join the discord server</a>
+                    </div>
+                    <div class="join-github">
+                        <span class="github-txt">Follow us on</span>
+                        <a class="github-a" href="https://github.com/dperolio/twitchcordTheme" target="_blank">
+                            <span class="github-icon"></span>
+                            <span class="github-a-span">Github</span>
+                        </a>
+                        <span class="github-txt">Version 1.0.8</span>
+                    </div>
+                    <div class="section-1-preview-img">
+                        <div id="preview-image" class="preview-img wow animated fadeInUp"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <div class="main-nav">
+            <div class="contain">
+                <div class="main-logo">
+                    <h1 class="logo">
+                        <a class="logo-a" href="#section1">
+                            <span class="logo-icon"></span>
+                            <span class="logo-twitch">Twitch</span>
+                            <span class="logo-cord">cord</span>
+                        </a>
+                    </h1>
+                </div>
+                <div class="navigation-contain">
+                    <ul class="nav-ul">
+                        <li class="nav-li">
+                            <a class="nav-a home" href="#section0">Home</a>
+                        </li>
+                        <li class="nav-li">
+                            <a class="nav-a" href="#section2">About</a>
+                        </li>
+                        <li class="nav-li">
+                            <a class="nav-a" href="#section3">Screenshots</a>
+                        </li>
+                        <li class="nav-li">
+                            <a class="nav-a" href="#section4">Download</a>
+                        </li>
+                        <li class="nav-li">
+                            <a class="nav-a" href="#section5">Support</a>
+                        </li>
+                        <li class="nav-li">
+                            <a class="nav-a" href="#section6">Donate</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ping">
+            </div>
+    </nav>
+    <section id="section2" class="about-twitchcord">
+        <div class="contain">
+            <div class="section-2-header">
+                <span class="twitchcord-logo"></span>
+                <div class="section-2-heading">
+                    <h1 class="section-2-header-txt">What is <span class="purple"><span class="black">Twitch</span>cord</span>?</h1>
+                    <p class="section-2-para">Twitchcord is a theme created with the idea of bringing Twitch to Discord, combined with a little extra personality.<br>Every aspect and element is carefully crafted and themed with both aesthetics and performance in mind.</p>
+                </div>
+            </div>
+            <div class="section-2-body wow">
+                <div class="section-2-1">
+                    <span class="top-left-corner"></span>
+                    <span class="bottom-right-corner"></span>
+                    <span class="pixelperfect"></span>
+                    <h2 class="subheading">Pixel Perfect</h2>
+                    <p class="subpara">Each pixel has been meticulously pushed into its proper place. You also may find some animated pixel friends to guide you on your way.</p>
+                </div>
+                <div class="section-2-2">
+                    <span class="top-left-corner"></span>
+                    <span class="bottom-right-corner"></span>
+                    <span class="fullystyled"></span>
+                    <h2 class="subheading">Fully Styled</h2>
+                    <p class="subpara">The animations are really toned down in order to keep performance as high as possible, but the subtleties of the animations present make it worth it.</p>
+                </div>
+                <div class="section-2-3">
+                    <span class="top-left-corner"></span>
+                    <span class="bottom-right-corner"></span>
+                    <span class="everevolving"></span>
+                    <h2 class="subheading">Ever Evolving</h2>
+                    <p class="subpara">As Discord continues to grow, change, and update, so too shall Twitchcord. Fear not, there is no end in sight for this theme.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="section3" class="screenshots">
+        <div class="screenshots-header">
+            <h1 class="screenshots-header-txt"><span class="black">Screen</span>shots</h1>
+            <p class="screenshots-para">Here’s just a small preview of what you can expect from Twitchcord. Please note, the pictures may not be 100% up-to-date.</p>
+        </div>
+        <div class="caption1" style="display:none">
+            <h4>User popups preview</h4>
+        </div>
+        <div class="caption2" style="display:none">
+            <h4>NSFW channel enter preview</h4>
+        </div>
+        <div class="caption3" style="display:none">
+            <h4>Generic app preview showing various elements</h4>
+        </div>
+        <div class="caption4" style="display:none">
+            <h4>User profile preview</h4>
+        </div>
+        <div class="caption5" style="display:none">
+            <h4>User profile mutual servers preview</h4>
+        </div>
+        <div class="caption6" style="display:none">
+            <h4>Automated bot response message preview. Also Direct Messages sidebar.</h4>
+        </div>
+        <div class="caption7" style="display:none">
+            <h4>Search dropdown preview</h4>
+        </div>
+        <div class="caption8" style="display:none">
+            <h4>Search active preview</h4>
+        </div>
+        <div id="screenshots-ani" class="screenshots-contain wow animated-thumbnails">
+            <a class="screenshot" href="images/preview-3.jpg" data-sub-html=".caption1">
+                <img data-pixelate class="screenshot-img" href="#" src="images/preview-3.jpg" width="572" height="310" />
+            </a>
+            <a class="screenshot" href="images/preview-2.jpg" data-sub-html=".caption2">
+                <img data-pixelate class="screenshot-img" href="#" src="images/preview-2.jpg" width="572" height="310" />
+            </a>
+            <a class="screenshot" href="images/preview-1.jpg" data-sub-html=".caption3">
+                <img data-pixelate class="screenshot-img" href="#" src="images/preview-1.jpg" width="572" height="310" />
+            </a>
+            <a class="screenshot" href="images/preview-6.jpg" data-sub-html=".caption4">
+                <img data-pixelate class="screenshot-img" href="#" src="images/preview-6.jpg" width="572" height="310" />
+            </a>
+            <a class="screenshot" href="images/preview-5.jpg" data-sub-html=".caption5">
+                <img data-pixelate class="screenshot-img" href="#" src="images/preview-5.jpg" width="572" height="310" />
+            </a>
+            <a class="screenshot" href="images/preview-4.jpg" data-sub-html=".caption6">
+                <img data-pixelate class="screenshot-img" href="#" src="images/preview-4.jpg" width="572" height="310" />
+            </a>
+            <a class="screenshot" href="images/preview-7.jpg" data-sub-html=".caption7">
+                <img data-pixelate class="screenshot-img" href="#" src="images/preview-7.jpg" width="572" height="310" />
+            </a>
+            <a class="screenshot" href="images/preview-8.jpg" data-sub-html=".caption8">
+                <img data-pixelate class="screenshot-img" href="#" src="images/preview-8.jpg" width="572" height="310" />
+            </a>
+        </div>
+    </section>
+    <section id="section4" class="download-now">
+        <div class="contain">
+            <div class="download-header">
+                <div class="section-small">
+                    <div class="treasurechest-contain wow">
+                        <span id="chest-shadow"></span>
+                        <input type="checkbox" id="top-checkbox" />
+                        <label for="top-checkbox" id="treasurechest">
+                                <div id="treasurechest-top"></div>
+                            </label>
+                        <div id="treasurechest-bottom"></div>
+                        <div id="treasurechest-bg"></div>
+                        <div id="rupee"></div>
+                    </div>
+                </div>
+                <div class="section-large">
+                    <h1 class="download-header-txt">Download <span class="black">Twitch</span>cord</h1>
+                    <p class="download-para">Like what you’ve seen? Ready to give Twitchcord a try? (We promise, you won’t regret it)<br>Just click the download button below to get started.</p>
+                    <div class="download-button">
+                        <a class="download-button-a" href="#"><span class="coming-soon">Coming Soon</span>Download Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="section5" class="support">
+        <div class="contain">
+            <div class="support-header">
+                <div class="section-large">
+                    <h1 class="support-header-txt"><span class="black">Need</span> help?</h1>
+                    <p class="support-para">If you have any problems downloading or using the theme, or maybe you’d like to make a suggestion or report a bug, or maybe you just want to hang out—whatever the reason, come stop by our Discord server, we’d love to meet you!</p>
+                    <div class="support-button">
+                        <a class="support-button-a primary" href="https://discord.me/twitchcord" target="_blank">Join the Discord Server</a>
+                    </div>
+                </div>
+                <div class="section-small">
+                    <div class="heart-container wow">
+                        <div class="heart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="section6" class="donate">
+        <div class="contain">
+            <div class="donate-header">
+                <div class="section-small">
+                    <div class="block-container wow">
+                        <div class="block-cont">
+                            <svg class="block" version="1.1" id="block" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 16" style="enable-background:new 0 0 16 16" xml:space="preserve">
+                                <g id="main">
+                                    <g id="box">
+                                    <polygon class="st0" points="1.5,15.5 1.5,14.5 0.5,14.5 0.5,1.5 1.5,1.5 1.5,0.5 14.5,0.5 14.5,1.5 15.5,1.5 15.5,14.5 14.5,14.5 14.5,15.5"></polygon>
+                                    <path d="M14,1v1h1v12h-1v1H2v-1H1V2h1V1H14 M15,0h-1H2H1v1H0v1v12v1h1v1h1h12h1v-1h1v-1V2V1h-1V0L15,0z"></path>
+                                    </g>
+                                    <polygon class="st1" id="box-highlight" points="12,1 12,2 4,2 4,3 3,3 3,11 2,11 2,3 2,2 3,2 3,1 4,1"></polygon>
+                                    <polygon class="st2" id="box-shadow" points="14,2 14,1 13,1 13,12 12,12 12,13 3,13 3,12 2,12 2,13 2,15 3,15 14,15 14,14 15,14 15,12 15,2"></polygon>
+                                </g>
+                                <g id="_x31_">
+                                    <polygon class="st4" id="qm-shadow-light" points="13,4 12,4 12,3 11,3 11,4 4,4 4,8 9,8 9,13 11,13 11,10 12,10 12,8 13,8"></polygon>
+                                    <g id="qm-shadow">
+                                    <rect x="7" y="11" width="3" height="2"></rect>
+                                    <polygon points="12,5 12,4 5,4 5,5 4,5 4,7 7,7 7,6 10,6 10,8 7,8 7,9 7,10 10,10 10,9 12,9 12,8 13,8 13,5"></polygon>
+                                    </g>
+                                    <g id="qm">
+                                    <rect class="st3" x="6" y="10" width="3" height="2"></rect>
+                                    <polygon class="st3" points="11,4 11,3 4,3 4,4 3,4 3,6 6,6 6,5 9,5 9,7 6,7 6,8 6,9 9,9 9,8 11,8 11,7 12,7 12,4"></polygon>
+                                    </g>
+                                </g>
+                                </svg>
+                            <div class="coin"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-large">
+                    <h1 class="donate-header-txt"><span class="black">Donations</span> welcome</h1>
+                    <p class="donate-para">I’m only one man, and creating and maintaining this theme has really been a full-time job.<br>In order to be able to keep updating and innovating in the future, I would greatly appreciate any monetary support.</p>
+                    <div class="donate-button">
+                        <a class="donate-button-a primary" href="https://paypal.me/twitchcord" target="_blank">Give a Donation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer wow">
+        <div class="contain social-foot">
+            <div class="stay-connected">
+                <h1 class="connected-header-txt"><span class="black">Stay</span> Connected</h1>
+            </div>
+            <div class="social-nav">
+                <ul class="social-ul">
+                    <li class="social-li">
+                        <a class="social-a twitter" href="https://twitter.com/BakedPVP_" target="_blank"><span class="social-a-span">Twitter</span></a>
+                        <a class="social-a facebook" href="https://www.facebook.com/BakedPVP" target="_blank"><span class="social-a-span">Facebook</span></a>
+                        <a class="social-a youtube" href="https://www.youtube.com/BakedPVP" target="_blank"><span class="social-a-span">Youtube</span></a>
+                        <a class="social-a twitch" href="https://twitch.tv/bakedpvp" target="_blank"><span class="social-a-span">Twitch</span></a>
+                        <a class="social-a discord" href="https://discord.me/twitchcord" target="_blank"><span class="social-a-span">Discord</span></a>
+                        <a class="social-a github" href="https://github.com/dperolio/twitchcordTheme" target="_blank"><span class="social-a-span">Github</span></a>
+                        <a class="social-a bakedpvp" href="https://discord.gg/yx44st8" target="_blank"><span class="social-a-span">BakedPVP</span></a>
+                        <a class="social-a portfolio" href="http://www.dperolio.com" target="_blank"><span class="social-a-span">Portfolio</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    </div>
+    <div class="audio-elements">
+        <audio class="download-clicked" controls="" preload="auto">
+                <source src="audio/download-clicked.wav" controls="">
+            </audio>
+        <audio class="donate-clicked" controls="" preload="auto">
+                <source src="audio/donate-clicked.wav" controls="">
+            </audio>
+        <audio class="logo-clicked" controls="" preload="auto">
+                <source src="audio/logo-clicked.wav" controls="">
+            </audio>
+        <script>
+            var app = {};
+            app.pixelhover = (function() {
+                function pixelate() {
+                    var options = {
+                        value: 0.06,
+                        duration: .5
+                    };
+                    var element = this,
+                        elementParent = element.parentNode;
+
+                    var imgWidth = element.width,
+                        imgHeight = element.height,
+                        canv = document.createElement('canvas');
+
+                    canv.width = imgWidth;
+                    canv.height = imgHeight;
+
+                    var ctx = canv.getContext('2d');
+
+                    ctx.mozImageSmoothingEnabled = false;
+                    ctx.webkitImageSmoothingEnabled = false;
+                    ctx.imageSmoothingEnabled = false;
+
+                    try {
+                        ctx.drawImage(element, 0, 0, canv.width, canv.height);
+                    } catch (e) {
+                        //
+                    }
+
+                    if (!$(elementParent).find('canvas').length) {
+                        elementParent.insertBefore(canv, element);
+
+                        var thisBlur = {
+                            value: 1
+                        };
+                        var pixelTimeline = new TimelineMax({
+                                paused: true
+                            })
+                            .to(thisBlur, options.duration, {
+                                value: options.value,
+                                onStart: function() {
+                                    canv.style.display = 'block';
+                                },
+                                onUpdate: function() {
+                                    var blurHeight = imgHeight * thisBlur.value,
+                                        blurWidth = imgWidth * thisBlur.value;
+                                    ctx.drawImage(element, 0, 0, blurWidth, blurHeight);
+                                    ctx.drawImage(canv, 0, 0,
+                                        blurWidth, blurHeight, 0, 0,
+                                        canv.width, canv.height
+                                    );
+                                },
+                                onComplete: function() {},
+                                onReverseStart: function() {},
+                                onReverseComplete: function() {
+                                    element.style.display = 'block';
+                                    canv.style.display = 'none';
+                                    ctx.drawImage(element, 0, 0, imgWidth, imgHeight);
+                                }
+                            });
+
+                        $(elementParent).on('mouseenter', function(e) {
+                            pixelTimeline.play();
+                        });
+
+                        $(elementParent).on('mouseleave', function(e) {
+                            pixelTimeline.reverse();
+                        });
+
+                        $(elementParent).on('click', function(e) {
+                            element.style.display = 'block';
+                            canv.style.display = 'none';
+                            ctx.drawImage(element, 0, 0, imgWidth, imgWidth);
+                        });
+                    }
+                }
+
+                window.HTMLImageElement.prototype.pixelate = pixelate;
+
+                if (typeof $ === 'function') {
+                    $.fn.extend({
+                        pixelate: function() {
+                            return this.each(function() {
+                                pixelate.apply(this, arguments);
+                            });
+                        }
+                    });
+                }
+
+                function _pagePixels() {
+                    $('img[data-pixelate]').one('load', function() {
+                        this.pixelate();
+                    }).each(function() {
+                        if (this.complete) $(this).load();
+                    });
+                }
+
+                function _clearPixels() {
+                    $(pixelTweens).each(function(e) {
+                        this.kill();
+                    });
+                    $('img[data-pixelate]').parent().find('canvas').remove();
+                    $('img[data-pixelate]').parent().off();
+                }
+
+                function _refreshPixels() {
+                    _clearPixels();
+                    _pagePixels();
+                }
+
+                function _forcePixelize() {}
+
+                function _forceDepixelize() {}
+
+                return {
+                    apply: _pagePixels,
+                    destroy: _clearPixels,
+                    refresh: _refreshPixels,
+                    forcePixel: _forcePixelize,
+                    forceDepixel: _forceDepixelize
+                };
+            })();
+
+            $(function() {
+                app.pixelhover.apply();
+            });
+        </script>
+        <script src="js/lightgallery.js"></script>
+        <script src="js/lg-fullscreen.js"></script>
+        <script src="js/lg-thumbnail.js"></script>
+        <script src="js/lg-zoom.js"></script>
+        <script src="js/jquery.mousewheel.min.js"></script>
+</body>
+
+</html>
