@@ -16,6 +16,7 @@ PatchModule("electron", {
     options.webPreferences.preload = DISCORD_APP_ROOT;
     options.webPreferences.webSecurity = false;
     const win = new BrowserWindow(options)
+    // Allow the renderer process to act on the options
     win.__options = userOptions
     return win;
   }, BrowserWindow)
