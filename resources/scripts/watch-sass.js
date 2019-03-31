@@ -22,7 +22,7 @@ function CompileAll() {
       SourceMap.sources = SourceMap.sources.map(source => "file:///" + join(IN, source));
       writeFile(
         join(OUT, basename(file, '.scss') + '.css'),
-        Buffer.concat([result.css, Buffer.from("\n/*# sourceMappingURL=data:application/json;base64," + btoa(JSON.stringify(SourceMap)) +" */`")]),
+        Buffer.concat([result.css, Buffer.from("\n/*# sourceMappingURL=data:application/json;base64," + btoa(JSON.stringify(SourceMap)) +" */")]),
         err => { if (err) console.error(err); }
       );
     })
