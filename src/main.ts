@@ -1,8 +1,21 @@
-import { app, BrowserWindow, BrowserWindowConstructorOptions } from "electron";
-import { PatchModule, RemoveCORS } from "./util";
+import { session, app, BrowserWindow, BrowserWindowConstructorOptions } from "electron";
+import { PatchModule } from "./util";
 import { join } from "path";
 
-RemoveCORS()
+// Remove all csp headers so we can load our own scripts
+app.whenReady().then(() => {
+  session.defaultSession.webRequest.onHeadersReceived((details, done) => {
+    const responseHeaders = details.responseHeaders as {
+      [key: string]: string;
+    };
+
+    for (const header in responseHeaders)
+      if (header.toLowerCase().startsWith("content-security-policy"))
+        delete responseHeaders[header];
+
+    done({ cancel: false, responseHeaders });
+  });
+});
 
 // Environment variable for development in typescript
 const DISCORD_APP_ROOT = process.env.DISCORD_APP_ROOT || __dirname
