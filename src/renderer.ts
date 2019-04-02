@@ -1,4 +1,4 @@
-import { StyleFile } from './util';
+import { CSSFile } from "./util";
 import { remote } from "electron";
 import { join } from "path";
 
@@ -8,15 +8,17 @@ const WINDOW_TYPE = location.href.startsWith("https://discordapp.com/")
   ? "overlay"
   : "splash";
 
-const CSSFile = new StyleFile(join(__dirname, "../assets/styles", `${WINDOW_TYPE}.css`))
-CSSFile.watch(true)
-document.addEventListener("DOMContentLoaded", () => CSSFile.inject(document.querySelector("head")));
+const Styles = new CSSFile(join(__dirname, "../assets/styles", `${WINDOW_TYPE}.css`));
+Styles.watch(true);
+document.addEventListener("DOMContentLoaded", () => Styles.inject(document.querySelector("head")));
 
-require("./renderer/"+ WINDOW_TYPE);
+try {
+  require("./renderer/" + WINDOW_TYPE);
+} catch(e) {
+  console.error(e)
+}
 
-
-
-const CurrentWindow = remote.getCurrentWindow()
+const CurrentWindow = remote.getCurrentWindow();
 if (CurrentWindow.__options && CurrentWindow.__options.webPreferences.preload)
   require(CurrentWindow.__options.webPreferences.preload);
 
