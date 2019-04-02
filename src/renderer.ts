@@ -2,7 +2,11 @@ import { StyleFile } from './util';
 import { remote } from "electron";
 import { join } from "path";
 
-const WINDOW_TYPE = location.href.startsWith("https://discordapp.com/") ? "main" : "splash"
+const WINDOW_TYPE = location.href.startsWith("https://discordapp.com/")
+  ? "main"
+  : location.href.includes("discord_overlay")
+  ? "overlay"
+  : "splash";
 
 const CSSFile = new StyleFile(join(__dirname, "../assets/styles", `${WINDOW_TYPE}.css`))
 CSSFile.watch(true)
