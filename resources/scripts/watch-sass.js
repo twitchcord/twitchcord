@@ -5,11 +5,11 @@ const btoa = require("btoa")
 
 const IN = join(__dirname, '../styles/')
 const OUT = join(__dirname, '../../assets/styles/')
-const FILES = readdirSync(IN).filter(file => file.endsWith('.scss'))
+
 
 function CompileAll() {
   console.log("Compiling...")
-  for (const file of FILES) {
+  for (const file of readdirSync(IN).filter(file => file.endsWith('.scss'))) {
     const path = join(IN, file)
     render({
       file: path,
