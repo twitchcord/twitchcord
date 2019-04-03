@@ -1,5 +1,5 @@
 const { join } = require("path")
-process.env.DISCORD_APP_ROOT = __dirname
+process.env.DISCORD_APP_ROOT = join(__dirname, '../app.asar')
 
 const DEV_FOLDER = require("./package.json").config.DEV_FOLDER
 

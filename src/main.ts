@@ -18,7 +18,7 @@ app.whenReady().then(() => {
 });
 
 // Environment variable for development in typescript
-const DISCORD_APP_ROOT = process.env.DISCORD_APP_ROOT || __dirname
+const DISCORD_APP_ROOT = process.env.DISCORD_APP_ROOT || join(__dirname, "../app.asar")
 
 PatchModule("electron", {
   // Injector for the renderer thread
@@ -39,7 +39,7 @@ PatchModule("electron", {
 
 // Starting the application
 const Module = require("module");
-const AppPath = join(DISCORD_APP_ROOT, "../app.asar");
+const AppPath = DISCORD_APP_ROOT;
 const AppPackage = require(join(AppPath, "package.json"));
 
 // Adjust electron root
