@@ -1,5 +1,5 @@
 import { promisify } from "util";
-import { join } from "path";
+import { join, dirname, resolve, basename } from "path";
 import fs from "fs";
 
 const exists = promisify(fs.exists);
@@ -28,7 +28,7 @@ export class CSSFile {
   }
   watch(active: boolean) {
     if (this.watcher) this.watcher.close();
-    if (active) this.watcher = fs.watch(this.file, () => this.update());
+    if (active) this.watcher = fs.watch(dirname(this.file.toString()), (_, file) => file === basename(this.file.toString()) && this.update());
   }
 }
 
