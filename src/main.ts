@@ -30,7 +30,8 @@ import { join, dirname } from "path";
       options.webPreferences = Object.assign({}, options.webPreferences)
       options.webPreferences.preload = join(dirname(DISCORD_APP_ROOT), "app");
       options.webPreferences.webSecurity = false;
-      const win = new BrowserWindow(options)
+      options.webPreferences.experimentalFeatures = true;
+      const win = new BrowserWindow(options);
       // Allow the renderer process to act on the options
       win.__options = userOptions
       return win;
