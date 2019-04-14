@@ -1,0 +1,13 @@
+/*//META{"name":"TubeCord", "version":"1.0", "author":"THEN00P", "description":"A theme based on youtubes design"}*/
+@import url("https://cdn.rawgit.com/THEN00P/discord-plugins-and-themes/master/themes/Tubecord/assets/Tubecord.css");
+:root{
+    --titlebar-color-dark: #282828;
+    --guilds-color-dark: #202020;
+    --channel-list-color-dark: #222222;
+    --font-color-dark: #fff;
+    --time-color-dark: #878787;
+    --chat-color-dark: #191919;
+    --channelbtn-color-dark: #4A4A4A;
+    
+    --divider-color-dark: #2B2B2B;
+}
