@@ -20,7 +20,15 @@ class twitchcord {
 	async load() {
         console.log('loading started');
 
+<<<<<<< HEAD
         setTimeout(this.main, 3000)
+=======
+        let check = () => {
+            if(!window.webpackJsonp || window.webpackJsonp.length < 10) setTimeout(check, 20);
+            else this.main()
+        }
+        check();
+>>>>>>> 9f486902c4d3a5b198c1402007d82bc6a1916d73
 
 		try {
 			global.pcConfig = api.load('twitchcord');
@@ -64,7 +72,13 @@ class twitchcord {
     */
 	async main(){
 		require('./lateApi.js');
+<<<<<<< HEAD
 		require('./api2');
+=======
+		global.ts = require('./api2');
+
+		console.log("ok")
+>>>>>>> 9f486902c4d3a5b198c1402007d82bc6a1916d73
 		if(!pluginLoadTriggered)
 		setTimeout(() => {
 			pluginModule.startup();
@@ -483,6 +497,12 @@ class twitchcord {
 			if(mutation.addedNodes[0].querySelector("[class*=emojiPicker-]") != null) {
 				emoteModule.insertEmoteBtns();
 			}
+<<<<<<< HEAD
+=======
+			if(mutation.addedNodes[0] === document.querySelector('[class^=container] [class^=button] svg')) {
+				setTimeout(this.main, 10000);
+			}
+>>>>>>> 9f486902c4d3a5b198c1402007d82bc6a1916d73
 			if(mutation.addedNodes[0].querySelectorAll("[class*=itemDefault-][class*=item-][class*=notSelected-]") && mutation.addedNodes[0].querySelectorAll("[class*=itemDefault-][class*=item-][class*=notSelected-]").length > 12) {
 				this.clickedSettings();
 			}
