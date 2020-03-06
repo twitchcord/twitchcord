@@ -26,4 +26,5 @@ npm run setup # OR yarn setup
 ## Connect With Us
 
 **Website:** https://www.twitchcord.com
+
 **Discord:** https://discord.gg/s5wVRA3
