@@ -1,3 +1,3 @@
 [submodule "resources/styles"]
 	path = resources/styles
-	url = https://github.com/Twitchcord/twitchcord-sass.git
+	url = https://github.com/twitchcord/twitchcord-sass.git

@@ -1,0 +1,10 @@
+{
+    "name": "twitchcord-core",
+    "version": "0.0.1",
+    "description": "Core Twitchcord Theme",
+    "author": "BakedPVP",
+    "script": "index.js",
+    "style": "main.css",
+    "readme": "readme.txt"
+}
+  

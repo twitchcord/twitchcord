@@ -1,6 +1,0 @@
-{
-  "main": "index.js",
-  "config": {
-    "DEV_FOLDER": "D:/Programming/twitchcord-v2"
-  }
-}
