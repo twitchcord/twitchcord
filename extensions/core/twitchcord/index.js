@@ -601,7 +601,7 @@ class Twitchcord {
               `;
               insertionPoint.insertAdjacentHTML('beforebegin', tcUserBadgeContainerDivs);
               let tcBadge = node.querySelector('.tc-userBadge-badge');
-              tc.utils.tooltip(tcBadge, 'I like pie');
+              // tc.utils.tooltip(tcBadge, 'I like pie');
             } else if (tcUserBadgeContainer && tcUserBadges.length < 2) {
               let groupFirstWord = group.replace(/ .*/,'');
               if (tcUserBadges[0].classList.contains(groupFirstWord.toLowerCase())) { return; }
@@ -2111,20 +2111,6 @@ this.languages = {
 		currentWindow.on("maximize", this.onMaximize);
     currentWindow.on("unmaximize", this.onRestore);
 
-    // const browserHistory = () =>  {
-    //   console.log('tested');
-    //   let wc = currentWindow.webContents;
-    //   currentWindow.on('app-command', async (ev, cmd) => {
-    //     console.log('test');
-    //     if (cmd !== 'browser-backward' && cmd !== 'browser-forward') return;
-    //     if (cmd === 'browser-backward' && wc.canGoBack()) {
-    //       wc.goBack();
-    //     } else if (cmd === 'browser-forward' && wc.canGoForward()) {
-    //       wc.goForward();
-    //     }
-    //   });
-    // };
-
     var bw, wc, backdrop;
 
     bw = require("electron").remote.getCurrentWindow();
@@ -2156,8 +2142,7 @@ this.languages = {
     // this.giphy();
     // this.zenMode();
     this.injectUserStatus();
-    this.imageBtns();
-    this.browserHistory();
+    // this.imageBtns();
 
     clearTimeout(this.startupTimeout);
     this.startupTimeout = setTimeout(()=> {
@@ -2169,8 +2154,8 @@ this.languages = {
     this.routeWatcher();
   }
 
-  async allViews () {
-    console.log('cheesecake');
+  allViews () {
+    var can;
     let bw = require('electron').remote.getCurrentWindow();
     let wc = bw.webContents;
     let backButton = document.querySelector('.tc-titlebar-button-container.back');
@@ -2180,6 +2165,34 @@ this.languages = {
     backButton.classList.toggle('disabled', !can);
     can = wc.canGoForward();
     forwardButton.classList.toggle('disabled', !can);
+
+    let channelHeaderButtons = document.querySelectorAll('.toolbar-1t6TWx .iconWrapper-2OrFZ1');
+    console.log('turtle');
+    if (!channelHeaderButtons) return;
+    console.log('pizza');
+    for (let channelHeaderButton of channelHeaderButtons) {
+      switch (tc.react.getProp(tc.react.get(channelHeaderButton), 'memoizedProps.aria-label')) {
+        case 'Start Voice Call':
+            console.log('wtf');
+          channelHeaderButton.classList.add('tc-startVoiceCall');
+          break;
+        case 'Start Video Call':
+          channelHeaderButton.classList.add('tc-startVideoCall');
+          break;
+        case 'Pinned Messages':
+          channelHeaderButton.classList.add('tc-pinnedMessages');
+          break;
+        case 'Add Friends to DM':
+          channelHeaderButton.classList.add('tc-addFriendsToDM');
+          break;
+        case 'Muting a channel prevents unread indicators and notifications from appearing unless you are mentioned.\n':
+            channelHeaderButton.classList.add('tc-channelUnmuted');
+            break;
+        case 'Member List':
+            channelHeaderButton.classList.add('tc-membersListToggle');
+            break;
+      }
+    }
   }
 
   friendsView () {
@@ -2207,28 +2220,28 @@ this.languages = {
       `<tc-titlebar class="tc-titlebar">
         <tc-titlebar class="tc-titlebar-section-left">
           <tc-titlebar class="tc-titlebar-button-container menu" title="View menu">
-            <icon></icon>
+            <icon class="menu"></icon>
           </tc-titlebar>
           <tc-titlebar class="tc-titlebar-button-container back small disabled" title="Navigate back">
-            <icon></icon>
+            <icon class="back"></icon>
           </tc-titlebar>
           <tc-titlebar class="tc-titlebar-button-container forward small disabled" title="Navigate forward">
-            <icon></icon>
+            <icon class="forward"></icon>
           </tc-titlebar>
           <tc-titlebar class="tc-titlebar-button-container reload small" title="Reload the app">
-            <icon></icon>
+            <icon class="reload"></icon>
           </tc-titlebar>
         </tc-titlebar>
         <tc-titlebar class="tc-titlebar-section-middle"></tc-titlebar>
         <tc-titlebar class="tc-titlebar-section-right">
           <tc-titlebar class="tc-titlebar-button-container minimize">
-            <icon></icon>
+            <icon class="minimize"></icon>
           </tc-titlebar>
           <tc-titlebar class="tc-titlebar-button-container maximize">
-            <icon></icon>
+            <icon class="maximize"></icon>
           </tc-titlebar>
           <tc-titlebar class="tc-titlebar-button-container close">
-            <icon></icon>
+            <icon class="close"></icon>
           </tc-titlebar>
         </tc-titlebar>
       </tc-titlebar>`;
