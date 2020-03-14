@@ -1,6 +1,3 @@
-//META{"name":"Twitchcord"}*//
-/* global bdPluginStorage, $, PluginUtilities, PluginContextMenu */
-
 class Twitchcord {
   getName () { return 'Twitchcord'; }
   getVersion () { return '0.5.2'; }
@@ -10,27 +7,25 @@ class Twitchcord {
   constructor () {
     this.initialized = false;
 
-    // this.BASE_URL = 'https://rawgit.com/twitchcord/twitchcord/master';
-    // this.userProfileImages = {};
-    // this.userBadgeGroups = {};
+    this.BASE_URL = 'https://github.com/twitchcord/twitchcord/master';
+    this.userProfileImages = {};
+    this.userBadgeGroups = {};
     // this.SNIPPET_URL = `${this.BASE_URL}/pluginSnippets/snippets.json`;
-    // this.USER_PROFILE_IMAGE_URL = 'https://api.github.com/gists/aaa364d4cae7e5c0cf7799c6fd5310d3';
-    // this.USER_BADGE_GROUPS_URL = 'https://api.github.com/gists/52a83b5e7ff443d6edbdbde77f4cd51d';
     // this.PLUGIN_URL = `${this.BASE_URL}/plugin/Twitchcord.plugin.js`;
-    //
-    // window.fetch(this.USER_BADGE_GROUPS_URL).then(async r =>  {
-    //   let res = await r.json();
-    //   if (!res.files) {
-    //     return;
-    //   } else { this.userBadgeGroups = JSON.parse(res.files['userBadges.json'].content); }
-    // });
-    //
-    // window.fetch(this.USER_PROFILE_IMAGE_URL).then(async r =>  {
-    //   let res = await r.json();
-    //   if (!res.files) {
-    //     return;
-    //   } else { this.userProfileImages = JSON.parse(res.files['userProfileImages.json'].content); }
-    // });
+    
+    window.fetch(tc.const.USER_BADGES_URL).then(async r =>  {
+      let res = await r.json();
+      if (!res.files) {
+        return;
+      } else { this.userBadgeGroups = JSON.parse(res.files['userBadges.json'].content); }
+    });
+
+    window.fetch(tc.const.USER_PROFILE_IMAGES_URL).then(async r =>  {
+      let res = await r.json();
+      if (!res.files) {
+        return;
+      } else { this.userProfileImages = JSON.parse(res.files['userProfileImages.json'].content); }
+    });
 
     this.observers = [];
     this.contextObserver = new MutationObserver((changes) => {
@@ -137,40 +132,31 @@ class Twitchcord {
   //   });
   // }
 
-  // injectUserBackgrounds () {
-  //   const MO = new MutationObserver(async changes => {
-  //     if (changes.some(change =>
-  //       change.addedNodes && change.addedNodes[0] &&
-  //       change.addedNodes[0].className === 'backdrop-1wrmKB'
-  //     )) {
-  //         this.injectUserModal();
-  //     } else if (changes.some(change =>
-  //       change.target && change.target.className.includes('popouts-3dRSmE')
-  //     )) {
-  //       let popouts = document.getElementsByClassName('popouts-3dRSmE')[0];
+  injectUserBackgrounds () {
+    const MO = new MutationObserver(async changes => {
+      if (changes.some(change =>
+        change.addedNodes && change.addedNodes[0] &&
+        change.addedNodes[0].className === 'backdrop-1wrmKB'
+      )) {
+          this.injectUserModal();
+      } else if (changes.some(change =>
+        change.target && change.target.classList.contains('popouts-3dRSmE')
+      )) {
 
-  //       let gamePreviewPopout = document.getElementsByClassName('popouts-3dRSmE')[0].getElementsByClassName('gamePreview-9weYR2')[0];
-  //       if (gamePreviewPopout) {
-  //         gamePreviewPopout.parentElement.parentElement.classList.add('tc-gamePopout');
-  //       } else {
-  //         if (popouts) popouts.classList.remove('tc-gamePopout');
-  //       }
+        this.injectUserPopout();
+      }
+    });
 
-  //       this.injectUserPopout();
-  //     }
-  //   });
-
-  //   MO.observe(document.querySelector('#app-mount'), { childList: true, subtree: true });
-  //   this.observers.push(MO);
-  // }
+    MO.observe(document.querySelector('#app-mount'), { childList: true, subtree: true });
+    this.observers.push(MO);
+  }
 
   async onSwitchViews () {
     var observertarget = null;
     this.viewsObserver = new MutationObserver((changes, _) => {
       changes.forEach(
         (change, i) => {
-          if (change.target && (change.target.classList.contains('popouts-2bnG9Z') || change.target.classList.contains('layer-v9HyYc'))) {
-            console.log('????');
+          if (change.target && (change.target.classList.contains('popouts-2bnG9Z') || change.target.classList.contains('layerContainer-yqaFcK'))) {
             let popouts = document.getElementsByClassName('popouts-2bnG9Z')[0];
 
             let tcAccountPanel = document.querySelector('.tc-titleWrapper-account-panel-outer');
@@ -185,13 +171,6 @@ class Twitchcord {
               recentMentionsFilterPopout.parentElement.parentElement.classList.add('tc-fixRecentMentionsFilterPopout');
             } else {
               if (popouts && popouts.children[0]) popouts.children[0].classList.remove('tc-fixRecentMentionsFilterPopout');
-            }
-
-            let gamePreviewPopout = document.getElementsByClassName('popouts-2bnG9Z')[0].getElementsByClassName('gamePreview-9weYR2')[0];
-            if (gamePreviewPopout) {
-              gamePreviewPopout.parentElement.parentElement.classList.add('tc-gamePopout');
-            } else {
-              if (popouts) popouts.classList.remove('tc-gamePopout');
             }
 
             this.injectUserPopout();
@@ -212,7 +191,7 @@ class Twitchcord {
                 if (node && node.tagName && node.classList.contains('backdrop-1wrmKB')) {
                   let quickSwitcherInput = document.querySelector('.input-2VB9rf');
                   if (quickSwitcherInput) document.querySelector('.backdrop-1wrmKB').style.display = 'none';
-                  // this.injectUserModal();
+                  this.injectUserModal();
                 }
 
                 function isDescendant(parent, child) {
@@ -232,6 +211,7 @@ class Twitchcord {
                     settingsContent = document.querySelector('.content-region'),
                     channelMembersList = document.querySelector('.members-1998pB'),
                     quickswitcherInput = document.querySelector('.input-2VB9rf'),
+                    quickswitcher = document.querySelector('.container-3qKHyN'),
                     autocomplete = document.querySelector('.autocomplete-1vrmpx'),
                     channelsList = document.querySelector('.channels-Ie2l6A');
                 if (node && node.tagName && (
@@ -242,6 +222,7 @@ class Twitchcord {
                     isDescendant(settingsContent, node) ||
                     isDescendant(channelMembersList, node) ||
                     isDescendant(quickswitcherInput, node) ||
+                    isDescendant(quickswitcher, node) ||
                     isDescendant(channelsList, node)
                   )) {
                   return;
@@ -312,10 +293,11 @@ class Twitchcord {
                     document.querySelector('.circleIcon-LvPL6c').closest('.listItem-2P_4kh').classList.add('tc-createJoinButton');
                   } 
                 }
-
-                if (node && node.tagName && document.querySelector('.circleIconButton-jET_ig svg[name="Search"]')) {
-                  if (!document.querySelector('.circleIconButton-jET_ig svg[name="Search"]').closest('.listItem-2P_4kh').classList.contains('tc-serverDiscoveryButton')) {
-                    document.querySelector('.circleIconButton-jET_ig svg[name="Search"]').closest('.listItem-2P_4kh').classList.add('tc-serverDiscoveryButton');
+                
+                // TODO: Change from the aria-label selector
+                if (node && node.tagName && document.querySelector('.circleIconButton-jET_ig[aria-label="Server Discovery"]')) {
+                  if (!document.querySelector('.circleIconButton-jET_ig[aria-label="Server Discovery"]').closest('.listItem-2P_4kh').classList.contains('tc-serverDiscoveryButton')) {
+                    document.querySelector('.circleIconButton-jET_ig[aria-label="Server Discovery"]').closest('.listItem-2P_4kh').classList.add('tc-serverDiscoveryButton');
                   }
                 }
 
@@ -385,21 +367,19 @@ class Twitchcord {
                 // }
 
                 // New message-group addeded
-                if (node && node.tagName && node.classList.contains("container-1YxwTf"))/* ||
-                    // New user appears on members list
-                    (node && node.tagName && node.classList.contains("member-3W1lQa")))*/ {
-                  // this.setUserIdAndBadges(node);
+                if (node && node.tagName && node.classList.contains("groupStart-23k01U")) {
+                  this.setUserIdAndBadges(node);
                 }
 
                 // Switch Channels
                 if (node && node.tagName && node.classList.contains("messagesWrapper-3lZDfY")) {
-                  // this.setUserIdAndBadges();
+                  this.setUserIdAndBadges();
                 }
 
                 // If bot badge added
                 if (node && node.tagName && node.classList.contains('botTag-2WPJ74')) {
                     node.dataset.tcTooltip = "Bot User";
-                    new tcTooltip(badge);
+                    // new tcTooltip(badge);
                 }
 
                 // Switch to Servers
@@ -499,9 +479,9 @@ class Twitchcord {
           voiceDeafen = document.getElementsByClassName('tc-voiceConnected-deafen')[0],
           voiceMute = document.getElementsByClassName('tc-voiceConnected-mute')[0];
 
-      new tcTooltip(voiceDisconnect);
-      new tcTooltip(voiceDeafen);
-      new tcTooltip(voiceMute);
+      // new tcTooltip(voiceDisconnect);
+      // new tcTooltip(voiceDeafen);
+      // new tcTooltip(voiceMute);
 
       voiceDisconnect.addEventListener('click', function () {
         let disconnectButton = document.getElementsByClassName('container-1UB9sr')[0].getElementsByClassName('buttonDisconnect-3W_SJc')[0];
@@ -558,72 +538,128 @@ class Twitchcord {
 
       const timer = setInterval(renderTimer, 1000);
   }
-  //
-  // setUserIdAndBadges (node) {
-  //   if (!node) {
-  //     let messageGroups = document.getElementsByClassName("container-1YxwTf"),
-  //         usernameWrapper = document.querySelector('.username-_4ZSMR');
-  //     if (messageGroups && usernameWrapper) {
-  //       for(var x=0; x < messageGroups.length; x++) {
-  //         this.setUserIdAndBadges(messageGroups[x]);
-  //       }
-  //     }
-  //   } else {
-  //     node.dataset.userId = tc.react.getProp(node, "messages.0.author.id");
-  //     let insertionPoint = node.getElementsByClassName('username-_4ZSMR')[0];
-  //     if (!insertionPoint) return;
-  //     for(let group in this.userBadgeGroups) {
-  //       for(let [key, value] of Object.entries(this.userBadgeGroups[group])) {
-  //         if (tc.react.getProp(node, "messages.0.author.id") == (key, value)) {
-  //           let tcUserBadgeContainer = node.querySelector('.tc-userBadge-container'),
-  //               tcUserBadges = node.querySelectorAll('.tc-userBadge-badge');
-  //           if (!tcUserBadgeContainer && tcUserBadges.length < 2) {
-  //             let groupFirstWord = group.replace(/ .*/,'');
-  //             let tcUserBadgeContainerDivs = `
-  //               <div class="tc-userBadge-container">
-  //                 <div class="tc-userBadge-badge ${groupFirstWord.toLowerCase()}" data-tc-tooltip="${group}"></div>
-  //               </div>
-  //             `;
-  //             insertionPoint.insertAdjacentHTML('beforebegin', tcUserBadgeContainerDivs);
-  //             let tcBadge = node.querySelector('.tc-userBadge-badge');
-  //             new tcTooltip(tcBadge);
-  //           } else if (tcUserBadgeContainer && tcUserBadges.length < 2) {
-  //             let groupFirstWord = group.replace(/ .*/,'');
-  //             if (tcUserBadges[0].classList.contains(groupFirstWord.toLowerCase())) { return; }
-  //             else {
-  //               tcUserBadgeContainer.insertAdjacentHTML('beforeend', `<div class="tc-userBadge-badge ${groupFirstWord.toLowerCase()}" data-tc-tooltip="${group}"></div>`);
-  //               let tcBadge = node.querySelector('.tc-userBadge-badge:nth-of-type(2)');
-  //               new tcTooltip(tcBadge);
-  //             }
-  //           }
-  //         }
-  //       }
-  //     }
-  //     let badgeContainer = node.getElementsByClassName('tc-userBadge-container')[0],
-  //         badge = node.getElementsByClassName('tc-userBadge-badge');
-  //     if (badgeContainer && badge.length < 2) {
-  //       if (badge.length == 0 || (badge.length == 1 && !badge[0].classList.contains('nitro'))) {
-  //         let avatar = node.getElementsByClassName('image-33JSyf')[0];
-  //         if (avatar && avatar.style.backgroundImage.includes("/a_")) {
-  //           badgeContainer.insertAdjacentHTML('beforeend', '<div class="tc-userBadge-badge nitro" data-tc-tooltip="Nitro User"></div>');
-  //           let tcBadge = node.querySelector('.tc-userBadge-badge:nth-of-type(2)');
-  //           new tcTooltip(tcBadge);
-  //         }
-  //       }
-  //     } else {
-  //       if (!badgeContainer) {
-  //         let avatar = node.getElementsByClassName('image-33JSyf')[0];
-  //         if (avatar && avatar.style.backgroundImage.includes("/a_")) {
-  //           insertionPoint.insertAdjacentHTML('beforebegin', '<div class="tc-userBadge-container">' +
-  //                                                             '<div class="tc-userBadge-badge nitro" data-tc-tooltip="Nitro User"></div>' +
-  //                                                           '</div>');
-  //           let tcBadge = node.querySelector('.tc-userBadge-badge');
-  //           new tcTooltip(tcBadge);
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
+  
+  checkIfModerator(guildID, userID) {
+    var moderator = false,
+        kickMembersPerm = false,
+        banMembersPerm = false,
+        manageMessagesPerm = false;
+    
+    guildID = guildID.toString();
+    userID = userID.toString();
+
+    var rolesArray;
+
+    tc.lib.waitForTruthy(() => { rolesArray = tc.webpack.get('getMember')(guildID, userID).roles}, 1000);
+
+    if (!rolesArray) return;
+
+    for (let role of rolesArray) {
+      if ((role & tc.webpack.get('Permissions').KICK_MEMBERS) == tc.webpack.get('Permissions').KICK_MEMBERS) {
+          kickMembersPerm = true;
+      }
+      if ((role & tc.webpack.get('Permissions').BAN_MEMBERS) == tc.webpack.get('Permissions').BAN_MEMBERS) {
+          banMembersPerm = true;
+      }
+      if ((role & tc.webpack.get('Permissions').MANAGE_MESSAGES) == tc.webpack.get('Permissions').MANAGE_MESSAGES) {
+          manageMessagesPerm = true;
+      }
+    }
+
+    if (kickMembersPerm && banMembersPerm && manageMessagesPerm) return true;
+  }
+
+  setUserIdAndBadges (node) {
+    if (!node) {
+      let messageGroups = document.querySelectorAll('.groupStart-23k01U');
+      let usernameWrapper = messageGroups.querySelector('.username-1A8OIy');
+
+      if (messageGroups && usernameWrapper) {
+        for(var x=0; x < messageGroups.length; x++) {
+          this.setUserIdAndBadges(messageGroups[x]);
+        }
+      }
+    } else {
+      node.dataset.userId = tc.react.getProp(tc.react.get(node), "memoizedProps.children.1.props.message.author.id");
+
+      let insertionPoint = node.querySelector('.username-1A8OIy');
+      
+      if (!insertionPoint) return;
+
+      for(let group in this.userBadgeGroups) {
+        for(let [key, value] of Object.entries(this.userBadgeGroups[group])) {
+          if (tc.react.getProp(tc.react.get(node), "memoizedProps.children.1.props.message.author.id") == (key, value)) {
+            
+            let tcUserBadgeContainer = node.querySelector('.tc-userBadge-container'),
+                tcUserBadges = node.querySelectorAll('.tc-userBadge-badge');
+            if (!tcUserBadgeContainer && tcUserBadges.length < 2) {
+              let groupFirstWord = group.replace(/ .*/,'');
+              let tcUserBadgeContainerDivs = `
+                <div class="tc-userBadge-container">
+                  <div class="tc-userBadge-badge ${groupFirstWord.toLowerCase()}" data-tc-tooltip="${group}"></div>
+                </div>
+              `;
+              insertionPoint.insertAdjacentHTML('beforebegin', tcUserBadgeContainerDivs);
+              let tcBadge = node.querySelector('.tc-userBadge-badge');
+              tc.utils.tooltip(tcBadge, 'I like pie');
+            } else if (tcUserBadgeContainer && tcUserBadges.length < 2) {
+              let groupFirstWord = group.replace(/ .*/,'');
+              if (tcUserBadges[0].classList.contains(groupFirstWord.toLowerCase())) { return; }
+              else {
+                tcUserBadgeContainer.insertAdjacentHTML('beforeend', `<div class="tc-userBadge-badge ${groupFirstWord.toLowerCase()}" data-tc-tooltip="${group}"></div>`);
+                let tcBadge = node.querySelector('.tc-userBadge-badge:nth-of-type(2)');
+                // new tcTooltip(tcBadge);
+              }
+            }
+          }
+        }
+      }
+      let badgeContainer = node.getElementsByClassName('tc-userBadge-container')[0],
+          badge = node.getElementsByClassName('tc-userBadge-badge');
+      if (badgeContainer && badge.length < 2) {
+        if (badge.length == 0 || (badge.length == 1 && !badge[0].classList.contains('nitro'))) {
+          let avatar = node.getElementsByClassName('avatar-1BDn8e')[0];
+          if (avatar && avatar.style.backgroundImage.includes("/a_")) {
+            badgeContainer.insertAdjacentHTML('beforeend', '<div class="tc-userBadge-badge nitro" data-tc-tooltip="Nitro User"></div>');
+            let tcBadge = node.querySelector('.tc-userBadge-badge:nth-of-type(2)');
+            // new tcTooltip(tcBadge);
+          }
+        }
+      } else {
+        if (!badgeContainer) {
+          let avatar = node.getElementsByClassName('avatar-1BDn8e')[0];
+          if (avatar && avatar.style.backgroundImage.includes("/a_")) {
+            insertionPoint.insertAdjacentHTML('beforebegin', '<div class="tc-userBadge-container">' +
+                                                              '<div class="tc-userBadge-badge nitro" data-tc-tooltip="Nitro User"></div>' +
+                                                            '</div>');
+            let tcBadge = node.querySelector('.tc-userBadge-badge');
+            // new tcTooltip(tcBadge);
+          }
+          if (tc.react.getProp(tc.react.get(node), 'memoizedProps.children.1.props.channel.guild_id') &&
+              tc.react.getProp(tc.react.get(node), 'memoizedProps.children.1.props.message.author.id')) {
+            console.log('piss');
+            if (this.checkIfModerator(tc.react.getProp(tc.react.get(node), 'memoizedProps.children.1.props.channel.guild_id'),
+                                      tc.react.getProp(tc.react.get(node), 'memoizedProps.children.1.props.message.author.id'))) {
+              console.log('poop');
+              insertionPoint.insertAdjacentHTML('beforebegin', '<div class="tc-userBadge-container">' +
+                                                  '<div class="tc-userBadge-badge moderator" data-tc-tooltip="Moderator"></div>' +
+                                                '</div>');
+            }
+          }
+        } else {
+          if (tc.react.getProp(tc.react.get(node), 'memoizedProps.children.1.props.channel.guild_id') &&
+              tc.react.getProp(tc.react.get(node), 'memoizedProps.children.1.props.message.author.id')) {
+            console.log('vegeta');
+            if (this.checkIfModerator(tc.react.getProp(tc.react.get(node), 'memoizedProps.children.1.props.channel.guild_id'),
+                                      tc.react.getProp(tc.react.get(node), 'memoizedProps.children.1.props.message.author.id'))) {
+              console.log('asjfa sjkkajsfjk asf');
+              badgeContainer.insertAdjacentHTML('afterbegin', '<div class="tc-userBadge-badge moderator" data-tc-tooltip="Moderator"></div>');
+            }
+          }
+        }
+      }
+    }
+  }
 
   // checkMediaQueries () {
   //   function channelsHover (mediaCheck) {
@@ -729,10 +765,10 @@ async switchToLibrary () {
       gridButton = document.getElementsByClassName('tc-libraryOptions-grid')[0],
       filterOptions = document.getElementsByClassName('tc-libraryOptions-options')[0];
 
-  new tcTooltip(refreshFriends);
-  new tcTooltip(tileButton);
-  new tcTooltip(gridButton);
-  new tcTooltip(filterOptions);
+  // new tcTooltip(refreshFriends);
+  // new tcTooltip(tileButton);
+  // new tcTooltip(gridButton);
+  // new tcTooltip(filterOptions);
 
   refreshFriends.addEventListener('click', function() {
     refreshFriends.classList.add('tc-refreshing');
@@ -1100,18 +1136,18 @@ async setServerAndDMNameAndAvatar (destination) {
   }
 
   async injectUserPopout () {
-    const header = document.querySelector('.userPopout-3XzG_A .avatarWrapper-3H_478'),
-          userPopout = document.querySelector('.userPopout-3XzG_A');
+    const header = document.querySelector('.userPopout-3XzG_A .avatarWrapper-3H_478');
     if (!header) {
       return;
     }
 
-    userPopout.parentElement.classList.add('tc-fixLeftUserPopout');
+    var avatar = header.querySelector('.avatar-VxgULZ');
+    var id = avatar.src.split('/')[4];
 
-    // const id = header.children[0].children[0].style.backgroundImage.split('/')[4];
-    // if (this.userProfileImages[id]) {
-    //   header.style.backgroundImage = `url("${this.userProfileImages[id]}")`;
-    // }
+    if (this.userProfileImages[id]) {
+      header.style.backgroundColor = `var(--popout-user-background)`;
+      header.style.backgroundImage = `url("${this.userProfileImages[id]}")`;
+    }
   }
 
   imageModalCheck () {
@@ -1381,21 +1417,17 @@ async setServerAndDMNameAndAvatar (destination) {
   // }
 
 
-  // async injectUserModal () {
-  //   const header = document.querySelector('.root-SR8cQa .header-QKLPzZ');
-  //   if (
-  //     !header ||
-  //     !header.children[0] ||
-  //     !header.children[0].children[0]
-  //   ) {
-  //     return;
-  //   }
+  async injectUserModal () {
+    const header = document.querySelector('.root-SR8cQa .header-QKLPzZ');
+    if (!header) { return; }
 
-  //   // const id = header.children[0].children[0].style.backgroundImage.split('/')[4];
-  //   // if (this.userProfileImages[id]) {
-  //   //   header.style.backgroundImage = `url("${this.userProfileImages[id]}")`;
-  //   // }
-  // }
+    const avatar = header.querySelector('.avatar-VxgULZ'),
+          id = avatar.src.split('/')[4];
+
+    if (this.userProfileImages[id]) {
+      header.style.backgroundImage = `url("${this.userProfileImages[id]}")`;
+    }
+  }
 
   async injectUserStatus () {
     const tcTitlewrapperheader = document.getElementsByClassName('tc-titleWrapper')[0];
@@ -1541,6 +1573,7 @@ getLanguageTable(lang) {
 	});
 };
 
+
 setContextMenuItemClasses (contextMenu) {
   var UserStore = tc.webpack.getAll('getUser', 'getUsers');
   var strings = this.getLanguageTable();
@@ -1548,7 +1581,7 @@ setContextMenuItemClasses (contextMenu) {
   let contentMenuItems = document.getElementsByClassName("itemBase-tz5SeC");
   var items = contentMenuItems;
   var instance = tc.react.get(contextMenu);
-  var user = tc.utils.waitForTruthy(() =>  instance.memoizedProps.children.props.children[0].props.children[1].props.user, 1000);
+  var user = tc.lib.waitForTruthy(() =>  instance.memoizedProps.children.props.children[0].props.children[1].props.user, 1000);
   var channel = (instance && instance.return && instance.return.stateNode && instance.return.stateNode.props && instance.return.stateNode.props.channel) || null;
   var username = user ? user.username : null;
   var channelname = channel ? channel.name : null;
@@ -1845,12 +1878,13 @@ setSettingsMenuItemClasses () {
   }
 */
 
-  onMaximize() {
-		document.documentElement.classList.add("isMaximized");
+  onMaximize () {
+		document.documentElement.dataset.tcWindowMaximized = '';
 	}
 
-	onUnMaximize() {
-		document.documentElement.classList.remove("isMaximized");
+	onRestore () {
+    delete document.documentElement.dataset.tcWindowMaximized;
+    document.documentElement.dataset.tcWindowRestored = '';
   }
 
   // mouseMoveHandler (e) {
@@ -1877,8 +1911,22 @@ setSettingsMenuItemClasses () {
   //   }
   // }
 
+  listener = (ev, cmd) => {
+    var bw, wc, backdrop;
+
+    bw = require("electron").remote.getCurrentWindow();
+    wc = bw.webContents;
+
+    if (cmd !== 'browser-backward' && cmd !== 'browser-forward')
+      return;
+    if (cmd === 'browser-backward' && wc.canGoBack())
+      tc.webpack.get('history').back();
+    else if (cmd === 'browser-forward' && wc.canGoForward())
+      tc.webpack.get('history').forward();
+  }
+
   start () {
-    const FriendsComponent = tc.webpack.find(m => m.displayName == "Friends");
+    // const FriendsComponent = tc.webpack.find(m => m.displayName == "Friends");
     // const cancel = DiscordInternals.monkeyPatch(FriendsComponent.prototype, "render", {before: ({thisObject}) => {thisObject.state.relationshipCount = 60;}});
 
     this.oldRatio = window.devicePixelRatio;
@@ -2061,29 +2109,27 @@ this.languages = {
 		if (currentWindow.isMaximized()) this.onMaximize();
 
 		currentWindow.on("maximize", this.onMaximize);
-    currentWindow.on("unmaximize", this.onUnMaximize);
+    currentWindow.on("unmaximize", this.onRestore);
 
-    const browserHistory = () =>  {
-      let wc = currentWindow.webContents;
-      currentWindow.on('app-command', async (ev, cmd) => {
-        var backdrop, settings;
-    
-        if (cmd !== 'browser-backward' && cmd !== 'browser-forward')
-          return;
-        if (cmd === 'browser-backward' && (backdrop = document.getElementsByClassName("backdrop-1wrmKB")[0])) {
-          tc.webpack.utilities.closeModal();
-        } else if (cmd === 'browser-backward' && (settings = document.getElementsByClassName("standardSidebarView-3F1I7i")[0])) {
-          tc.webpack.userSettings.close();
-        } else if (cmd === 'browser-backward' && wc.canGoBack()) {
-          wc.goBack();
-        } else if (cmd === 'browser-forward' && wc.canGoForward()) {
-          wc.goForward();
-        }
-    
-        backdrop = void 0;
-        settings = void 0;
-      });
-    };
+    // const browserHistory = () =>  {
+    //   console.log('tested');
+    //   let wc = currentWindow.webContents;
+    //   currentWindow.on('app-command', async (ev, cmd) => {
+    //     console.log('test');
+    //     if (cmd !== 'browser-backward' && cmd !== 'browser-forward') return;
+    //     if (cmd === 'browser-backward' && wc.canGoBack()) {
+    //       wc.goBack();
+    //     } else if (cmd === 'browser-forward' && wc.canGoForward()) {
+    //       wc.goForward();
+    //     }
+    //   });
+    // };
+
+    var bw, wc, backdrop;
+
+    bw = require("electron").remote.getCurrentWindow();
+    wc = bw.webContents;
+    bw.on("app-command", this.listener);
 
 
     document.addEventListener('keydown', this.keyBindFunctions, false);
@@ -2102,18 +2148,20 @@ this.languages = {
 
     pixelRatio();
     // this.loadSnippets();
-    // this.injectUserBackgrounds();
+    this.injectUserBackgrounds();
     //this.checkForUpdate();
     this.onSwitchViews();
     this.insertTopNav(location);
+    this.insertTitlebar();
     // this.giphy();
     // this.zenMode();
     this.injectUserStatus();
     this.imageBtns();
+    this.browserHistory();
 
     clearTimeout(this.startupTimeout);
     this.startupTimeout = setTimeout(()=> {
-      // this.setUserIdAndBadges.bind(this);
+      this.setUserIdAndBadges.bind(this);
       this.insertVoiceConnected.bind(this);
     }, 3000);
 
@@ -2121,15 +2169,104 @@ this.languages = {
     this.routeWatcher();
   }
 
+  async allViews () {
+    console.log('cheesecake');
+    let bw = require('electron').remote.getCurrentWindow();
+    let wc = bw.webContents;
+    let backButton = document.querySelector('.tc-titlebar-button-container.back');
+    let forwardButton = document.querySelector('.tc-titlebar-button-container.forward');
+
+    can = wc.canGoBack();
+    backButton.classList.toggle('disabled', !can);
+    can = wc.canGoForward();
+    forwardButton.classList.toggle('disabled', !can);
+  }
+
+  friendsView () {
+    console.log('friends?');
+  }
+
   routeWatcher () {
-    tc.utils.nav
-      .on('all', this.allViews)
-      .on('friends', this.friendsView)
-      .on('guilds', this.guildsView)
-      .on('library', this.libraryView)
-      .on('messages', this.messagesView)
-      .on('storeBrowse', this.storeBrowseView)
+    tc.utils.nav.on('all', this.allViews);
+      // .on('friends', this.friendsView)
+      // .on('guilds', this.guildsView)
+      // .on('library', this.libraryView)
+      // .on('messages', this.messagesView)
+      // .on('storeBrowse', this.storeBrowseView)
   };
+
+  insertTitlebar () {
+    let discordTitlebar = document.querySelector('.titleBar-AC4pGV'),
+        app = document.querySelector('.app-1q1i1E'),
+        tcTitlebar = document.querySelector('.tc-titlebar');
+
+    if (discordTitlebar && app) discordTitlebar.remove();
+    if (tcTitlebar) return;
+
+    tcTitlebar =
+      `<tc-titlebar class="tc-titlebar">
+        <tc-titlebar class="tc-titlebar-section-left">
+          <tc-titlebar class="tc-titlebar-button-container menu" title="View menu">
+            <icon></icon>
+          </tc-titlebar>
+          <tc-titlebar class="tc-titlebar-button-container back small disabled" title="Navigate back">
+            <icon></icon>
+          </tc-titlebar>
+          <tc-titlebar class="tc-titlebar-button-container forward small disabled" title="Navigate forward">
+            <icon></icon>
+          </tc-titlebar>
+          <tc-titlebar class="tc-titlebar-button-container reload small" title="Reload the app">
+            <icon></icon>
+          </tc-titlebar>
+        </tc-titlebar>
+        <tc-titlebar class="tc-titlebar-section-middle"></tc-titlebar>
+        <tc-titlebar class="tc-titlebar-section-right">
+          <tc-titlebar class="tc-titlebar-button-container minimize">
+            <icon></icon>
+          </tc-titlebar>
+          <tc-titlebar class="tc-titlebar-button-container maximize">
+            <icon></icon>
+          </tc-titlebar>
+          <tc-titlebar class="tc-titlebar-button-container close">
+            <icon></icon>
+          </tc-titlebar>
+        </tc-titlebar>
+      </tc-titlebar>`;
+
+    app.insertAdjacentHTML('beforebegin', tcTitlebar);
+
+    let menuButton = document.querySelector('.tc-titlebar-button-container.menu'),
+        backButton = document.querySelector('.tc-titlebar-button-container.back'),
+        forwardButton = document.querySelector('.tc-titlebar-button-container.forward'),
+        reloadButton = document.querySelector('.tc-titlebar-button-container.reload'),
+        minimizeButton = document.querySelector('.tc-titlebar-button-container.minimize'),
+        maximizeButton = document.querySelector('.tc-titlebar-button-container.maximize'),
+        closeButton = document.querySelector('.tc-titlebar-button-container.close');
+
+    backButton.addEventListener('click', () => {
+      tc.webpack.get('history').back();
+    });
+
+    forwardButton.addEventListener('click', () => {
+      tc.webpack.get('history').forward();
+    });
+
+    reloadButton.addEventListener('click', () => {
+      window.reloadElectronApp();
+    });
+
+    minimizeButton.addEventListener('click', () => {
+      DiscordNative.window.minimize();
+    });
+
+    maximizeButton.addEventListener('click', () => {
+      DiscordNative.window.maximize();
+    });
+
+    closeButton.addEventListener('click', () => {
+      DiscordNative.window.close();
+    });
+  }
 
   insertTopNav () {
     let topNavWrapper = document.querySelector('.tc-titleWrapper-nav');
@@ -2272,6 +2409,15 @@ this.languages = {
           } else {
             document.querySelector('.container-3baos1 .avatarWrapper-2yR4wp').click();
           }
+        });
+      }
+
+      let tcNotificationsButton = document.getElementsByClassName(`${tc.classes.twitchcord.titleWrapper}-account-mentions-outer`)[0];
+      if (tcNotificationsButton) {
+        tcNotificationsButton.addEventListener('click', () => {
+          
+          const fs = require('fs');
+          tc.webpack.getAll('instantBatchUpload').upload(tc.webpack.modules.channelStore.getDMFromUserId(tc.const.TWITCHCORD_BOT_USER_ID), new File([fs.readFileSync('C:\\okay.txt')], 'okay.txt'), { content: 'Hi I am a test, this message was sent automatically', tts: false });
         });
       }
 

@@ -1,0 +1,10 @@
+{
+    "name": "membersListActivityImages",
+    "version": "0.0.1",
+    "description": "Adds small images icons on the members list for users based on their current activity.",
+    "author": "BakedPVP",
+    "script": "index.js",
+    "style": "",
+    "readme": "readme.txt"
+}
+  

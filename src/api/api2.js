@@ -4,6 +4,9 @@ const react = require('./modules/react.js');
 // const settings = require('./modules/settings.js');
 const utilities = require('./modules/utilities.js');
 const classes = require('./modules/classes.js');
+const consts = require('./modules/const.js');
+const lib = require('./modules/lib.js');
+const dom = require('./modules/dom.js');
 
 
 module.exports = tc = {
@@ -12,6 +15,8 @@ module.exports = tc = {
   react: react,
   // settings: settings,
   utils: utilities,
-  classes: classes
-    // nav: new Nav()
+  classes: classes,
+  const: consts,
+  lib: lib,
+  dom: dom
 };
