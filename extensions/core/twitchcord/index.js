@@ -371,11 +371,6 @@ class Twitchcord {
                   this.setUserIdAndBadges(node);
                 }
 
-                // Switch Channels
-                if (node && node.tagName && node.classList.contains("messagesWrapper-3lZDfY")) {
-                  this.setUserIdAndBadges();
-                }
-
                 // If bot badge added
                 if (node && node.tagName && node.classList.contains('botTag-2WPJ74')) {
                     node.dataset.tcTooltip = "Bot User";
@@ -539,44 +534,61 @@ class Twitchcord {
       const timer = setInterval(renderTimer, 1000);
   }
   
-  checkIfModerator(guildID, userID) {
-    var moderator = false,
-        kickMembersPerm = false,
+  checkIfModeratorAdminOrServerOwner (guildId, userId) {
+    var kickMembersPerm = false,
         banMembersPerm = false,
         manageMessagesPerm = false;
-    
-    guildID = guildID.toString();
-    userID = userID.toString();
 
-    var rolesArray;
+    if (!guildId || !userId) return;
 
-    tc.lib.waitForTruthy(() => { rolesArray = tc.webpack.get('getMember')(guildID, userID).roles}, 1000);
+    guildId = guildId.toString();
+    userId = userId.toString();
 
-    if (!rolesArray) return;
+    const guild = tc.webpack.get('getGuild')(guildId);
 
-    for (let role of rolesArray) {
-      if ((role & tc.webpack.get('Permissions').KICK_MEMBERS) == tc.webpack.get('Permissions').KICK_MEMBERS) {
-          kickMembersPerm = true;
-      }
-      if ((role & tc.webpack.get('Permissions').BAN_MEMBERS) == tc.webpack.get('Permissions').BAN_MEMBERS) {
-          banMembersPerm = true;
-      }
-      if ((role & tc.webpack.get('Permissions').MANAGE_MESSAGES) == tc.webpack.get('Permissions').MANAGE_MESSAGES) {
-          manageMessagesPerm = true;
-      }
+    if (userId == guild.ownerId) {
+      return 'Server Owner';
     }
 
-    if (kickMembersPerm && banMembersPerm && manageMessagesPerm) return true;
+    if (!tc.webpack.get('getMember')(guildId, userId)) return false;
+
+    let rolesArray = (tc.webpack.get('getMember')(guildId, userId)).roles;
+
+    if (!rolesArray || !guild) return;
+
+    for (let roleId of rolesArray) {
+        const role = guild.roles[roleId];
+        if (!role) continue;
+        // If it's an admin, we won't give them a moderator badge
+        if ((role.permissions & tc.webpack.get('Permissions').ADMINISTRATOR) == tc.webpack.get('Permissions').ADMINISTRATOR) {
+          return 'Admin';
+        }
+
+        if ((role.permissions & tc.webpack.get('Permissions').KICK_MEMBERS) == tc.webpack.get('Permissions').KICK_MEMBERS) {
+            kickMembersPerm = true;
+        }
+        if ((role.permissions & tc.webpack.get('Permissions').BAN_MEMBERS) == tc.webpack.get('Permissions').BAN_MEMBERS) {
+            banMembersPerm = true;
+        }
+        if ((role.permissions & tc.webpack.get('Permissions').MANAGE_MESSAGES) == tc.webpack.get('Permissions').MANAGE_MESSAGES) {
+            manageMessagesPerm = true;
+        }
+    }
+
+    if (kickMembersPerm && banMembersPerm && manageMessagesPerm) {
+      return 'Moderator';
+    } else {
+      return false;
+    }
   }
 
   setUserIdAndBadges (node) {
     if (!node) {
       let messageGroups = document.querySelectorAll('.groupStart-23k01U');
-      let usernameWrapper = messageGroups.querySelector('.username-1A8OIy');
 
-      if (messageGroups && usernameWrapper) {
-        for(var x=0; x < messageGroups.length; x++) {
-          this.setUserIdAndBadges(messageGroups[x]);
+      if (messageGroups[0]) {
+        for (let messageGroup of messageGroups) {
+          this.setUserIdAndBadges(messageGroup);
         }
       }
     } else {
@@ -586,10 +598,13 @@ class Twitchcord {
       
       if (!insertionPoint) return;
 
+      var guildId = tc.react.getProp(tc.react.get(node), 'memoizedProps.children.1.props.channel.guild_id'),
+          userId = tc.react.getProp(tc.react.get(node), 'memoizedProps.children.1.props.message.author.id'),
+          checkUserRank = this.checkIfModeratorAdminOrServerOwner(guildId, userId);
+
       for(let group in this.userBadgeGroups) {
         for(let [key, value] of Object.entries(this.userBadgeGroups[group])) {
-          if (tc.react.getProp(tc.react.get(node), "memoizedProps.children.1.props.message.author.id") == (key, value)) {
-            
+          if (userId == (key, value)) {
             let tcUserBadgeContainer = node.querySelector('.tc-userBadge-container'),
                 tcUserBadges = node.querySelectorAll('.tc-userBadge-badge');
             if (!tcUserBadgeContainer && tcUserBadges.length < 2) {
@@ -635,25 +650,18 @@ class Twitchcord {
             let tcBadge = node.querySelector('.tc-userBadge-badge');
             // new tcTooltip(tcBadge);
           }
-          if (tc.react.getProp(tc.react.get(node), 'memoizedProps.children.1.props.channel.guild_id') &&
-              tc.react.getProp(tc.react.get(node), 'memoizedProps.children.1.props.message.author.id')) {
-            console.log('piss');
-            if (this.checkIfModerator(tc.react.getProp(tc.react.get(node), 'memoizedProps.children.1.props.channel.guild_id'),
-                                      tc.react.getProp(tc.react.get(node), 'memoizedProps.children.1.props.message.author.id'))) {
-              console.log('poop');
-              insertionPoint.insertAdjacentHTML('beforebegin', '<div class="tc-userBadge-container">' +
-                                                  '<div class="tc-userBadge-badge moderator" data-tc-tooltip="Moderator"></div>' +
-                                                '</div>');
+          if (guildId && userId) {
+            if (checkUserRank) {
+              insertionPoint.insertAdjacentHTML('beforebegin', `<div class="tc-userBadge-container">
+                                                                  <div class="tc-userBadge-badge ${tc.lib.slugify(checkUserRank)}" data-tc-tooltip="${checkUserRank}"></div>
+                                                                </div>
+                                                                `);
             }
           }
         } else {
-          if (tc.react.getProp(tc.react.get(node), 'memoizedProps.children.1.props.channel.guild_id') &&
-              tc.react.getProp(tc.react.get(node), 'memoizedProps.children.1.props.message.author.id')) {
-            console.log('vegeta');
-            if (this.checkIfModerator(tc.react.getProp(tc.react.get(node), 'memoizedProps.children.1.props.channel.guild_id'),
-                                      tc.react.getProp(tc.react.get(node), 'memoizedProps.children.1.props.message.author.id'))) {
-              console.log('asjfa sjkkajsfjk asf');
-              badgeContainer.insertAdjacentHTML('afterbegin', '<div class="tc-userBadge-badge moderator" data-tc-tooltip="Moderator"></div>');
+          if (guildId && userId) {
+            if (checkUserRank) {
+              badgeContainer.insertAdjacentHTML('afterbegin', `<div class="tc-userBadge-badge ${tc.lib.slugify(checkUserRank)}" data-tc-tooltip="${checkUserRank}"></div>`);
             }
           }
         }
@@ -2143,12 +2151,12 @@ this.languages = {
     // this.zenMode();
     this.injectUserStatus();
     // this.imageBtns();
+    this.setUserIdAndBadges();
 
-    clearTimeout(this.startupTimeout);
-    this.startupTimeout = setTimeout(()=> {
-      this.setUserIdAndBadges.bind(this);
-      this.insertVoiceConnected.bind(this);
-    }, 3000);
+    // this.startupTimeout = setTimeout(()=> {
+    //   this.setUserIdAndBadges.bind(this);
+    //   this.insertVoiceConnected.bind(this);
+    // }, 3000);
 
     document.documentElement.classList.add('friendsBackgroundTile', 'libraryTile');
     this.routeWatcher();
@@ -2166,14 +2174,14 @@ this.languages = {
     can = wc.canGoForward();
     forwardButton.classList.toggle('disabled', !can);
 
+    // TODO: This is just a temporary bandaid fix.....
     let channelHeaderButtons = document.querySelectorAll('.toolbar-1t6TWx .iconWrapper-2OrFZ1');
-    console.log('turtle');
+    
     if (!channelHeaderButtons) return;
-    console.log('pizza');
+    
     for (let channelHeaderButton of channelHeaderButtons) {
       switch (tc.react.getProp(tc.react.get(channelHeaderButton), 'memoizedProps.aria-label')) {
         case 'Start Voice Call':
-            console.log('wtf');
           channelHeaderButton.classList.add('tc-startVoiceCall');
           break;
         case 'Start Video Call':
@@ -2195,18 +2203,52 @@ this.languages = {
     }
   }
 
+  setMainNavActiveState (testing) {
+    let navButtons = document.querySelectorAll('.tc-titleWrapper-nav-btns');
+    
+    testing = document.querySelector(`.tc-titleWrapper-nav-${testing}-btn`);
+
+    if (!testing) {
+      for (let button of navButtons) {
+        button.classList.remove('active');
+      }
+    } else {
+      for (let button of navButtons) {
+        button.classList.remove('active');
+      }
+      testing.classList.add('active');
+    }
+  }
+
   friendsView () {
-    console.log('friends?');
+    this.setMainNavActiveState('friends');
+  }
+
+  guildView () {
+    this.setMainNavActiveState('guild');
+    this.setUserIdAndBadges();
+  }
+
+  privateView () {
+    this.setMainNavActiveState('private');
+  }
+
+  discoverView () {
+    this.setMainNavActiveState('discover');
+  }
+
+  libraryView () {
+    this.setMainNavActiveState('library');
   }
 
   routeWatcher () {
-    tc.utils.nav.on('all', this.allViews);
-      // .on('friends', this.friendsView)
-      // .on('guilds', this.guildsView)
-      // .on('library', this.libraryView)
-      // .on('messages', this.messagesView)
-      // .on('storeBrowse', this.storeBrowseView)
-  };
+    tc.utils.nav.on('all', this.allViews.bind(this))
+      .on('friends', this.friendsView.bind(this))
+      .on('guild', this.guildView.bind(this))
+      .on('library', this.libraryView.bind(this))
+      .on('private', this.privateView.bind(this))
+      .on('discover', this.discoverView.bind(this))
+  }
 
   insertTitlebar () {
     let discordTitlebar = document.querySelector('.titleBar-AC4pGV'),
@@ -2285,7 +2327,7 @@ this.languages = {
     let topNavWrapper = document.querySelector('.tc-titleWrapper-nav');
 
     let userStore = tc.webpack.getAll('getUser'),
-        userName = userStore.getCurrentUser()
+        userName = userStore.getCurrentUser();
 
     if (!userName) {
       return
@@ -2306,10 +2348,6 @@ this.languages = {
     }
 
     if (topNavWrapper) {
-      for (var j = 0; j < topNavWrapper.children.length; j++) {
-        topNavWrapper.children[j].classList.remove("active");
-      }
-
       this.globalSearch();
       this.localSearch();
 
@@ -2328,6 +2366,7 @@ this.languages = {
 
       return;
     }
+
 
     const topNav =
       `<div class="tc-titleWrapper">

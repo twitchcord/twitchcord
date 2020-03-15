@@ -12,7 +12,6 @@ class membersListActivityImages {
   }
 
   async injectUserActivities () {
-    console.log('hi I test');
     if (!document.querySelector('.membersWrap-2h-GB4')) {
       return;
     }
