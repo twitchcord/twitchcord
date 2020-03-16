@@ -2231,10 +2231,22 @@ this.languages = {
 
   privateView () {
     this.setMainNavActiveState('private');
+    this.setUserIdAndBadges();
   }
 
   discoverView () {
     this.setMainNavActiveState('discover');
+    let placeholderGuildItems = `<div class='guildCard-2arfcG loaded-1eBnjq'></div>
+                                <div class='guildCard-2arfcG loaded-1eBnjq'></div>
+                                <div class='guildCard-2arfcG loaded-1eBnjq'></div>
+                                <div class='guildCard-2arfcG loaded-1eBnjq'></div>
+                                <div class='guildCard-2arfcG loaded-1eBnjq'></div>`;
+
+    let guildList = document.querySelector('.guildList-1ItbxP');
+
+    if (!guildList) return;
+
+    guildList.insertAdjacentHTML('beforeend', placeholderGuildItems);
   }
 
   libraryView () {
@@ -2253,50 +2265,52 @@ this.languages = {
   insertTitlebar () {
     let discordTitlebar = document.querySelector('.titleBar-AC4pGV'),
         app = document.querySelector('.app-1q1i1E'),
-        tcTitlebar = document.querySelector('.tc-titlebar');
+        titlebar = document.querySelector('.titlebar');
 
     if (discordTitlebar && app) discordTitlebar.remove();
-    if (tcTitlebar) return;
+    if (titlebar) return;
 
-    tcTitlebar =
-      `<tc-titlebar class="tc-titlebar">
-        <tc-titlebar class="tc-titlebar-section-left">
-          <tc-titlebar class="tc-titlebar-button-container menu" title="View menu">
+    titlebar =
+      `<titlebar class="titlebar">
+        <div class="titlebar-section-left">
+          <div class="titlebar-button-container menu" title="View menu">
             <icon class="menu"></icon>
-          </tc-titlebar>
-          <tc-titlebar class="tc-titlebar-button-container back small disabled" title="Navigate back">
+          </div>
+          <div class="titlebar-button-container back small disabled" title="Navigate back">
             <icon class="back"></icon>
-          </tc-titlebar>
-          <tc-titlebar class="tc-titlebar-button-container forward small disabled" title="Navigate forward">
+          </div>
+          <div class="titlebar-button-container forward small disabled" title="Navigate forward">
             <icon class="forward"></icon>
-          </tc-titlebar>
-          <tc-titlebar class="tc-titlebar-button-container reload small" title="Reload the app">
+          </div>
+          <div class="titlebar-button-container reload small" title="Reload the app">
             <icon class="reload"></icon>
-          </tc-titlebar>
-        </tc-titlebar>
-        <tc-titlebar class="tc-titlebar-section-middle"></tc-titlebar>
-        <tc-titlebar class="tc-titlebar-section-right">
-          <tc-titlebar class="tc-titlebar-button-container minimize">
+          </div>
+        </div>
+        <div class="titlebar-section-middle"></div>
+        <div class="titlebar-section-right">
+          <div class="titlebar-button-container minimize">
             <icon class="minimize"></icon>
-          </tc-titlebar>
-          <tc-titlebar class="tc-titlebar-button-container maximize">
+          </div>
+          <div class="titlebar-button-container maximize">
             <icon class="maximize"></icon>
-          </tc-titlebar>
-          <tc-titlebar class="tc-titlebar-button-container close">
+          </div>
+          <div class="titlebar-button-container close">
             <icon class="close"></icon>
-          </tc-titlebar>
-        </tc-titlebar>
-      </tc-titlebar>`;
+          </div>
+        </div>
+      </titlebar>`;
 
-    app.insertAdjacentHTML('beforebegin', tcTitlebar);
+    app.insertAdjacentHTML('beforebegin', titlebar);
 
-    let menuButton = document.querySelector('.tc-titlebar-button-container.menu'),
-        backButton = document.querySelector('.tc-titlebar-button-container.back'),
-        forwardButton = document.querySelector('.tc-titlebar-button-container.forward'),
-        reloadButton = document.querySelector('.tc-titlebar-button-container.reload'),
-        minimizeButton = document.querySelector('.tc-titlebar-button-container.minimize'),
-        maximizeButton = document.querySelector('.tc-titlebar-button-container.maximize'),
-        closeButton = document.querySelector('.tc-titlebar-button-container.close');
+    let menuButton = document.querySelector('.titlebar-button-container.menu'),
+        backButton = document.querySelector('.titlebar-button-container.back'),
+        forwardButton = document.querySelector('.titlebar-button-container.forward'),
+        reloadButton = document.querySelector('.titlebar-button-container.reload'),
+        minimizeButton = document.querySelector('.titlebar-button-container.minimize'),
+        maximizeButton = document.querySelector('.titlebar-button-container.maximize'),
+        closeButton = document.querySelector('.titlebar-button-container.close');
+
+    this.insertQuickAccessMenu();
 
     backButton.addEventListener('click', () => {
       tc.webpack.get('history').back();
@@ -2304,6 +2318,11 @@ this.languages = {
 
     forwardButton.addEventListener('click', () => {
       tc.webpack.get('history').forward();
+    });
+
+    menuButton.addEventListener('click', () => {
+      menuButton.classList.toggle('opened');
+      document.querySelector('.quickAccessMenu').classList.toggle('opened');
     });
 
     reloadButton.addEventListener('click', () => {
@@ -2321,6 +2340,45 @@ this.languages = {
     closeButton.addEventListener('click', () => {
       DiscordNative.window.close();
     });
+  }
+
+  insertQuickAccessMenu () {
+    let titlebar = document.querySelector('.titlebar'),
+        quickAccessMenu = document.querySelector('.quickAccessMenu');
+
+    if (!titlebar || quickAccessMenu) return;
+
+    quickAccessMenu =
+      `<quick-access-menu class='quickAccessMenu'>
+        <div class='quickAccessMenu-items-container'>
+          <div class='quickAccessMenu-item-container'>
+          </div>
+          <div class='quickAccessMenu-item-container'>
+          </div>
+          <div class='quickAccessMenu-item-container'>
+          </div>
+          <div class='quickAccessMenu-item-container'>
+          </div>
+          <div class='quickAccessMenu-item-container'>
+          </div>
+          <div class='quickAccessMenu-item-container'>
+          </div>
+          <div class='quickAccessMenu-item-container'>
+          </div>
+          <div class='quickAccessMenu-item-container'>
+          </div>
+          <div class='quickAccessMenu-item-container'>
+          </div>
+          <div class='quickAccessMenu-item-container'>
+          </div>
+          <div class='quickAccessMenu-item-container'>
+          </div>
+          <div class='quickAccessMenu-item-container'>
+          </div>
+        </div>
+      </quick-access-menu>`;
+
+      titlebar.insertAdjacentHTML('beforebegin', quickAccessMenu);
   }
 
   insertTopNav () {
