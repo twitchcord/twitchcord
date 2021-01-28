@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@types/node": "^11.10.5",
-    "electron": "^4.0.7"
+    "electron": "^9.4.0"
   },
   "dependencies": {
     "bluebird": "^3.5.5",
